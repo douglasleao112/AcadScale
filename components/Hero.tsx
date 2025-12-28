@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
 
   return (
     <section 
-      className="relative z-20 flex flex-col items-center justify-start md:justify-end min-h-screen px-4 pb-32 md:pb-48 text-center overflow-hidden"
+      className="relative z-20 flex flex-col items-center justify-start min-h-screen px-4 pb-32 md:pb-48 text-center overflow-hidden"
     >
       {/* Imagem de Fundo em Destaque (Estática após entrada) */}
       <motion.div 
@@ -77,8 +77,8 @@ const Hero: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* Conteúdo Principal Estabilizado */}
-      <div className="max-w-7xl mx-auto space-y-8 relative z-30 pt-[340px] md:pt-0">
+      {/* Conteúdo Principal Estabilizado com Padding superior aumentado no desktop */}
+      <div className="max-w-7xl mx-auto space-y-8 relative z-30 pt-[340px] md:pt-[480px] lg:pt-[540px]">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -86,14 +86,14 @@ const Hero: React.FC = () => {
           className="flex flex-col items-center gap-6"
         >
           {/* Headline com Altura Mínima Reservada */}
-          <div className="min-h-[140px] md:min-h-[220px] flex flex-col justify-center md:mt-16 lg:mt-20">
+          <div className="min-h-[140px] md:min-h-[220px] flex flex-col justify-center">
             <h1 
               style={{
-  textShadow: `
-    0 8px 16px rgba(0,0,0,0.85),
-    0 0 30px rgba(0,0,0,0.6)
-  `
-}}
+                textShadow: `
+                  0 8px 16px rgba(0,0,0,0.85),
+                  0 0 30px rgba(0,0,0,0.6)
+                `
+              }}
               className="text-[2.6rem] md:text-[4.4rem] lg:text-[5.4rem] font-black tracking-tighter text-white leading-[1.1] md:leading-[1.05] max-w-6xl mx-auto"
             >
               O que você perde não é faturamento.
