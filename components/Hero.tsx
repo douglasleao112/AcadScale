@@ -86,12 +86,12 @@ const Hero: React.FC = () => {
           className="flex flex-col items-center gap-6"
         >
           {/* Headline com Altura Mínima Reservada */}
-          <div className="min-h-[140px] md:min-h-[220px] flex flex-col justify-center md:mt-12 lg:mt-16">
+          <div className="min-h-[140px] md:min-h-[220px] flex flex-col justify-center md:mt-16 lg:mt-20">
             <h1 
               style={{ 
                 textShadow: '0 10px 20px rgba(0,0,0,0.9), 0 0 40px rgba(0,0,0,0.7), 0 0 120px rgba(0,0,0,0.4)' 
               }}
-              className="text-[2.6rem] md:text-[4.6rem] lg:text-[5.8rem] font-black tracking-tighter text-white leading-[1.1] md:leading-[1.05] max-w-6xl mx-auto"
+              className="text-[2.6rem] md:text-[4.4rem] lg:text-[5.4rem] font-black tracking-tighter text-white leading-[1.1] md:leading-[1.05] max-w-6xl mx-auto"
             >
               O que você perde não é faturamento.
               <br className="md:hidden" />{' '}
