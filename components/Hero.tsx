@@ -121,7 +121,7 @@ const Hero: React.FC = () => {
           className="pt-4 flex flex-col items-center gap-1"
         >
           <a 
-            href="https://wa.me/seunumeroaqui"
+            href="https://chat.whatsapp.com/BWCnxuMkAg975dRRzOJJBg"
             target="_blank"
             rel="noopener noreferrer"
             className="relative p-[1.5px] rounded-full group scale-105 md:scale-[1.1] transition-transform duration-500 hover:scale-[1.1] md:hover:scale-[1.15] block"
@@ -143,7 +143,7 @@ const Hero: React.FC = () => {
               </div>
 
               <span className="text-white font-extrabold tracking-[0.2em] text-sm md:text-lg uppercase relative z-20">
-                Agendar Reunião
+                Faça parte do grupo
               </span>
               
               <svg 
