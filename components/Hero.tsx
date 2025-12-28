@@ -11,10 +11,10 @@ const Hero: React.FC = () => {
   const phrases = [
     "É Lucro!",
     "É Escala!",
-    "É Previsibilidade",
-    "É Recorrência",
-    "É Equity",
-    "É Valuation"
+    "É Valor!",
+    "É Margem!",
+    "É Equity!",
+    "É Valuation!"
   ];
 
   useEffect(() => {
