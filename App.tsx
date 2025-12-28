@@ -5,9 +5,9 @@ import ParticleBackground from './components/ParticleBackground';
 
 const App: React.FC = () => {
   return (
-    <main className="relative min-h-screen bg-black">
-      {/* Logo Centralizada: agora Absolute para subir com o scroll */}
-      <div className="absolute top-8 left-1/2 -translate-x-1/2 z-50 transition-opacity duration-500 hover:opacity-100 opacity-60">
+    <main className="relative min-h-screen bg-black overflow-x-hidden">
+      {/* Logo Centralizada: Absolute para subir com o scroll */}
+      <div className="absolute top-8 left-1/2 -translate-x-1/2 z-[100] transition-opacity duration-500 hover:opacity-100 opacity-60">
         <img 
           src="https://i.imgur.com/sP4bt3b.png" 
           alt="Margem Pro Logo" 
@@ -19,7 +19,9 @@ const App: React.FC = () => {
       <ParticleBackground />
       
       {/* Conteúdo Hero */}
-      <Hero />
+      <div className="relative z-10">
+        <Hero />
+      </div>
     </main>
   );
 };
