@@ -9,12 +9,12 @@ const Hero: React.FC = () => {
   const [isDeleting, setIsDeleting] = useState(false);
 
   const phrases = [
-    "É Lucro!",
-    "É Escala!",
-    "É Valor!",
-    "É Margem!",
-    "É Equity!",
-    "É Valuation!"
+    "É Lucro!'",
+    "É Escala!'",
+    "É Valor!'",
+    "É Margem!'",
+    "É Equity!'",
+    "É Valuation!'"
   ];
 
   useEffect(() => {
