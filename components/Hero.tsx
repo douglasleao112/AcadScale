@@ -53,7 +53,37 @@ const Hero: React.FC = () => {
     <section 
       className="relative z-20 flex flex-col items-center justify-start md:justify-end min-h-screen px-4 pb-32 md:pb-48 text-center overflow-hidden"
     >
-      {/* Imagem de Fundo em Destaque (Estática após entrada) */}
+      {/* Blurs Azuis Animados (Atrás da Imagem) */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+        <motion.div
+          animate={{
+            x: [0, 100, -50, 0],
+            y: [0, -50, 50, 0],
+            scale: [1, 1.2, 0.9, 1],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute top-[10%] left-[20%] w-[40vw] h-[40vw] bg-blue-600/20 rounded-full blur-[120px]"
+        />
+        <motion.div
+          animate={{
+            x: [0, -120, 80, 0],
+            y: [0, 70, -40, 0],
+            scale: [1.1, 0.8, 1.2, 1.1],
+          }}
+          transition={{
+            duration: 25,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+          className="absolute top-[20%] right-[15%] w-[35vw] h-[35vw] bg-cyan-500/15 rounded-full blur-[100px]"
+        />
+      </div>
+
+      {/* Imagem de Fundo em Destaque */}
       <motion.div 
         initial={{ opacity: 0, scale: 1.1, filter: 'blur(10px)' }}
         animate={{ 
@@ -72,12 +102,12 @@ const Hero: React.FC = () => {
           <img 
             src="https://i.postimg.cc/NMbSsTvx/topo-hero.png" 
             alt="Performance" 
-            className="w-full h-full object-contain object-top"
+            className="w-full h-full object-contain object-top relative z-10"
           />
         </div>
       </motion.div>
 
-      {/* Conteúdo Principal Estabilizado com Padding superior aumentado no desktop */}
+      {/* Conteúdo Principal */}
       <div className="max-w-7xl mx-auto space-y-8 relative z-30 pt-[340px] md:pt-[480px] lg:pt-[540px]">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -85,7 +115,6 @@ const Hero: React.FC = () => {
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col items-center gap-6"
         >
-          {/* Headline com Altura Mínima Reservada */}
           <div className="min-h-[140px] md:min-h-[220px] flex flex-col justify-center">
             <h1 
               style={{ 
@@ -113,7 +142,6 @@ const Hero: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Botão AGENDAR REUNIÃO (Imóvel) */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -126,18 +154,15 @@ const Hero: React.FC = () => {
             rel="noopener noreferrer"
             className="relative p-[1.5px] rounded-full group scale-105 md:scale-[1.1] transition-transform duration-500 hover:scale-[1.1] md:hover:scale-[1.15] block"
           >
-            {/* Border glow animado */}
             <div className="absolute inset-0 overflow-hidden rounded-full">
               <div className="absolute inset-[-250%] animate-[spin_3.5s_linear_infinite] bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0%,transparent_90%,#00d1ff_97%,#fff_100%)] opacity-100" />
             </div>
             
-            {/* Efeitos de impacto ao redor do botão */}
             <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-8 h-12 bg-blue-400/50 blur-2xl opacity-0 animate-[impactSide_3s_infinite] [animation-delay:0.75s] rounded-full pointer-events-none" />
             <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-40 h-6 bg-blue-400/40 blur-2xl opacity-0 animate-[impactBottom_3s_infinite] [animation-delay:1.5s] rounded-[50%] pointer-events-none" />
             <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-8 h-12 bg-blue-400/50 blur-2xl opacity-0 animate-[impactSide_3s_infinite] [animation-delay:2.25s] rounded-full pointer-events-none" />
 
             <div className="relative flex items-center gap-5 px-12 md:px-16 py-6 md:py-7 bg-black rounded-full leading-none overflow-hidden z-10">
-              {/* Shimmer interno */}
               <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
                 <div className="absolute top-0 -left-[100%] w-[60%] h-full bg-gradient-to-r from-transparent via-blue-400/15 to-transparent skew-x-[-30deg] animate-[shimmer_3s_infinite]" />
               </div>
@@ -159,7 +184,6 @@ const Hero: React.FC = () => {
             </div>
           </a>
 
-          {/* Tags de Rodapé (Aproximadas ao botão) */}
           <div className="flex flex-wrap justify-center items-center gap-x-6 md:gap-x-10 gap-y-1 mt-1 md:mt-2 h-8">
             {tags.map((tag, idx) => (
               <React.Fragment key={tag}>
@@ -182,7 +206,6 @@ const Hero: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Indicador de scroll (Sempre fixo na base) */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 pointer-events-none flex items-center justify-center">
         <div className="absolute w-12 h-12 rounded-full border border-blue-500/40 animate-[ping_2s_infinite] opacity-30" />
         <div className="relative w-11 h-11 bg-blue-600 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,99,235,0.6)] border border-blue-400/30">

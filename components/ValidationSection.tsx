@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
 
@@ -13,6 +13,8 @@ const USERS: User[] = [
   { id: 1, handle: '@studio.natanaelalves', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuP0Pl9JPPZIXz7yneCQj6dwfPhNHY5GQuwg&s' },
   { id: 2, handle: '@statera_team', image: 'https://i.imgur.com/hPoczNy.png' },
   { id: 3, handle: '@delasgym', image: 'https://i.imgur.com/SZQThWA.jpeg' },
+  { id: 4, handle: '@academia._forma', image: 'https://i.imgur.com/jsnD4Ky.png' },
+  { id: 5, handle: '@flexfitnesscenter', image: 'https://i.imgur.com/B6VgBoS.jpeg' },
 ];
 
 const TICKER_ITEMS = [
@@ -24,27 +26,167 @@ const TICKER_ITEMS = [
   "Escalabilidade Real"
 ];
 
+interface BlipData {
+  id: string;
+  x: number;
+  y: number;
+}
+
+interface RadarBlipProps {
+  x: number;
+  y: number;
+  sweepAngle: number;
+  sweepOriginX: number;
+  sweepOriginY: number;
+}
+
+const RadarBlip: React.FC<RadarBlipProps> = ({ x, y, sweepAngle, sweepOriginX, sweepOriginY }) => {
+  const [isLit, setIsLit] = useState(false);
+
+  const angleOfPoint = useMemo(() => {
+    const dx = x - sweepOriginX;
+    const dy = y - sweepOriginY; 
+    let angle = (Math.atan2(dy, dx) * 180) / Math.PI;
+    if (angle < 0) angle += 360;
+    return angle;
+  }, [x, y, sweepOriginX, sweepOriginY]);
+
+  useEffect(() => {
+    const currentSweep = (360 - sweepAngle) % 360;
+    const diff = Math.abs(currentSweep - angleOfPoint);
+    
+    if (diff < 6 || diff > 354) {
+      setIsLit(true);
+    } else if (isLit) {
+      const timer = setTimeout(() => setIsLit(false), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [sweepAngle, angleOfPoint, isLit]);
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0 }}
+      className="absolute rounded-full z-0 transition-all duration-[2000ms] ease-out"
+      style={{
+        left: `${x}%`,
+        top: `${y}%`,
+        width: '5px',
+        height: '5px',
+        backgroundColor: isLit ? '#00e5ff' : 'transparent',
+        boxShadow: isLit 
+          ? '0 0 15px #00e5ff, 0 0 5px #fff, 0 0 30px rgba(0, 229, 255, 0.5)' 
+          : 'none',
+        opacity: isLit ? 0.8 : 0,
+        transform: 'translate(-50%, -50%)',
+      }}
+    />
+  );
+};
+
+const RadarUI = ({ rotation }: { rotation: number }) => {
+  return (
+    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] md:w-[1500px] md:h-[1500px] pointer-events-none z-0 opacity-40 -translate-y-1/2">
+      <div className="absolute inset-0 border-[1px] border-cyan-500/20 rounded-full overflow-hidden">
+        <div className="absolute inset-0 flex items-center justify-center">
+            {[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9].map(s => (
+                <div key={s} className="absolute border-[0.5px] border-cyan-500/5 rounded-full" style={{ width: `${s*100}%`, height: `${s*100}%` }} />
+            ))}
+            <div className="absolute w-[1px] h-full bg-cyan-500/5 left-1/2" />
+            <div className="absolute h-[1px] w-full bg-cyan-500/5 top-1/2" />
+        </div>
+        <div 
+          className="absolute top-1/2 left-1/2 w-full h-full origin-top-left"
+          style={{ 
+            transform: `rotate(${rotation}deg)`,
+            background: 'conic-gradient(from 0deg at 0% 0%, rgba(0, 229, 255, 0.3) 0deg, rgba(0, 229, 255, 0.1) 45deg, rgba(0, 229, 255, 0.05) 90deg, transparent 150deg)'
+          }}
+        />
+        <div 
+          className="absolute top-1/2 left-1/2 w-full h-[1.5px] bg-cyan-400/80 shadow-[0_0_20px_#00e5ff] origin-top-left"
+          style={{ transform: `rotate(${rotation}deg)` }}
+        />
+      </div>
+      <div className="absolute top-[52%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-[10px] md:text-[12px] font-mono text-cyan-500/50 uppercase tracking-[0.4em] z-10">
+        <div className="flex flex-col items-center">
+          <span className="text-cyan-300 animate-pulse mb-1">Active Scan</span>
+          <div className="h-[1px] w-12 bg-cyan-500/20 mb-2" />
+          <div className="flex gap-6">
+            <span>Sector 07</span>
+            <span className="text-cyan-400 font-bold">Alt 2.5k</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const ValidationSection: React.FC = () => {
   const [activeUser, setActiveUser] = useState<number | null>(null);
+  const [rotation, setRotation] = useState(0);
+  const [blips, setBlips] = useState<BlipData[]>([]);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const profilesContainerRef = useRef<HTMLDivElement>(null);
 
-  // Fechar o balão ao clicar fora
+  const generateBlip = () => ({
+    id: Math.random().toString(36).substr(2, 9),
+    x: 10 + Math.random() * 80,
+    y: 10 + Math.random() * 60,
+  });
+
   useEffect(() => {
+    setBlips(Array.from({ length: 4 }).map(generateBlip));
+    const interval = setInterval(() => {
+      setBlips(currentBlips => {
+        const randomIndex = Math.floor(Math.random() * currentBlips.length);
+        const newBlips = [...currentBlips];
+        newBlips[randomIndex] = generateBlip();
+        return newBlips;
+      });
+    }, 1500);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    let frame: number;
+    const animate = () => {
+      setRotation(prev => (prev - 0.7 + 360) % 360);
+      frame = requestAnimationFrame(animate);
+    };
+    frame = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(frame);
+  }, []);
+
+  // Reset ao rolar ou clicar fora
+  useEffect(() => {
+    const handleScroll = () => {
+      if (activeUser !== null) setActiveUser(null);
+    };
+
     const handleClickOutside = (event: MouseEvent) => {
-      if (sectionRef.current && !sectionRef.current.contains(event.target as Node)) {
+      if (profilesContainerRef.current && !profilesContainerRef.current.contains(event.target as Node)) {
         setActiveUser(null);
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+
+    if (activeUser !== null) {
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [activeUser]);
+
+  const cardRotations = [-12, -6, 0, 6, 12];
+  const activeIndex = USERS.findIndex(u => u.id === activeUser);
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-black pb-20 pt-0 overflow-hidden flex flex-col items-center">
-      
-      {/* 1. Ticker Infinito (Barra do Topo) */}
-      <div className="w-full border-y border-white/10 bg-black/50 backdrop-blur-sm py-4 mb-24 md:mb-32 overflow-hidden select-none">
+    <section ref={sectionRef} className="relative w-full bg-black pb-48 pt-0 overflow-hidden flex flex-col items-center min-h-[900px]">
+      <div className="w-full border-y border-white/10 bg-black/50 backdrop-blur-sm py-4 mb-24 md:mb-32 overflow-hidden select-none z-20">
         <div className="flex whitespace-nowrap animate-ticker">
           {[...Array(4)].map((_, groupIdx) => (
             <div key={groupIdx} className="flex items-center">
@@ -52,12 +194,7 @@ const ValidationSection: React.FC = () => {
                 <div key={idx} className="flex items-center mx-8 gap-3 group">
                   <CheckCircle2 className="w-5 h-5 text-blue-500 group-hover:scale-110 transition-transform" />
                   <span className="text-white font-bold text-sm md:text-base uppercase tracking-wider">
-                    {item.includes("Premium") ? (
-                      <>
-                        {item.replace("Premium", "")}
-                        <span className="text-white/40">Premium</span>
-                      </>
-                    ) : item}
+                    {item}
                   </span>
                 </div>
               ))}
@@ -66,83 +203,114 @@ const ValidationSection: React.FC = () => {
         </div>
       </div>
 
-      {/* 2. Conteúdo Central com Background "TRANSFORMAM" */}
+      <div className="absolute inset-0 pointer-events-none">
+        <AnimatePresence mode="popLayout">
+          {blips.map(blip => (
+            <RadarBlip 
+              key={blip.id} 
+              x={blip.x} 
+              y={blip.y} 
+              sweepAngle={rotation} 
+              sweepOriginX={50}
+              sweepOriginY={0} 
+            />
+          ))}
+        </AnimatePresence>
+      </div>
+
+      <RadarUI rotation={rotation} />
+
       <div className="relative w-full max-w-7xl px-4 flex flex-col items-center text-center">
-        
-        {/* Texto GIGANTE de Background */}
-        <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[12vw] font-black text-white/[0.03] leading-none pointer-events-none select-none tracking-tighter uppercase">
+        <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[25vw] md:text-[14vw] font-black text-white/[0.015] leading-none pointer-events-none select-none tracking-tighter uppercase z-0">
           RESULTADO
         </h2>
 
-        {/* Headline Principal */}
         <motion.h3 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl font-bold text-white mb-6 z-10 max-w-4xl"
+          className="text-4xl md:text-6xl font-bold text-white mb-6 z-10 max-w-4xl tracking-tight"
         >
-        Metodologia validada que escala negócios.
+          Metodologia validada que escala negócios.
         </motion.h3>
 
-        {/* Subheadline */}
         <motion.p 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-white/60 text-lg md:text-xl mb-12 z-10"
+          className="text-white/60 text-lg md:text-xl mb-16 z-10 max-w-2xl"
         >
            Diversos casos de sucesso com resultados reais aplicados em academias de alto rendimento.
         </motion.p>
 
-        {/* 3. Avatares Interativos */}
-        <div className="flex flex-wrap justify-center items-center gap-2 md:gap-4 z-10">
-          {USERS.map((user) => (
-            <div 
-              key={user.id} 
-              className={`relative ${activeUser === user.id ? 'z-50' : 'z-10'}`}
-            >
-              <button
-                onClick={() => setActiveUser(activeUser === user.id ? null : user.id)}
-                className={`group relative w-16 h-16 md:w-20 md:h-20 rounded-full p-[2px] transition-all duration-300 hover:scale-110 active:scale-95 ${
-                  activeUser === user.id ? 'scale-110' : ''
-                }`}
+        <div 
+          ref={profilesContainerRef}
+          className="flex flex-nowrap md:flex-wrap justify-center items-center -space-x-10 md:space-x-0 md:gap-8 z-10 py-12 px-10"
+        >
+          {USERS.map((user, index) => {
+            const isActive = activeUser === user.id;
+            const rotationValue = cardRotations[index % cardRotations.length];
+            
+            let xOffset = 0;
+            if (activeUser !== null && !isActive) {
+              const isToTheLeft = index < activeIndex;
+              xOffset = isToTheLeft ? -60 : 60;
+            }
+            
+            return (
+              <motion.div 
+                key={user.id} 
+                layout
+                animate={{
+                  x: typeof window !== 'undefined' && window.innerWidth < 768 ? xOffset : 0,
+                  rotate: isActive ? 0 : rotationValue,
+                  scale: isActive ? 1.35 : 1,
+                  y: isActive ? -25 : 0,
+                  zIndex: isActive ? 50 : 10 + index
+                }}
+                transition={{
+                  type: "spring",
+                  stiffness: 260,
+                  damping: 20
+                }}
+                className="relative w-24 h-24 md:w-28 md:h-28"
               >
-                {/* Borda Gradiente */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-600 via-purple-500 to-orange-400 opacity-80 group-hover:opacity-100 transition-opacity" />
-                
-                {/* Foto */}
-                <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-black bg-neutral-900">
-                  <img 
-                    src={user.image} 
-                    alt={user.handle} 
-                    className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all"
-                  />
-                </div>
-              </button>
+                <AnimatePresence>
+                  {isActive && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.6, y: 10 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.6, y: 10 }}
+                      className="absolute bottom-[95%] left-[-40%] z-[60] pointer-events-none origin-bottom-right"
+                    >
+                      <div className="bg-white text-black text-[10px] md:text-xs font-bold py-2.5 px-5 rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.9)] whitespace-nowrap relative border border-black/10">
+                        {user.handle}
+                        <div className="absolute -bottom-1 right-6 w-3 h-3 bg-white rotate-45" />
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
 
-              {/* Balão (Tooltip) */}
-              <AnimatePresence>
-                {activeUser === user.id && (
-                 <motion.div
-  initial={{ opacity: 0, scale: 0.85, y: 6 }}
-  animate={{ opacity: 1, scale: 1, y: 0 }}
-  exit={{ opacity: 0, scale: 0.85, y: 6 }}
-  transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-className="  absolute  left-1/2  -translate-x-1/2  -top-10  -ml-6  md:-ml-12  z-[60]  pointer-events-none"
->
-                 
-                    <div className="bg-white text-black text-[10px] md:text-xs font-bold py-1.5 px-3 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.5)] whitespace-nowrap relative border border-white/20">
-                      {user.handle}
-                      {/* Triângulo do balão */}
-                      <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-white rotate-45" />
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
+                <button
+                  onClick={() => setActiveUser(isActive ? null : user.id)}
+                  className={`group relative w-full h-full rounded-full p-[2px] transition-all duration-500 ${
+                    isActive ? 'ring-2 ring-cyan-400 ring-offset-4 ring-offset-black' : 'hover:scale-105 active:scale-95'
+                  }`}
+                >
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-600 to-cyan-400 opacity-40 group-hover:opacity-100 transition-opacity" />
+                  <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-black bg-neutral-900 shadow-xl">
+                    <img 
+                      src={user.image} 
+                      alt={user.handle} 
+                      className={`w-full h-full object-cover transition-all duration-500 ${isActive ? 'grayscale-0' : 'grayscale-[40%] group-hover:grayscale-0'}`}
+                    />
+                  </div>
+                </button>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
 
@@ -152,7 +320,7 @@ className="  absolute  left-1/2  -translate-x-1/2  -top-10  -ml-6  md:-ml-12  z-
           100% { transform: translateX(-25%); }
         }
         .animate-ticker {
-          animation: ticker 30s linear infinite;
+          animation: ticker 8s linear infinite;
         }
         .animate-ticker:hover {
           animation-play-state: paused;
