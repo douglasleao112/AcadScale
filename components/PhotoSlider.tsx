@@ -36,7 +36,8 @@ const PhotoSlider: React.FC = () => {
   const controls2 = useAnimation();
   const controls3 = useAnimation();
   
-  const timeoutRefs = useRef<{ [key: string]: ReturnType<typeof setTimeout> | null }>({
+  // Fix: Explicitly type timeoutRefs to avoid 'unknown' return type from setTimeout/clearTimeout
+  const timeoutRefs = useRef<Record<string, any>>({
     row1: null,
     row2: null,
     row3: null
@@ -77,13 +78,14 @@ const PhotoSlider: React.FC = () => {
     startInfiniteAnimation(controls3, 'left', 28);
 
     return () => {
-      Object.values(timeoutRefs.current).forEach(t => t && clearTimeout(t));
+      // Fix: cast to any to ensure clearTimeout works if types are unknown
+      Object.values(timeoutRefs.current).forEach(t => t && clearTimeout(t as any));
     };
   }, [controls1, controls2, controls3]);
 
   const handleDragStart = (rowId: string, controls: any) => {
     if (timeoutRefs.current[rowId]) {
-      clearTimeout(timeoutRefs.current[rowId]!);
+      clearTimeout(timeoutRefs.current[rowId] as any);
       timeoutRefs.current[rowId] = null;
     }
     controls.stop();
@@ -163,7 +165,8 @@ const PhotoSlider: React.FC = () => {
   );
 };
 
-const PhotoItem = ({ src }: { src: string }) => (
+// Fix: Use React.FC to properly handle props including the special 'key' prop in mappings
+const PhotoItem: React.FC<{ src: string }> = ({ src }) => (
   <div className="relative flex-shrink-0 w-72 md:w-[450px] aspect-video rounded-xl md:rounded-3xl overflow-hidden group/item border border-white/5 transition-all duration-700 hover:border-blue-500/40 shadow-2xl select-none">
     <img 
       src={src} 

@@ -7,6 +7,7 @@ import PhotoSlider from './components/PhotoSlider';
 import StrategySection from './components/StrategySection';
 import StackedCards from './components/StackedCards';
 import ComparisonSection from './components/ComparisonSection';
+import ProofSection from './components/ProofSection';
 
 const App: React.FC = () => {
   return (
@@ -31,6 +32,7 @@ const App: React.FC = () => {
         <StrategySection />
         <StackedCards />
         <ComparisonSection />
+        <ProofSection />
       </div>
     </main>
   );
