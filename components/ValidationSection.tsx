@@ -87,7 +87,7 @@ const RadarBlip: React.FC<RadarBlipProps> = ({ x, y, sweepAngle, sweepOriginX, s
 
 const RadarUI = ({ rotation }: { rotation: number }) => {
   return (
-    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] md:w-[1500px] md:h-[1500px] pointer-events-none z-0 opacity-40 -translate-y-1/2">
+    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] md:w-[1500px] md:h-[1500px] pointer-events-none z-0 opacity-40 translate-y-1/2">
       <div className="absolute inset-0 border-[1px] border-cyan-500/20 rounded-full overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
             {[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9].map(s => (
@@ -108,15 +108,12 @@ const RadarUI = ({ rotation }: { rotation: number }) => {
           style={{ transform: `rotate(${rotation}deg)` }}
         />
       </div>
-      <div className="absolute top-[52%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-[10px] md:text-[12px] font-mono text-cyan-500/50 uppercase tracking-[0.4em] z-10">
-        <div className="flex flex-col items-center">
-          <span className="text-cyan-300 animate-pulse mb-1">Active Scan</span>
-          <div className="h-[1px] w-12 bg-cyan-500/20 mb-2" />
-          <div className="flex gap-6">
-            <span>Sector 07</span>
-            <span className="text-cyan-400 font-bold">Alt 2.5k</span>
-          </div>
-        </div>
+      
+      {/* HUD Info: Sector 07 (Left), Active Scan (Center), Alt 2.5k (Right) */}
+      <div className="absolute bottom-[52%] left-1/2 -translate-x-1/2 w-full max-w-[280px] md:max-w-[450px] flex items-center justify-between text-[10px] md:text-[11px] font-mono text-cyan-500/50 uppercase tracking-[0.2em] md:tracking-[0.3em] z-10 px-4">
+        <span className="shrink-0 text-left">Sector 07</span>
+        <span className="text-cyan-300 animate-pulse text-center">Active Scan</span>
+        <span className="text-cyan-400 font-bold shrink-0 text-right">Alt 2.5k</span>
       </div>
     </div>
   );
@@ -185,8 +182,8 @@ const ValidationSection: React.FC = () => {
   const activeIndex = USERS.findIndex(u => u.id === activeUser);
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-black pb-48 pt-0 overflow-hidden flex flex-col items-center min-h-[900px]">
-      <div className="w-full border-y border-white/10 bg-black/50 backdrop-blur-sm py-4 mb-24 md:mb-32 overflow-hidden select-none z-20">
+    <section ref={sectionRef} className="relative w-full bg-black pb-0 pt-0 overflow-hidden flex flex-col items-center min-h-[480px] md:min-h-[750px]">
+      <div className="w-full border-y border-white/10 bg-black/50 backdrop-blur-sm py-4 mb-20 md:mb-32 overflow-hidden select-none z-20">
         <div className="flex whitespace-nowrap animate-ticker">
           {[...Array(4)].map((_, groupIdx) => (
             <div key={groupIdx} className="flex items-center">
@@ -212,7 +209,7 @@ const ValidationSection: React.FC = () => {
               y={blip.y} 
               sweepAngle={rotation} 
               sweepOriginX={50}
-              sweepOriginY={0} 
+              sweepOriginY={100} // Origem agora na base (100%)
             />
           ))}
         </AnimatePresence>
@@ -230,7 +227,7 @@ const ValidationSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl font-bold text-white mb-6 z-10 max-w-4xl tracking-tight"
+          className="text-3xl md:text-6xl font-bold text-white mb-4 md:mb-6 z-10 max-w-4xl tracking-tight px-4"
         >
           Metodologia validada que escala negócios.
         </motion.h3>
@@ -240,14 +237,14 @@ const ValidationSection: React.FC = () => {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-white/60 text-lg md:text-xl mb-16 z-10 max-w-2xl"
+          className="text-white/60 text-base md:text-xl mb-8 md:mb-16 z-10 max-w-2xl px-6"
         >
            Diversos casos de sucesso com resultados reais aplicados em academias de alto rendimento.
         </motion.p>
 
         <div 
           ref={profilesContainerRef}
-          className="flex flex-nowrap md:flex-wrap justify-center items-center -space-x-10 md:space-x-0 md:gap-8 z-10 py-12 px-10"
+          className="flex flex-nowrap md:flex-wrap justify-center items-center -space-x-10 md:space-x-0 md:gap-8 z-10 pt-4 pb-0 md:py-12 px-10"
         >
           {USERS.map((user, index) => {
             const isActive = activeUser === user.id;
@@ -275,7 +272,7 @@ const ValidationSection: React.FC = () => {
                   stiffness: 260,
                   damping: 20
                 }}
-                className="relative w-24 h-24 md:w-28 md:h-28"
+                className="relative w-20 h-20 md:w-28 md:h-28"
               >
                 <AnimatePresence>
                   {isActive && (
