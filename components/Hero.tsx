@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
 
   return (
     <section 
-      className="relative z-20 flex flex-col items-center justify-start min-h-screen px-4 pb-32 md:pb-48 text-center overflow-hidden"
+      className="relative z-20 flex flex-col items-center justify-start min-h-screen px-4 pb-12 md:pb-16 text-center overflow-hidden"
     >
       {/* Imagem de Fundo em Destaque (Estática após entrada) */}
       <motion.div 
@@ -183,21 +183,6 @@ const Hero: React.FC = () => {
             ))}
           </div>
         </motion.div>
-      </div>
-
-      {/* Indicador de scroll (Sempre fixo na base) */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 pointer-events-none flex items-center justify-center">
-        <div className="absolute w-12 h-12 rounded-full border border-blue-500/40 animate-[ping_2s_infinite] opacity-30" />
-        <div className="relative w-11 h-11 bg-blue-600 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,99,235,0.6)] border border-blue-400/30">
-          <svg 
-            viewBox="0 0 24 24" 
-            className="w-6 h-6 fill-none stroke-white stroke-[2.5] animate-[indicator-bounce_2s_infinite_ease-in-out]"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M7 13l5 5 5-5" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M12 6v12" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </div>
       </div>
 
       <style>{`

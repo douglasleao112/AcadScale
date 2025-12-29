@@ -2,11 +2,12 @@
 import React from 'react';
 import Hero from './components/Hero';
 import ParticleBackground from './components/ParticleBackground';
+import ValidationSection from './components/ValidationSection';
 
 const App: React.FC = () => {
   return (
     <main className="relative min-h-screen bg-black overflow-x-hidden">
-      {/* Logo Centralizada: Absolute para subir com o scroll */}
+      {/* Logo Centralizada */}
       <div className="absolute top-8 left-1/2 -translate-x-1/2 z-[100] transition-opacity duration-500 hover:opacity-100 opacity-60">
         <img 
           src="https://i.imgur.com/sP4bt3b.png" 
@@ -15,12 +16,13 @@ const App: React.FC = () => {
         />
       </div>
 
-      {/* Camada de Fundo: Universo e Estrelas (Fixo) */}
+      {/* Camada de Fundo: Universo e Estrelas */}
       <ParticleBackground />
       
-      {/* Conteúdo Hero */}
+      {/* Conteúdo Principal */}
       <div className="relative z-10">
         <Hero />
+        <ValidationSection />
       </div>
     </main>
   );
