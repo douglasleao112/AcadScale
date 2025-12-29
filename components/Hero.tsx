@@ -77,8 +77,8 @@ const Hero: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* Conteúdo Principal Estabilizado */}
-      <div className="max-w-7xl mx-auto space-y-8 relative z-30 pt-[340px] md:pt-0">
+      {/* Conteúdo Principal Estabilizado com Padding superior aumentado no desktop */}
+      <div className="max-w-7xl mx-auto space-y-8 relative z-30 pt-[340px] md:pt-[480px] lg:pt-[540px]">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
