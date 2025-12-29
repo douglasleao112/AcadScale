@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { XCircle, CheckCircle2 } from 'lucide-react';
@@ -24,7 +23,7 @@ const ComparisonSection: React.FC = () => {
   ];
 
   const words = [
-    "PERSONALIZAÇÃO", "OTIMIZAÇÃO", "PROFISSIONALISMO", "CONVERSÃO", 
+    "PERSONALIZAÇÃO", "OTIMIZAÇÃO", "PROFISSIONALISMO", "CONVERSÃO",
     "COMUNICAÇÃO", "ESTRATÉGIA", "RESULTADO", "PERFORMANCE"
   ];
 
@@ -36,8 +35,8 @@ const ComparisonSection: React.FC = () => {
           {[...Array(3)].map((_, groupIdx) => (
             <div key={groupIdx} className="flex items-center gap-4 px-2">
               {words.map((word, idx) => (
-                <div 
-                  key={idx} 
+                <div
+                  key={idx}
                   className="bg-white px-6 md:px-10 py-2.5 md:py-4 rounded-full shadow-[0_4px_20px_rgba(255,255,255,0.1)]"
                 >
                   <span className="text-black text-[10px] md:text-xs font-black tracking-[0.2em] uppercase">
@@ -52,7 +51,7 @@ const ComparisonSection: React.FC = () => {
 
       {/* Grid de Fundo */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-20 mt-32">
-        <div 
+        <div
           className="absolute inset-0"
           style={{
             backgroundImage: `
@@ -107,7 +106,6 @@ const ComparisonSection: React.FC = () => {
 
         {/* Cards Container */}
         <div className="relative flex flex-col md:flex-row items-center justify-center gap-8 md:gap-0 mt-12 md:mt-20">
-          
           {/* Card Esquerda: Entrega Comum */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -119,7 +117,7 @@ const ComparisonSection: React.FC = () => {
               <div className="w-16 h-16 rounded-full bg-red-50 flex items-center justify-center text-red-500 shadow-inner">
                 <XCircle className="w-10 h-10" />
               </div>
-              
+
               <h3 className="text-2xl md:text-3xl font-black text-slate-900 leading-tight">
                 Entrega comum dos <br /> "Web Designers"
               </h3>
@@ -150,9 +148,9 @@ const ComparisonSection: React.FC = () => {
             <div className="absolute bottom-0 left-0 w-40 h-40 bg-blue-500/10 blur-[100px]" />
 
             <div className="relative z-10 flex flex-col items-center space-y-8">
-              <img 
-                src="https://i.imgur.com/sP4bt3b.png" 
-                alt="FA Logo" 
+              <img
+                src="https://i.imgur.com/sP4bt3b.png"
+                alt="FA Logo"
                 className="h-10 md:h-12 w-auto object-contain brightness-125"
               />
 
@@ -194,7 +192,62 @@ const ComparisonSection: React.FC = () => {
               </div>
             </div>
           </motion.div>
+        </div>
 
+        {/* CTA FINAL - BOTÃO IGUAL HERO (ABAIXO DOS CARDS) */}
+        <div className="mt-16 md:mt-24 flex flex-col items-center text-center gap-10">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-white/80 text-lg md:text-2xl font-light max-w-2xl leading-relaxed"
+          >
+            Não é sobre página. É sobre construir a <span className="text-white font-bold">estrutura certa</span> para converter mais e aumentar suas conversões.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative"
+          >
+            <a
+              href="https://chat.whatsapp.com/BWCnxuMkAg975dRRzOJJBg"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative p-[1.5px] rounded-full group scale-105 md:scale-[1.1] transition-transform duration-500 hover:scale-[1.1] md:hover:scale-[1.15] block"
+            >
+              <div className="absolute inset-0 overflow-hidden rounded-full">
+                <div className="absolute inset-[-250%] animate-[spin_3.5s_linear_infinite] bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0%,transparent_90%,#00d1ff_97%,#fff_100%)] opacity-100" />
+              </div>
+
+              <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-8 h-12 bg-blue-400/50 blur-2xl opacity-0 animate-[impactSide_3s_infinite] [animation-delay:0.75s] rounded-full pointer-events-none" />
+              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-40 h-6 bg-blue-400/40 blur-2xl opacity-0 animate-[impactBottom_3s_infinite] [animation-delay:1.5s] rounded-[50%] pointer-events-none" />
+              <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-8 h-12 bg-blue-400/50 blur-2xl opacity-0 animate-[impactSide_3s_infinite] [animation-delay:2.25s] rounded-full pointer-events-none" />
+
+              <div className="relative flex items-center gap-5 px-12 md:px-16 py-6 md:py-7 bg-black rounded-full leading-none overflow-hidden z-10">
+                <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
+                  <div className="absolute top-0 -left-[100%] w-[60%] h-full bg-gradient-to-r from-transparent via-blue-400/15 to-transparent skew-x-[-30deg] animate-[shimmer_3s_infinite]" />
+                </div>
+
+                <span className="text-white font-extrabold tracking-[0.2em] text-sm md:text-lg uppercase relative z-20">
+                  Faça parte do grupo
+                </span>
+
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-5 h-5 md:w-6 md:h-6 stroke-white fill-none stroke-[2.2] relative z-20 transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M22 2L11 13" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M22 2L15 22L11 13L2 9L22 2Z" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+
+                <div className="absolute inset-0 border border-white/10 rounded-full pointer-events-none" />
+              </div>
+            </a>
+          </motion.div>
         </div>
       </div>
 
@@ -205,6 +258,31 @@ const ComparisonSection: React.FC = () => {
         }
         .animate-pills-scroll {
           animation: pills-scroll 12s linear infinite;
+        }
+
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+
+        @keyframes shimmer {
+          0% { left: -150%; }
+          40% { left: 150%; }
+          100% { left: 150%; }
+        }
+
+        @keyframes impactSide {
+          0% { opacity: 0; transform: translateY(-50%) scaleY(0.5); }
+          5% { opacity: 1; transform: translateY(-50%) scaleY(1.4); }
+          15% { opacity: 0; transform: translateY(-50%) scaleY(1); }
+          100% { opacity: 0; }
+        }
+
+        @keyframes impactBottom {
+          0% { opacity: 0; transform: translateX(-50%) scaleX(0.5) scaleY(1); }
+          5% { opacity: 1; transform: translateX(-50%) scaleX(1.6) scaleY(2.5); }
+          15% { opacity: 0; transform: translateX(-50%) scaleX(1) scaleY(1); }
+          100% { opacity: 0; }
         }
       `}</style>
     </section>

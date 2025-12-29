@@ -12,6 +12,8 @@ const ProofSection: React.FC = () => {
     { value: "+22%", label: "no CTR da página", sub: "" },
   ];
 
+  const tags = ["Margem", "Lucro", "Escala"];
+
   return (
     <section className="relative w-full bg-black py-24 md:py-32 overflow-hidden">
       {/* Elementos de Brilho de Fundo */}
@@ -124,29 +126,7 @@ const ProofSection: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Metrics Bar */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-4"
-        >
-          {stats.map((stat, i) => (
-            <div 
-              key={i} 
-              className="bg-neutral-900/40 border border-white/5 rounded-3xl p-8 flex flex-col items-center justify-center text-center backdrop-blur-sm group hover:border-blue-500/30 transition-colors"
-            >
-              <span className="text-4xl md:text-5xl font-black text-white mb-2 group-hover:text-blue-400 transition-colors">
-                {stat.value}
-              </span>
-              <span className="text-white/40 text-xs md:text-sm font-medium italic">
-                {stat.label}
-              </span>
-            </div>
-          ))}
-        </motion.div>
-      </div>
+       
 
       {/* Modal do Vídeo */}
       <AnimatePresence>
@@ -183,6 +163,33 @@ const ProofSection: React.FC = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <style>{`
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        
+        @keyframes shimmer {
+          0% { left: -150%; }
+          40% { left: 150%; }
+          100% { left: 150%; }
+        }
+
+        @keyframes impactSide {
+          0% { opacity: 0; transform: translateY(-50%) scaleY(0.5); }
+          5% { opacity: 1; transform: translateY(-50%) scaleY(1.4); }
+          15% { opacity: 0; transform: translateY(-50%) scaleY(1); }
+          100% { opacity: 0; }
+        }
+
+        @keyframes impactBottom {
+          0% { opacity: 0; transform: translateX(-50%) scaleX(0.5) scaleY(1); }
+          5% { opacity: 1; transform: translateX(-50%) scaleX(1.6) scaleY(2.5); }
+          15% { opacity: 0; transform: translateX(-50%) scaleX(1) scaleY(1); }
+          100% { opacity: 0; }
+        }
+      `}</style>
     </section>
   );
 };
