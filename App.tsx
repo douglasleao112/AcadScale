@@ -3,6 +3,10 @@ import React from 'react';
 import Hero from './components/Hero';
 import ParticleBackground from './components/ParticleBackground';
 import ValidationSection from './components/ValidationSection';
+import PhotoSlider from './components/PhotoSlider';
+import StrategySection from './components/StrategySection';
+import StackedCards from './components/StackedCards';
+import ComparisonSection from './components/ComparisonSection';
 
 const App: React.FC = () => {
   return (
@@ -23,6 +27,10 @@ const App: React.FC = () => {
       <div className="relative z-10">
         <Hero />
         <ValidationSection />
+        <PhotoSlider />
+        <StrategySection />
+        <StackedCards />
+        <ComparisonSection />
       </div>
     </main>
   );

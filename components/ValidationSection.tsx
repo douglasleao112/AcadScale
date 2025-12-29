@@ -13,7 +13,7 @@ const USERS: User[] = [
   { id: 1, handle: '@studio.natanaelalves', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuP0Pl9JPPZIXz7yneCQj6dwfPhNHY5GQuwg&s' },
   { id: 2, handle: '@statera_team', image: 'https://i.imgur.com/hPoczNy.png' },
   { id: 3, handle: '@delasgym', image: 'https://i.imgur.com/SZQThWA.jpeg' },
-  { id: 4, handle: '@academia._forma', image: 'https://i.imgur.com/jsnD4Ky.png' },
+  { id: 4, handle: '@basicfull', image: 'https://i.imgur.com/KGKEe9y.png' },
   { id: 5, handle: '@flexfitnesscenter', image: 'https://i.imgur.com/B6VgBoS.jpeg' },
 ];
 
@@ -218,7 +218,8 @@ const ValidationSection: React.FC = () => {
       <RadarUI rotation={rotation} />
 
       <div className="relative w-full max-w-7xl px-4 flex flex-col items-center text-center">
-        <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[25vw] md:text-[14vw] font-black text-white/[0.015] leading-none pointer-events-none select-none tracking-tighter uppercase z-0">
+        {/* Ajuste de visibilidade da palavra RESULTADO */}
+        <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[25vw] md:text-[14vw] font-black text-white/[0.04] leading-none pointer-events-none select-none tracking-tighter uppercase z-0">
           RESULTADO
         </h2>
 
@@ -284,7 +285,6 @@ const ValidationSection: React.FC = () => {
                     >
                       <div className="bg-white text-black text-[10px] md:text-xs font-bold py-2.5 px-5 rounded-xl shadow-[0_15px_40px_rgba(0,0,0,0.9)] whitespace-nowrap relative border border-black/10">
                         {user.handle}
-                        <div className="absolute -bottom-1 right-6 w-3 h-3 bg-white rotate-45" />
                       </div>
                     </motion.div>
                   )}
