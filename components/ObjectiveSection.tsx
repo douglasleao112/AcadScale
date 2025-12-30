@@ -18,7 +18,7 @@ const TABS: TabContent[] = [
   {
     id: 'Escala',
     label: 'Escala',
-    image: 'https://i.imgur.com/cYpnoEM.png',
+    image: 'https://i.imgur.com/cYpnoEM.webp',
     badge: 'Estrutura de Crescimento',
     title: 'Estrutura de Escala Comercial',
     description: 'Este é o ponto onde estruturamos a forma como sua academia cresce. Nada de improviso ou tentativa e erro. Aqui, cada decisão comercial é pensada para aumentar faturamento sem perder margem, controle e previsibilidade.',
@@ -35,7 +35,7 @@ const TABS: TabContent[] = [
   {
     id: 'Base',
     label: 'Base',
-    image: 'https://i.imgur.com/BDarXnz.png',
+    image: 'https://i.imgur.com/BDarXnz.webp',
     badge: 'POSICIONAMENTO ESTRATÉGICO',
     title: 'Autoridade e Decisão',
     description: 'Se você é referência técnica, sua operação precisa refletir isso. Aqui estruturamos a forma como sua academia se apresenta, comunica valor e gera decisões estratégicas, sem promessas vazias ou marketing superficial.',
@@ -52,7 +52,7 @@ const TABS: TabContent[] = [
   {
     id: 'Perfil',
     label: 'Perfil',
-    image: 'https://i.imgur.com/NemkcVw.png',
+    image: 'https://i.imgur.com/NemkcVw.webp',
     badge: 'FILTRO DE PERFIL EMPRESARIAL',
     title: 'Entrada estratégica',
     description: 'Este é o primeiro ponto de contato para entender se sua academia tem perfil para crescer com estratégia. Aqui, o objetivo não é volume, e sim clareza: identificar gargalos, organizar prioridades e definir os próximos passos antes de decisões maiores.',
@@ -73,7 +73,6 @@ const ObjectiveSection: React.FC = () => {
 
   return (
     <section className="relative w-full bg-black py-24 md:py-40 overflow-hidden z-20">
-      {/* Background Header Decoration */}
       <div className="max-w-7xl mx-auto px-4 text-center mb-12 md:mb-24">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -94,7 +93,6 @@ const ObjectiveSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Tab Selectors */}
         <div className="flex justify-center gap-3 md:gap-6">
           {TABS.map((tab) => (
             <button
@@ -123,7 +121,6 @@ const ObjectiveSection: React.FC = () => {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col md:flex-row items-center gap-10 md:gap-24"
           >
-            {/* Content Column - Agora Order 1 no Mobile (Texto acima no mobile) */}
             <div className="flex-1 text-left space-y-8 order-1 md:order-2">
               <div className="space-y-6">
                 <motion.div 
@@ -157,12 +154,7 @@ const ObjectiveSection: React.FC = () => {
                   >
                     <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
                     <span className="text-white/80 group-hover:text-white transition-colors text-sm md:text-base font-medium">
-                      {feature.includes('(') ? (
-                        <>
-                          {feature.split('(')[0]}
-                          <span className="text-white/40 font-normal">({feature.split('(')[1]}</span>
-                        </>
-                      ) : feature}
+                      {feature}
                     </span>
                   </motion.li>
                 ))}
@@ -207,7 +199,6 @@ const ObjectiveSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Visual Column - Agora Order 2 no Mobile (Imagem abaixo no mobile) */}
             <div className="flex-1 relative order-2 md:order-1 w-full">
               <div 
                 className="absolute inset-0 blur-[80px] md:blur-[120px] rounded-full transition-colors duration-1000 opacity-30"
@@ -224,6 +215,7 @@ const ObjectiveSection: React.FC = () => {
                     src={activeTab.image} 
                     alt={activeTab.title} 
                     className="w-full h-auto max-w-[450px] md:max-w-[500px] mx-auto drop-shadow-[0_40px_100px_rgba(0,0,0,0.8)]"
+                    loading="lazy"
                   />
                 </motion.div>
                 
@@ -233,33 +225,6 @@ const ObjectiveSection: React.FC = () => {
           </motion.div>
         </AnimatePresence>
       </div>
-
-      <style>{`
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        
-        @keyframes shimmer {
-          0% { left: -150%; }
-          40% { left: 150%; }
-          100% { left: 150%; }
-        }
-
-        @keyframes impactSide {
-          0% { opacity: 0; transform: translateY(-50%) scaleY(0.5); }
-          5% { opacity: 1; transform: translateY(-50%) scaleY(1.4); }
-          15% { opacity: 0; transform: translateY(-50%) scaleY(1); }
-          100% { opacity: 0; }
-        }
-
-        @keyframes impactBottom {
-          0% { opacity: 0; transform: translateX(-50%) scaleX(0.5) scaleY(1); }
-          5% { opacity: 1; transform: translateX(-50%) scaleX(1.6) scaleY(2.5); }
-          15% { opacity: 0; transform: translateX(-50%) scaleX(1) scaleY(1); }
-          100% { opacity: 0; }
-        }
-      `}</style>
     </section>
   );
 };

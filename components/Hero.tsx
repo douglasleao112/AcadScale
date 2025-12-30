@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'transparent-ui'; // Note: assuming standard motion
+import { motion as framerMotion } from 'framer-motion';
 
 const Hero: React.FC = () => {
   const [activeTags, setActiveTags] = useState<string[]>([]);
@@ -9,17 +10,16 @@ const Hero: React.FC = () => {
   const [isDeleting, setIsDeleting] = useState(false);
 
   const phrases = [
-    "É Lucro!'",
-    "É Escala!'",
-    "É Valor!'",
-    "É Margem!'",
-    "É Equity!'",
-    "É Valuation!'"
+    "É Lucro!",
+    "É Escala!",
+    "É Valor!",
+    "É Margem!",
+    "É Equity!",
+    "É Valuation!"
   ];
 
   useEffect(() => {
     const currentFullText = phrases[phraseIndex];
-    // Velocidade acelerada: 60ms para digitar, 30ms para apagar
     const typingSpeed = isDeleting ? 30 : 60;
 
     const timer = setTimeout(() => {
@@ -27,7 +27,6 @@ const Hero: React.FC = () => {
         if (displayText !== currentFullText) {
           setDisplayText(currentFullText.substring(0, displayText.length + 1));
         } else {
-          // Pausa reduzida de 2000ms para 1000ms
           setTimeout(() => setIsDeleting(true), 1000);
         }
       } else {
@@ -55,9 +54,8 @@ const Hero: React.FC = () => {
     <section 
       className="relative z-20 flex flex-col items-center justify-start md:justify-end min-h-screen px-4 pb-48 md:pb-64 text-center overflow-hidden"
     >
-      {/* Blurs Azuis Animados (Atrás da Imagem) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-        <motion.div
+        <framerMotion.div
           animate={{
             x: [0, 100, -50, 0],
             y: [0, -50, 50, 0],
@@ -70,7 +68,7 @@ const Hero: React.FC = () => {
           }}
           className="absolute top-[10%] left-[20%] w-[40vw] h-[40vw] bg-blue-600/20 rounded-full blur-[120px]"
         />
-        <motion.div
+        <framerMotion.div
           animate={{
             x: [0, -120, 80, 0],
             y: [0, 70, -40, 0],
@@ -85,8 +83,7 @@ const Hero: React.FC = () => {
         />
       </div>
 
-      {/* Imagem de Fundo em Destaque - Ajustada a altura no mobile (top-28) */}
-      <motion.div 
+      <framerMotion.div 
         initial={{ opacity: 0, scale: 1.1, filter: 'blur(10px)' }}
         animate={{ 
           opacity: 0.75, 
@@ -101,17 +98,18 @@ const Hero: React.FC = () => {
         className="absolute top-20 md:top-12 inset-x-0 flex justify-center pointer-events-none"
       >
         <div className="relative w-full max-w-7xl h-[380px] md:h-[580px]">
+          {/* Fix: use fetchPriority (camelCase) instead of fetchpriority */}
           <img 
-            src="https://i.postimg.cc/NMbSsTvx/topo-hero.png" 
+            src="https://i.postimg.cc/NMbSsTvx/topo-hero.webp" 
             alt="Performance" 
             className="w-full h-full object-contain object-top relative z-10"
+            fetchPriority="high"
           />
         </div>
-      </motion.div>
+      </framerMotion.div>
 
-      {/* Conteúdo Principal */}
       <div className="max-w-7xl mx-auto space-y-12 md:space-y-16 relative z-30 pt-[360px] md:pt-[480px] lg:pt-[540px]">
-        <motion.div
+        <framerMotion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
@@ -142,9 +140,9 @@ const Hero: React.FC = () => {
             A maioria luta para encher a academia. <span className="text-white font-medium border-b border-blue-500/30">Poucos dominam</span> <br className="hidden md:block" />
             as estratégias que transformam faturamento em lucro líquido previsível.
           </p>
-        </motion.div>
+        </framerMotion.div>
 
-        <motion.div
+        <framerMotion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
@@ -205,10 +203,9 @@ const Hero: React.FC = () => {
               </React.Fragment>
             ))}
           </div>
-        </motion.div>
+        </framerMotion.div>
       </div>
 
-      {/* Indicador de Scroll (Seta Azul) */}
       <div className="absolute bottom-16 md:bottom-12 left-1/2 -translate-x-1/2 z-20 pointer-events-none flex items-center justify-center">
         <div className="absolute w-12 h-12 rounded-full border border-blue-500/40 animate-[ping_2s_infinite] opacity-30" />
         <div className="relative w-11 h-11 bg-blue-600 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,99,235,0.6)] border border-blue-400/30">

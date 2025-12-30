@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 const FooterBranding: React.FC = () => {
   return (
     <section className="relative w-full h-[60vh] md:h-[80vh] bg-black overflow-hidden flex items-center justify-center z-10">
-      {/* Camadas de Pulso (Anéis de Energia) */}
       {[1, 2, 3, 4].map((index) => (
         <motion.div
           key={index}
@@ -25,10 +24,8 @@ const FooterBranding: React.FC = () => {
         />
       ))}
 
-      {/* Brilho Radial Centralizado (Glow) */}
       <div className="absolute w-[350px] h-[350px] md:w-[700px] md:h-[700px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
       
-      {/* Container da Logo Avance+ */}
       <div className="relative z-10">
         <motion.div
           animate={{ 
@@ -41,14 +38,13 @@ const FooterBranding: React.FC = () => {
           }}
           className="relative group"
         >
-          {/* Logo Ícone Avance+ (Versão minimalista solicitada) */}
           <img 
-            src="https://i.imgur.com/dVCUAnp.png" 
+            src="https://i.imgur.com/dVCUAnp.webp" 
             alt="Avance+ Icon" 
             className="h-28 md:h-44 w-auto object-contain brightness-110 drop-shadow-[0_0_40px_rgba(59,130,246,0.4)] transition-all duration-1000 group-hover:brightness-125"
+            loading="lazy"
           />
           
-          {/* Anel de órbita sutil */}
           <motion.div 
             animate={{ rotate: -360 }}
             transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
@@ -57,7 +53,6 @@ const FooterBranding: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Transição de seção */}
       <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-black to-transparent pointer-events-none" />
     </section>
   );

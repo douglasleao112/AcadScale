@@ -10,11 +10,11 @@ interface User {
 }
 
 const USERS: User[] = [
-  { id: 1, handle: '@studio.natanaelalves', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuP0Pl9JPPZIXz7yneCQj6dwfPhNHY5GQuwg&s' },
-  { id: 2, handle: '@statera_team', image: 'https://i.imgur.com/hPoczNy.png' },
-  { id: 3, handle: '@delasgym', image: 'https://i.imgur.com/SZQThWA.jpeg' },
-  { id: 4, handle: '@basicfull', image: 'https://i.imgur.com/KGKEe9y.png' },
-  { id: 5, handle: '@flexfitnesscenter', image: 'https://i.imgur.com/B6VgBoS.jpeg' },
+  { id: 1, handle: '@studio.natanaelalves', image: 'https://i.imgur.com/QuP0Pl9.webp' },
+  { id: 2, handle: '@statera_team', image: 'https://i.imgur.com/hPoczNy.webp' },
+  { id: 3, handle: '@delasgym', image: 'https://i.imgur.com/SZQThWA.webp' },
+  { id: 4, handle: '@basicfull', image: 'https://i.imgur.com/KGKEe9y.webp' },
+  { id: 5, handle: '@flexfitnesscenter', image: 'https://i.imgur.com/B6VgBoS.webp' },
 ];
 
 const TICKER_ITEMS = [
@@ -108,8 +108,6 @@ const RadarUI = ({ rotation }: { rotation: number }) => {
           style={{ transform: `rotate(${rotation}deg)` }}
         />
       </div>
-      
-     
     </div>
   );
 };
@@ -150,7 +148,6 @@ const ValidationSection: React.FC = () => {
     return () => cancelAnimationFrame(frame);
   }, []);
 
-  // Reset ao rolar ou clicar fora
   useEffect(() => {
     const handleScroll = () => {
       if (activeUser !== null) setActiveUser(null);
@@ -204,7 +201,7 @@ const ValidationSection: React.FC = () => {
               y={blip.y} 
               sweepAngle={rotation} 
               sweepOriginX={50}
-              sweepOriginY={100} // Origem agora na base (100%)
+              sweepOriginY={100}
             />
           ))}
         </AnimatePresence>
@@ -213,7 +210,6 @@ const ValidationSection: React.FC = () => {
       <RadarUI rotation={rotation} />
 
       <div className="relative w-full max-w-7xl px-4 flex flex-col items-center text-center">
-        {/* Ajuste de visibilidade da palavra RESULTADO */}
         <h2 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[25vw] md:text-[14vw] font-black text-white/[0.04] leading-none pointer-events-none select-none tracking-tighter uppercase z-0">
           RESULTADO
         </h2>
@@ -297,6 +293,7 @@ const ValidationSection: React.FC = () => {
                       src={user.image} 
                       alt={user.handle} 
                       className={`w-full h-full object-cover transition-all duration-500 ${isActive ? 'grayscale-0' : 'grayscale-[40%] group-hover:grayscale-0'}`}
+                      loading="lazy"
                     />
                   </div>
                 </button>

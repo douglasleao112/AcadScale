@@ -3,32 +3,32 @@ import React, { useEffect, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 
 const PHOTOS_ROW_1 = [
-  "https://i.imgur.com/coMNZ3A.jpeg",
-  "https://i.imgur.com/U8EoeTZ.jpeg",
-  "https://i.imgur.com/p6xlxym.jpeg",
-  "https://i.imgur.com/eGND2p0.jpeg",
-  "https://i.imgur.com/tXhNYSB.jpeg",
-  "https://i.imgur.com/1ghjCxE.jpeg",
-  "https://i.imgur.com/GUp6aI1.jpeg"
+  "https://i.imgur.com/coMNZ3A.webp",
+  "https://i.imgur.com/U8EoeTZ.webp",
+  "https://i.imgur.com/p6xlxym.webp",
+  "https://i.imgur.com/eGND2p0.webp",
+  "https://i.imgur.com/tXhNYSB.webp",
+  "https://i.imgur.com/1ghjCxE.webp",
+  "https://i.imgur.com/GUp6aI1.webp"
 ];
 
 const PHOTOS_ROW_2 = [
-  "https://i.imgur.com/yDSTnwm.jpeg",
-  "https://i.imgur.com/45aHz6z.jpeg",
-  "https://i.imgur.com/e5ZYQEO.jpeg",
-  "https://i.imgur.com/ecKn5ja.jpeg",
-  "https://i.imgur.com/7qBUAzZ.jpeg",
-  "https://i.imgur.com/X63EMhe.jpeg"
+  "https://i.imgur.com/yDSTnwm.webp",
+  "https://i.imgur.com/45aHz6z.webp",
+  "https://i.imgur.com/e5ZYQEO.webp",
+  "https://i.imgur.com/ecKn5ja.webp",
+  "https://i.imgur.com/7qBUAzZ.webp",
+  "https://i.imgur.com/X63EMhe.webp"
 ];
 
 const PHOTOS_ROW_3 = [
-  "https://i.imgur.com/z0WN0hL.jpeg",
-  "https://i.imgur.com/WjoaPMO.png",
-  "https://i.imgur.com/zc7fRl4.png",
-  "https://i.imgur.com/TR0ZZlu.png",
-  "https://i.imgur.com/n6K6A4x.png", 
-  "https://i.imgur.com/UZ9LKuU.png",
-  "https://i.imgur.com/RJ56mO4.png"
+  "https://i.imgur.com/z0WN0hL.webp",
+  "https://i.imgur.com/WjoaPMO.webp",
+  "https://i.imgur.com/zc7fRl4.webp",
+  "https://i.imgur.com/TR0ZZlu.webp",
+  "https://i.imgur.com/n6K6A4x.webp", 
+  "https://i.imgur.com/UZ9LKuU.webp",
+  "https://i.imgur.com/RJ56mO4.webp"
 ];
 
 const PhotoSlider: React.FC = () => {
@@ -42,7 +42,6 @@ const PhotoSlider: React.FC = () => {
     row3: null
   });
 
-  // Duplicamos apenas (x2) em vez de triplicar para economizar memória no mobile
   const row1 = [...PHOTOS_ROW_1, ...PHOTOS_ROW_1];
   const row2 = [...PHOTOS_ROW_2, ...PHOTOS_ROW_2];
   const row3 = [...PHOTOS_ROW_3, ...PHOTOS_ROW_3];
@@ -95,7 +94,6 @@ const PhotoSlider: React.FC = () => {
 
   return (
     <section className="relative w-full bg-black py-8 md:py-20 overflow-hidden">
-      {/* Máscaras de Gradiente Otimizadas */}
       <div className="absolute inset-y-0 left-0 w-16 md:w-64 bg-gradient-to-r from-black via-black/40 to-transparent z-20 pointer-events-none" />
       <div className="absolute inset-y-0 right-0 w-16 md:w-64 bg-gradient-to-l from-black via-black/40 to-transparent z-20 pointer-events-none" />
 
@@ -115,7 +113,6 @@ const PhotoSlider: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Row 1 */}
         <div className="flex overflow-hidden cursor-grab active:cursor-grabbing">
           <motion.div 
             className="flex gap-3 md:gap-8 flex-nowrap will-change-transform"
@@ -130,7 +127,6 @@ const PhotoSlider: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Row 2 */}
         <div className="flex overflow-hidden cursor-grab active:cursor-grabbing">
           <motion.div 
             className="flex gap-3 md:gap-8 flex-nowrap will-change-transform"
@@ -145,7 +141,6 @@ const PhotoSlider: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Row 3 */}
         <div className="flex overflow-hidden cursor-grab active:cursor-grabbing">
           <motion.div 
             className="flex gap-3 md:gap-8 flex-nowrap will-change-transform"
@@ -173,10 +168,8 @@ const PhotoItem: React.FC<{ src: string }> = ({ src }) => (
       loading="lazy"
       decoding="async"
     />
-    {/* Gradiente simplificado no mobile */}
     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
     
-    {/* Efeitos extras apenas para desktop */}
     <div className="hidden md:block absolute inset-0 opacity-0 group-hover/item:opacity-100 transition-opacity duration-700 pointer-events-none">
       <div className="absolute inset-0 border-2 border-white/10 rounded-3xl" />
       <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-cyan-500/5" />
