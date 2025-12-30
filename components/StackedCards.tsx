@@ -312,13 +312,16 @@ const StackedCards: React.FC = () => {
         if (index === 0) {
           gsap.set(card, { yPercent: 0, opacity: 1, scale: 1 });
         } else {
-          gsap.set(card, { yPercent: 100, opacity: 0, scale: 1 });
+          // Os cards agora começam em yPercent: 94 para mostrar uma borda no fundo (peeking)
+          // Opacidade em 0.4 para sugerir que o card está ali pronto para subir
+          gsap.set(card, { yPercent: 94, opacity: 0.4, scale: 1 });
         }
       });
 
       cards.forEach((card, index) => {
         if (index > 0) {
-          const startTime = index - 0.5;
+          // Mudamos startTime de 'index - 0.5' para 'index - 0.8' para o movimento ser mais imediato
+          const startTime = index - 0.8;
           tl.to(card, { yPercent: 0, duration: 1 }, startTime);
           tl.to(card, { opacity: 1, duration: 0.3 }, startTime);
           tl.to(cards[index - 1], {
@@ -337,7 +340,8 @@ const StackedCards: React.FC = () => {
   return (
     <div ref={triggerRef} className="relative w-full overflow-hidden bg-black">
       <section className="relative w-full h-screen flex items-center justify-center px-4 md:px-8 z-10">
-        <div className="relative w-full max-w-7xl h-[88vh] md:h-[75vh]">
+        {/* Reduzida altura de h-[88vh] para h-[82vh] para garantir que a borda do próximo card seja visível no mobile */}
+        <div className="relative w-full max-w-7xl h-[82vh] md:h-[75vh]">
           {CARDS_DATA.map((card, index) => (
             <div
               key={card.id}
