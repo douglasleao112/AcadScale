@@ -33,9 +33,9 @@ const PARTNERS: Partner[] = [
     name: 'Douglas Leão',
     role: 'Doutor em Performance e Growth',
     bio: [
-      "Doutor em Educação Física e Nutrição, with more than 10 years of experience in the fitness market. Entrepreneur in the areas of health, aesthetics, and technology.",
-      "Mentor of professionals and gyms in processes, service, and relationships. Reference in marketing, positioning, sales, and growth in the sector.",
-      "Douglas brings science applied to management, combining high-end technical knowledge with the commercial aggressiveness necessary to scale businesses that turnover millions."
+      "Doutor em Educação Física e Nutrição, com mais de 10 anos de experiência no mercado fitness.Empresário nas áreas de saúde, estética e tecnologia.",
+      "Mentor de profissionais e academias em processos, atendimento e relacionamento com o cliente. Referência em marketing, posicionamento, vendas e growth no setor.",
+      "Douglas aplica ciência à gestão, unindo conhecimento técnico de alto nível à agressividade comercial necessária para escalar negócios que faturam milhões."
     ],
     image: 'https://i.imgur.com/47sPVAl.png',
     stats: [
@@ -48,9 +48,9 @@ const PARTNERS: Partner[] = [
     name: 'Fábio Rocha',
     role: 'Especialista em Expansão e Liderança',
     bio: [
-      "Formado em educação física a mais de 10 anos, empreendedor, visionário, palestrante e treinador de pessoas especialista em expansão de negócios.",
-      "Fábio Rocha é destaque quando o assunto é expansão e escala em academias locais, já transformou espaços simples em negócios com grandes resultados através da liderança de alta performance.",
-      "Sua visão é transformar a operação técnica em uma máquina de escala, garantindo que o crescimento venha acompanhado de uma cultura forte e processos blindados."
+      "Graduado em Educação Física, empresário e especialista em liderança e formação de equipes, Fábio Rocha atua no desenvolvimento de pessoas conectando comportamento e resultado direto na operação.",
+      "Possui MBA em liderança de times comerciais, unindo visão estratégica, gestão de pessoas e processos de vendas. É co-autor do livro 'DNA da Liderança' e criador do método 'Academia do Líder'.",
+      "Ao longo de sua trajetória, desenvolveu mais de 300 líderes por meio de treinamentos e mentorias em vários estados do Brasil, atendendo empresas de diferentes segmentos com a convicção de que a liderança se constrói pelo exemplo."
     ],
     image: 'https://i.imgur.com/BAskeMm.png',
     stats: [

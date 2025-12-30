@@ -88,7 +88,7 @@ const CycleDollarIcon = () => (
     className="relative w-48 h-48 md:w-96 md:h-96 flex items-center justify-center p-4"
   >
     <div className="absolute inset-0 bg-blue-500/10 blur-[60px] md:blur-[100px] rounded-full animate-pulse" />
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full overflow-visible">
       <defs>
         <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#60a5fa" />
@@ -121,7 +121,7 @@ const PerformanceIcon = () => (
     className="relative w-48 h-48 md:w-96 md:h-96 flex items-center justify-center p-4"
   >
     <div className="absolute inset-0 bg-orange-500/10 blur-[60px] md:blur-[100px] rounded-full animate-pulse" />
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full overflow-visible">
       <defs>
         <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#f97316" />
@@ -129,40 +129,40 @@ const PerformanceIcon = () => (
         </linearGradient>
       </defs>
       
-      {/* Base do gráfico */}
+      {/* Base do gráfico - Movida para y=23 */}
       <motion.rect 
         initial={{ opacity: 0, scaleX: 0 }}
         animate={{ opacity: 1, scaleX: 1 }}
         transition={{ duration: 0.8 }}
-        x="2" y="21" width="20" height="1.2" rx="0.6" fill="url(#iconGrad)" 
+        x="2" y="23" width="20" height="1" rx="0.5" fill="url(#iconGrad)" 
       />
       
-      {/* Colunas animadas */}
+      {/* Colunas animadas - Deslocadas 2 unidades para baixo */}
       <motion.rect 
-        initial={{ height: 0, y: 20 }} 
-        animate={{ height: 6, y: 14 }} 
+        initial={{ height: 0, y: 22 }} 
+        animate={{ height: 6, y: 16 }} 
         transition={{ delay: 0.5, duration: 0.6 }}
         x="4" width="4" rx="1.2" fill="url(#iconGrad)" fillOpacity="0.4" 
       />
       <motion.rect 
-        initial={{ height: 0, y: 20 }} 
-        animate={{ height: 10, y: 10 }} 
+        initial={{ height: 0, y: 22 }} 
+        animate={{ height: 10, y: 12 }} 
         transition={{ delay: 0.7, duration: 0.6 }}
         x="10" width="4" rx="1.2" fill="url(#iconGrad)" fillOpacity="0.7" 
       />
       <motion.rect 
-        initial={{ height: 0, y: 20 }} 
-        animate={{ height: 14, y: 6 }} 
+        initial={{ height: 0, y: 22 }} 
+        animate={{ height: 14, y: 8 }} 
         transition={{ delay: 0.9, duration: 0.6 }}
         x="16" width="4" rx="1.2" fill="url(#iconGrad)" 
       />
       
-      {/* Seta de Crescimento - Ajustada mais para cima (deslocamento vertical de -2) */}
+      {/* Seta de Crescimento - Reajustada para ficar dentro do viewBox (topo em y=1.5) */}
       <motion.path 
         initial={{ pathLength: 0, opacity: 0 }}
         animate={{ pathLength: 1, opacity: 1 }}
         transition={{ delay: 1.3, duration: 1.2, ease: "easeOut" }}
-        d="M2 8H5L9 4H13L18 -0.5M18 -0.5H14.5M18 -0.5V3" 
+        d="M2 10H5L9 6H13L18 1.5M18 1.5H14.5M18 1.5V5" 
         stroke="url(#iconGrad)" 
         strokeWidth="1.8" 
         strokeLinecap="round" 
@@ -180,7 +180,7 @@ const MetricsPieIcon = () => (
     className="relative w-48 h-48 md:w-96 md:h-96 flex items-center justify-center p-4"
   >
     <div className="absolute inset-0 bg-emerald-500/10 blur-[60px] md:blur-[120px] rounded-full animate-pulse" />
-    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+    <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full overflow-visible">
       <defs>
         <linearGradient id="pieGrad" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#10b981" />
