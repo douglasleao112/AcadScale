@@ -247,7 +247,7 @@ const ComparisonSection: React.FC = () => {
             className="relative"
           >
             <a
-              href="https://chat.whatsapp.com/BWCnxuMkAg975dRRzOJJBg"
+              href="https://avancemais.netlify.app/form/"
               target="_blank"
               rel="noopener noreferrer"
               className="relative p-[1.5px] rounded-full group scale-105 md:scale-[1.1] transition-transform duration-500 hover:scale-[1.1] md:hover:scale-[1.15] block"
@@ -266,7 +266,7 @@ const ComparisonSection: React.FC = () => {
                 </div>
 
                 <span className="text-white font-extrabold tracking-[0.2em] text-sm md:text-lg uppercase relative z-20">
-                  Faça parte do grupo
+                  Faça sua aplicação
                 </span>
 
                 <svg

@@ -90,7 +90,7 @@ const ObjectiveSection: React.FC = () => {
             Qual é o seu objetivo?
           </h3>
           <p className="text-white/60 text-sm md:text-xl max-w-3xl mx-auto font-light leading-relaxed">
-            Selecione o seu segmento abaixo para ver os detalhes. Se fizer sentido para sua operação, me chame no WhatsApp para alinharmos o projeto.
+            Selecione o seu segmento abaixo para ver os detalhes. Se fizer sentido para sua operação, preencha a aplicação para alinharmos o projeto.
           </p>
         </div>
 
@@ -170,7 +170,7 @@ const ObjectiveSection: React.FC = () => {
 
               <div className="pt-4 md:pt-8 pb-10 md:pb-0 flex justify-center md:justify-start">
                 <a 
-                  href="https://chat.whatsapp.com/BWCnxuMkAg975dRRzOJJBg"
+                  href="https://avancemais.netlify.app/form/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="relative p-[1.5px] rounded-full group transition-transform duration-500 hover:scale-[1.05] block w-fit"
@@ -189,7 +189,7 @@ const ObjectiveSection: React.FC = () => {
                     </div>
 
                     <span className="text-white font-extrabold tracking-[0.2em] text-sm md:text-base uppercase relative z-20">
-                      Faça parte do grupo
+                      Faça sua aplicação
                     </span>
                     
                     <svg 
