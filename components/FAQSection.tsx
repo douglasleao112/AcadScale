@@ -10,36 +10,40 @@ interface FAQItem {
 
 const FAQS: FAQItem[] = [
   {
-    question: "Já tenho uma página. Por que refazer tudo?",
-    answer: "Ter uma página é diferente de ter um ativo de vendas. Refazemos para aplicar o método FRAME, otimizar a velocidade de carregamento e garantir que cada elemento do design guie o usuário para a conversão, algo que templates comuns não fazem."
+    question: "A Avance é como uma consultoria?",
+    answer: " Não é consultoria tradicional. A AVANCE+ atua como conselho estratégico, entrando no negócio para orientar decisões que aumentam o lucro líquido, não para dar opinião solta ou entregar material genérico."
   },
   {
-    question: "Você faz só o layout ou também a copy?",
-    answer: "Fazemos o projeto completo. Um design premium sem uma narrativa estratégica (copy) é apenas um desenho bonito. Unimos os dois para que sua página venda por conta própria."
+    question: "Vocês vão me dizer exatamente o que fazer ou só orientar?",
+    answer: "Nós direcionamos decisões estratégicas, mas a execução acontece dentro da sua operação. O foco é tirar você do improviso e colocar controle, clareza e previsibilidade no negócio."
   },
   {
-    question: "E depois que a página for entregue, acabou?",
-    answer: "Não. Monitoramos o comportamento dos usuários nos primeiros dias após o lançamento e oferecemos suporte para garantir que a performance técnica esteja impecável."
+    question: "Isso serve para academia pequena ou só para grandes?",
+    answer: "Serve para academias e estúdios que já entenderam que o problema não é esforço, é gestão. Não importa o tamanho. Importa o nível de maturidade e disposição para decidir com estratégia."
   },
   {
-    question: "Você também cuida da hospedagem ou integrações?",
-    answer: "Sim, cuidamos de toda a parte técnica: configuração de domínio, hospedagem de alta performance e integrações com seu checkout, CRM ou ferramentas de e-mail marketing."
+    question: "Meu problema é marketing. Isso resolve?",
+    answer: "Marketing sem estrutura só acelera o caos.Aqui o foco é direção estratégica, organização financeira, precificação e modelo de crescimento. Marketing entra depois, com função clara: gerar lucro, não movimento."
   },
   {
-    question: "E se eu tiver um time de tráfego ou lançamento?",
-    answer: "Trabalhamos em total sinergia. Facilitamos a vida do seu gestor de tráfego entregando páginas que maximizam o ROI do investimento em anúncios."
+    question: "Vocês prometem aumentar faturamento?",
+    answer: "Não trabalhamos com promessa de faturamento. Trabalhamos para aumentar lucro líquido, controlar custos, melhorar ticket e organizar crescimento.Faturar mais sem lucro não é vitória."
   },
   {
-    question: "Quanto tempo leva pra ver resultado?",
-    answer: "O impacto técnico (velocidade e retenção) é imediato. Assim que o tráfego for direcionado, as métricas de conversão tendem a estabilizar em patamares superiores aos de páginas comuns em menos de 48h."
+    question: "Em quanto tempo eu vejo resultado?",
+    answer: "Clareza e controle vêm rápido. Resultado sustentável vem conforme as decisões estratégicas passam a ser aplicadas.Isso não é atalho. É construção de empresa."
   },
   {
-    question: "E se eu quiser ajustar algo depois?",
-    answer: "Você terá total autonomia. Entregamos a página em uma estrutura fácil de gerenciar, mas também oferecemos planos de manutenção caso prefira que nossa equipe cuide de tudo."
+    question: "Vocês vão mexer na minha operação ou só analisar?",
+    answer: "Analisamos, diagnosticamos e direcionamos ajustes estratégicos em operação, equipe, precificação e modelo de negócio. Não entramos para “assistir”. Entramos para orientar decisões que mudam o jogo."
   },
   {
-    question: "Isso é pra mim mesmo?",
-    answer: "Se você vende produtos, serviços ou infoprodutos e sente que seu faturamento está 'travado' ou que seu custo por lead está alto, essa metodologia foi feita exatamente para você escalar."
+    question: "E se minha academia já estiver dando lucro?",
+    answer: "Ótimo. A pergunta passa a ser: esse lucro é previsível, escalável e protegido, ou depende do seu esforço diário? A AVANCE+ trabalha para transformar lucro instável em lucro estruturado."
+  },
+  {
+    question: "E se eu não gostar ou não fizer sentido?",
+    answer: "Você simplesmente não avança. A AVANCE+ não é para todo mundo, e isso é intencional."
   }
 ];
 
