@@ -49,8 +49,8 @@ const StrategySection: React.FC = () => {
         >
           {/* Título com quebra forçada no desktop para 2 linhas */}
           <h2 className="text-3xl md:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] max-w-[15ch] md:max-w-none mx-auto drop-shadow-[0_15px_40px_rgba(0,0,0,0.9)]">
-            O que realmente muda quando <br className="hidden md:block" />
-            sua página é feita com estratégia
+            O que realmente muda quando  <br className="hidden md:block" />
+            sua academia é gerida com estratégia
           </h2>
           
           {/* Destaque Serifado Itálico */}
@@ -74,8 +74,8 @@ const StrategySection: React.FC = () => {
           className="max-w-3xl mx-auto px-4"
         >
           <p className="text-lg md:text-2xl text-white/80 leading-relaxed font-light tracking-wide drop-shadow-[0_4px_15px_rgba(0,0,0,0.8)]">
-            Mais atenção, mais conexão, mais decisão. Sua página passa <br className="hidden md:block" />
-            a trabalhar como um ativo de vendas, não como um enfeite.
+            Mais clareza, mais direção, mais controle. Sua academia passa a operar como uma empresa estratégica, não como um negócio conduzido no improviso.<br className="hidden md:block" />
+            
           </p>
         </motion.div>
 

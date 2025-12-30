@@ -137,8 +137,8 @@ const Hero: React.FC = () => {
             style={{ textShadow: '0 4px 12px rgba(0,0,0,0.9)' }}
             className="text-lg md:text-2xl text-white/80 font-light max-w-4xl mx-auto leading-relaxed tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] px-4"
           >
-            A maioria procura lotar a academia. <span className="text-white font-medium border-b border-blue-500/30">Poucos dominam</span> <br className="hidden md:block" />
-            as estratégias que aumentam o lucro real.
+            A maioria luta para encher a academia. <span className="text-white font-medium border-b border-blue-500/30">Poucos dominam</span> <br className="hidden md:block" />
+            as estratégias que transformam faturamento em lucro líquido previsível.
           </p>
         </motion.div>
 

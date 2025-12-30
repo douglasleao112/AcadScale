@@ -20,7 +20,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                className="h-10 w-auto brightness-110 opacity-20" 
              />
              <p className="text-[10px] font-bold text-white/20 uppercase tracking-[0.3em] text-left">
-               Design & Performance para High Stakes
+               Cresça com estratégia, lucre com gestão.
              </p>
           </div>
 

@@ -13,22 +13,22 @@ const ComparisonSection: React.FC = () => {
   };
 
   const commonPoints = [
-    { text: "Página que ", bold: "desperdiça seu tráfego" },
-    { text: "Site com ", bold: "carregamento lento" },
-    { text: "Copy que ", bold: "não conecta o usuário" },
-    { text: "Sem nenhuma ", bold: "análise de dados" },
-    { text: "Sem nenhuma ", bold: "otimização pós-entrega" },
-    { text: "", bold: "DESIGNER ENTREGA O LINK E SOME..." },
+    { text: "Atua no sintoma ", bold: "não no problema" },
+    { text: "Foco em faturamento ", bold: "não em lucro líquido" },
+    { text: "Nenhuma visão ", bold: "estratégica do negócio" },
+    { text: "Decisões baseadas ", bold: "em achismo ou tentativa e erro" },
+    { text: "Falta de ", bold: "acompanhamento e direção contínua" },
+    { text: "", bold: "ENTREGA UMA ESTRATÉGIA E SOME..." },
   ];
 
   const premiumPoints = [
-    { title: "Página criada com MÉTODO", sub: "Não achismo..." },
-    { title: "Estrutura que guia o usuário", sub: "" },
-    { title: "Copy que engaja e retém", sub: "" },
-    { title: "Performance Extrema", sub: "" },
-    { title: "Um parceiro estrategista", sub: "" },
-    { title: "Otimização com dados reais", sub: "" },
-    { title: "Suporte após a entrega", sub: "" },
+    { title: "Decisões guiadas por método validado", sub: "Não achismo..." },
+    { title: "Estrutura estratégica do negócio", sub: "" },
+    { title: "Foco absoluto em lucro líquido previsível", sub: "" },
+    { title: "Análise de números reais: custos, margem e churn", sub: "" },
+    { title: "Acompanhamento estratégico contínuo", sub: "" },
+    { title: "Atuação como conselho, não fornecedor", sub: "" },
+    { title: "Otimização constante baseada em dados", sub: "" },
   ];
 
   const words = [
@@ -90,7 +90,7 @@ const ComparisonSection: React.FC = () => {
           >
             <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
             <span className="text-[10px] md:text-xs font-bold text-blue-300 uppercase tracking-[0.2em]">
-              Uma entrega diferente do mercado
+              CONSELHO ESTRATÉGICO DE VERDADE
             </span>
           </motion.div>
 
@@ -100,7 +100,7 @@ const ComparisonSection: React.FC = () => {
             viewport={{ margin: "-100px" }}
             className="text-4xl md:text-7xl font-bold text-white tracking-tight"
           >
-            Seja sincero... <span className="font-serif-italic italic font-normal text-blue-400/90">o que você prefere?</span>
+            Seja sincero. <span className="font-serif-italic italic font-normal text-blue-400/90">O que você prefere?</span>
           </motion.h2>
 
           <motion.p
@@ -109,7 +109,7 @@ const ComparisonSection: React.FC = () => {
             viewport={{ margin: "-100px" }}
             className="text-white/50 text-base md:text-xl font-light"
           >
-            Dois tipos de entrega. Um único resultado que importa: <span className="text-white font-bold">vender.</span>
+            Dois tipos de entrega. Um único resultado que importa: <span className="text-white font-bold">LUCRO LÍQUIDO</span>
           </motion.p>
         </div>
 
@@ -128,7 +128,7 @@ const ComparisonSection: React.FC = () => {
               </div>
 
               <h3 className="text-2xl md:text-3xl font-black text-slate-900 leading-tight">
-                Entrega comum dos <br /> "Web Designers"
+                Entrega comum <br /> do mercado
               </h3>
 
               <ul className="space-y-4 w-full">
@@ -165,7 +165,7 @@ const ComparisonSection: React.FC = () => {
               />
 
               <div className="text-center">
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-1">Minha entrega:</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-1">Entrega da AVANCE+</h3>
                 <p className="text-[10px] md:text-xs text-white/40 uppercase tracking-[0.2em] font-bold">Marque o que faz sentido pra você:</p>
               </div>
 
@@ -221,7 +221,7 @@ const ComparisonSection: React.FC = () => {
 
               <div className="pt-6 border-t border-white/5 w-full text-center">
                 <p className="text-[10px] md:text-xs text-white/40 leading-relaxed italic">
-                  Se você valoriza pelo menos 3 desses pontos, <br /> já entendeu meu trabalho.
+                  Se pelo menos 3 desses pontos são essenciais <br /> para você, então já entendeu o que a AVANCE+ faz.
                 </p>
               </div>
             </div>
@@ -236,7 +236,7 @@ const ComparisonSection: React.FC = () => {
             viewport={{ once: true }}
             className="text-white/80 text-lg md:text-2xl font-light max-w-2xl leading-relaxed"
           >
-            Não é sobre página. É sobre construir a <span className="text-white font-bold">estrutura certa</span> para converter mais e aumentar suas conversões.
+            Não é sobre marketing. É sobre estruturar uma <span className="text-white font-bold"> empresa lucrativa.</span>
           </motion.p>
 
           <motion.div

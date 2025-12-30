@@ -172,19 +172,19 @@ const MetricsPieIcon = () => (
 const CARDS_DATA = [
   {
     id: 1,
-    badge: "Páginas rápidas",
+    badge: "MÉTODO AVANCE+",
     badgeColor: "emerald",
-    title: "Performance e Otimização",
-    description: "Desenvolvemos páginas rápidas e seguras, evitando a perda de visitantes no caminho do clique.",
+    title: "Performance e Lucratividade",
+    description: "Atuamos diretamente na estrutura do negócio para eliminar desperdícios, corrigir gargalos e transformar faturamento em lucro líquido previsível.",
     leftContent: (
       <div className="flex gap-3 md:gap-4 w-full">
         <div className="bg-[#0d0d0d] border border-white/5 p-3 md:p-8 rounded-[1.2rem] md:rounded-[2rem] flex flex-col items-start min-w-[120px] md:min-w-[160px] flex-1">
-          <p className="text-[7px] md:text-[9px] text-white/40 uppercase tracking-[0.2em] font-black mb-1 md:mb-3">Custo por Clique</p>
+          <p className="text-[7px] md:text-[9px] text-white/40 uppercase tracking-[0.2em] font-black mb-1 md:mb-3">Custo Operacional</p>
           <p className="text-sm md:text-2xl font-black text-red-500 tracking-tight">Reduzido</p>
           <TrendingDown className="w-5 h-5 md:w-8 md:h-10 text-red-500/45 mt-3 md:mt-7" />
         </div>
         <div className="bg-[#0d0d0d] border border-white/5 p-3 md:p-8 rounded-[1.2rem] md:rounded-[2rem] flex flex-col items-start min-w-[120px] md:min-w-[160px] flex-1">
-          <p className="text-[7px] md:text-[9px] text-white/40 uppercase tracking-[0.2em] font-black mb-1 md:mb-3">Taxa de Retenção</p>
+          <p className="text-[7px] md:text-[9px] text-white/40 uppercase tracking-[0.2em] font-black mb-1 md:mb-3">Lucro Líquido</p>
           <p className="text-sm md:text-2xl font-black text-emerald-400 tracking-tight">Aumentada</p>
           <TrendingUp className="w-5 h-5 md:w-8 md:h-10 text-emerald-400/45 mt-3 md:mt-7" />
         </div>
@@ -194,13 +194,13 @@ const CARDS_DATA = [
   },
   {
     id: 2,
-    badge: "Texto para vendas",
+    badge: "ESTRATÉGIA COMERCIAL",
     badgeColor: "amber",
-    title: "CopyWriting Premium",
-    description: "Textos que influenciam a tomada de decisão com estética premium.",
+    title: "Estratégia Comercial",
+    description: "Atuamos diretamente nas decisões comerciais, precificação e posicionamento para que cada ação gere retorno financeiro real.",
     leftContent: (
       <div className="flex flex-col gap-1.5 w-full max-w-[240px]">
-        {["Estética", "Copy com Propósito", "Resultado"].map((step, i) => (
+        {["PRECIFICAÇÃO", "POLÍTICA COMERCIAL", "LUCRO LÍQUIDO"].map((step, i) => (
           <React.Fragment key={i}>
             <div className="w-full bg-[#0d0d0d] border border-white/5 py-2.5 px-4 rounded-lg text-center shadow-2xl transition-all hover:border-white/20">
               <span className="text-[8px] md:text-[11px] font-black text-white uppercase tracking-[0.25em]">
@@ -220,13 +220,13 @@ const CARDS_DATA = [
   },
   {
     id: 3,
-    badge: "Metodologia Validada",
+    badge: "METODOLOGIA VALIDADA",
     badgeColor: "purple",
-    title: "Método FRAME",
-    description: "Estruturamos páginas que prendem atenção e guiam o usuário.",
+    title: "Método AVANCE+",
+    description: "Estruturamos o negócio da academia para atrair e fidelizar clientes, com lucro previsível e reduzir Churn.",
     leftContent: (
       <div className="space-y-2 md:space-y-4 w-full max-w-[280px]">
-        {['F - Fundamento', 'R - Retenção', 'A - Arquitetura'].map((text, i) => (
+        {['R - Receita', 'R - Retenção', 'R - Resultado'].map((text, i) => (
           <div key={i} className="flex items-center gap-3 bg-white/[0.02] border border-white/10 p-2 md:p-4 rounded-lg md:rounded-[1.2rem]">
             <div className="w-6 h-6 md:w-8 md:h-8 rounded bg-purple-500/20 flex items-center justify-center text-[9px] md:text-xs font-black text-purple-400 border border-purple-500/30">
               {text[0]}
@@ -240,19 +240,19 @@ const CARDS_DATA = [
   },
   {
     id: 4,
-    badge: "Quebra de objeções",
+    badge: "GESTÃO E OTIMIZAÇÃO",
     badgeColor: "cyan",
     title: "Análise de Dados Reais",
-    description: "Analisamos o comportamento através de mapas de calor.",
+    description: "Analisamos números financeiros, operação, vendas e estrutura para orientar decisões que aumentam o lucro líquido.",
     leftContent: (
       <div className="flex gap-3 w-full">
         <div className="bg-[#0d0d0d] border border-white/10 p-4 md:p-8 rounded-[1.2rem] md:rounded-[2rem] flex flex-col items-start min-w-[120px] flex-1">
-          <p className="text-[7px] md:text-[9px] text-white/40 uppercase tracking-[0.2em] font-black mb-1 md:mb-3">Conduzir o Olhar</p>
-          <p className="text-sm md:text-2xl font-black text-emerald-400 tracking-tight">Efetivo</p>
+          <p className="text-[7px] md:text-[9px] text-white/40 uppercase tracking-[0.2em] font-black mb-1 md:mb-3">Tomada de decisão</p>
+          <p className="text-sm md:text-2xl font-black text-emerald-400 tracking-tight">Clara</p>
         </div>
         <div className="bg-[#0d0d0d] border border-white/10 p-4 md:p-8 rounded-[1.2rem] md:rounded-[2rem] flex flex-col items-start min-w-[120px] flex-1">
-          <p className="text-[7px] md:text-[9px] text-white/40 uppercase tracking-[0.2em] font-black mb-1 md:mb-3">Guiar o Clique</p>
-          <p className="text-sm md:text-2xl font-black text-cyan-400 tracking-tight">Otimizado</p>
+          <p className="text-[7px] md:text-[9px] text-white/40 uppercase tracking-[0.2em] font-black mb-1 md:mb-3">Estratégia</p>
+          <p className="text-sm md:text-2xl font-black text-cyan-400 tracking-tight">Direcionada</p>
         </div>
       </div>
     ),

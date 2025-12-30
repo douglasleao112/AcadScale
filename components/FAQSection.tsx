@@ -60,7 +60,7 @@ const FAQSection: React.FC = () => {
         >
           <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
           <span className="text-[10px] md:text-xs font-bold text-blue-300 uppercase tracking-[0.2em]">
-            Mas, Fernando???
+            Mas, e agora???
           </span>
         </motion.div>
 

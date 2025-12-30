@@ -16,55 +16,55 @@ interface TabContent {
 
 const TABS: TabContent[] = [
   {
-    id: 'douglas',
-    label: 'Douglas',
-    image: 'https://i.imgur.com/RBrL00f.png',
-    badge: 'Promova suas ofertas',
-    title: 'Página de vendas',
-    description: 'A página de vendas é onde a mágica acontece. É o local onde você apresenta seu product ou serviço de forma convincente, orientando seus visitantes a agir. Minha abordagem de webdesign de alta qualidade garantirá que a sua página de vendas seja atraente, informativa e confiável.',
+    id: 'Escala',
+    label: 'Escala',
+    image: 'https://i.imgur.com/RKjSgyg.png',
+    badge: 'Estrutura de Crescimento',
+    title: 'Estrutura de Escala Comercial',
+    description: 'Este é o ponto onde estruturamos a forma como sua academia cresce. Nada de improviso ou tentativa e erro. Aqui, cada decisão comercial é pensada para aumentar faturamento sem perder margem, controle e previsibilidade.',
     features: [
-      'Estrutura de conversão validada',
-      'Design Premium (Conversão)',
-      'Copy estratégica com funil',
-      'Performance Extrema',
-      'Instalação de Pixel Facebook/GTM',
-      'Otimização pós-lançamento (Análise de dados)'
+      'Ticket médio estruturado',
+      'Receita previsível',
+      'Estrutura de decisão orientada a lucro',
+      'Posicionamento claro da oferta',
+      'Clareza de números e metas',
+      'Crescimento com controle'
     ],
-    color: 'rgba(59, 130, 246, 0.4)'
+    color: 'rgba(0, 0, 0, 0.7)'
   },
   {
-    id: 'victor',
-    label: 'Victor',
-    image: 'https://i.imgur.com/YCDNuUU.png',
-    badge: 'Promova sua marca',
-    title: 'Landing Page',
-    description: 'Você é um especialista na sua área. Sua landing page precisa refletir essa autoridade. Minha metodologia de design transforma sua autoridade em uma landing page estratégica, focada em qualificar leads e gerar decisões.',
+    id: 'posicionamento',
+    label: 'Posicionamento',
+    image: 'https://i.imgur.com/IcBuJJI.png',
+    badge: 'POSICIONAMENTO ESTRATÉGICO',
+    title: 'Autoridade e Decisão',
+    description: 'Se você é referência técnica, sua operação precisa refletir isso. Aqui estruturamos a forma como sua academia se apresenta, comunica valor e gera decisões estratégicas, sem promessas vazias ou marketing superficial.',
     features: [
-      'Estrutura de conversão validada',
-      'Design Premium (Autoridade)',
-      'Copy estratégica com funil específico',
-      'Performance Extrema',
-      'Instalação de Pixel Facebook/GTM',
-      'Otimização pós-lançamento (Análise de dados)'
+      'Posicionamento claro e coerente',
+      'Autoridade construída com método',
+      'Comunicação alinhada à estratégia do negócio',
+      'Entrada qualificada de oportunidades',
+      'Clareza de proposta e diferenciação',
+      'Decisão guiada por estratégia, não estética'
     ],
-    color: 'rgba(234, 179, 8, 0.4)'
+    color: 'rgba(0, 0, 0, 0.7)'
   },
   {
-    id: 'fabio',
-    label: 'Fabio',
-    image: 'https://i.imgur.com/6RSnLxR.png',
-    badge: 'Filtre seu público',
-    title: 'Captura + Obrigado',
-    description: 'É o local onde você filtra seu público, oferecendo uma promessa clara em troca do contato. Minha abordagem de webdesign garante que sua página seja magnética, objetiva e construída para a máxima conversão de visitantes em leads qualificados.',
+    id: 'Diagnóstico',
+    label: 'Diagnóstico',
+    image: 'https://i.imgur.com/JyYME92.png',
+    badge: 'FILTRO DE PERFIL EMPRESARIAL',
+    title: 'Entrada estratégica',
+    description: 'Este é o primeiro ponto de contato para entender se sua academia tem perfil para crescer com estratégia. Aqui, o objetivo não é volume, e sim clareza: identificar gargalos, organizar prioridades e definir os próximos passos antes de decisões maiores.',
     features: [
-      'Estrutura de captação validada',
-      'Design Premium (Credibilidade)',
-      'Copy estratégica com funil',
-      'Performance Extrema',
-      'Instalação de Pixel Facebook/GTM',
-      'Otimização pós-lançamento (Análise de dados)'
+      'Diagnóstico estratégico inicial',
+      'Identificação de gargalos críticos',
+      'Avaliação básica da operação atual',
+      'Clareza de prioridades',
+      'Direcionamento de próximos passos',
+      'Filtro de perfil para crescimento estruturado'
     ],
-    color: 'rgba(0, 255, 200, 0.4)'
+    color: 'rgba(0, 0, 0, 0.7)'
   }
 ];
 
@@ -90,7 +90,7 @@ const ObjectiveSection: React.FC = () => {
             Qual é o seu objetivo?
           </h3>
           <p className="text-white/60 text-sm md:text-xl max-w-3xl mx-auto font-light leading-relaxed">
-            Selecione o seu segmento abaixo para ver os detalhes da entrega. Se fizer sentido para sua operação, me chame no WhatsApp para alinharmos o projeto.
+            Selecione o seu segmento abaixo para ver os detalhes. Se fizer sentido para sua operação, me chame no WhatsApp para alinharmos o projeto.
           </p>
         </div>
 
@@ -167,10 +167,6 @@ const ObjectiveSection: React.FC = () => {
                   {activeTab.title}
                 </h4>
 
-                <div className="space-y-1">
-                  <p className="text-white/40 text-sm uppercase tracking-widest font-bold">à partir de:</p>
-                  <p className="text-2xl md:text-4xl font-bold text-white">Sob orçamento</p>
-                </div>
 
                 <p className="text-white/70 text-base md:text-lg leading-relaxed font-light">
                   {activeTab.description}

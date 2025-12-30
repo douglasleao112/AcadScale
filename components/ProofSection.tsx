@@ -43,9 +43,9 @@ const ProofSection: React.FC = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   const stats = [
-    { value: "+93%", label: "Connect Rate" },
-    { value: "-38%", label: "no Custo por Lead (CPL)" },
-    { value: "+22%", label: "no CTR da página" },
+    { value: "+93%", label: "Retenção" },
+    { value: "-12%", label: "Churn" },
+    { value: "+42%", label: "Lucro Líquido" },
   ];
 
   return (
@@ -74,7 +74,7 @@ const ProofSection: React.FC = () => {
             className="bg-white px-8 py-3 md:px-16 md:py-5 rounded-full shadow-[0_20px_50px_rgba(255,255,255,0.1)]"
           >
             <span className="text-black text-xl md:text-4xl font-bold tracking-tight">
-              de quem vive a operação.
+              de quem vive a operação todos os dias.
             </span>
           </motion.div>
 
@@ -85,8 +85,7 @@ const ProofSection: React.FC = () => {
             transition={{ delay: 0.3 }}
             className="mt-10 text-white/60 text-sm md:text-lg max-w-3xl leading-relaxed font-light"
           >
-            Ouça diretamente de quem escala milhares de reais. Veja o Igor Reis explicar os resultados, 
-            os bastidores e o impacto de ter páginas de alta performance alinhadas à sua estratégia.
+            Ouça quem vive a operação real e entende o impacto de decisões estratégicas bem feitas.
           </motion.p>
         </div>
 
@@ -111,7 +110,7 @@ const ProofSection: React.FC = () => {
               </div>
               <div>
                 <h4 className="text-white font-bold text-lg">Igor Reis</h4>
-                <p className="text-white/40 text-xs uppercase tracking-widest">Empreendedor digital (+150M faturados)</p>
+                <p className="text-white/40 text-xs uppercase tracking-widest">Empreendedor</p>
               </div>
             </div>
 
@@ -119,9 +118,10 @@ const ProofSection: React.FC = () => {
 
             <div className="space-y-6">
               <p className="text-white/80 text-base md:text-lg leading-relaxed font-light">
-                O Igor já era peixe grande no digital. Neste vídeo, ele mostra os bastidores de como nossas 
-                <span className="text-white font-semibold"> páginas foram cruciais </span> 
-                para sustentar o nível e os resultados da sua operação.
+               O Igor já operava em grande escala. Neste depoimento, ele mostra os bastidores 
+               das decisões estratégicas que sustentam uma <span className="text-white font-semibold">operação desse porte</span>  e o impacto 
+               de estruturar o negócio com método, clareza e direção. 
+          
               </p>
               
               <p className="text-white/40 text-sm md:text-base italic font-serif-italic">
