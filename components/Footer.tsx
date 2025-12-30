@@ -10,18 +10,15 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   return (
     <footer className="relative w-full bg-black py-16 border-t border-white/5 z-20">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-12 mb-16">
           
-          {/* Logo e Slogan */}
-          <div className="flex flex-col items-start gap-4">
+          {/* Logo */}
+          <div className="flex flex-col items-start">
              <img 
                src="https://i.imgur.com/sP4bt3b.png" 
                alt="Avance+ Logo" 
                className="h-10 w-auto brightness-110 opacity-20" 
              />
-             <p className="text-[10px] font-bold text-white/20 uppercase tracking-[0.3em] text-left">
-               Cresça com estratégia, lucre com gestão.
-             </p>
           </div>
 
           {/* Social Links */}
@@ -83,7 +80,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </div>
 
           {/* Legais */}
-          <div className="flex flex-wrap items-center justify-start gap-8">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-start gap-6 md:gap-8">
             <button 
               onClick={() => onNavigate?.('privacy')}
               className="text-[10px] font-bold text-white/20 hover:text-white transition-colors uppercase tracking-widest text-left"
@@ -100,9 +97,13 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
         </div>
 
-        {/* Linha Final */}
-        <div className="mt-16 pt-8 border-t border-white/5 text-center">
-          <p className="text-[8px] font-medium text-white/10 tracking-[0.2em]">
+        {/* Linha Final Unificada */}
+        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-center">
+          <p className="text-[9px] font-bold text-white/20 uppercase tracking-[0.2em]">
+            Cresça com estratégia, lucre com gestão.
+          </p>
+          <div className="hidden md:block w-1 h-1 bg-white/5 rounded-full" />
+          <p className="text-[9px] font-medium text-white/20 tracking-[0.2em]">
             2025 Avance + Todos os Direitos Reservados
           </p>
         </div>

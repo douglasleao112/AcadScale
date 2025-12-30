@@ -1,0 +1,688 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Seleção - Avence+</title>
+
+  <style>
+:root{
+  --bg:#0b0b0b;
+  --panel:#101010;
+  --border:rgba(255,255,255,.08);
+  --text:rgba(255,255,255,.92);
+  --muted:rgba(255,255,255,.55);
+  --accent:#3b82f6; /* AZUL */
+  --danger:#ef4444;
+  --radius:22px;
+}
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(59,130,246,.20), transparent 55%),
+        radial-gradient(900px 500px at 110% 10%, rgba(59,130,246,.12), transparent 50%),
+        var(--bg);
+      color:var(--text);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px 14px;
+      overflow-x:hidden;
+    }
+    .wrap{
+      width:min(860px, 100%);
+      position:relative;
+    }
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom:14px;
+    }
+    .logo{
+      height:34px;
+      width:auto;
+      opacity:.95;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.45));
+    }
+
+    .whatsIcon{
+  width:18px;
+  height:18px;
+  display:inline-block;
+  flex-shrink:0;
+}
+
+    .card{
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border-radius: var(--radius);
+      padding:22px 18px;
+      box-shadow: 0 30px 90px rgba(0,0,0,.55);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .progress{
+      height:10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.06);
+      border:1px solid var(--border);
+      overflow:hidden;
+      margin:10px 0 16px;
+    }
+    .bar{
+      height:100%;
+      width:12.5%;
+      background: linear-gradient(90deg, rgba(59,130,246,.95), rgba(59,130,246,.45));
+      border-radius:999px;
+      transition: width .35s ease;
+    }
+
+    .step{
+      display:none;
+      animation: in .38s ease both;
+    }
+    .step.active{display:block;}
+    @keyframes in{
+      from{opacity:0; transform: translateY(14px) scale(.995);}
+      to{opacity:1; transform: translateY(0) scale(1);}
+    }
+
+    label{
+      display:block;
+      font-size:13px;
+      color:var(--muted);
+      margin:0 0 6px;
+    }
+    input, textarea{
+      width:100%;
+      padding:14px 14px;
+      border-radius: 16px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.35);
+      color:var(--text);
+      outline:none;
+      font-size:15px;
+      transition: border-color .2s ease, transform .2s ease;
+    }
+    input:focus, textarea:focus{
+      border-color: rgba(59,130,246,.65);
+      transform: translateY(-1px);
+    }
+    textarea{min-height:120px; resize:vertical;}
+    .row{display:grid; gap:12px;}
+
+    .choices{display:grid; gap:10px; margin-top:6px;}
+    .choice{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      padding:12px 12px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      cursor:pointer;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+      user-select:none;
+    }
+    .choice:hover{
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+    }
+    .choice input{width:auto; margin:0}
+    .choice span{color:rgba(255,255,255,.86); font-size:14px;}
+
+    .actions{
+      display:flex;
+      gap:10px;
+      margin-top:16px;
+      flex-wrap:wrap;
+    }
+    button{
+      border:0;
+      border-radius:999px;
+      padding:12px 16px;
+      cursor:pointer;
+      font-weight:800;
+      font-size:14px;
+      letter-spacing:.2px;
+      transition: transform .15s ease, opacity .15s ease;
+    }
+    button:active{transform: scale(.985);}
+    .btn-ghost{
+      background: rgba(255,255,255,.06);
+      color:rgba(255,255,255,.8);
+      border:1px solid var(--border);
+    }
+    .btn-main{
+      background: linear-gradient(180deg, rgba(59,130,246,.95), rgba(59,130,246,.75));
+      color:#0b1220;
+      box-shadow: 0 18px 40px rgba(59,130,246,.25);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+    }
+    .btn-main[disabled]{opacity:.55; cursor:not-allowed;}
+
+    .error{
+      margin-top:12px;
+      color: rgba(239,68,68,.95);
+      font-size:13px;
+      display:none;
+    }
+
+    .done{
+      text-align:center;
+      padding:10px 4px 8px;
+    }
+    .done h2{
+      margin:10px 0 8px;
+      font-size:20px;
+    }
+    .done p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.55;
+      font-size:14px;
+    }
+
+    .spinner{
+      width:18px;height:18px;
+      border-radius:999px;
+      border:2px solid rgba(255,255,255,.18);
+      border-top-color: rgba(255,255,255,.75);
+      display:inline-block;
+      vertical-align:middle;
+      margin-right:8px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* CHECK ANIMADO */
+    .checkWrap{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      margin:6px 0 10px;
+    }
+    .check{
+      width:72px;
+      height:72px;
+      border-radius:999px;
+      border:2px solid rgba(59,130,246,.25);
+      background: radial-gradient(circle at 30% 20%, rgba(59,130,246,.35), rgba(0,0,0,.0) 55%),
+                  rgba(255,255,255,.03);
+      box-shadow: 0 18px 45px rgba(59,130,246,.18);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      transform: scale(.85);
+      opacity:0;
+    }
+    .check.show{
+      animation: pop .42s ease both;
+    }
+    @keyframes pop{
+      from{transform: scale(.75); opacity:0;}
+      to{transform: scale(1); opacity:1;}
+    }
+    .check svg{
+      width:38px;
+      height:38px;
+    }
+    .check path{
+      stroke: rgba(255,255,255,.92);
+      stroke-width: 3.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      stroke-dasharray: 60;
+      stroke-dashoffset: 60;
+    }
+    .check.show path{
+      animation: draw .55s .08s ease forwards;
+    }
+    @keyframes draw{
+      to{stroke-dashoffset: 0;}
+    }
+    .ringPulse{
+      position:absolute;
+      inset:-2px;
+      border-radius:999px;
+      border:2px solid rgba(59,130,246,.18);
+      opacity:0;
+    }
+    .check.show .ringPulse{
+      animation: pulse 1.1s .15s ease-out forwards;
+    }
+    @keyframes pulse{
+      0%{transform: scale(1); opacity:.0;}
+      35%{opacity:.55;}
+      100%{transform: scale(1.18); opacity:0;}
+    }
+
+    .btn-whats{
+      margin-top:14px;
+      width:min(360px, 100%);
+      padding:14px 18px;
+      font-size:15px;
+    }
+    .btn-whats svg{width:18px;height:18px; opacity:.95}
+
+    .hide{display:none!important;}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <img class="logo" src="https://i.imgur.com/sP4bt3b.png" alt="Logo" />
+    </div>
+
+    <div class="card">
+      <div class="progress" id="progressWrap"><div class="bar" id="bar"></div></div>
+
+      <form id="quiz" autocomplete="on"><br/>
+        <!-- STEP 1 -->
+        <div class="step active" data-step="1">
+          <div class="row">
+            <div>
+              <label>Qual seu nome? *</label>
+              <input name="nome" type="text" placeholder="Nome Completo" required />
+            </div>
+            <div>
+              <label>Qual seu WhatsApp? *</label>
+              <input
+                id="whatsapp"
+                name="whatsapp"
+                type="tel"
+                inputmode="numeric"
+                autocomplete="tel"
+                placeholder="(99)99999-9999"
+                maxlength="14"
+                pattern="^\(\d{2}\)\d{5}-\d{4}$"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="step" data-step="2">
+          <div class="row">
+            <div>
+              <label>Qual nome da sua empresa? *</label>
+              <input name="empresa" type="text" placeholder="Nome da empresa" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="step" data-step="3">
+          <div class="row">
+            <div>
+              <label>Quantos colaboradores ao total? *</label>
+              <input name="colaboradores" type="number" min="0" step="1" placeholder="Ex: 12" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="step" data-step="4">
+          <div class="row">
+            <div>
+              <label>Quantos alunos ativos? *</label>
+              <input name="alunos_ativos" type="number" min="0" step="1" placeholder="Ex: 320" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 5 -->
+        <div class="step" data-step="5">
+          <div class="row">
+            <div>
+              <label>Qual preço do plano mensal? *</label>
+              <input name="ticket_mensal" type="text" placeholder="Ex: R$ 149" required />
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 6 -->
+        <div class="step" data-step="6">
+          <div class="row">
+            <div>
+              <label>Qual seu faturamento bruto mensal? *</label>
+              <input
+                name="faturamento_bruto_total"
+                type="text"
+                inputmode="numeric"
+                placeholder="Ex: R$ 150.000"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 7 -->
+        <div class="step" data-step="7">
+          <label>Tem o hábito de investir em seu negócio? *</label>
+          <div class="choices">
+            <label class="choice">
+              <input type="radio" name="investe_no_negocio" value="Sim" required />
+              <span>Sim</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="investe_no_negocio" value="Não" required />
+              <span>Não</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="investe_no_negocio" value="Estou pretendendo" required />
+              <span>Estou pretendendo</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- STEP 8 -->
+        <div class="step" data-step="8">
+          <div class="row">
+            <div>
+              <label>Qual sua meta para 2026? *</label>
+              <textarea name="meta_2026" placeholder="Escreva em 1 ou 2 frases..." required></textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 9 -->
+        <div class="step" data-step="9">
+          <label>Caso você seja selecionado, tem disponibilidade para uma reunião o quanto antes para conversarmos sobre seu negócio? *</label>
+          <div class="choices">
+            <label class="choice">
+              <input type="radio" name="disponibilidade_reuniao" value="Sim" required />
+              <span>Sim</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="disponibilidade_reuniao" value="Não" required />
+              <span>Não</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button type="button" class="btn-ghost" id="backBtn">Voltar</button>
+          <button type="button" class="btn-main" id="nextBtn">Continuar</button>
+        </div>
+
+        <div class="error" id="error"></div>
+      </form>
+
+      <div class="done" id="done" style="display:none;">
+        <div style="margin:6px 0 10px;">
+          <span class="spinner" id="spinner" style="display:none;"></span>
+          <span id="statusText" style="color:rgba(255,255,255,.78); font-size:13px;">Enviando suas respostas...</span>
+        </div>
+
+        <div class="checkWrap">
+          <div class="check" id="check">
+            <div class="ringPulse"></div>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 6L9 17l-5-5"></path>
+            </svg>
+          </div>
+        </div>
+
+        <h2>Obrigado pelas respostas. Estamos analisando tudo com atenção.</h2>
+        <p>
+          Enquanto isso, você pode entrar na nossa comunidade exclusiva.
+        </p>
+
+        <a class="btn-main btn-whats" href="https://chat.whatsapp.com/BWCnxuMkAg975dRRzOJJBg" target="_blank" rel="noopener">
+          <!-- ícone simples do WhatsApp -->
+         <svg
+  viewBox="0 0 1280 720"
+  aria-hidden="true"
+  class="whatsIcon"
+>
+  <g
+    transform="translate(0,720) scale(0.1,-0.1)"
+    fill="currentColor"
+    stroke="none"
+  >
+    <path d="M6255 6844 c-540 -35 -1107 -229 -1555 -532 -473 -320 -848 -752
+-1091 -1256 -133 -276 -216 -536 -273 -856 -43 -240 -52 -602 -22 -880 40
+-374 177 -822 362 -1188 l53 -103 -123 -367 c-68 -202 -191 -570 -274 -818
+-84 -249 -152 -459 -152 -469 0 -9 13 -22 29 -28 26 -10 29 -14 24 -45 -6 -32
+-5 -34 18 -27 41 13 936 298 1314 420 198 63 368 115 378 115 9 0 52 -17 95
+-39 366 -184 756 -294 1171 -332 164 -14 498 -7 659 16 954 132 1766 659 2266
+1468 163 264 318 632 401 952 79 307 117 688 96 982 -54 781 -356 1473 -881
+2017 -509 527 -1157 853 -1895 952 -108 14 -482 26 -600 18z"/>
+    <path d="M5323 5236 c-23 -7 -56 -23 -75 -34 -51 -32 -199 -190 -245 -262
+-147 -229 -180 -534 -92 -832 67 -225 149 -397 299 -629 190 -292 313 -450
+510 -653 296 -305 545 -476 927 -635 282 -118 490 -185 607 -197 81 -8 258 20
+362 58 144 52 309 168 373 262 64 96 130 313 138 457 l6 95 -31 36 c-22 24
+-112 78 -294 176 -432 232 -487 254 -555 218 -17 -8 -81 -73 -141 -143 -178
+-207 -215 -243 -245 -243 -38 0 -287 127 -403 205 -135 92 -223 166 -334 281
+-132 137 -275 333 -355 486 l-18 36 72 79 c95 101 134 162 172 268 39 108 37
+141 -20 290 -51 133 -92 243 -163 434 -58 157 -101 221 -161 240 -57 17 -287
+22 -334 7z"/>
+  </g>
+</svg>
+
+          Entrar no grupo do WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // COLE A URL DO SEU WEB APP AQUI (termina com /exec)
+    const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxeoeQZiXVrAcPWGXeB1oznC_-IbNdP4nUQyj8S5czCFTXWFxPcB6vqbVZ0VKmTzdjK/exec";
+
+    const form = document.getElementById("quiz");
+    const steps = [...document.querySelectorAll(".step")];
+    const bar = document.getElementById("bar");
+    const error = document.getElementById("error");
+
+    const backBtn = document.getElementById("backBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    const done = document.getElementById("done");
+    const spinner = document.getElementById("spinner");
+    const statusText = document.getElementById("statusText");
+    const progressWrap = document.getElementById("progressWrap");
+    const check = document.getElementById("check");
+
+    const whatsappInput = document.getElementById("whatsapp");
+
+    const TOTAL_STEPS = 9;
+    let current = 1;
+
+    function setStep(n){
+      current = n;
+      steps.forEach(s => s.classList.toggle("active", Number(s.dataset.step) === current));
+
+      const pct = (current / TOTAL_STEPS) * 100;
+      bar.style.width = pct + "%";
+
+      backBtn.style.display = current === 1 ? "none" : "inline-flex";
+      nextBtn.textContent = current === TOTAL_STEPS ? "Enviar" : "Continuar";
+
+      error.style.display = "none";
+      error.textContent = "";
+
+      const active = steps.find(s => Number(s.dataset.step) === current);
+      const first = active.querySelector("input, textarea");
+      if(first) setTimeout(() => first.focus(), 80);
+    }
+
+    // mascara: (99)99999-9999 e impede letras
+    function formatWhatsApp(value){
+      const digits = (value || "").replace(/\D/g,"").slice(0, 11);
+      const ddd = digits.slice(0,2);
+      const part1 = digits.slice(2,7);
+      const part2 = digits.slice(7,11);
+
+      let out = "";
+      if(ddd) out += "(" + ddd;
+      if(ddd.length === 2) out += ")";
+      if(part1) out += part1;
+      if(part2) out += "-" + part2;
+      return out;
+    }
+
+    whatsappInput.addEventListener("input", () => {
+      const before = whatsappInput.value;
+      whatsappInput.value = formatWhatsApp(before);
+      whatsappInput.setSelectionRange(whatsappInput.value.length, whatsappInput.value.length);
+    });
+
+    function normalizePhoneMasked(v){
+      return (v || "").trim();
+    }
+
+    function validateStep(){
+      const active = steps.find(s => Number(s.dataset.step) === current);
+      const requiredInputs = [...active.querySelectorAll("[required]")];
+
+      for (const el of requiredInputs){
+        if(el.type === "radio"){
+          const name = el.name;
+          const any = active.querySelector(`input[type="radio"][name="${name}"]:checked`);
+          if(!any) return { ok:false, msg:"Selecione uma opção para continuar." };
+        } else {
+          if(!el.value || !String(el.value).trim()){
+            return { ok:false, msg:"Preencha o campo obrigatório para continuar." };
+          }
+          if(el.id === "whatsapp"){
+            const ok = /^\(\d{2}\)\d{5}-\d{4}$/.test(el.value.trim());
+            if(!ok) return { ok:false, msg:"WhatsApp inválido. Use o formato (99)99999-9999." };
+          }
+        }
+      }
+      return { ok:true };
+    }
+
+    function collectData(){
+      const fd = new FormData(form);
+      const obj = Object.fromEntries(fd.entries());
+
+      obj.whatsapp = normalizePhoneMasked(obj.whatsapp);
+
+      const url = new URL(window.location.href);
+      obj.utm_source = url.searchParams.get("utm_source") || "";
+      obj.utm_medium = url.searchParams.get("utm_medium") || "";
+      obj.utm_campaign = url.searchParams.get("utm_campaign") || "";
+      obj.utm_content = url.searchParams.get("utm_content") || "";
+      obj.utm_term = url.searchParams.get("utm_term") || "";
+      obj.page_url = window.location.href;
+      obj.user_agent = navigator.userAgent;
+
+      return obj;
+    }
+
+    async function sendData(payload){
+      if(!WEB_APP_URL){
+        throw new Error("URL do Web App não definida.");
+      }
+
+      const res = await fetch(WEB_APP_URL, {
+        method: "POST",
+        headers: { "Content-Type":"text/plain;charset=utf-8" },
+        body: JSON.stringify(payload)
+      });
+
+      const text = await res.text();
+      let json = {};
+      try{ json = JSON.parse(text); } catch(e){}
+
+      if(!res.ok || json.ok === false){
+        throw new Error(json.error || "Falha ao enviar. Verifique o Apps Script e permissões.");
+      }
+    }
+
+    async function submit(){
+      // esconde barra de progresso na etapa final (tela de obrigado)
+      if(progressWrap) progressWrap.classList.add("hide");
+
+      form.style.display = "none";
+      done.style.display = "block";
+      spinner.style.display = "inline-block";
+      statusText.textContent = "Enviando suas respostas...";
+
+      // garante que o check começa oculto
+      check.classList.remove("show");
+
+      try{
+        const payload = collectData();
+        await sendData(payload);
+
+        spinner.style.display = "none";
+        statusText.textContent = "Dados enviados com sucesso.";
+
+        // anima check
+        setTimeout(() => {
+          check.classList.add("show");
+        }, 120);
+
+      } catch(err){
+        spinner.style.display = "none";
+        statusText.textContent = "Não foi possível enviar agora. Tente novamente.";
+
+        const msg = String(err && err.message ? err.message : err);
+        const p = document.createElement("p");
+        p.style.marginTop = "10px";
+        p.style.color = "rgba(239,68,68,.9)";
+        p.style.fontSize = "13px";
+        p.textContent = msg;
+        done.appendChild(p);
+
+        const retry = document.createElement("button");
+        retry.className = "btn-main";
+        retry.style.marginTop = "12px";
+        retry.textContent = "Tentar novamente";
+        retry.onclick = () => window.location.reload();
+        done.appendChild(retry);
+      }
+    }
+
+    nextBtn.addEventListener("click", async () => {
+      const v = validateStep();
+      if(!v.ok){
+        error.style.display = "block";
+        error.textContent = v.msg;
+        return;
+      }
+
+      if(current < TOTAL_STEPS){
+        setStep(current + 1);
+      } else {
+        nextBtn.disabled = true;
+        nextBtn.innerHTML = '<span class="spinner"></span> Enviando';
+        await submit();
+      }
+    });
+
+    backBtn.addEventListener("click", () => {
+      if(current > 1) setStep(current - 1);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Enter"){
+        const a = document.activeElement;
+        if(a && a.tagName === "TEXTAREA") return;
+        e.preventDefault();
+        nextBtn.click();
+      }
+    });
+
+    setStep(1);
+  </script>
+</body>
+</html>

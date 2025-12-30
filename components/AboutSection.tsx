@@ -24,8 +24,8 @@ const PARTNERS: Partner[] = [
     ],
     image: 'https://i.imgur.com/g843Clh.png',
     stats: [
-      { value: 'FEEL', label: 'Método' },
-      { value: 'Master', label: 'Voice Academy' }
+      { value: 'Master', label: 'Voice Academy' },
+      { value: 'Vendas', label: 'Especialista' }
     ]
   },
   {
@@ -39,8 +39,8 @@ const PARTNERS: Partner[] = [
     ],
     image: 'https://i.imgur.com/47sPVAl.png',
     stats: [
-      { value: '5M+', label: 'VGV nos últimos 3 anos' },
-      { value: '+10', label: 'Anos de Exp.' }
+      { value: '5M+', label: 'VGV 3 anos' },
+      { value: 'Marketing', label: 'Especialista' }
     ]
   },
   {
@@ -54,8 +54,8 @@ const PARTNERS: Partner[] = [
     ],
     image: 'https://i.imgur.com/BAskeMm.png',
     stats: [
-      { value: 'Liderança', label: 'Especialista' },
-      { value: '+10', label: 'Anos de Exp.' }
+      { value: 'Escala', label: 'Processos' },
+      { value: 'Liderança', label: 'Especialista' }
     ]
   }
 ];
@@ -127,7 +127,7 @@ const AboutSection: React.FC = () => {
                 >
                   <ShieldCheck className="w-4 h-4 text-blue-400" />
                   <span className="text-[10px] font-bold text-blue-300 uppercase tracking-widest">
-                    Expertise Validada
+                    Quem é
                   </span>
                 </motion.div>
 
