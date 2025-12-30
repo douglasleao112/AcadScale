@@ -235,7 +235,7 @@ const ValidationSection: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="text-white/60 text-base md:text-xl mb-8 md:mb-16 z-10 max-w-2xl px-6"
         >
-           Resultados reais em academias que deixaram o improviso e passaram a operar como empresa.
+          Resultados construídos com método, dados e decisões estratégicas dentro da operação.
         </motion.p>
 
         <div 
