@@ -18,7 +18,7 @@ const TABS: TabContent[] = [
   {
     id: 'Escala',
     label: 'Escala',
-    image: 'https://i.imgur.com/RKjSgyg.png',
+    image: 'https://i.imgur.com/cYpnoEM.png',
     badge: 'Estrutura de Crescimento',
     title: 'Estrutura de Escala Comercial',
     description: 'Este é o ponto onde estruturamos a forma como sua academia cresce. Nada de improviso ou tentativa e erro. Aqui, cada decisão comercial é pensada para aumentar faturamento sem perder margem, controle e previsibilidade.',
@@ -30,12 +30,12 @@ const TABS: TabContent[] = [
       'Clareza de números e metas',
       'Crescimento com controle'
     ],
-    color: 'rgba(0, 0, 0, 0.7)'
+    color: 'rgba(96, 108, 56, 0.7)'
   },
   {
-    id: 'posicionamento',
-    label: 'Posicionamento',
-    image: 'https://i.imgur.com/IcBuJJI.png',
+    id: 'Base',
+    label: 'Base',
+    image: 'https://i.imgur.com/BDarXnz.png',
     badge: 'POSICIONAMENTO ESTRATÉGICO',
     title: 'Autoridade e Decisão',
     description: 'Se você é referência técnica, sua operação precisa refletir isso. Aqui estruturamos a forma como sua academia se apresenta, comunica valor e gera decisões estratégicas, sem promessas vazias ou marketing superficial.',
@@ -47,12 +47,12 @@ const TABS: TabContent[] = [
       'Clareza de proposta e diferenciação',
       'Decisão guiada por estratégia, não estética'
     ],
-    color: 'rgba(0, 0, 0, 0.7)'
+    color: 'rgba(198, 134, 66, 0.7)'
   },
   {
-    id: 'Diagnóstico',
-    label: 'Diagnóstico',
-    image: 'https://i.imgur.com/JyYME92.png',
+    id: 'Perfil',
+    label: 'Perfil',
+    image: 'https://i.imgur.com/NemkcVw.png',
     badge: 'FILTRO DE PERFIL EMPRESARIAL',
     title: 'Entrada estratégica',
     description: 'Este é o primeiro ponto de contato para entender se sua academia tem perfil para crescer com estratégia. Aqui, o objetivo não é volume, e sim clareza: identificar gargalos, organizar prioridades e definir os próximos passos antes de decisões maiores.',
@@ -64,7 +64,7 @@ const TABS: TabContent[] = [
       'Direcionamento de próximos passos',
       'Filtro de perfil para crescimento estruturado'
     ],
-    color: 'rgba(0, 0, 0, 0.7)'
+    color: 'rgba(180, 185, 195, 0.7)'
   }
 ];
 
@@ -123,34 +123,8 @@ const ObjectiveSection: React.FC = () => {
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-col md:flex-row items-center gap-10 md:gap-24"
           >
-            {/* Visual Column - Agora Order 1 no Mobile */}
-            <div className="flex-1 relative order-1 md:order-1 w-full">
-              {/* Blur Background based on tab color */}
-              <div 
-                className="absolute inset-0 blur-[80px] md:blur-[120px] rounded-full transition-colors duration-1000 opacity-30"
-                style={{ backgroundColor: activeTab.color }}
-              />
-              
-              <div className="relative">
-                {/* Float animation for the phone and rock */}
-                <motion.div
-                  animate={{ y: [0, -20, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                  className="relative z-10"
-                >
-                  <img 
-                    src={activeTab.image} 
-                    alt={activeTab.title} 
-                    className="w-full h-auto max-w-[450px] md:max-w-[500px] mx-auto drop-shadow-[0_40px_100px_rgba(0,0,0,0.8)]"
-                  />
-                </motion.div>
-                
-                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-full h-20 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none" />
-              </div>
-            </div>
-
-            {/* Content Column - Agora Order 2 no Mobile */}
-            <div className="flex-1 text-left space-y-8 order-2 md:order-2">
+            {/* Content Column - Agora Order 1 no Mobile (Texto acima no mobile) */}
+            <div className="flex-1 text-left space-y-8 order-1 md:order-2">
               <div className="space-y-6">
                 <motion.div 
                   initial={{ opacity: 0, x: 20 }}
@@ -166,7 +140,6 @@ const ObjectiveSection: React.FC = () => {
                 <h4 className="text-4xl md:text-7xl font-bold text-white tracking-tighter">
                   {activeTab.title}
                 </h4>
-
 
                 <p className="text-white/70 text-base md:text-lg leading-relaxed font-light">
                   {activeTab.description}
@@ -196,7 +169,6 @@ const ObjectiveSection: React.FC = () => {
               </ul>
 
               <div className="pt-4 md:pt-8 pb-10 md:pb-0 flex justify-center md:justify-start">
-                {/* Botão Padronizado */}
                 <a 
                   href="https://chat.whatsapp.com/BWCnxuMkAg975dRRzOJJBg"
                   target="_blank"
@@ -232,6 +204,30 @@ const ObjectiveSection: React.FC = () => {
                     <div className="absolute inset-0 border border-white/10 rounded-full pointer-events-none" />
                   </div>
                 </a>
+              </div>
+            </div>
+
+            {/* Visual Column - Agora Order 2 no Mobile (Imagem abaixo no mobile) */}
+            <div className="flex-1 relative order-2 md:order-1 w-full">
+              <div 
+                className="absolute inset-0 blur-[80px] md:blur-[120px] rounded-full transition-colors duration-1000 opacity-30"
+                style={{ backgroundColor: activeTab.color }}
+              />
+              
+              <div className="relative">
+                <motion.div
+                  animate={{ y: [0, -20, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  className="relative z-10"
+                >
+                  <img 
+                    src={activeTab.image} 
+                    alt={activeTab.title} 
+                    className="w-full h-auto max-w-[450px] md:max-w-[500px] mx-auto drop-shadow-[0_40px_100px_rgba(0,0,0,0.8)]"
+                  />
+                </motion.div>
+                
+                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-full h-20 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none" />
               </div>
             </div>
           </motion.div>

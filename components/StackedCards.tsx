@@ -121,25 +121,53 @@ const PerformanceIcon = () => (
     className="relative w-48 h-48 md:w-96 md:h-96 flex items-center justify-center p-4"
   >
     <div className="absolute inset-0 bg-orange-500/10 blur-[60px] md:blur-[100px] rounded-full animate-pulse" />
-    <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
       <defs>
         <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#f97316" />
           <stop offset="100%" stopColor="#fbbf24" />
         </linearGradient>
       </defs>
-      <line x1="36" y1="224" x2="220" y2="224" stroke="url(#iconGrad)" strokeWidth="10" strokeLinecap="round" />
-      <motion.rect initial={{ height: 0 }} animate={{ height: 96 }} x="44" y="128" width="28" height="96" rx="4" stroke="url(#iconGrad)" strokeWidth="8" fill="none" />
-      <motion.rect initial={{ height: 0 }} animate={{ height: 80 }} x="84" y="144" width="28" height="80" rx="4" stroke="url(#iconGrad)" strokeWidth="8" fill="none" />
-      <motion.rect initial={{ height: 0 }} animate={{ height: 64 }} x="124" y="160" width="28" height="64" rx="4" stroke="url(#iconGrad)" strokeWidth="8" fill="none" />
-      <motion.rect initial={{ height: 0 }} animate={{ height: 48 }} x="164" y="176" width="28" height="48" rx="4" stroke="url(#iconGrad)" strokeWidth="8" fill="none" />
-      <motion.path initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} d="M60 70 C 105 105, 135 120, 180 145" stroke="url(#iconGrad)" strokeWidth="12" strokeLinecap="round" fill="none" />
-      <motion.polyline initial={{ opacity: 0 }} animate={{ opacity: 1 }} points="176 129 180 145 167 152" stroke="url(#iconGrad)" strokeWidth="12" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      <motion.g initial={{ scale: 0, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
-        <circle cx="176" cy="76" r="28" stroke="url(#iconGrad)" strokeWidth="8" fill="none" />
-        <circle cx="176" cy="70" r="8" stroke="url(#iconGrad)" strokeWidth="6" fill="none" />
-        <path d="M160 92 C 166 82, 186 82, 192 92" stroke="url(#iconGrad)" strokeWidth="6" strokeLinecap="round" fill="none" />
-      </motion.g>
+      
+      {/* Base do gráfico */}
+      <motion.rect 
+        initial={{ opacity: 0, scaleX: 0 }}
+        animate={{ opacity: 1, scaleX: 1 }}
+        transition={{ duration: 0.8 }}
+        x="2" y="21" width="20" height="1.2" rx="0.6" fill="url(#iconGrad)" 
+      />
+      
+      {/* Colunas animadas */}
+      <motion.rect 
+        initial={{ height: 0, y: 20 }} 
+        animate={{ height: 6, y: 14 }} 
+        transition={{ delay: 0.5, duration: 0.6 }}
+        x="4" width="4" rx="1.2" fill="url(#iconGrad)" fillOpacity="0.4" 
+      />
+      <motion.rect 
+        initial={{ height: 0, y: 20 }} 
+        animate={{ height: 10, y: 10 }} 
+        transition={{ delay: 0.7, duration: 0.6 }}
+        x="10" width="4" rx="1.2" fill="url(#iconGrad)" fillOpacity="0.7" 
+      />
+      <motion.rect 
+        initial={{ height: 0, y: 20 }} 
+        animate={{ height: 14, y: 6 }} 
+        transition={{ delay: 0.9, duration: 0.6 }}
+        x="16" width="4" rx="1.2" fill="url(#iconGrad)" 
+      />
+      
+      {/* Seta de Crescimento - Ajustada mais para cima (deslocamento vertical de -2) */}
+      <motion.path 
+        initial={{ pathLength: 0, opacity: 0 }}
+        animate={{ pathLength: 1, opacity: 1 }}
+        transition={{ delay: 1.3, duration: 1.2, ease: "easeOut" }}
+        d="M2 8H5L9 4H13L18 -0.5M18 -0.5H14.5M18 -0.5V3" 
+        stroke="url(#iconGrad)" 
+        strokeWidth="1.8" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+      />
     </svg>
   </motion.div>
 );
@@ -185,7 +213,7 @@ const CARDS_DATA = [
         </div>
         <div className="bg-[#0d0d0d] border border-white/5 p-3 md:p-8 rounded-[1.2rem] md:rounded-[2rem] flex flex-col items-start min-w-[120px] md:min-w-[160px] flex-1">
           <p className="text-[7px] md:text-[9px] text-white/40 uppercase tracking-[0.2em] font-black mb-1 md:mb-3">Lucro Líquido</p>
-          <p className="text-sm md:text-2xl font-black text-emerald-400 tracking-tight">Aumentada</p>
+          <p className="text-sm md:text-2xl font-black text-emerald-400 tracking-tight">Aumentado</p>
           <TrendingUp className="w-5 h-5 md:w-8 md:h-10 text-emerald-400/45 mt-3 md:mt-7" />
         </div>
       </div>

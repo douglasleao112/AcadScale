@@ -6,6 +6,7 @@ import ValidationSection from './components/ValidationSection';
 import PhotoSlider from './components/PhotoSlider';
 import StrategySection from './components/StrategySection';
 import StackedCards from './components/StackedCards';
+import AboutSection from './components/AboutSection';
 import ObjectiveSection from './components/ObjectiveSection';
 import ComparisonSection from './components/ComparisonSection';
 import ProofSection from './components/ProofSection';
@@ -48,6 +49,7 @@ const App: React.FC = () => {
           <ProofSection />
           <ObjectiveSection />
           <FooterBranding />
+          <AboutSection />
           <FAQSection />
           <Footer onNavigate={navigateTo} />
         </div>

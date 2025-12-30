@@ -74,7 +74,7 @@ const ProofSection: React.FC = () => {
             className="bg-white px-8 py-3 md:px-16 md:py-5 rounded-full shadow-[0_20px_50px_rgba(255,255,255,0.1)]"
           >
             <span className="text-black text-xl md:text-4xl font-bold tracking-tight">
-              de quem vive a operação todos os dias.
+              de quem vive a operação.
             </span>
           </motion.div>
 
