@@ -10,7 +10,7 @@ interface User {
 }
 
 const USERS: User[] = [
-  { id: 1, handle: '@studio.natanaelalves', image: 'https://i.imgur.com/QuP0Pl9.webp' },
+  { id: 1, handle: '@studio.natanaelalves', image: 'https://i.imgur.com/v7HzJsH.jpeg' },
   { id: 2, handle: '@statera_team', image: 'https://i.imgur.com/hPoczNy.webp' },
   { id: 3, handle: '@delasgym', image: 'https://i.imgur.com/SZQThWA.webp' },
   { id: 4, handle: '@basicfull', image: 'https://i.imgur.com/KGKEe9y.webp' },
