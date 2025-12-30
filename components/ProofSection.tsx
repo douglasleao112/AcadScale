@@ -187,8 +187,8 @@ const ProofSection: React.FC = () => {
             ))}
           </div>
         </motion.div>
+      </div>
 
-     
       {/* Modal do Vídeo */}
       <AnimatePresence>
         {isVideoOpen && (
