@@ -346,15 +346,18 @@ const StackedCards: React.FC = () => {
               style={{ zIndex: 10 + index }}
             >
               <div className="relative w-full h-full bg-[#070707] rounded-[2rem] md:rounded-[4.5rem] border border-white/10 shadow-2xl overflow-hidden flex flex-col md:flex-row pointer-events-auto group/card">
+                {/* Dotted Background Pattern Refined */}
                 <div 
-                  className="absolute inset-0 pointer-events-none z-0 opacity-[0.03]"
+                  className="absolute inset-0 pointer-events-none z-0 opacity-[0.08]"
                   style={{
                     backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px)',
-                    backgroundSize: '30px 30px',
+                    backgroundSize: '24px 24px',
+                    maskImage: 'radial-gradient(circle at center, black 40%, transparent 95%)',
+                    WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 95%)'
                   }}
                 />
 
-                <div className="flex-[1.4] p-6 md:p-16 lg:p-24 flex flex-col justify-center text-left relative z-20 overflow-y-auto md:overflow-hidden">
+                <div className={`${card.id === 2 ? 'flex-[1.8]' : 'flex-[1.4]'} p-6 md:p-16 lg:p-24 flex flex-col justify-center text-left relative z-20 overflow-y-auto md:overflow-hidden`}>
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/5 mb-4 md:mb-10 w-fit bg-white/[0.01]">
                      <div className={`w-1.5 h-1.5 rounded-full bg-${card.badgeColor}-500 animate-pulse`} />
                      <span className={`text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] text-${card.badgeColor}-400`}>{card.badge}</span>
@@ -377,7 +380,7 @@ const StackedCards: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="flex-1 bg-white/[0.01] border-t md:border-t-0 md:border-l border-white/5 relative z-20 flex items-center justify-center overflow-hidden min-h-[250px] md:min-h-0 backdrop-blur-[2px]">
+                <div className={`${card.id === 2 ? 'flex-[0.7] min-h-[180px]' : 'flex-1 min-h-[250px]'} md:min-h-0 bg-white/[0.01] border-t md:border-t-0 md:border-l border-white/5 relative z-20 flex items-center justify-center overflow-hidden backdrop-blur-[2px]`}>
                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.03)_0%,transparent_70%)]" />
                    {card.visual}
                 </div>
