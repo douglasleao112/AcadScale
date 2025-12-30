@@ -4,14 +4,14 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion } from 'framer-motion';
 import { 
-  ArrowRight, TrendingUp, TrendingDown, ChevronDown
+  TrendingUp, TrendingDown, ChevronDown
 } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const BreakEvenChart = () => (
-  <div className="relative w-full h-full flex flex-col items-center justify-center p-2 md:p-12">
-    <div className="relative w-full max-sm md:max-w-md aspect-video bg-black rounded-[1.5rem] md:rounded-[2rem] border border-white/5 p-4 md:p-6 overflow-hidden shadow-2xl">
+  <div className="relative w-full h-full flex flex-col items-center justify-center p-4 md:p-12">
+    <div className="relative w-full max-w-[320px] md:max-w-md aspect-video bg-black rounded-[1.5rem] md:rounded-[2rem] border border-white/5 p-4 md:p-6 overflow-hidden shadow-2xl flex items-center justify-center">
       {/* Grid Técnico de Fundo */}
       <div 
         className="absolute inset-0 opacity-[0.15]" 
@@ -25,42 +25,44 @@ const BreakEvenChart = () => (
       <div className="absolute bottom-6 left-6 right-4 h-[1px] bg-white/20" />
       <div className="absolute top-4 bottom-6 left-6 w-[1px] bg-white/20" />
 
-      <svg viewBox="0 0 400 200" className="absolute inset-0 w-full h-full p-6 overflow-visible z-10">
-        {/* Linha de Custo (Vermelha) - Cruzamento em x=140, y=110 */}
+      <svg 
+        viewBox="0 0 400 200" 
+        preserveAspectRatio="xMidYMid meet"
+        className="absolute inset-0 w-full h-full p-6 overflow-visible z-10"
+        style={{ transform: 'translateZ(0)' }}
+      >
+        {/* Linha de Custo (Vermelha) */}
         <motion.line 
-          initial={{ pathLength: 0 }}
-          whileInView={{ pathLength: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
           x1="20" y1="120" x2="380" y2="90" 
           stroke="#ef4444" 
           strokeWidth="3" 
           strokeLinecap="round"
-          style={{ filter: 'drop-shadow(0 0 8px rgba(239, 68, 68, 0.6))' }}
         />
         
-        {/* Linha de Receita (Verde) - Cruzamento em x=140, y=110 */}
+        {/* Linha de Receita (Verde) */}
         <motion.line 
-          initial={{ pathLength: 0 }}
-          whileInView={{ pathLength: 1 }}
-          transition={{ duration: 1.8, ease: "easeOut", delay: 0.2 }}
+          initial={{ pathLength: 0, opacity: 0 }}
+          animate={{ pathLength: 1, opacity: 1 }}
+          transition={{ duration: 1.8, ease: "easeOut", delay: 0.7 }}
           x1="20" y1="140" x2="380" y2="50" 
           stroke="#10b981" 
           strokeWidth="4" 
           strokeLinecap="round"
-          style={{ filter: 'drop-shadow(0 0 10px rgba(16, 185, 129, 0.7))' }}
         />
 
-        {/* Ponto Brilhante Break Even (Agora em x=140) */}
+        {/* Ponto Brilhante Break Even */}
         <motion.g
           initial={{ opacity: 0, scale: 0 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1.5, type: "spring" }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 2, type: "spring" }}
         >
-          {/* Ponto Branco Central */}
-          <circle cx="140" cy="110" r="6" fill="#fff" className="animate-pulse" />
-          <circle cx="140" cy="110" r="12" fill="#fff" fillOpacity="0.2" />
+          {/* Brilho forçado para Safari */}
+          <circle cx="140" cy="110" r="12" fill="#fff" fillOpacity="0.15" />
+          <circle cx="140" cy="110" r="6" fill="#fff" />
           
-          {/* Label Break Even */}
           <text 
             x="140" 
             y="135" 
@@ -81,11 +83,12 @@ const BreakEvenChart = () => (
 const CycleDollarIcon = () => (
   <motion.div 
     initial={{ opacity: 0, scale: 0.8 }}
-    whileInView={{ opacity: 1, scale: 1 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ delay: 0.3 }}
     className="relative w-48 h-48 md:w-96 md:h-96 flex items-center justify-center p-4"
   >
     <div className="absolute inset-0 bg-blue-500/10 blur-[60px] md:blur-[100px] rounded-full animate-pulse" />
-    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-[0_0_30px_rgba(59,130,246,0.6)]">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
       <defs>
         <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#60a5fa" />
@@ -98,7 +101,7 @@ const CycleDollarIcon = () => (
         transition={{ delay: 0.8, duration: 0.5 }}
         x="12" y="12.8" textAnchor="middle" dominantBaseline="middle"
         fontFamily="Arial, Helvetica, sans-serif" fontSize="11.5" fontWeight="700"
-        fill="url(#blueGrad)" style={{ filter: 'drop-shadow(0 0 5px rgba(34,211,238,0.8))' }}
+        fill="url(#blueGrad)"
       >
         $
       </motion.text>
@@ -113,11 +116,12 @@ const CycleDollarIcon = () => (
 const PerformanceIcon = () => (
   <motion.div 
     initial={{ opacity: 0, scale: 0.8 }}
-    whileInView={{ opacity: 1, scale: 1 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ delay: 0.3 }}
     className="relative w-48 h-48 md:w-96 md:h-96 flex items-center justify-center p-4"
   >
     <div className="absolute inset-0 bg-orange-500/10 blur-[60px] md:blur-[100px] rounded-full animate-pulse" />
-    <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-[0_25px_70px_rgba(249,115,22,0.5)]">
+    <svg viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
       <defs>
         <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#f97316" />
@@ -143,7 +147,8 @@ const PerformanceIcon = () => (
 const MetricsPieIcon = () => (
   <motion.div 
     initial={{ opacity: 0, scale: 0.8 }}
-    whileInView={{ opacity: 1, scale: 1 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ delay: 0.3 }}
     className="relative w-48 h-48 md:w-96 md:h-96 flex items-center justify-center p-4"
   >
     <div className="absolute inset-0 bg-emerald-500/10 blur-[60px] md:blur-[120px] rounded-full animate-pulse" />
@@ -155,12 +160,11 @@ const MetricsPieIcon = () => (
         </linearGradient>
       </defs>
       <circle cx="100" cy="100" r="95" stroke="#10b981" strokeWidth="0.5" strokeOpacity="0.2" strokeDasharray="4 8" />
-      <g style={{ filter: 'drop-shadow(0 0 15px rgba(16, 185, 129, 0.4))' }}>
-        <motion.path initial={{ pathLength: 0, opacity: 0 }} whileInView={{ pathLength: 1, opacity: 1 }} transition={{ duration: 1.5 }} d="M106 18 A 82 82 0 0 1 106 182 L 106 100 Z" stroke="url(#pieGrad)" strokeWidth="3.5" fill="url(#pieGrad)" fillOpacity="0.1" />
-        <motion.path initial={{ pathLength: 0, opacity: 0, x: 0, y: 0 }} whileInView={{ pathLength: 1, opacity: 1, x: -6, y: -6 }} transition={{ duration: 1.2, delay: 0.3 }} d="M94 94 L 25 50 A 82 82 0 0 1 94 18 Z" stroke="url(#pieGrad)" strokeWidth="3.5" fill="url(#pieGrad)" fillOpacity="0.35" />
-        <motion.path initial={{ pathLength: 0, opacity: 0, x: 0, y: 0 }} whileInView={{ pathLength: 1, opacity: 1, x: -10, y: 6 }} transition={{ duration: 1.2, delay: 0.6 }} d="M94 106 L 20 135 A 82 82 0 0 0 45 180 L 94 106" stroke="url(#pieGrad)" strokeWidth="3.5" fill="url(#pieGrad)" fillOpacity="0.2" />
+      <g>
+        <motion.path initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 1.5 }} d="M106 18 A 82 82 0 0 1 106 182 L 106 100 Z" stroke="url(#pieGrad)" strokeWidth="3.5" fill="url(#pieGrad)" fillOpacity="0.1" />
+        <motion.path initial={{ pathLength: 0, opacity: 0, x: 0, y: 0 }} animate={{ pathLength: 1, opacity: 1, x: -6, y: -6 }} transition={{ duration: 1.2, delay: 0.3 }} d="M94 94 L 25 50 A 82 82 0 0 1 94 18 Z" stroke="url(#pieGrad)" strokeWidth="3.5" fill="url(#pieGrad)" fillOpacity="0.35" />
+        <motion.path initial={{ pathLength: 0, opacity: 0, x: 0, y: 0 }} animate={{ pathLength: 1, opacity: 1, x: -10, y: 6 }} transition={{ duration: 1.2, delay: 0.6 }} d="M94 106 L 20 135 A 82 82 0 0 0 45 180 L 94 106" stroke="url(#pieGrad)" strokeWidth="3.5" fill="url(#pieGrad)" fillOpacity="0.2" />
       </g>
-      
     </svg>
   </motion.div>
 );
@@ -177,15 +181,12 @@ const CARDS_DATA = [
         <div className="bg-[#0d0d0d] border border-white/5 p-3 md:p-8 rounded-[1.2rem] md:rounded-[2rem] flex flex-col items-start min-w-[120px] md:min-w-[160px] flex-1">
           <p className="text-[7px] md:text-[9px] text-white/40 uppercase tracking-[0.2em] font-black mb-1 md:mb-3">Custo por Clique</p>
           <p className="text-sm md:text-2xl font-black text-red-500 tracking-tight">Reduzido</p>
-          <TrendingDown className="w-5 h-5 md:w-8 md:h-14 text-red-500/45 mt-3 md:mt-10" />
-
+          <TrendingDown className="w-5 h-5 md:w-8 md:h-10 text-red-500/45 mt-3 md:mt-7" />
         </div>
         <div className="bg-[#0d0d0d] border border-white/5 p-3 md:p-8 rounded-[1.2rem] md:rounded-[2rem] flex flex-col items-start min-w-[120px] md:min-w-[160px] flex-1">
           <p className="text-[7px] md:text-[9px] text-white/40 uppercase tracking-[0.2em] font-black mb-1 md:mb-3">Taxa de Retenção</p>
           <p className="text-sm md:text-2xl font-black text-emerald-400 tracking-tight">Aumentada</p>
-          <TrendingUp className="w-5 h-5 md:w-8 md:h-14 text-emerald-400/45 mt-3 md:mt-10" />
-
-
+          <TrendingUp className="w-5 h-5 md:w-8 md:h-10 text-emerald-400/45 mt-3 md:mt-7" />
         </div>
       </div>
     ),
@@ -300,7 +301,7 @@ const StackedCards: React.FC = () => {
           }, startTime);
         }
       });
-    }, triggerRef.current); // Ajustado para usar .current
+    }, triggerRef.current);
 
     return () => ctx.revert();
   }, []);
@@ -332,7 +333,6 @@ const StackedCards: React.FC = () => {
                   </div>
                   
                   <h3 className="text-3xl md:text-6xl lg:text-8xl font-black text-white mb-4 md:mb-8 tracking-tighter leading-[1.05]">
-
                     {card.title.split(' ').map((word, i) => (
                       <span key={i} className={i === 0 ? "font-serif-italic italic font-normal mr-2 opacity-95 text-blue-400/90" : ""}>
                         {word}{' '}
@@ -341,7 +341,6 @@ const StackedCards: React.FC = () => {
                   </h3>
                   
                  <p className="text-sm md:text-xl lg:text-2xl text-white/55 leading-relaxed max-w-xl mb-6 md:mb-12 font-medium tracking-tight">
-
                     {card.description}
                   </p>
 
@@ -350,7 +349,7 @@ const StackedCards: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="flex-1 bg-white/[0.01] border-t md:border-t-0 md:border-l border-white/5 relative z-20 flex items-center justify-center overflow-hidden min-h-[200px] md:min-h-0 backdrop-blur-[2px]">
+                <div className="flex-1 bg-white/[0.01] border-t md:border-t-0 md:border-l border-white/5 relative z-20 flex items-center justify-center overflow-hidden min-h-[250px] md:min-h-0 backdrop-blur-[2px]">
                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.03)_0%,transparent_70%)]" />
                    {card.visual}
                 </div>
