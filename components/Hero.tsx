@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
 
   return (
     <section 
-      className="relative z-20 flex flex-col items-center justify-start md:justify-end min-h-screen px-4 pb-32 md:pb-48 text-center overflow-hidden"
+      className="relative z-20 flex flex-col items-center justify-start md:justify-end min-h-screen px-4 pb-48 md:pb-64 text-center overflow-hidden"
     >
       {/* Blurs Azuis Animados (Atrás da Imagem) */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
@@ -83,7 +83,7 @@ const Hero: React.FC = () => {
         />
       </div>
 
-      {/* Imagem de Fundo em Destaque */}
+      {/* Imagem de Fundo em Destaque - Ajustada a altura no mobile (top-28) */}
       <motion.div 
         initial={{ opacity: 0, scale: 1.1, filter: 'blur(10px)' }}
         animate={{ 
@@ -96,7 +96,7 @@ const Hero: React.FC = () => {
           scale: { duration: 2.5, ease: "easeOut" },
           filter: { duration: 2 }
         }}
-        className="absolute top-8 md:top-12 inset-x-0 flex justify-center pointer-events-none"
+        className="absolute top-20 md:top-12 inset-x-0 flex justify-center pointer-events-none"
       >
         <div className="relative w-full max-w-7xl h-[380px] md:h-[580px]">
           <img 
@@ -108,7 +108,7 @@ const Hero: React.FC = () => {
       </motion.div>
 
       {/* Conteúdo Principal */}
-      <div className="max-w-7xl mx-auto space-y-8 relative z-30 pt-[340px] md:pt-[480px] lg:pt-[540px]">
+      <div className="max-w-7xl mx-auto space-y-12 md:space-y-16 relative z-30 pt-[360px] md:pt-[480px] lg:pt-[540px]">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -135,7 +135,7 @@ const Hero: React.FC = () => {
           
           <p 
             style={{ textShadow: '0 4px 12px rgba(0,0,0,0.9)' }}
-            className="text-lg md:text-2xl text-white/80 font-light max-w-4xl mx-auto leading-relaxed tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]"
+            className="text-lg md:text-2xl text-white/80 font-light max-w-4xl mx-auto leading-relaxed tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] px-4"
           >
             A maioria procura lotar a academia. <span className="text-white font-medium border-b border-blue-500/30">Poucos dominam</span> <br className="hidden md:block" />
             as estratégias que aumentam o lucro real.
@@ -146,7 +146,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="pt-4 flex flex-col items-center gap-1"
+          className="pt-4 flex flex-col items-center gap-6 mb-16 md:mb-0"
         >
           <a 
             href="https://chat.whatsapp.com/BWCnxuMkAg975dRRzOJJBg"
@@ -206,7 +206,8 @@ const Hero: React.FC = () => {
         </motion.div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 pointer-events-none flex items-center justify-center">
+      {/* Indicador de Scroll (Seta Azul) */}
+      <div className="absolute bottom-16 md:bottom-12 left-1/2 -translate-x-1/2 z-20 pointer-events-none flex items-center justify-center">
         <div className="absolute w-12 h-12 rounded-full border border-blue-500/40 animate-[ping_2s_infinite] opacity-30" />
         <div className="relative w-11 h-11 bg-blue-600 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(37,99,235,0.6)] border border-blue-400/30">
           <svg 

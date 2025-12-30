@@ -109,12 +109,7 @@ const RadarUI = ({ rotation }: { rotation: number }) => {
         />
       </div>
       
-      {/* HUD Info: Sector 07 (Left), Active Scan (Center), Alt 2.5k (Right) */}
-      <div className="absolute bottom-[52%] left-1/2 -translate-x-1/2 w-full max-w-[280px] md:max-w-[450px] flex items-center justify-between text-[10px] md:text-[11px] font-mono text-cyan-500/50 uppercase tracking-[0.2em] md:tracking-[0.3em] z-10 px-4">
-        <span className="shrink-0 text-left">Sector 07     </span>
-        <span className="text-cyan-300 animate-pulse text-center">Active Scan</span>
-        <span className="text-cyan-400 font-bold shrink-0 text-right">     Alt 2.5k</span>
-      </div>
+     
     </div>
   );
 };

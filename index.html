@@ -7,6 +7,10 @@
     <title>Avance+</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+    <script>
+        // Fix para erro 'process is not defined' comum em bibliotecas que esperam ambiente Node
+        window.process = { env: { NODE_ENV: 'production' } };
+    </script>
     <style>
         /* Reset fundamental corrigido para GSAP Pinning */
         html, body {
@@ -56,9 +60,9 @@
     "framer-motion": "https://esm.sh/framer-motion@^12.23.26",
     "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
     "gsap": "https://esm.sh/gsap@3.12.5",
-    "gsap/ScrollTrigger": "https://esm.sh/gsap@3.12.5/ScrollTrigger",
+    "gsap/ScrollTrigger": "https://esm.sh/gsap@3.12.5/ScrollTrigger?deps=gsap@3.12.5",
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "gsap/": "https://esm.sh/gsap@^3.14.2/"
+    "gsap/": "https://esm.sh/gsap@3.12.5/"
   }
 }
 </script>

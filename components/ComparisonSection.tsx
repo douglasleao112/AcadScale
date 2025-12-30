@@ -157,10 +157,11 @@ const ComparisonSection: React.FC = () => {
             <div className="absolute bottom-0 left-0 w-40 h-40 bg-blue-500/10 blur-[100px]" />
 
             <div className="relative z-10 flex flex-col items-center space-y-8">
+              {/* Logo Avance+ Oficial no card */}
               <img
                 src="https://i.imgur.com/sP4bt3b.png"
-                alt="FA Logo"
-                className="h-10 md:h-12 w-auto object-contain brightness-125"
+                alt="Avance+ Logo"
+                className="h-12 md:h-16 w-auto object-contain brightness-125"
               />
 
               <div className="text-center">
