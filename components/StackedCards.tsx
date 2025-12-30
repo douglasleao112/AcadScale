@@ -177,13 +177,13 @@ const CARDS_DATA = [
         <div className="bg-[#0d0d0d] border border-white/5 p-3 md:p-8 rounded-[1.2rem] md:rounded-[2rem] flex flex-col items-start min-w-[120px] md:min-w-[160px] flex-1">
           <p className="text-[7px] md:text-[9px] text-white/40 uppercase tracking-[0.2em] font-black mb-1 md:mb-3">Custo por Clique</p>
           <p className="text-sm md:text-2xl font-black text-red-500 tracking-tight">Reduzido</p>
-          <TrendingDown className="w-5 h-5 md:w-8 md:h-10 text-red-500/45 mt-3 md:mt-7" />
+          <TrendingDown className="w-5 h-5 md:w-8 md:h-14 text-red-500/45 mt-3 md:mt-10" />
 
         </div>
         <div className="bg-[#0d0d0d] border border-white/5 p-3 md:p-8 rounded-[1.2rem] md:rounded-[2rem] flex flex-col items-start min-w-[120px] md:min-w-[160px] flex-1">
           <p className="text-[7px] md:text-[9px] text-white/40 uppercase tracking-[0.2em] font-black mb-1 md:mb-3">Taxa de Retenção</p>
           <p className="text-sm md:text-2xl font-black text-emerald-400 tracking-tight">Aumentada</p>
-     <TrendingUp className="w-5 h-5 md:w-8 md:h-10 text-emerald-400/45 mt-3 md:mt-7" />
+          <TrendingUp className="w-5 h-5 md:w-8 md:h-14 text-emerald-400/45 mt-3 md:mt-10" />
 
 
         </div>
