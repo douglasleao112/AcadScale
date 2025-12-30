@@ -89,14 +89,14 @@ const ProofSection: React.FC = () => {
           </motion.p>
         </div>
 
-        {/* Main Card */}
+        {/* Main Card 
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="relative bg-neutral-900/50 border border-white/10 rounded-[2.5rem] overflow-hidden backdrop-blur-sm shadow-2xl flex flex-col md:flex-row min-h-[500px]"
-        >
-          {/* Lado Esquerdo - Info */}
+        >*/}
+          {/* Lado Esquerdo - Info 
           <div className="flex-1 p-8 md:p-14 flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/5">
             <div className="flex items-center gap-4 mb-8">
               <div className="w-16 h-16 rounded-full p-[2px] bg-gradient-to-tr from-blue-500 to-cyan-400">
@@ -128,17 +128,17 @@ const ProofSection: React.FC = () => {
                 "O que funciona para quem escala, funciona para o seu negócio. O próximo projeto pode ser o seu!"
               </p>
             </div>
-          </div>
+          </div>*/}
 
-          {/* Lado Direito - Vídeo Placeholder */}
+          {/* Lado Direito - Vídeo Placeholder
           <div className="flex-[1.2] relative group cursor-pointer overflow-hidden" onClick={() => setIsVideoOpen(true)}>
             <img 
               src="https://i.ytimg.com/vi/VR6tCP8dA70/maxresdefault.jpg" 
               alt="Thumbnail Vídeo" 
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60"
-            />
+            /> */}
             
-            {/* Overlay com Textos e Glow */}
+            {/* Overlay com Textos e Glow
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
             
             <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
@@ -157,7 +157,7 @@ const ProofSection: React.FC = () => {
               <span className="text-white/40 text-[10px] font-mono">1.00</span>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
 
         {/* BARRA DE MÉTRICAS (IGUAL AO PRINT) */}
         <motion.div 

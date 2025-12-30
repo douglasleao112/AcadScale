@@ -222,7 +222,7 @@ const CARDS_DATA = [
   },
   {
     id: 2,
-    badge: "ESTRATÉGIA COMERCIAL",
+    badge: "CULTURA DE VENDAS",
     badgeColor: "amber",
     title: "Estratégia Comercial",
     description: "Atuamos diretamente nas decisões comerciais, precificação e posicionamento para que cada ação gere retorno financeiro real.",
