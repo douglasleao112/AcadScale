@@ -90,7 +90,7 @@ const ObjectiveSection: React.FC = () => {
             Qual é o seu objetivo?
           </h3>
           <p className="text-white/60 text-sm md:text-xl max-w-3xl mx-auto font-light leading-relaxed">
-            Selecione o seu segmento abaixo para ver os detalhes. Se fizer sentido para sua operação, preencha a aplicação para alinharmos o projeto.
+            Selecione o segmento abaixo para ver os detalhes. Se fizer sentido para sua operação, preencha a aplicação para alinharmos o projeto.
           </p>
         </div>
 
