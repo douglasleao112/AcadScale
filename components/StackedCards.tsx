@@ -357,13 +357,14 @@ const StackedCards: React.FC = () => {
                   }}
                 />
 
-                <div className={`${card.id === 2 ? 'flex-[1.8]' : 'flex-[1.4]'} p-6 md:p-16 lg:p-24 flex flex-col justify-center text-left relative z-20 overflow-y-auto md:overflow-hidden`}>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/5 mb-4 md:mb-10 w-fit bg-white/[0.01]">
+                <div className={`${card.id === 2 ? 'flex-[1.8]' : 'flex-[1.6]'} p-6 md:p-16 lg:p-24 flex flex-col justify-center text-left relative z-20 overflow-y-auto md:overflow-hidden`}>
+                  {/* Badge de categoria com escala aumentada */}
+                  <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/5 mb-4 md:mb-10 w-fit bg-white/[0.01]">
                      <div className={`w-1.5 h-1.5 rounded-full bg-${card.badgeColor}-500 animate-pulse`} />
-                     <span className={`text-[8px] md:text-[11px] font-black uppercase tracking-[0.2em] text-${card.badgeColor}-400`}>{card.badge}</span>
+                     <span className={`text-[10px] md:text-[14px] font-black uppercase tracking-[0.2em] text-${card.badgeColor}-400`}>{card.badge}</span>
                   </div>
                   
-                  <h3 className="text-3xl md:text-6xl lg:text-8xl font-black text-white mb-4 md:mb-8 tracking-tighter leading-[1.05]">
+                  <h3 className="text-4xl md:text-7xl lg:text-[7.5rem] font-black text-white mb-4 md:mb-8 tracking-tighter leading-[1.05]">
                     {card.title.split(' ').map((word, i) => (
                       <span key={i} className={i === 0 ? "font-serif-italic italic font-normal mr-2 opacity-95 text-blue-400/90" : ""}>
                         {word}{' '}
