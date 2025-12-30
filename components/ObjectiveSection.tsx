@@ -199,7 +199,7 @@ const ObjectiveSection: React.FC = () => {
                 ))}
               </ul>
 
-              <div className="pt-4 md:pt-8 pb-10 md:pb-0">
+              <div className="pt-4 md:pt-8 pb-10 md:pb-0 flex justify-center md:justify-start">
                 {/* Botão Padronizado */}
                 <a 
                   href="https://chat.whatsapp.com/BWCnxuMkAg975dRRzOJJBg"
