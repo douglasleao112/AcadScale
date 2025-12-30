@@ -1,18 +1,52 @@
 
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Play, X } from 'lucide-react';
+
+const Counter = ({ value, duration = 2 }: { value: string, duration?: number }) => {
+  const [count, setCount] = useState(0);
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, { once: true });
+  
+  // Extrai o número da string (ex: "+93%" -> 93)
+  const targetValue = parseInt(value.replace(/[^0-9-]/g, ''));
+  const prefix = value.startsWith('+') ? '+' : value.startsWith('-') ? '-' : '';
+  const suffix = value.endsWith('%') ? '%' : '';
+
+  useEffect(() => {
+    if (isInView) {
+      let start = 0;
+      const end = Math.abs(targetValue);
+      if (start === end) return;
+
+      let totalMiliseconds = duration * 1000;
+      let incrementTime = totalMiliseconds / end;
+
+      let timer = setInterval(() => {
+        start += 1;
+        setCount(start);
+        if (start === end) clearInterval(timer);
+      }, incrementTime);
+
+      return () => clearInterval(timer);
+    }
+  }, [isInView, targetValue, duration]);
+
+  return (
+    <span ref={ref}>
+      {prefix}{count}{suffix}
+    </span>
+  );
+};
 
 const ProofSection: React.FC = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   const stats = [
-    { value: "+93%", label: "Connect Rate", sub: "" },
-    { value: "-38%", label: "no Custo por Lead (CPL)", sub: "" },
-    { value: "+22%", label: "no CTR da página", sub: "" },
+    { value: "+93%", label: "Connect Rate" },
+    { value: "-38%", label: "no Custo por Lead (CPL)" },
+    { value: "+22%", label: "no CTR da página" },
   ];
-
-  const tags = ["Margem", "Lucro", "Escala"];
 
   return (
     <section className="relative w-full bg-black py-24 md:py-32 overflow-hidden">
@@ -119,15 +153,42 @@ const ProofSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Selo 1.00 (opcional conforme imagem) */}
             <div className="absolute top-6 left-6 px-3 py-1 rounded bg-black/40 backdrop-blur-md border border-white/10">
               <span className="text-white/40 text-[10px] font-mono">1.00</span>
             </div>
           </div>
         </motion.div>
 
-       
+        {/* BARRA DE MÉTRICAS (IGUAL AO PRINT) */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-8 bg-neutral-900/40 border border-white/5 rounded-[2rem] p-8 md:p-12 backdrop-blur-sm relative overflow-hidden"
+        >
+          {/* Glow suave no centro das métricas */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent pointer-events-none" />
 
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 relative z-10">
+            {stats.map((stat, i) => (
+              <div key={i} className="flex flex-col items-center justify-center text-center group relative">
+                {/* Divisor Vertical (apenas desktop) */}
+                {i < stats.length - 1 && (
+                  <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[1px] h-12 bg-white/10" />
+                )}
+                
+                <span className="text-4xl md:text-6xl font-black text-white mb-2 tracking-tighter">
+                  <Counter value={stat.value} />
+                </span>
+                <span className="text-white/60 text-sm md:text-lg font-serif-italic italic">
+                  {stat.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+     
       {/* Modal do Vídeo */}
       <AnimatePresence>
         {isVideoOpen && (

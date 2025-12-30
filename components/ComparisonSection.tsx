@@ -1,8 +1,17 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { XCircle, CheckCircle2 } from 'lucide-react';
+
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { XCircle, CheckCircle2, Check } from 'lucide-react';
 
 const ComparisonSection: React.FC = () => {
+  const [selectedItems, setSelectedItems] = useState<number[]>([]);
+
+  const toggleItem = (index: number) => {
+    setSelectedItems(prev => 
+      prev.includes(index) ? prev.filter(i => i !== index) : [...prev, index]
+    );
+  };
+
   const commonPoints = [
     { text: "Página que ", bold: "desperdiça seu tráfego" },
     { text: "Site com ", bold: "carregamento lento" },
@@ -64,7 +73,7 @@ const ComparisonSection: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
       </div>
 
-      {/* Brilho Branco na Base (Degradê para cima) */}
+      {/* Brilho Branco na Base */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[140%] h-[200px] md:h-[400px] pointer-events-none z-0">
         <div className="absolute bottom-[-100px] left-0 right-0 h-full bg-white opacity-10 md:opacity-[0.08] blur-[80px] md:blur-[120px] rounded-[100%]" />
         <div className="absolute bottom-0 left-0 right-0 h-[100px] md:h-[200px] bg-gradient-to-t from-white/10 to-transparent" />
@@ -136,7 +145,7 @@ const ComparisonSection: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Card Direita: Minha Entrega (Premium) */}
+          {/* Card Direita: Minha Entrega (Premium / Interactive) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 30 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -156,33 +165,57 @@ const ComparisonSection: React.FC = () => {
 
               <div className="text-center">
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-1">Minha entrega:</h3>
-                <p className="text-xs md:text-sm text-white/40 uppercase tracking-widest">Marque o que faz sentido pra você:</p>
+                <p className="text-[10px] md:text-xs text-white/40 uppercase tracking-[0.2em] font-bold">Marque o que faz sentido pra você:</p>
               </div>
 
-              <div className="w-full space-y-4">
-                {premiumPoints.map((point, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.1 }}
-                    className="flex items-center gap-4 group cursor-default"
-                  >
-                    <div className="w-6 h-6 md:w-7 md:h-7 rounded-lg border border-emerald-500/30 bg-emerald-500/10 flex items-center justify-center text-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.2)] group-hover:scale-110 transition-transform">
-                      <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5" />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-sm md:text-base font-bold text-emerald-400/90 leading-tight">
-                        {point.title}
-                      </span>
-                      {point.sub && (
-                        <span className="text-[10px] md:text-xs text-emerald-400/40 font-medium">
-                          {point.sub}
+              <div className="w-full space-y-3 md:space-y-4">
+                {premiumPoints.map((point, i) => {
+                  const isSelected = selectedItems.includes(i);
+                  return (
+                    <motion.button
+                      key={i}
+                      onClick={() => toggleItem(i)}
+                      whileTap={{ scale: 0.98 }}
+                      className="w-full flex items-center gap-4 text-left group transition-all duration-300"
+                    >
+                      <div className={`
+                        relative w-6 h-6 md:w-8 md:h-8 rounded-full border flex items-center justify-center transition-all duration-500
+                        ${isSelected 
+                          ? 'bg-emerald-500 border-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.5)]' 
+                          : 'bg-transparent border-white/10 group-hover:border-emerald-500/40'}
+                      `}>
+                        <AnimatePresence>
+                          {isSelected && (
+                            <motion.div
+                              initial={{ opacity: 0, scale: 0.5 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              exit={{ opacity: 0, scale: 0.5 }}
+                            >
+                              <Check className="w-4 h-4 md:w-5 md:h-5 text-white stroke-[3px]" />
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+
+                      <div className="flex flex-col">
+                        <span className={`
+                          text-sm md:text-base font-bold transition-all duration-500 leading-tight
+                          ${isSelected ? 'text-emerald-400' : 'text-white/60 group-hover:text-white/80'}
+                        `}>
+                          {point.title}
                         </span>
-                      )}
-                    </div>
-                  </motion.div>
-                ))}
+                        {point.sub && (
+                          <span className={`
+                            text-[10px] md:text-xs transition-all duration-500
+                            ${isSelected ? 'text-emerald-400/60' : 'text-white/20'}
+                          `}>
+                            {point.sub}
+                          </span>
+                        )}
+                      </div>
+                    </motion.button>
+                  );
+                })}
               </div>
 
               <div className="pt-6 border-t border-white/5 w-full text-center">
@@ -194,7 +227,7 @@ const ComparisonSection: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* CTA FINAL - BOTÃO IGUAL HERO (ABAIXO DOS CARDS) */}
+        {/* CTA FINAL */}
         <div className="mt-16 md:mt-24 flex flex-col items-center text-center gap-10">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
