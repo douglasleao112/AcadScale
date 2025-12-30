@@ -231,7 +231,7 @@ const CARDS_DATA = [
         {["PRECIFICAÇÃO", "POLÍTICA COMERCIAL", "LUCRO LÍQUIDO"].map((step, i) => (
           <React.Fragment key={i}>
             <div className="w-full bg-[#0d0d0d] border border-white/5 py-2.5 px-4 rounded-lg text-center shadow-2xl transition-all hover:border-white/20">
-              <span className="text-[8px] md:text-[11px] font-black text-white uppercase tracking-[0.25em]">
+              <span className="text-[8px] md:textKey[11px] font-black text-white uppercase tracking-[0.25em]">
                 {step}
               </span>
             </div>
@@ -312,16 +312,13 @@ const StackedCards: React.FC = () => {
         if (index === 0) {
           gsap.set(card, { yPercent: 0, opacity: 1, scale: 1 });
         } else {
-          // Os cards agora começam em yPercent: 94 para mostrar uma borda no fundo (peeking)
-          // Opacidade em 0.4 para sugerir que o card está ali pronto para subir
-          gsap.set(card, { yPercent: 94, opacity: 0.4, scale: 1 });
+          gsap.set(card, { yPercent: 100, opacity: 0, scale: 1 });
         }
       });
 
       cards.forEach((card, index) => {
         if (index > 0) {
-          // Mudamos startTime de 'index - 0.5' para 'index - 0.8' para o movimento ser mais imediato
-          const startTime = index - 0.8;
+          const startTime = index - 0.5;
           tl.to(card, { yPercent: 0, duration: 1 }, startTime);
           tl.to(card, { opacity: 1, duration: 0.3 }, startTime);
           tl.to(cards[index - 1], {
@@ -340,8 +337,7 @@ const StackedCards: React.FC = () => {
   return (
     <div ref={triggerRef} className="relative w-full overflow-hidden bg-black">
       <section className="relative w-full h-screen flex items-center justify-center px-4 md:px-8 z-10">
-        {/* Reduzida altura de h-[88vh] para h-[82vh] para garantir que a borda do próximo card seja visível no mobile */}
-        <div className="relative w-full max-w-7xl h-[82vh] md:h-[75vh]">
+        <div className="relative w-full max-w-7xl h-[88vh] md:h-[75vh]">
           {CARDS_DATA.map((card, index) => (
             <div
               key={card.id}
@@ -384,7 +380,8 @@ const StackedCards: React.FC = () => {
                   </div>
                 </div>
 
-                <div className={`${card.id === 2 ? 'flex-[0.7] min-h-[180px]' : 'flex-1 min-h-[250px]'} md:min-h-0 bg-white/[0.01] border-t md:border-t-0 md:border-l border-white/5 relative z-20 flex items-center justify-center overflow-hidden backdrop-blur-[2px]`}>
+                {/* Área do gráfico ajustada para mobile (flex e min-h reduzidos) */}
+                <div className={`${card.id === 2 ? 'flex-[0.5] min-h-[140px]' : 'flex-[0.8] min-h-[190px]'} md:min-h-0 bg-white/[0.01] border-t md:border-t-0 md:border-l border-white/5 relative z-20 flex items-center justify-center overflow-hidden backdrop-blur-[2px]`}>
                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.03)_0%,transparent_70%)]" />
                    {card.visual}
                 </div>
