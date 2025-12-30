@@ -250,11 +250,11 @@ const CARDS_DATA = [
     id: 3,
     badge: "METODOLOGIA VALIDADA",
     badgeColor: "purple",
-    title: "Método AVANCE+",
-    description: "Estruturamos o negócio da academia para atrair e fidelizar clientes, com lucro previsível e reduzir Churn.",
+    title: "Método RARO",
+    description: "Construímos a Proposta Única de Valor da academia para sair da guerra de preço, gerar desejo real e atrair clientes que não negociam valor.",
     leftContent: (
       <div className="space-y-2 md:space-y-4 w-full max-w-[280px]">
-        {['R - Receita', 'R - Retenção', 'R - Resultado'].map((text, i) => (
+        {['R - Relevancia', 'A - Autoridade','R - Resultado', 'O - Oferta'].map((text, i) => (
           <div key={i} className="flex items-center gap-3 bg-white/[0.02] border border-white/10 p-2 md:p-4 rounded-lg md:rounded-[1.2rem]">
             <div className="w-6 h-6 md:w-8 md:h-8 rounded bg-purple-500/20 flex items-center justify-center text-[9px] md:text-xs font-black text-purple-400 border border-purple-500/30">
               {text[0]}
