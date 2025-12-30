@@ -122,7 +122,7 @@ const AboutSection: React.FC = () => {
                 >
                   <ShieldCheck className="w-4 h-4 text-blue-400" />
                   <span className="text-[10px] font-bold text-blue-300 uppercase tracking-widest">
-                    Quem é
+                    Saiba Quem é
                   </span>
                 </motion.div>
 

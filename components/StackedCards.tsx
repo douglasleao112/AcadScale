@@ -336,8 +336,10 @@ const StackedCards: React.FC = () => {
 
   return (
     <div ref={triggerRef} className="relative w-full overflow-hidden bg-black">
-      <section className="relative w-full h-screen flex items-center justify-center px-4 md:px-8 z-10">
-        <div className="relative w-full max-w-7xl h-[88vh] md:h-[75vh]">
+      {/* Ajustado min-h e padding para evitar corte no mobile */}
+      <section className="relative w-full h-screen min-h-[600px] flex items-center justify-center px-4 md:px-8 z-10">
+        {/* h-[82dvh] garante que o card caiba mesmo com barras de navegação no mobile */}
+        <div className="relative w-full max-w-7xl h-[82dvh] md:h-[75vh]">
           {CARDS_DATA.map((card, index) => (
             <div
               key={card.id}
@@ -357,8 +359,9 @@ const StackedCards: React.FC = () => {
                   }}
                 />
 
-                <div className={`${card.id === 2 ? 'flex-[1.8]' : 'flex-[1.6]'} p-6 md:p-16 lg:p-24 flex flex-col justify-center text-left relative z-20 overflow-y-auto md:overflow-hidden`}>
-                  {/* Badge de categoria com escala aumentada */}
+                {/* Container de Conteúdo com scroll interno e padding de segurança inferior */}
+                <div className={`${card.id === 2 ? 'flex-[1.8]' : 'flex-[1.6]'} p-6 md:p-16 lg:p-24 flex flex-col justify-center text-left relative z-20 overflow-y-auto md:overflow-hidden pb-12 md:pb-16`}>
+                  {/* Badge de categoria */}
                   <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-white/5 mb-4 md:mb-10 w-fit bg-white/[0.01]">
                      <div className={`w-1.5 h-1.5 rounded-full bg-${card.badgeColor}-500 animate-pulse`} />
                      <span className={`text-[10px] md:text-[14px] font-black uppercase tracking-[0.2em] text-${card.badgeColor}-400`}>{card.badge}</span>

@@ -98,7 +98,8 @@ const PhotoSlider: React.FC = () => {
       <div className="absolute inset-y-0 right-0 w-16 md:w-64 bg-gradient-to-l from-black via-black/40 to-transparent z-20 pointer-events-none" />
 
       <div className="flex flex-col gap-4 md:gap-10">
-        <div className="px-6 md:px-12 mb-2 flex justify-start md:justify-center">
+        {/* Alterado para justify-center para centralizar no mobile */}
+        <div className="px-6 md:px-12 mb-2 flex justify-center">
           <motion.div 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -109,7 +110,8 @@ const PhotoSlider: React.FC = () => {
             <span className="text-[9px] md:text-xs font-bold tracking-[0.4em] uppercase text-blue-400/60 text-center">
               Ambiente & Performance
             </span>
-            <div className="h-[1px] w-8 md:w-12 bg-blue-500/30 hidden md:block" />
+            {/* Removido hidden md:block para manter a simetria no mobile */}
+            <div className="h-[1px] w-8 md:w-12 bg-blue-500/30" />
           </motion.div>
         </div>
 
