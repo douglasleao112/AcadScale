@@ -69,15 +69,15 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
         </div>
 
-        <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-center">
-          <p className="text-[9px] font-bold text-white/20 uppercase tracking-[0.2em]">
-            Cresça com estratégia, lucre com gestão.
-          </p>
-          <div className="hidden md:block w-1 h-1 bg-white/5 rounded-full" />
-          <p className="text-[9px] font-medium text-white/20 tracking-[0.2em]">
-            2025 Avance + Todos os Direitos Reservados
-          </p>
-        </div>
+<div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-4 text-center">
+  <p className="text-[9px] font-bold text-white/20 tracking-[0.2em]">
+    Cresça com Estratégia, Lucre com Gestão.
+  </p>
+  <div className="hidden md:block w-1 h-1 bg-white/5 rounded-full" />
+  <p className="text-[9px] font-medium text-white/20 tracking-[0.2em]">
+    2025 Avance+ Todos os Direitos Reservados
+  </p>
+</div>
       </div>
     </footer>
   );
