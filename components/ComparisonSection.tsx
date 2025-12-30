@@ -16,8 +16,8 @@ const ComparisonSection: React.FC = () => {
     { text: "Atua no sintoma ", bold: "não no problema" },
     { text: "Foco em faturamento ", bold: "não em lucro líquido" },
     { text: "Nenhuma visão ", bold: "estratégica do negócio" },
-    { text: "Decisões baseadas ", bold: "em achismo ou tentativa e erro" },
-    { text: "Falta de ", bold: "acompanhamento e direção contínua" },
+    { text: "Decisões baseadas ", bold: "em achismo" },
+    { text: "Falta de ", bold: "acompanhamento e direção" },
     { text: "", bold: "ENTREGA UMA ESTRATÉGIA E SOME..." },
   ];
 
@@ -25,7 +25,7 @@ const ComparisonSection: React.FC = () => {
     { title: "Decisões guiadas por método validado", sub: "Não achismo..." },
     { title: "Estrutura estratégica do negócio", sub: "" },
     { title: "Foco absoluto em lucro líquido previsível", sub: "" },
-    { title: "Análise de números reais: custos, margem e churn", sub: "" },
+    { title: "Análise de custos, margem e churn", sub: "" },
     { title: "Acompanhamento estratégico contínuo", sub: "" },
     { title: "Atuação como conselho, não fornecedor", sub: "" },
     { title: "Otimização constante baseada em dados", sub: "" },
@@ -100,7 +100,7 @@ const ComparisonSection: React.FC = () => {
             viewport={{ margin: "-100px" }}
             className="text-4xl md:text-7xl font-bold text-white tracking-tight"
           >
-            Seja sincero. <span className="font-serif-italic italic font-normal text-blue-400/90">O que você prefere?</span>
+            Seja sincero. <br/><span className="font-serif-italic italic font-normal text-blue-400/90">O que você prefere?</span>
           </motion.h2>
 
           <motion.p
