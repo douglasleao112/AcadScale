@@ -19,14 +19,16 @@ const Hero: React.FC = () => {
 
   useEffect(() => {
     const currentFullText = phrases[phraseIndex];
-    const typingSpeed = isDeleting ? 50 : 100;
+    // Velocidade acelerada: 60ms para digitar, 30ms para apagar
+    const typingSpeed = isDeleting ? 30 : 60;
 
     const timer = setTimeout(() => {
       if (!isDeleting) {
         if (displayText !== currentFullText) {
           setDisplayText(currentFullText.substring(0, displayText.length + 1));
         } else {
-          setTimeout(() => setIsDeleting(true), 2000);
+          // Pausa reduzida de 2000ms para 1000ms
+          setTimeout(() => setIsDeleting(true), 1000);
         }
       } else {
         if (displayText !== '') {
