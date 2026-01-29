@@ -122,7 +122,7 @@ const Hero: React.FC = () => {
               }}
               className="text-[2.6rem] md:text-[5rem] lg:text-[6.5rem] font-black tracking-tighter text-white leading-[1.1] md:leading-[1.05] max-w-6xl mx-auto"
             >
-              O que você perde não é faturamento.
+              Além de aumentar seu faturamento...
               <br className="md:hidden" />{' '}
               <span className="inline-block whitespace-nowrap relative">
                 <span className="font-serif-italic font-normal italic text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 min-h-[1.1em] inline-block">
