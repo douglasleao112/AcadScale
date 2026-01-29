@@ -42,21 +42,6 @@ const PARTNERS: Partner[] = [
       { value: '5M+', label: 'VGV 3 anos' },
       { value: 'Marketing', label: 'Especialista' }
     ]
-  },
-  {
-    id: 'fabio',
-    name: 'Fábio Rocha',
-    role: 'Especialista em Expansão e Liderança',
-    bio: [
-      "Graduado em Educação Física, empresário e especialista em liderança...",
-      "Possui MBA em liderança de times comerciais...",
-      "Ao longo de sua trajetória, desenvolveu mais de 300 líderes..."
-    ],
-    image: 'https://i.imgur.com/BAskeMm.webp',
-    stats: [
-      { value: 'Escala', label: 'Processos' },
-      { value: 'Liderança', label: 'Especialista' }
-    ]
   }
 ];
 
