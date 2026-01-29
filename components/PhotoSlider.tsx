@@ -21,20 +21,30 @@ const PHOTOS_ROW_2 = [
   "https://i.imgur.com/X63EMhe.webp"
 ];
 
+const PHOTOS_ROW_3 = [
+  "https://i.imgur.com/z0WN0hL.webp",
+  "https://i.imgur.com/WjoaPMO.webp",
+  "https://i.imgur.com/zc7fRl4.webp",
+  "https://i.imgur.com/TR0ZZlu.webp",
+  "https://i.imgur.com/n6K6A4x.webp", 
+  "https://i.imgur.com/UZ9LKuU.webp",
+  "https://i.imgur.com/RJ56mO4.webp"
+];
 
 const PhotoSlider: React.FC = () => {
   const controls1 = useAnimation();
   const controls2 = useAnimation();
-  
+  const controls3 = useAnimation();
   
   const timeoutRefs = useRef<Record<string, any>>({
     row1: null,
-    row2: null
+    row2: null,
+    row3: null
   });
 
   const row1 = [...PHOTOS_ROW_1, ...PHOTOS_ROW_1];
   const row2 = [...PHOTOS_ROW_2, ...PHOTOS_ROW_2];
-  
+  const row3 = [...PHOTOS_ROW_3, ...PHOTOS_ROW_3];
 
   const startInfiniteAnimation = (controls: any, direction: 'left' | 'right', duration: number) => {
     controls.start({
