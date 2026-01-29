@@ -44,8 +44,8 @@ const ProofSection: React.FC = () => {
 
   const stats = [
     { value: "+93%", label: "Retenção" },
-    { value: "-12%", label: "Churn" },
-    { value: "+42%", label: "Lucro Líquido" },
+    { value: "-10%", label: "Churn" },
+    { value: "+47%", label: "Lucro Líquido" },
   ];
 
   return (
