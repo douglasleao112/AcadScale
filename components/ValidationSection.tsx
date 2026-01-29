@@ -13,7 +13,7 @@ const USERS: User[] = [
   { id: 1, handle: '@studio.natanaelalves', image: 'https://i.imgur.com/v7HzJsH.jpeg' },
   { id: 2, handle: '@statera_team', image: 'https://i.imgur.com/hPoczNy.webp' },
   { id: 3, handle: '@delasgym', image: 'https://i.imgur.com/SZQThWA.webp' },
-  { id: 4, handle: '@basicfull', image: 'https://i.imgur.com/KGKEe9y.webp' },
+  { id: 4, handle: '@academiasouzafitness', image: 'https://i.imgur.com/2IXWKrF.jpeg' },
   { id: 5, handle: '@flexfitnesscenter', image: 'https://i.imgur.com/B6VgBoS.webp' },
 ];
 
