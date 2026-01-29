@@ -21,15 +21,7 @@ const PHOTOS_ROW_2 = [
   "https://i.imgur.com/X63EMhe.webp"
 ];
 
-const PHOTOS_ROW_3 = [
-  "https://i.imgur.com/z0WN0hL.webp",
-  "https://i.imgur.com/WjoaPMO.webp",
-  "https://i.imgur.com/zc7fRl4.webp",
-  "https://i.imgur.com/TR0ZZlu.webp",
-  "https://i.imgur.com/n6K6A4x.webp", 
-  "https://i.imgur.com/UZ9LKuU.webp",
-  "https://i.imgur.com/RJ56mO4.webp"
-];
+
 
 const PhotoSlider: React.FC = () => {
   const controls1 = useAnimation();
