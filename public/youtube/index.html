@@ -1,0 +1,952 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Saúde e Bem-Estar</title>
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" sizes="32x32">
+
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+      .container {
+      max-width: 480px;
+      margin: 8px auto 0 auto;
+      padding: 0 9px;
+      font-family: Arial, sans-serif;
+    }
+	
+	
+
+ 
+    .canal {
+      max-width: auto;
+      padding: 16px;
+	   border-top: 1px solid #e0e0e0; 
+    
+    }
+
+    .contador {
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 16px;
+    }
+
+    .info-canal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    }
+
+    .info-usuario {
+      display: flex;
+      align-items: center;
+	   flex: 1; 
+    }
+
+    .info-usuario img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      margin-right: 12px;
+      object-fit: cover;
+    }
+
+    .info-usuario div {
+      line-height: 1.2;
+    }
+
+    .btn-inscrever {
+      padding: 8px 16px;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .btn-inscrever.ativo {
+      background-color: red;
+    }
+
+ .botoes-reacao-wrapper {
+  background-color: #f2f2f2;
+  border-radius: 20px;
+  display: inline-flex;
+  padding: 6px 10px;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+    .reacao {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .reacao img {
+      width: 18px;
+      height: 18px;
+      opacity: 0.5;
+      transition: opacity 0.2s;
+    }
+
+.like-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-right: 12px;
+}
+
+.like-count {
+  font-size: 12px;
+  color: #444;
+}
+
+.barra-lateral {
+  width: 1px;
+  height: 18px;
+  background-color: #ccc;
+  position: absolute;
+  right: 0;
+}
+
+    .reacao.activo img {
+      opacity: 1;
+    }
+ 
+ 
+	
+  </style>
+
+
+<!-- Meta Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1290378376428374'); // Seu ID do Pixel
+  fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1290378376428374&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
+
+
+
+
+
+
+</head>
+<body>
+	
+
+
+ <div class="container">
+ 
+<!-- TOPO FIXO DENTRO DO CONTAINER -->
+<div style="
+  width: 100%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0 10px 0;
+  font-family: Impact, sans-serif;
+  border-bottom: 1px solid #f0f0f0;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+">
+  <!-- ÍCONE MENU + LOGO -->
+  <div style="font-size: 27px; cursor: pointer; color: #2a2a2a; display: flex; align-items: center;">
+    <span style="margin-right: 14px; vertical-align: middle;">&#9776;</span>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/YouTube_2024.svg/1200px-YouTube_2024.svg.png" 
+         style="width: 90px; vertical-align: middle;">
+  </div>
+  <!-- ÍCONES À DIREITA -->
+  <div style="display: flex; gap: 10px; margin-left: auto;">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcbsTsrYitGjgtV3IZNpJZBOkfZ9DzpwoIRg&s" style="width: 24px; height: 24px; cursor: pointer;">
+    <img src="https://cdn-icons-png.flaticon.com/512/9187/9187604.png" style="width: 24px; height: 24px; cursor: pointer; border-radius: 50%;">
+  </div>
+</div>
+
+
+
+
+
+
+<!-- VÍDEO COM PLAY EM QUALQUER LUGAR -->
+<div style="position: relative; width: 100%; max-width: 480px; margin: auto; font-family: Arial, sans-serif;">
+  <video id="customVideo"
+
+         style="width: 100%; display: block;"
+         preload="metadata"
+         playsinline
+         poster="https://static.wixstatic.com/media/7f5efc_7724a9a8fd89482fa9e63bee21ab1609~mv2.gif">
+    <source src="https://video.wixstatic.com/video/7f5efc_d8275cd87101404c860f5d6e010c8ed5/480p/mp4/file.mp4" type="video/mp4">
+    Su navegador no soporta video.
+  </video>
+
+  <!-- Camada clicável -->
+  <div id="videoClickOverlay" style="
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    cursor: pointer;
+    z-index: 3;
+  "></div>
+
+  <!-- Botão play -->
+  <button id="playButton" style="
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0);
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    z-index: 4;
+  ">
+    
+  </button>
+  
+  
+  
+  <!-- Barra de progresso customizada -->
+<div id="barraTempo"
+  style="
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 8px;
+    width: 0;
+    background: rgba(255,0,0,0.75);
+    border-radius: 0px;
+    z-index: 10;
+    transition: width 0.1s linear;
+    pointer-events: none;
+  "></div>
+  
+  
+  
+</div>
+
+
+
+
+
+
+
+<!-- TÍTULO ABAIXO DO VÍDEO -->
+<div style="
+  max-width: 480px;
+  margin: 0 auto 16px auto;
+  margin-top: 10px;
+  font-family: 'Avenir', Arial, sans-serif;
+  text-align: left;
+  line-height: 1.3;
+">
+  <div style="font-size: 18px;">
+    <span style="font-weight: bold; color: #242424;">
+      Emagreça Até 12kg em 1 Mês com a Fórmula do Abacate!
+    </span>
+	<div class="contador" style="margin-top: 15px;"><span id="viewerCountTop">1473</span> pessoas ao vivo agora <span id="currentHour"></span>h, hoje <span id="todayDate"></span></div>
+   </div>
+</div>
+
+
+
+
+<!-- COMENTÁRIOS -->
+<div class="chat-container">
+  <div class="chat-header">Chat ao vivo</div>
+  <div class="chat-messages" id="chatMessages"></div>
+
+  <div class="chat-input">
+    <input type="text" id="userInput" placeholder="Escreva sua mensagem..." />
+    <img src="https://cdn-icons-png.flaticon.com/512/876/876777.png" id="sendBtn" />
+  </div>
+</div>
+
+<style>
+.chat-container {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+  border: 1px solid #eee;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  background: white;
+  margin: 0 auto;
+}
+
+.chat-header {
+  font-size: 13px;
+  font-weight: bold;
+  padding: 10px;
+  background: #ffffff;
+  color: #222;
+  border-bottom: 1px solid #eee;
+}
+
+.chat-messages {
+  height: 240px;
+  overflow-y: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+	
+.message img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+	
+.message-content {
+  background: none;
+  padding: 0;
+}
+
+.message-name {
+  font-weight: bold;
+  color: #365899;
+  font-size: 13px;
+}
+
+.message-text {
+  font-size: 13px;
+  color: #111;
+}
+
+.chat-input {
+  display: flex;
+  border-top: 1px solid #eee;
+  padding: 8px;
+  background: #ffffff;
+  align-items: center;
+}
+
+.chat-input input {
+  flex: 1;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  outline: none;
+  background: #f0f0f0;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.chat-input img {
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+</style>
+
+
+ 
+
+
+<br>
+
+
+
+<!--INFO DO CANAL YOUTUBE -->
+  <div class="canal">
+  
+   <div class="info-canal">
+      <div class="info-usuario">
+        <img src="https://yt3.ggpht.com/RGSMgwFWyNBPWtWFdvUyExFL66iD20HzUhsdvIyTSlCghaud87QoWhJmgLVQ4nCDi-9QJyMU3Q=s108-c-k-c0x00ffffff-no-rj" >
+        <div>
+          <strong>Dr. Douglas Leão</strong><br>
+          <span style="font-size: 13px; color: gray;">22,5 mi de inscritos</span>
+        </div>
+      </div>
+  <div style="margin-left: auto;">
+      <button id="btnInscrever" class="btn-inscrever">Inscrever-se</button>
+	  </div>
+   </div>
+    
+
+    <div class="botoes-reacao-wrapper">
+      <div class="reacao like-container" id="btnLike">
+  <img src="https://cdn-icons-png.flaticon.com/512/126/126473.png" alt="Like">
+  <span class="like-count">4,8 mil</span>
+  <div class="barra-lateral"></div>
+</div>
+
+
+
+      <div class="reacao" id="btnDislike">
+        <img src="https://cdn-icons-png.flaticon.com/512/126/126504.png" alt="Dislike">
+      </div>
+    </div>
+	
+
+	<div class="botoes-reacao-wrapper" style="margin-left: 10px;">
+  <div class="reacao" id="btnCompartilhar" style="gap: 8px;">
+    <img src="https://pngimg.com/d/share_PNG27.png" alt="Compartilhar" style="width: 18px; height: 18px;">
+    <span style="font-size: 12px; color: #555;">Compartilhar</span>
+  </div>
+</div>
+
+
+
+	<div class="botoes-reacao-wrapper" style="margin-left: 10px;">
+    <div class="reacao" id="btnSalvar" style="gap: 8px;">
+    <img src="https://cdn-icons-png.flaticon.com/512/5662/5662990.png" alt="Compartilhar">
+    <span style="font-size: 12px; color: #555;">Salvar</span>
+  </div>
+</div>
+
+ </div>
+
+
+
+<br><br><br><br><br>
+</div>
+
+
+
+
+
+
+
+<!-- MODAL POPUP ATENÇÃO URGENTE -->
+<div id="modalPopup" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.82); align-items:center; justify-content:center; font-family: Arial, sans-serif;">
+  <div style="background:white; border-radius:16px; padding:32px 18px 28px 18px; max-width:340px; width:90%; margin:auto; box-shadow:0 8px 32px rgba(0,0,0,0.25); text-align:center;">
+    <img src="https://cdn.pixabay.com/animation/2023/04/28/18/34/18-34-10-554_512.gif"
+      alt="alerta"
+      style="width:38px; height:38px; margin-bottom:8px; animation:imgPulse 1.5s infinite;">
+    <div style="font-size:20px; color:#e02b2b; font-weight:bold; margin-bottom:18px;">
+      ATENÇÃO:
+    </div>
+    <div style="font-size:16px; color:#242424; margin-bottom:24px; line-height:1.5;">
+      Estamos sendo <b>perseguidos</b> e este vídeo sairá do ar em breve!
+      <br>
+    </div>
+<a id="btnWhatsApp"
+  href="/link-grupo-webnar"
+  style="display:inline-block; background:#4fbd38; color:white; font-size:16px; font-weight:600; padding:10px 0; width:82%; border:none; border-radius:8px; text-decoration:none; margin-top:14px; margin-bottom:6px; transition:background .2s, transform .2s; animation:pulseZoom 2.2s infinite;">
+  👉 Solicitar Continuação
+</a>
+  </div>
+</div>
+
+
+
+<style>
+@keyframes pulseZoom {
+  0% { transform: scale(1);}
+  50% { transform: scale(1.08);}
+  100% { transform: scale(1);}
+}
+@keyframes imgPulse {
+  0% { transform: scale(1);}
+  50% { transform: scale(1.13);}
+  100% { transform: scale(1);}
+}
+</style>
+
+
+
+
+<script src="comentarios.js"></script>
+<script src="nomesMulheres.js"></script>
+<script src="nomesHomens.js"></script>
+
+
+<script>
+ const video = document.getElementById('customVideo');
+  const playButton = document.getElementById('playButton');
+  const overlay = document.getElementById('videoClickOverlay');
+
+
+
+
+
+
+// Identificador exclusivo por página e vídeo continuar de onde parou
+const PAGE_ID = window.location.pathname;
+const VIDEO_SRC = video.querySelector('source').src;
+const VIDEO_KEY = 'videoProgress_' + PAGE_ID + '_' + VIDEO_SRC;
+const VIDEO_EXP_KEY = 'videoProgressExp_' + PAGE_ID + '_' + VIDEO_SRC;
+
+window.addEventListener('DOMContentLoaded', function () {
+  const saved = localStorage.getItem(VIDEO_KEY);
+  const exp = parseInt(localStorage.getItem(VIDEO_EXP_KEY), 10);
+
+  function setTime() {
+    video.currentTime = parseFloat(saved) || 0;
+    setTimeout(() => video.pause(), 250);
+    video.removeEventListener('loadedmetadata', setTime);
+  }
+
+  if (saved && exp && Date.now() < exp) {
+    video.addEventListener('loadedmetadata', setTime);
+  } else {
+    localStorage.removeItem(VIDEO_KEY);
+    localStorage.removeItem(VIDEO_EXP_KEY);
+  }
+});
+
+video.addEventListener('timeupdate', function () {
+  localStorage.setItem(VIDEO_KEY, video.currentTime);
+  localStorage.setItem(VIDEO_EXP_KEY, (Date.now() + 3 * 60 * 60 * 1000).toString());
+});
+
+
+
+
+
+
+
+const barraTempo = document.getElementById('barraTempo');
+
+// Atualiza a barra de progresso, mas só até 50% do vídeo
+function atualizarBarraTempo() {
+  if (!video.duration) return;
+  // Calcula o percentual de progresso, mas multiplica por 0.5 para limitar a metade
+  const progresso = (video.currentTime / video.duration) * 0.5 * 100;
+  barraTempo.style.width = progresso + '%';
+}
+
+video.addEventListener('timeupdate', atualizarBarraTempo);
+
+// Garante que reseta ao reiniciar
+video.addEventListener('ended', () => {
+  barraTempo.style.width = '50%';
+});
+video.addEventListener('seeked', atualizarBarraTempo);
+video.addEventListener('play', atualizarBarraTempo);
+video.addEventListener('loadedmetadata', atualizarBarraTempo);
+
+
+
+
+
+let videoJaIniciado = false;
+let intervalCriado = false;
+
+
+
+function iniciarVideo() {
+  if (videoJaIniciado) return;
+  videoJaIniciado = true;
+
+  // Desativa os eventos de clique para evitar duplicações
+  playButton.removeEventListener('click', iniciarVideo);
+  overlay.removeEventListener('click', iniciarVideo);
+
+  video.play().then(() => {
+    console.log("▶️ Vídeo reproduzido");
+  }).catch((err) => {
+    console.warn("🚫 Falha ao reproduzir o vídeo:", err);
+  });
+
+  playButton.style.display = 'none';
+  overlay.style.display = 'none';
+
+  let eventosDisparados = {
+    lead: false,
+    complete: false,
+    section: false,
+    steps: {}
+  };
+
+  if (!intervalCriado) {
+    intervalCriado = true;
+
+    setInterval(() => {
+      const tempo = Math.floor(video.currentTime);
+      console.log("⏱️ Tempo do vídeo:", tempo);
+   
+    }, 1000);
+  }
+}
+
+
+
+
+
+
+let leadDisparado = false;
+
+function checarLead() {
+  // Dispara o evento somente uma vez e após 5 segundos assistidos
+  if (!leadDisparado && video.currentTime >= 5) {
+    leadDisparado = true;
+    // Aqui você coloca o disparo do evento. Exemplo com Facebook Pixel:
+    if (typeof fbq === "function") {
+      fbq('track', 'Lead');
+      console.log('Evento Lead disparado!');
+    }
+    // Ou qualquer outro evento JS desejado
+  }
+}
+
+video.addEventListener('timeupdate', checarLead);
+
+
+
+
+
+
+
+playButton.addEventListener('click', iniciarVideo);
+overlay.addEventListener('click', iniciarVideo);
+
+
+	
+  // Atualiza número de pessoas no contador
+  const viewerElement = document.getElementById('viewerCount');
+  function updateViewerCount() {
+  const random = Math.floor(Math.random() * (1180 - 1547 + 1)) + 1147;
+  const el1 = document.getElementById('viewerCount');
+  const el2 = document.getElementById('viewerCountTop');
+  if (el1) el1.textContent = random;
+  if (el2) el2.textContent = random;
+}
+
+updateViewerCount();
+setInterval(updateViewerCount, 15000);
+  
+  
+  
+  
+  // Mostra a data atual
+const dateElement = document.getElementById('todayDate');
+const today = new Date();
+const day = String(today.getDate()).padStart(2, '0');
+const month = String(today.getMonth() + 1).padStart(2, '0');
+dateElement.textContent = `${day}/${month}`;
+
+
+	
+	
+	// Mostra a hora atual
+const hourElement = document.getElementById('currentHour');
+function updateHour() {
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2, '0');
+  const minutes = String(now.getMinutes()).padStart(2, '0');
+  hourElement.textContent = `${hours}:${minutes}`;
+}
+updateHour();
+setInterval(updateHour, 60000); // atualiza a cada minuto
+
+
+
+
+
+
+  // UTM HOTMART
+  const hotmartPrefixes = [
+    "https://payment.hotmart.com",
+    "https://pay.hotmart.com",
+    "https://go.hotmart.com"
+  ];
+
+  const urlParams = window.location.search;
+
+  if (urlParams) {
+    document.querySelectorAll("a").forEach(link => {
+      hotmartPrefixes.forEach(prefix => {
+        if (link.href.includes(prefix)) {
+          const separator = link.href.includes("?") ? "&" : "?";
+          link.href += separator + urlParams.substring(1); 
+        }
+      });
+    });
+  }
+
+
+
+
+
+
+ // UTM EDUZZ
+(function() {
+     const utmParamQueryString = new URLSearchParams(window.location.search);
+     if (utmParamQueryString.toString()) {
+          var navLinks = document.querySelectorAll('a');
+          navLinks.forEach(function(item) {
+               if (item.href.indexOf('https://sun.eduzz.com') !== -1) {
+                    if (item.href.indexOf('?') === -1) {
+                         item.href += '?' + utmParamQueryString.toString();
+                    } else {
+                         item.href += '&' + utmParamQueryString.toString();
+                    }
+               }
+          });
+     }
+})();
+
+console.log('%cScript de rastreamento de vendas desenvolvido pela Comunidade NOD - Dericson Calari e Samuel Choairy', 'font-size:20px;color:yellow;');
+
+
+
+
+
+
+// SALVAR E LIKE/UNLINE
+    const btnInscrever = document.getElementById('btnInscrever');
+  const btnLike = document.getElementById('btnLike');
+  const btnDislike = document.getElementById('btnDislike');
+  const btnSalvar = document.getElementById('btnSalvar');
+  const btnCompartilhar = document.getElementById('btnCompartilhar');
+
+  btnInscrever.addEventListener('click', () => {
+    btnInscrever.classList.toggle('ativo');
+  });
+
+  btnLike.addEventListener('click', () => {
+    btnLike.classList.toggle('activo');
+    btnDislike.classList.remove('activo');
+  });
+
+  btnDislike.addEventListener('click', () => {
+    btnDislike.classList.toggle('activo');
+    btnLike.classList.remove('activo');
+  });
+
+  btnSalvar.addEventListener('click', () => {
+    btnSalvar.classList.toggle('activo');
+  });
+
+  btnCompartilhar.addEventListener('click', () => {
+    console.log('Botão Compartilhar clicado (sem ação)');
+  });
+
+
+
+
+
+  const messages = window.messages;
+  const nomesMulheres = window.nomesMulheres;
+  const nomesHomens = window.nomesHomens;
+
+
+
+function createMessage(name, text) {
+  const messageDiv = document.createElement("div");
+  messageDiv.className = "message";
+  messageDiv.innerHTML = `
+    <div class="message-content">
+      <div class="message-name">${name}</div>
+      <div class="message-text">${text}</div>
+    </div>
+  `;
+  return messageDiv;
+}
+
+function addRandomMessage() {
+  const isMulher = Math.random() < 0.5;
+  const nomes = isMulher ? nomesMulheres : nomesHomens;
+  const randomName = nomes[Math.floor(Math.random() * nomes.length)];
+  const randomText = messages[Math.floor(Math.random() * messages.length)];
+
+  const msg = createMessage(randomName, randomText);
+  const chat = document.getElementById("chatMessages");
+  chat.appendChild(msg);
+  chat.scrollTop = chat.scrollHeight;
+}
+
+
+// Mensagem aleatória de 15 a 20 segundos
+setInterval(() => {
+  addRandomMessage();
+}, Math.floor(Math.random() * 5000) + 15000);
+
+
+
+// Enviar mensagem do usuário
+document.getElementById("sendBtn").addEventListener("click", () => {
+  const input = document.getElementById("userInput");
+  const text = input.value.trim();
+  if (text) {
+    const msg = createMessage("Você", text);
+    document.getElementById("chatMessages").appendChild(msg);
+    input.value = "";
+    document.getElementById("chatMessages").scrollTop = document.getElementById("chatMessages").scrollHeight;
+  }
+});
+
+
+
+
+
+
+
+  
+// Bloqueia pinça (touchmove com 2 dedos)
+document.addEventListener('touchmove', function(e) {
+  if (e.touches && e.touches.length > 1) {
+    e.preventDefault();
+  }
+}, { passive: false });
+
+// Bloqueia duplo-toque rápido
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function(e) {
+  const now = Date.now();
+  if (now - lastTouchEnd <= 300) {
+    e.preventDefault();
+  }
+  lastTouchEnd = now;
+}, false);
+
+// Bloqueia gestos específicos no iOS
+document.addEventListener('gesturestart', function(e) {
+  e.preventDefault();
+});
+
+
+
+// Bloqueia o menu de contexto (clique direito)
+document.addEventListener('contextmenu', e => e.preventDefault());
+
+// Impede copiar/recortar/selecionar texto
+['copy','cut','selectstart','dragstart'].forEach(evt =>
+  document.addEventListener(evt, e => e.preventDefault())
+);
+
+// Bloqueia atalho Ctrl+C, Ctrl+U (ver fonte), Ctrl+S, Ctrl+P e F12
+document.addEventListener('keydown', e => {
+  const forbidden =
+    // combinações de Ctrl + C, U, S, P, A
+    (e.ctrlKey &&
+      ['c','u','s','p','a'].includes(e.key.toLowerCase()))
+    // F12
+    || e.key === 'F12';
+  if (forbidden) e.preventDefault();
+});
+
+
+
+
+
+
+
+// Mostra o popup ao terminar o vídeo, e inicia o timer de 15s
+video.addEventListener('ended', function() {
+  document.getElementById('modalPopup').style.display = 'flex';
+
+  // Dispara o evento Popup do Facebook Pixel
+  if (typeof fbq === "function") {
+    fbq('track', 'Popup');
+    console.log('Evento Popup disparado!');
+  }
+
+  let redirecionado = false;
+  const destino = "/link-grupo-webnar";  
+
+  document.getElementById('btnWhatsApp').addEventListener('click', function() {
+    redirecionado = true;
+  });
+
+  setTimeout(function() {
+    if (!redirecionado) {
+      window.location.href = destino;
+    }
+  }, 15000);
+});
+</script>
+
+
+
+
+
+
+
+
+
+<script>
+function getBrowserId() {
+  let id = localStorage.getItem('browserId');
+  if (!id) {
+    id = 'browser-' + Math.random().toString(36).substring(2, 15);
+    localStorage.setItem('browserId', id);
+  }
+  return id;
+}
+
+const browserId = getBrowserId();
+
+let horaEntrada = localStorage.getItem('horaEntrada-lead1');
+let dataEntrada = localStorage.getItem('dataEntrada-lead1');
+const agora = new Date();
+
+if (!horaEntrada || !dataEntrada || dataEntrada !== agora.toLocaleDateString('pt-BR')) {
+  horaEntrada = agora.toTimeString().substr(0,8);
+  dataEntrada = agora.toLocaleDateString('pt-BR');
+  localStorage.setItem('horaEntrada-lead1', horaEntrada);
+  localStorage.setItem('dataEntrada-lead1', dataEntrada);
+}
+
+function enviarDados() {
+  const agora = new Date();
+  const horaSaida = agora.toTimeString().substr(0,8);
+  fetch('https://script.google.com/macros/s/AKfycbyj8vDFznkxy22_GsByrSHQn6kcs149R-UH5NC7svjTj8Wa8lDnm1gfosO5pqyaQoM/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      browserId: browserId,
+      horaEntrada: horaEntrada,
+      horaSaida: horaSaida,
+      data: dataEntrada,
+      paginaOrigem: 'lead 1'
+    })
+  });
+}
+
+// Envia ao entrar e a cada 5s
+enviarDados();
+setInterval(enviarDados, 10000);
+
+</script>
+
+
+
+
+	
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Falta Pouco</title>
+  <link rel="icon" href="https://images.vexels.com/media/users/3/185069/isolated/lists/8e22d6cf9646d776e84633ee2f170afe-frutos-de-abacate.png" type="image/png">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0e0e0e;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 20px 16px;
+      text-align: center;
+    }
+    h2 {
+      font-size: 24px;
+      color: #ffffff;
+      margin-bottom: 16px;
+    }
+    p {
+      font-size: 16px;
+      color: #f7f7f7;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .highlight {
+      font-weight: bold;
+    }
+    .promo {
+      margin: 20px 0;
+    }
+    .promo img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      display: block;
+      margin: 0 auto 8px;
+    }
+    .promo p {
+      font-size: 20px;
+      font-weight: bold;
+      white-space: pre-wrap;
+      margin: 0;
+    }
+.btn {
+  display: inline-block;
+  background-color: #22c55e;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 14px 28px;
+  border-radius: 6px;
+  margin-top: 20px;
+  /* ajusta aqui a largura máxima */
+  max-width: 320px;  
+  width: 100%;         
+  box-sizing: border-box;
+}
+
+/* botão secundário (cinza claro) */
+.btn-secondary {
+  background-color: #f2f2f2;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+/* estilo para o texto embaixo do segundo botão */
+.small-text {
+  font-size: 12px;
+  color: #666;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 20px;
+      }
+      p, .promo p {
+        font-size: 15px;
+      }
+      .container {
+        padding: 16px 12px;
+      }
+      .btn {
+        padding: 12px;
+      }
+    }
+
+
+    
+    #loadingBarContainer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background-color: #e0e0e0;
+      z-index: 9999;
+    }
+    #loadingBar {
+      height: 100%;
+      width: 0%;
+      background-color: #22c55e;
+      transition: width 30s linear;
+    }
+  </style>
+  <script>
+    // redireciona após 30s   IMPORTANTE!
+    setTimeout(function() {
+      window.location.href = "/link-grupo-webnar";
+    }, 30000);
+    
+    window.addEventListener('load', function() {
+      // anima barra de loading
+      const bar = document.getElementById('loadingBar');
+      setTimeout(() => bar.style.width = '100%', 50);
+
+      // lógica dinâmica fotos e titulos  IMPORTANTE!
+      const promos = {
+        1: { // segunda
+          img: 'https://static.wixstatic.com/media/7f5efc_e52c574bc8164938a44950d3ba0a3ba3~mv2.jpg',
+          text: '[DOMINGO 19H] Vamos derreter \n toda a gordura 🔥'
+        },
+        2: { // terça
+          img: 'https://static.wixstatic.com/media/7f5efc_e52c574bc8164938a44950d3ba0a3ba3~mv2.jpg',
+          text: '[DOMINGO 19H] Vamos derreter \n toda a gordura 🔥'
+        },
+        3: { // quarta
+          img: 'https://static.wixstatic.com/media/7f5efc_e52c574bc8164938a44950d3ba0a3ba3~mv2.jpg',
+          text: '[DOMINGO 19H] Vamos derreter \n toda a gordura 🔥'
+        },
+        4: { // quinta
+          img: 'https://static.wixstatic.com/media/7f5efc_916c156145ba49d2a8843a4d0e1d34d0~mv2.jpg',
+          text: '[FALTAM 3 DIAS] Vamos derreter \n toda a gordura 🔥'
+        },
+        5: { // sexta
+          img: 'https://static.wixstatic.com/media/7f5efc_870b7385b35a448099a309c57111a20f~mv2.jpg',
+          text: '[FALTAM 2 DIAS] Vamos derreter \n toda a gordura 🔥'
+        },
+        6: { // sábado
+          img: 'https://static.wixstatic.com/media/7f5efc_0a7bc2f241e642a9bc6b3c19c2722a94~mv2.jpg',
+          text: '[FALTA 1 DIA] Vamos derreter \n toda a gordura 🔥'
+        },
+        0: { // domingo
+          img: 'https://static.wixstatic.com/media/7f5efc_382e52c3b0e241698c49053bfa1e4c73~mv2.jpg',
+          text: '[HOJE 19H] Vamos derreter \n toda a gordura 🔥'
+        }
+      };
+      const today = new Date().getDay();
+      const promo = promos[today];
+      const promoContainer = document.getElementById('dynamicPromo');
+      if (promo) {
+        promoContainer.innerHTML = `
+          <div class="promo">
+            <img src="${promo.img}" alt="Promoção">
+            <p>${promo.text}</p>
+          </div>
+        `;
+      }
+    });
+  </script>
+
+
+<!-- Meta Pixel Code IMPORTANTE!-->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src='https://connect.facebook.net/en_US/fbevents.js';
+  s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script');
+
+  fbq('init', '1290378376428374');
+  fbq('track', 'CompleteRegistration');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1290378376428374&ev=CompleteRegistration&noscript=1"/>
+</noscript>
+<!-- End Meta Pixel Code -->
+
+
+
+
+</head>
+<body>
+  <div id="loadingBarContainer">
+    <div id="loadingBar"></div>
+  </div>
+
+  <div class="container">
+    <h2>Quase lá!</h2>
+    <p>Já reservamos um lugar pra você no evento, mas <span class="highlight">falta um passo</span> pra você participar:</p>
+    <p>Você será redirecionado em instantes para o <span class="highlight">grupo de WhatsApp</span>, onde enviaremos todas as informações e o link do evento. </p>
+    
+    <!-- Aqui será inserida a imagem e o texto conforme o dia -->
+    <div id="dynamicPromo"></div>
+    
+  <!-- botão verde IMPORTANTE!-->
+     <a class="btn" href="/link-grupo-webnar">
+    Entrar no grupo
+  </a>
+
+    <!-- botão cinza-claro -->
+  <a href="#" class="btn btn-secondary" id="copyLinkBtn">
+    Copiar o link do grupo
+  </a>
+
+  <!-- texto explicativo abaixo do botão cinza -->
+  <p class="small-text">
+    Caso esteja com problemas para entrar no grupo,<br>
+    abra o WhatsApp e cole o link em uma conversa.<br>
+    Então clique no link para abrir direto no grupo.
+  </p>
+
+  </div>
+
+
+
+  <script>
+  document
+    .getElementById('copyLinkBtn')
+    .addEventListener('click', function(e) {
+      e.preventDefault();
+      const groupLink = 'https://abacate-secret.netlify.app/link-grupo-webnar';  //IMPORTANTE! LINK DO BOTÃO COPIAR
+
+      // tenta usar a API moderna
+      navigator.clipboard.writeText(groupLink)
+        .then(() => {
+          const btn = e.currentTarget;
+          const originalText = btn.innerText;
+          btn.innerText = 'Copiado!';
+          // volta ao texto original depois de 2s
+          setTimeout(() => btn.innerText = originalText, 2000);
+        })
+        .catch(() => {
+          // fallback simples
+          const tmp = document.createElement('textarea');
+          tmp.value = groupLink;
+          document.body.appendChild(tmp);
+          tmp.select();
+          document.execCommand('copy');
+          document.body.removeChild(tmp);
+          alert('Link copiado!');
+        });
+    });
+</script>
+
+
+</body>
+</html>

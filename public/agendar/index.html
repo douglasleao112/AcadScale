@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=480">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      display: flex; justify-content: center; align-items: center;
+      height: 100vh; margin: 0;
+    }
+    .container {
+      background: #fff; border-radius: 16px; box-shadow: 0 0 18px #0001;
+      padding: 32px 28px; max-width: 400px; text-align: center;
+    }
+    .progress-bar {
+      background: #eee; border-radius: 10px; overflow: hidden;
+      height: 32px; margin: 32px 0 10px 0; position: relative;
+    }
+    .progress {
+      background: linear-gradient(90deg, #5e72e4 0%, #11cdef 100%);
+      height: 100%; width: 0; transition: width 0.2s; color: #fff;
+      text-align: center; font-weight: bold; font-size: 1.1em; line-height: 32px;
+      position: absolute; top: 0; left: 0;
+    }
+    .hidden { display: none; }
+    .btn {
+      display: inline-block; margin-top: 28px; padding: 14px 48px;
+      background: linear-gradient(90deg, #38d430 0%, #09a80c 100%);
+      color: #fff; border: none; border-radius: 12px; font-size: 1.2em; font-weight: bold;
+      cursor: pointer; text-decoration: none; box-shadow: 0 4px 16px #20bb18a2;
+      animation: zoomBtn 1.2s infinite alternate; transition: background 0.2s;
+    }
+    .btn:hover { background: linear-gradient(90deg, #43e545 0%, #09a80c 100%); }
+    @keyframes zoomBtn { 0%{transform:scale(1)}70%{transform:scale(1.09)}100%{transform:scale(1)} }
+    small { color:#666; display:block; margin-top:12px }
+  </style>
+</head>
+<body>
+  <div class="container" id="main-content">
+    <div id="loading-content">
+      <h2>Aguarde para receber a oferta <br> 12 Meses de Tratamento</h2>
+      <div class="progress-bar">
+        <div class="progress" id="progress">0%</div>
+      </div>
+      <small id="hint">Disponível Somente Hoje!</small>
+    </div>
+    <div id="expired-content" class="hidden">
+      <h2>Que pena, você chegou tarde demais!</h2>
+      <p>Este link expirou, entre em contato para se informar melhor.</p>
+      <a href="https://wa.me/5562984888498?text=Eu%20perdi%20a%20oferta%2C%20como%20fa%C3%A7o%20agora%3F" class="btn" target="_blank">Entrar em contato</a>
+    </div>
+  </div>
+
+  <script>
+   
+    const REDIRECT_URL = "https://sun.eduzz.com/39YDN81D9O?cupom=OFF100";    // 997: https://sun.eduzz.com/39YDN81D9O?cupom=OFF100      147: https://sun.eduzz.com/fruewagh?cupom=OFF100
+    const LOADING_TIME = 3000; // ms
+    const ALLOWED_WEEKDAYS = [0, 1, 2, 3, 4, 5, 6];     // Dias permitidos: 0=Dom, 1=Seg, 2=Ter, 3=Qua, 4=Qui, 5=Sex, 6=Sab
+   const TIMEZONE = "America/Sao_Paulo";
+   
+
+    function getNowInTimezone(tz) {
+      const localStr = new Date().toLocaleString("en-US", { timeZone: tz });
+      return new Date(localStr);
+    }
+
+    function isAllowedDay(date, allowedDays) {
+      return allowedDays.includes(date.getDay());
+    }
+
+    function showExpired() {
+      document.getElementById("loading-content").classList.add("hidden");
+      document.getElementById("expired-content").classList.remove("hidden");
+    }
+
+    function startLoadingBarAndRedirect() {
+      const progress = document.getElementById("progress");
+      let pct = 0;
+      const interval = 30;
+      const steps = Math.max(1, Math.round(LOADING_TIME / interval));
+      let current = 0;
+      const timer = setInterval(() => {
+        current++;
+        pct = Math.round(100 * (current / steps));
+        progress.style.width = pct + "%";
+        progress.textContent = pct + "%";
+        if (current >= steps) {
+          clearInterval(timer);
+          window.location.href = REDIRECT_URL;
+        }
+      }, interval);
+    }
+
+    (function init() {
+      const now = getNowInTimezone(TIMEZONE);
+      // Mensagem fixa
+      const hint = document.getElementById("hint");
+      if (hint) hint.textContent = "Disponível Somente Hoje!";
+
+      if (isAllowedDay(now, ALLOWED_WEEKDAYS)) {
+        startLoadingBarAndRedirect();
+      } else {
+        showExpired();
+      }
+    })();
+  </script>
+</body>
+</html>

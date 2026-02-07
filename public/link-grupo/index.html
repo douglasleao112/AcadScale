@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+   <script>
+    function getRedirectLink() {
+      const agora = new Date();
+
+      // Lista de períodos e links (formato: [início, fim, link])
+      const periodos = [
+        {
+          inicio: "14/09/2025 17:55", 
+          fim: "21/09/2025 17:54", 
+          link: "https://chat.whatsapp.com/B6tfWtvFyEx7QrnyMuZFkq"   //#10
+        },
+        {
+          inicio: "21/09/2025 17:55", 
+          fim: "28/09/2025 17:54", 
+          link: "https://chat.whatsapp.com/HRYuWWtnxzOGF3ZudLAeRL"    //#11
+        },
+        {
+          inicio: "28/09/2025 17:55", 
+          fim: "05/10/2025 17:54", 
+          link: "https://chat.whatsapp.com/FdWrqhgOIT4BSHq51nGzv8"    //#1  
+        },
+        {
+          inicio: "05/10/2025 17:55", 
+          fim: "12/10/2025 17:54", 
+          link: "https://chat.whatsapp.com/K9bkbP07OcQ8UbZKamPINH" //#2
+        },
+        {
+          inicio: "12/10/2025 17:55", 
+          fim: "19/10/2025 17:54", 
+          link: "https://chat.whatsapp.com/L3cz99ZoDU4E9w71Wl8JL1"  //#3
+        },
+        {
+          inicio: "07/09/2025 17:55", 
+          fim: "14/09/2025 17:54", 
+          link: "https://chat.whatsapp.com/EVkOfpbjEPs3jBT8KgRiVu"   //#9
+        }
+      ];
+
+      // Função auxiliar para converter data BR para objeto Date
+      function parseDataBR(dataStr) {
+        const [dia, mes, anoHora] = dataStr.split("/");
+        const [ano, hora] = anoHora.split(" ");
+        const [h, m] = hora.split(":");
+        return new Date(`${ano}-${mes}-${dia}T${h}:${m}:00`);
+      }
+
+      for (const periodo of periodos) {
+        const inicio = parseDataBR(periodo.inicio);
+        const fim = parseDataBR(periodo.fim);
+        if (agora >= inicio && agora <= fim) {
+          return periodo.link;
+        }
+      }
+
+      // Link padrão (caso não esteja em nenhum período)
+      return "https://chat.whatsapp.com/EVkOfpbjEPs3jBT8KgRiVu";    //#9
+    }
+
+    setTimeout(function () {
+      const linkDestino = getRedirectLink();
+      window.location.href = linkDestino;
+    }, 50);
+  </script>
+  
+
+</head>
+<body style="background:#fff"></body>
+</html>
