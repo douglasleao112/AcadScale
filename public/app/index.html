@@ -344,131 +344,130 @@
     </div>
   </section>
 
+
+
+
   <script>
-    const USERS = {
-      // ADMIN
-      Dlpvac: {
-        password: 'dlpvac',
-        role: 'admin'
-      },
+  const USERS = {
+    // ADMIN
+    Dlpvac: {
+      password: 'dlpvac',
+      role: 'admin'
+    },
 
-      // USUÁRIOS 
-      Usuario: {
-        password: 'user123',
-        role: 'user'
-      },
-      Usuario2: {
-        password: 'user123',
-        role: 'user'
-      }
+    // USUÁRIOS
+    Usuario: {
+      password: 'user123',
+      role: 'user'
+    },
+    Usuario2: {
+      password: 'user123',
+      role: 'user'
+    }
+  };
 
-    };
+  const USER_URL = 'https://typebot-chat-viewer.vexhyt.easypanel.host/qualitylife';
 
-    const USER_URL = 'https://typebot-chat-viewer.vexhyt.easypanel.host/qualitylife';
+  const loginScreen = document.getElementById('loginScreen');
+  const iframeScreen = document.getElementById('iframeScreen');
+  const adminScreen = document.getElementById('adminScreen');
+  const loginForm = document.getElementById('loginForm');
+  const message = document.getElementById('message');
+  const appFrame = document.getElementById('appFrame');
+  const topbarActionBtn = document.getElementById('topbarActionBtn');
+  const iframeTitle = document.getElementById('iframeTitle');
+  const logoutAdmin = document.getElementById('logoutAdmin');
 
-    const loginScreen = document.getElementById('loginScreen');
-    const iframeScreen = document.getElementById('iframeScreen');
-    const adminScreen = document.getElementById('adminScreen');
-    const loginForm = document.getElementById('loginForm');
-    const message = document.getElementById('message');
-    const appFrame = document.getElementById('appFrame');
-    const topbarActionBtn = document.getElementById('topbarActionBtn');
-const iframeTitle = document.getElementById('iframeTitle');
-    const logoutAdmin = document.getElementById('logoutAdmin');
+  let iframeMode = 'user';
 
-let iframeMode = 'user';
+  function showScreen(screen) {
+    [loginScreen, iframeScreen, adminScreen].forEach(el => el.classList.remove('active'));
+    screen.classList.add('active');
+  }
 
-function openAdminLink(url, title = 'Quality Life') {
-  iframeMode = 'admin';
-  iframeTitle.textContent = title;
-  topbarActionBtn.textContent = 'Voltar';
-  appFrame.src = url;
-  showScreen(iframeScreen);
-}
+  function openAdminLink(url, title = 'Quality Life') {
+    iframeMode = 'admin';
+    iframeTitle.textContent = title;
+    topbarActionBtn.textContent = 'Voltar';
+    appFrame.src = url;
+    showScreen(iframeScreen);
+  }
 
-function openUserIframe() {
-  iframeMode = 'user';
-  iframeTitle.textContent = 'Quality Life';
-  topbarActionBtn.textContent = 'Sair';
-  appFrame.src = USER_URL;
-  showScreen(iframeScreen);
-}
+  function openUserIframe() {
+    iframeMode = 'user';
+    iframeTitle.textContent = 'Quality Life';
+    topbarActionBtn.textContent = 'Sair';
+    appFrame.src = USER_URL;
+    showScreen(iframeScreen);
+  }
 
-function backToAdminMenu() {
-  appFrame.src = 'about:blank';
-  showScreen(adminScreen);
-}
+  function backToAdminMenu() {
+    appFrame.src = 'about:blank';
+    showScreen(adminScreen);
+  }
 
-    function showScreen(screen) {
-      [loginScreen, iframeScreen, adminScreen].forEach(el => el.classList.remove('active'));
-      screen.classList.add('active');
+  function logout() {
+    sessionStorage.removeItem('qualityLifeSession');
+    iframeMode = 'user';
+    iframeTitle.textContent = 'Quality Life';
+    topbarActionBtn.textContent = 'Sair';
+    appFrame.src = 'about:blank';
+    loginForm.reset();
+    message.textContent = '';
+    showScreen(loginScreen);
+  }
+
+  function login(username, password) {
+    const user = USERS[username];
+
+    if (!user || user.password !== password) {
+      message.textContent = 'Login ou senha inválidos.';
+      return;
     }
 
-function logout() {
-  sessionStorage.removeItem('qualityLifeSession');
-  iframeMode = 'user';
-  iframeTitle.textContent = 'Quality Life';
-  topbarActionBtn.textContent = 'Sair';
-  appFrame.src = 'about:blank';
-  loginForm.reset();
-  message.textContent = '';
-  showScreen(loginScreen);
-}
+    sessionStorage.setItem('qualityLifeSession', JSON.stringify({
+      username,
+      role: user.role,
+      time: Date.now()
+    }));
 
-    function login(username, password) {
-      const user = USERS[username];
+    if (user.role === 'admin') {
+      showScreen(adminScreen);
+      return;
+    }
 
-      if (!user || user.password !== password) {
-        message.textContent = 'Login ou senha inválidos.';
-        return;
-      }
-
-      sessionStorage.setItem('qualityLifeSession', JSON.stringify({
-        username,
-        role: user.role,
-        time: Date.now()
-      }));
-
-
-
-  if (user.role === 'admin') {
-  showScreen(adminScreen);
-  return;
-}
-
-openUserIframe();
-
-
-
-    loginForm.addEventListener('submit', function (event) {
-      event.preventDefault();
-      message.textContent = '';
-
-      const username = document.getElementById('username').value.trim();
-      const password = document.getElementById('password').value.trim();
-
-      login(username, password);
-    });
-
-topbarActionBtn.addEventListener('click', function () {
-  if (iframeMode === 'admin') {
-    backToAdminMenu();
-  } else {
-    logout();
+    openUserIframe();
   }
-});
 
-logoutAdmin.addEventListener('click', logout);
+  loginForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+    message.textContent = '';
 
-    window.addEventListener('load', () => {
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    login(username, password);
+  });
+
+  topbarActionBtn.addEventListener('click', function () {
+    if (iframeMode === 'admin') {
+      backToAdminMenu();
+    } else {
       logout();
+    }
+  });
 
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('./sw.js').catch(error => {
-          console.log('Service Worker não registrado:', error);
-        });
-      }
-    });
-  </script>
+  logoutAdmin.addEventListener('click', logout);
+
+  window.addEventListener('load', () => {
+    logout();
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js').catch(error => {
+        console.log('Service Worker não registrado:', error);
+      });
+    }
+  });
+</script>
 </body>
 </html>
