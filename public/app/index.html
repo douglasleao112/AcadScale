@@ -333,12 +333,12 @@
         <h2>Bem-vindo, admin</h2>
        
 
-    <div class="actions">
-  <a class="action-link action-dark" href="#" onclick="openAdminLink('https://typebot-chat-viewer.vexhyt.easypanel.host/qualitylife', 'Avaliar Academia'); return false;">Avaliar Academia</a>
+<div class="actions">
+  <a class="action-link action-dark" href="#" onclick="openAdminLink('https://typebot-chat-viewer.vexhyt.easypanel.host/qualitylife', 'Avaliar Academia', true); return false;">Avaliar Academia</a>
 
-  <a class="action-link action-light" href="#" onclick="openAdminLink('https://typebot-chat-builder.vexhyt.easypanel.host/typebots/cmng0od2n000gn118fl9weh2e/results', 'Resultados'); return false;">Resultados</a>
+  <a class="action-link action-light" href="#" onclick="openAdminLink('https://typebot-chat-builder.vexhyt.easypanel.host/typebots/cmng0od2n000gn118fl9weh2e/results', 'Resultados', false); return false;">Resultados</a>
 
-  <a class="action-link action-light" href="#" onclick="openAdminLink('https://chatgpt.com/g/g-69c58c5919108191869ad8728cfcec6e-certificado-quality-life', 'Qualificação'); return false;">Qualificação</a>
+  <a class="action-link action-light" href="#" onclick="openAdminLink('https://chatgpt.com/g/g-69c58c5919108191869ad8728cfcec6e-certificado-quality-life', 'Qualificação', false); return false;">Qualificação</a>
 </div>
       </div>
     </div>
@@ -385,13 +385,17 @@
     screen.classList.add('active');
   }
 
-  function openAdminLink(url, title = 'Quality Life') {
+function openAdminLink(url, title = 'Quality Life', useIframe = true) {
+  if (useIframe) {
     iframeMode = 'admin';
     iframeTitle.textContent = title;
     topbarActionBtn.textContent = 'Voltar';
     appFrame.src = url;
     showScreen(iframeScreen);
+  } else {
+    window.location.href = url;
   }
+}
 
   function openUserIframe() {
     iframeMode = 'user';
