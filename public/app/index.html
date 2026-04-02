@@ -1,1 +1,451 @@
-<meta http-equiv="refresh" content="0;url=https://typebot-chat-viewer.vexhyt.easypanel.host/qualitylife">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Quality Life" />
+  <title>Quality Life</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/148/148841.png" />
+  <style>
+    :root {
+      --bg: #f7f7f8;
+      --card: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --primary: #111827;
+      --primary-hover: #1f2937;
+      --shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow: hidden;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .screen {
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+
+    .screen.active {
+      display: flex;
+    }
+
+    .login-screen {
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.95), rgba(247,247,248,1) 55%);
+    }
+
+    .card {
+      width: 100%;
+      max-width: 420px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .brand img {
+      width: 82px;
+      height: 82px;
+      object-fit: contain;
+      border-radius: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .field label {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .field input {
+      width: 100%;
+      height: 50px;
+      padding: 0 14px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #fff;
+      font-size: 16px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .field input:focus {
+      border-color: #cbd5e1;
+      box-shadow: 0 0 0 4px rgba(17, 24, 39, 0.05);
+    }
+
+    .btn {
+      width: 100%;
+      height: 52px;
+      border: none;
+      border-radius: 16px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.12s ease, background 0.2s ease;
+    }
+
+    .btn:hover { background: var(--primary-hover); }
+    .btn:active { transform: scale(0.99); }
+
+    .message {
+      min-height: 22px;
+      margin-top: 14px;
+      font-size: 14px;
+      text-align: center;
+      color: #dc2626;
+    }
+
+    .hint {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .iframe-screen,
+    .admin-screen {
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      flex-direction: column;
+    }
+
+    .topbar {
+      width: 100%;
+      padding: calc(16px + env(safe-area-inset-top)) 18px 16px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      z-index: 2;
+    }
+
+    .topbar .title {
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .logout-btn {
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      height: 42px;
+      padding: 0 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      flex: 1;
+      background: #fff;
+    }
+
+    .admin-content {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: var(--bg);
+    }
+
+    .admin-card {
+      width: 100%;
+      max-width: 460px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .admin-card h2 {
+      margin: 0 0 8px;
+      font-size: 26px;
+      letter-spacing: -0.03em;
+    }
+
+    .admin-card p {
+      margin: 0 0 24px;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .actions {
+      display: grid;
+      gap: 12px;
+    }
+
+    .action-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 54px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 15px;
+      transition: transform 0.12s ease, opacity 0.2s ease;
+    }
+
+    .action-link:active { transform: scale(0.99); }
+    .action-dark {
+      background: #111827;
+      color: #fff;
+    }
+    .action-light {
+      background: #fff;
+      color: #111827;
+      border: 1px solid var(--border);
+    }
+
+    @media (max-width: 480px) {
+      .card, .admin-card {
+        padding: 22px;
+        border-radius: 20px;
+      }
+
+      h1 { font-size: 24px; }
+      .admin-card h2 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <section id="loginScreen" class="screen login-screen active">
+    <div class="card">
+      <div class="brand">
+        
+        <div>
+          <h1>Quality Life</h1>
+      
+        </div>
+      </div>
+
+      <form id="loginForm">
+        <div class="field">
+          <label for="username">Login</label>
+          <input id="username" name="username" type="text" autocomplete="username" placeholder="Digite seu login" required />
+        </div>
+
+        <div class="field">
+          <label for="password">Senha</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Digite sua senha" required />
+        </div>
+
+        <button class="btn" type="submit">Entrar</button>
+        <div class="message" id="message"></div>
+      </form>
+
+    </div>
+  </section>
+
+  <section id="iframeScreen" class="screen iframe-screen">
+    <div class="topbar">
+      <div class="title">Quality Life</div>
+      <button class="logout-btn" id="logoutUser">Sair</button>
+    </div>
+    <iframe
+      id="appFrame"
+      src="about:blank"
+      allow="camera; microphone; clipboard-read; clipboard-write; fullscreen"
+      referrerpolicy="no-referrer"
+      loading="eager"
+    ></iframe>
+  </section>
+
+  <section id="adminScreen" class="screen admin-screen">
+    <div class="topbar">
+      <div class="title">Painel administrativo</div>
+      <button class="logout-btn" id="logoutAdmin">Sair</button>
+    </div>
+
+    <div class="admin-content">
+      <div class="admin-card">
+        <h2>Bem-vindo, admin</h2>
+       
+
+        <div class="actions">
+          <a class="action-link action-dark" href="https://typebot-chat-viewer.vexhyt.easypanel.host/qualitylife" target="_blank" rel="noopener noreferrer">Ir para avaliador</a>
+          <a class="action-link action-light" href="https://typebot-chat-builder.vexhyt.easypanel.host/typebots/cmng0od2n000gn118fl9weh2e/results" target="_blank" rel="noopener noreferrer">Ir para Dashboard</a>
+          <a class="action-link action-light" href="https://chatgpt.com/g/g-69c58c5919108191869ad8728cfcec6e-certificado-quality-life" target="_blank" rel="noopener noreferrer">Ir para Qualificação</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const USERS = {
+      // ADMIN
+      dlpvac: {
+        password: 'dlpvac',
+        role: 'admin'
+      },
+
+      // USUÁRIOS COMUNS
+      usuario: {
+        password: 'user123',
+        role: 'user'
+      },
+      usuario: {
+        password: 'user123',
+        role: 'user'
+      }
+
+      /*
+      PARA ADICIONAR NOVOS USUÁRIOS, COPIE ESTE BLOCO:
+
+      novologin: {
+        password: 'novasenha',
+        role: 'user'
+      },
+
+      ou, se for administrador:
+
+      novoadmin: {
+        password: '123456',
+        role: 'admin'
+      }
+      */
+    };
+
+    const USER_URL = 'https://typebot-chat-viewer.vexhyt.easypanel.host/qualitylife';
+
+    const loginScreen = document.getElementById('loginScreen');
+    const iframeScreen = document.getElementById('iframeScreen');
+    const adminScreen = document.getElementById('adminScreen');
+    const loginForm = document.getElementById('loginForm');
+    const message = document.getElementById('message');
+    const appFrame = document.getElementById('appFrame');
+    const logoutUser = document.getElementById('logoutUser');
+    const logoutAdmin = document.getElementById('logoutAdmin');
+
+    function showScreen(screen) {
+      [loginScreen, iframeScreen, adminScreen].forEach(el => el.classList.remove('active'));
+      screen.classList.add('active');
+    }
+
+    function logout() {
+      sessionStorage.removeItem('qualityLifeSession');
+      appFrame.src = 'about:blank';
+      loginForm.reset();
+      message.textContent = '';
+      showScreen(loginScreen);
+    }
+
+    function login(username, password) {
+      const user = USERS[username];
+
+      if (!user || user.password !== password) {
+        message.textContent = 'Login ou senha inválidos.';
+        return;
+      }
+
+      sessionStorage.setItem('qualityLifeSession', JSON.stringify({
+        username,
+        role: user.role,
+        time: Date.now()
+      }));
+
+      if (user.role === 'admin') {
+        showScreen(adminScreen);
+        return;
+      }
+
+      appFrame.src = USER_URL;
+      showScreen(iframeScreen);
+    }
+
+    loginForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      message.textContent = '';
+
+      const username = document.getElementById('username').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      login(username, password);
+    });
+
+    logoutUser.addEventListener('click', logout);
+    logoutAdmin.addEventListener('click', logout);
+
+    window.addEventListener('load', () => {
+      logout();
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js').catch(error => {
+          console.log('Service Worker não registrado:', error);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
