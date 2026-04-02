@@ -308,19 +308,19 @@
     </div>
   </section>
 
-  <section id="iframeScreen" class="screen iframe-screen">
-    <div class="topbar">
-      <div class="title">Quality Life</div>
-      <button class="logout-btn" id="logoutUser">Sair</button>
-    </div>
-    <iframe
-      id="appFrame"
-      src="about:blank"
-      allow="camera; microphone; clipboard-read; clipboard-write; fullscreen"
-      referrerpolicy="no-referrer"
-      loading="eager"
-    ></iframe>
-  </section>
+<section id="iframeScreen" class="screen iframe-screen">
+  <div class="topbar">
+    <div class="title" id="iframeTitle">Quality Life</div>
+    <button class="logout-btn" id="topbarActionBtn">Sair</button>
+  </div>
+  <iframe
+    id="appFrame"
+    src="about:blank"
+    allow="camera; microphone; clipboard-read; clipboard-write; fullscreen"
+    referrerpolicy="no-referrer"
+    loading="eager"
+  ></iframe>
+</section>
 
   <section id="adminScreen" class="screen admin-screen">
     <div class="topbar">
@@ -333,11 +333,13 @@
         <h2>Bem-vindo, admin</h2>
        
 
-        <div class="actions">
-    <a class="action-link action-dark" href="#" onclick="openAdminLink('https://typebot-chat-viewer.vexhyt.easypanel.host/qualitylife')">  Avaliar Academia</a>
-    <a class="action-link action-light" href="#" onclick="openAdminLink('https://typebot-chat-builder.vexhyt.easypanel.host/typebots/cmng0od2n000gn118fl9weh2e/results')">  Resultados</a>
-    <a class="action-link action-light" href="#" onclick="openAdminLink('https://chatgpt.com/g/g-69c58c5919108191869ad8728cfcec6e-certificado-quality-life')">  Qualificação</a>
-     </div>
+    <div class="actions">
+  <a class="action-link action-dark" href="#" onclick="openAdminLink('https://typebot-chat-viewer.vexhyt.easypanel.host/qualitylife', 'Avaliar Academia'); return false;">Avaliar Academia</a>
+
+  <a class="action-link action-light" href="#" onclick="openAdminLink('https://typebot-chat-builder.vexhyt.easypanel.host/typebots/cmng0od2n000gn118fl9weh2e/results', 'Resultados'); return false;">Resultados</a>
+
+  <a class="action-link action-light" href="#" onclick="openAdminLink('https://chatgpt.com/g/g-69c58c5919108191869ad8728cfcec6e-certificado-quality-life', 'Qualificação'); return false;">Qualificação</a>
+</div>
       </div>
     </div>
   </section>
@@ -370,28 +372,48 @@
     const loginForm = document.getElementById('loginForm');
     const message = document.getElementById('message');
     const appFrame = document.getElementById('appFrame');
-    const logoutUser = document.getElementById('logoutUser');
+    const topbarActionBtn = document.getElementById('topbarActionBtn');
+const iframeTitle = document.getElementById('iframeTitle');
     const logoutAdmin = document.getElementById('logoutAdmin');
 
+let iframeMode = 'user';
 
-    function openAdminLink(url) {
+function openAdminLink(url, title = 'Quality Life') {
+  iframeMode = 'admin';
+  iframeTitle.textContent = title;
+  topbarActionBtn.textContent = 'Voltar';
   appFrame.src = url;
   showScreen(iframeScreen);
 }
 
+function openUserIframe() {
+  iframeMode = 'user';
+  iframeTitle.textContent = 'Quality Life';
+  topbarActionBtn.textContent = 'Sair';
+  appFrame.src = USER_URL;
+  showScreen(iframeScreen);
+}
+
+function backToAdminMenu() {
+  appFrame.src = 'about:blank';
+  showScreen(adminScreen);
+}
 
     function showScreen(screen) {
       [loginScreen, iframeScreen, adminScreen].forEach(el => el.classList.remove('active'));
       screen.classList.add('active');
     }
 
-    function logout() {
-      sessionStorage.removeItem('qualityLifeSession');
-      appFrame.src = 'about:blank';
-      loginForm.reset();
-      message.textContent = '';
-      showScreen(loginScreen);
-    }
+function logout() {
+  sessionStorage.removeItem('qualityLifeSession');
+  iframeMode = 'user';
+  iframeTitle.textContent = 'Quality Life';
+  topbarActionBtn.textContent = 'Sair';
+  appFrame.src = 'about:blank';
+  loginForm.reset();
+  message.textContent = '';
+  showScreen(loginScreen);
+}
 
     function login(username, password) {
       const user = USERS[username];
@@ -407,14 +429,16 @@
         time: Date.now()
       }));
 
-      if (user.role === 'admin') {
-        showScreen(adminScreen);
-        return;
-      }
 
-      appFrame.src = USER_URL;
-      showScreen(iframeScreen);
-    }
+
+  if (user.role === 'admin') {
+  showScreen(adminScreen);
+  return;
+}
+
+openUserIframe();
+
+
 
     loginForm.addEventListener('submit', function (event) {
       event.preventDefault();
@@ -426,8 +450,15 @@
       login(username, password);
     });
 
-    logoutUser.addEventListener('click', logout);
-    logoutAdmin.addEventListener('click', logout);
+topbarActionBtn.addEventListener('click', function () {
+  if (iframeMode === 'admin') {
+    backToAdminMenu();
+  } else {
+    logout();
+  }
+});
+
+logoutAdmin.addEventListener('click', logout);
 
     window.addEventListener('load', () => {
       logout();
