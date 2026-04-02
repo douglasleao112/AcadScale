@@ -373,6 +373,13 @@
     const logoutUser = document.getElementById('logoutUser');
     const logoutAdmin = document.getElementById('logoutAdmin');
 
+
+    function openAdminLink(url) {
+  appFrame.src = url;
+  showScreen(iframeScreen);
+}
+
+
     function showScreen(screen) {
       [loginScreen, iframeScreen, adminScreen].forEach(el => el.classList.remove('active'));
       screen.classList.add('active');
