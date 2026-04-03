@@ -137,15 +137,15 @@
       pointer-events: none;
     }
 
-    #thumbOverlay img {
-      width: 34%;
-      max-width: 120px;
-      min-width: 70px;
-      animation: zoomInOut 1.8s ease-in-out infinite;
-      filter: drop-shadow(0 6px 20px rgba(0,0,0,0.4));
-      user-select: none;
-      -webkit-user-drag: none;
-    }
+#thumbOverlay img {
+  width: 55%;          /* aumentei aqui */
+  max-width: 200px;    /* limite maior */
+  min-width: 120px;
+  animation: zoomInOut 1.8s ease-in-out infinite;
+  filter: drop-shadow(0 8px 30px rgba(0,0,0,0.6));
+  user-select: none;
+  -webkit-user-drag: none;
+}
 
     @keyframes zoomInOut {
       0% {
