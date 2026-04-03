@@ -238,6 +238,14 @@
       line-height: 1.5;
       font-size: 14px;
     }
+
+
+
+
+
+
+
+
 .actions {
   display: grid;
   gap: 12px;
@@ -274,7 +282,6 @@
 .dropdown-toggle:active {
   transform: scale(0.99);
 }
-
 .dropdown.open .dropdown-toggle {
   background: #111827;
   color: #fff;
@@ -296,17 +303,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 50px;
-  padding: 12px 14px;
-  border-radius: 14px;
+  min-height: 54px;
+  padding: 14px 16px;
+  border-radius: 16px;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 14px;
+  font-weight: 800;
+  font-size: 15px;
   background: #fff;
   color: #111827;
   border: 1px solid var(--border);
   transition: background 0.2s ease, color 0.2s ease, transform 0.12s ease;
 }
+
 
 .action-link:hover {
   background: #111827;
@@ -388,7 +396,13 @@
         <h2>Bem-vindo, admin</h2>
        
 
+        
+
 <div class="actions">
+  <a class="action-link" href="#" onclick="openAdminLink('https://typebot-chat-viewer.vexhyt.easypanel.host/split', 'Avaliar Academia', true); return false;">
+    Avaliação
+  </a>
+
   <div class="dropdown">
     <button class="dropdown-toggle" type="button" onclick="toggleDropdown(this)">
       <span>Quality Life</span>
@@ -396,10 +410,6 @@
     </button>
 
     <div class="dropdown-menu">
-      <a class="action-link" href="#" onclick="openAdminLink('https://typebot-chat-viewer.vexhyt.easypanel.host/split', 'Avaliar Academia', true); return false;">
-        Avaliação
-      </a>
-
       <a class="action-link" href="#" onclick="openAdminLink('https://typebot-chat-builder.vexhyt.easypanel.host/typebots/cmng0od2n000gn118fl9weh2e/results', 'Resultados Quality Life', false); return false;">
         Resultados
       </a>
@@ -427,6 +437,11 @@
     </div>
   </div>
 </div>
+
+
+
+
+
 
       </div>
     </div>
