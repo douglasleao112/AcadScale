@@ -355,6 +355,8 @@
 
 
   <script>
+  const AUTH_VERSION = 'v1.1';
+  
   const USERS = {
     // ADMIN
     Dlpvac: {
@@ -364,11 +366,11 @@
 
     // USUÁRIOS
     Usuario1: {
-      password: 'user123',
+      password: 'user1234',
       role: 'user'
     },
     Usuario2: {
-      password: 'user123',
+      password: 'user1234',
       role: 'user'
     }
   };
@@ -401,6 +403,39 @@ refreshBtn.addEventListener('click', function () {
     [loginScreen, iframeScreen, adminScreen].forEach(el => el.classList.remove('active'));
     screen.classList.add('active');
   }
+
+  function validateSavedSession() {
+  const savedSession = localStorage.getItem('qualityLifeSession');
+  if (!savedSession) return null;
+
+  try {
+    const session = JSON.parse(savedSession);
+    const user = USERS[session.username];
+
+    // Se o usuário foi apagado do código
+    if (!user) {
+      localStorage.removeItem('qualityLifeSession');
+      return null;
+    }
+
+    // Se a versão da sessão mudou
+    if (session.authVersion !== AUTH_VERSION) {
+      localStorage.removeItem('qualityLifeSession');
+      return null;
+    }
+
+    // Se o tipo de acesso mudou
+    if (session.role !== user.role) {
+      localStorage.removeItem('qualityLifeSession');
+      return null;
+    }
+
+    return session;
+  } catch (error) {
+    localStorage.removeItem('qualityLifeSession');
+    return null;
+  }
+}
 
 function openAdminLink(url, title = 'Quality Life', useIframe = true) {
   if (useIframe) {
@@ -449,6 +484,7 @@ function openAdminLink(url, title = 'Quality Life', useIframe = true) {
 localStorage.setItem('qualityLifeSession', JSON.stringify({
   username,
   role: user.role,
+  authVersion: AUTH_VERSION,
   time: Date.now()
 }));
 
@@ -480,24 +516,19 @@ localStorage.setItem('qualityLifeSession', JSON.stringify({
 
   logoutAdmin.addEventListener('click', logout);
 
+
 window.addEventListener('load', () => {
+  const session = validateSavedSession();
 
-  const savedSession = localStorage.getItem('qualityLifeSession');
-
-  if (savedSession) {
-    const session = JSON.parse(savedSession);
-
+  if (session) {
     if (session.role === 'admin') {
       showScreen(adminScreen);
-      return;
+    } else {
+      openUserIframe();
     }
-
-    openUserIframe();
-    return;
+  } else {
+    logout();
   }
-
-  // Se não tiver sessão, faz logout normal
-  logout();
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js').catch(error => {
@@ -505,6 +536,16 @@ window.addEventListener('load', () => {
     });
   }
 });
+
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'visible') {
+    const session = validateSavedSession();
+    if (!session) {
+      logout();
+    }
+  }
+});
+
 </script>
 </body>
 </html>
