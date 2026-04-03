@@ -40,7 +40,7 @@
     }
 
 .urgencia {
-  display: none; /* 🔥 começa escondido */
+  display: none;
   margin-top: 10px;
   text-align: center;
   color: #fff;
@@ -62,10 +62,15 @@
 }
 
 .barra-fill {
-  width: 75%;
+  width: 0;
   height: 100%;
-  background: #ffffff; /* 🔥 branco */
+  background: #ffffff;
   border-radius: 3px;
+  transition: width 2s ease;
+}
+
+.barra-fill.animate {
+  width: 75%;
 }
 
     video {
@@ -171,6 +176,7 @@
   </div>
 
   <script>
+    const barraFill = document.querySelector(".barra-fill");
     const urgencia = document.getElementById("urgencia");
   const preview = document.getElementById("previewVideo");
   const main = document.getElementById("mainVideo");
@@ -198,7 +204,11 @@ function showCTA() {
   if (!shown && main.currentTime >= 30) {
     shown = true;
     cta.classList.add("show");
-    urgencia.classList.add("show"); // 🔥 aqui ativa junto
+    urgencia.classList.add("show");
+
+    setTimeout(() => {
+      barraFill.classList.add("animate");
+    }, 100);
   }
 }
 
