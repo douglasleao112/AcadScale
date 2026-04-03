@@ -428,7 +428,7 @@ function openAdminLink(url, title = 'Quality Life', useIframe = true) {
   }
 
   function logout() {
-    sessionStorage.removeItem('qualityLifeSession');
+    localStorage.removeItem('qualityLifeSession');
     iframeMode = 'user';
     iframeTitle.textContent = 'Quality Life';
     topbarActionBtn.textContent = 'Sair';
@@ -446,11 +446,11 @@ function openAdminLink(url, title = 'Quality Life', useIframe = true) {
       return;
     }
 
-    sessionStorage.setItem('qualityLifeSession', JSON.stringify({
-      username,
-      role: user.role,
-      time: Date.now()
-    }));
+localStorage.setItem('qualityLifeSession', JSON.stringify({
+  username,
+  role: user.role,
+  time: Date.now()
+}));
 
     if (user.role === 'admin') {
       showScreen(adminScreen);
@@ -480,15 +480,31 @@ function openAdminLink(url, title = 'Quality Life', useIframe = true) {
 
   logoutAdmin.addEventListener('click', logout);
 
-  window.addEventListener('load', () => {
-    logout();
+window.addEventListener('load', () => {
 
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('./sw.js').catch(error => {
-        console.log('Service Worker não registrado:', error);
-      });
+  const savedSession = localStorage.getItem('qualityLifeSession');
+
+  if (savedSession) {
+    const session = JSON.parse(savedSession);
+
+    if (session.role === 'admin') {
+      showScreen(adminScreen);
+      return;
     }
-  });
+
+    openUserIframe();
+    return;
+  }
+
+  // Se não tiver sessão, faz logout normal
+  logout();
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js').catch(error => {
+      console.log('Service Worker não registrado:', error);
+    });
+  }
+});
 </script>
 </body>
 </html>
