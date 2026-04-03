@@ -68,6 +68,17 @@
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
+
+      #progressBar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 14px;
+    width: 0%;
+    background: red;
+    z-index: 6;
+    transition: width 0.15s linear;
+  }
   </style>
 </head>
 <body>
@@ -97,6 +108,8 @@
         <source src="https://video.wixstatic.com/video/7f5efc_fcfcacac49ed429baa8d6701b0581b51/1080p/mp4/file.mp4" type="video/mp4">
       </video>
 
+ <div id="progressBar"></div>
+
       <!-- CAMADA DE CLIQUE -->
       <div 
         id="overlay"
@@ -121,37 +134,67 @@
   </div>
 
   <script>
-    const preview = document.getElementById("previewVideo");
-    const main = document.getElementById("mainVideo");
-    const overlay = document.getElementById("overlay");
-    const cta = document.getElementById("cta");
+  const preview = document.getElementById("previewVideo");
+  const main = document.getElementById("mainVideo");
+  const overlay = document.getElementById("overlay");
+  const cta = document.getElementById("cta");
+  const progressBar = document.getElementById("progressBar");
 
-    let started = false;
-    let shown = false;
+  let started = false;
+  let shown = false;
 
-    function startVideo() {
-      if (started) return;
-      started = true;
+  function startVideo() {
+    if (started) return;
+    started = true;
 
-      preview.style.display = "none";
-      main.style.display = "block";
-      overlay.style.display = "none";
+    preview.style.display = "none";
+    main.style.display = "block";
+    overlay.style.display = "none";
 
-      main.play().catch((err) => {
-        console.log("Erro ao reproduzir:", err);
-      });
+    main.play().catch((err) => {
+      console.log("Erro ao reproduzir:", err);
+    });
+  }
+// tempo para aparecer a CTA
+  function showCTA() {
+    if (!shown && main.currentTime >= 30) {
+      shown = true;
+      cta.classList.add("show");
+    }
+  }
+
+  function updateProgressBar() {
+    const t = main.currentTime;
+    const d = main.duration;
+
+    if (!d || isNaN(d)) return;
+
+    let percent = 0;
+
+    if (t <= 30) {
+      // 0s a 30s = 0% a 50%
+      percent = (t / 30) * 50;
+    } else if (t <= 90) {
+      // 30s a 90s = 50% a 75%
+      percent = 50 + ((t - 30) / 60) * 25;
+    } else {
+      // 90s até o final = 75% a 100%
+      percent = 75 + ((t - 90) / (d - 90)) * 25;
     }
 
-    function showCTA() {
-      if (!shown && main.currentTime >= 30) {
-        shown = true;
-        cta.classList.add("show");
-      }
-    }
+    if (percent > 100) percent = 100;
+    if (percent < 0) percent = 0;
 
-    overlay.addEventListener("click", startVideo);
-    main.addEventListener("timeupdate", showCTA);
-  </script>
+    progressBar.style.width = percent + "%";
+  }
 
+  overlay.addEventListener("click", startVideo);
+  main.addEventListener("timeupdate", showCTA);
+  main.addEventListener("timeupdate", updateProgressBar);
+
+  main.addEventListener("ended", () => {
+    progressBar.style.width = "100%";
+  });
+</script>
 </body>
 </html>
