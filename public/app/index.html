@@ -309,10 +309,17 @@
   </section>
 
 <section id="iframeScreen" class="screen iframe-screen">
-  <div class="topbar">
-    <div class="title" id="iframeTitle">Quality Life</div>
+<div class="topbar">
+  <div class="title" id="iframeTitle">Quality Life</div>
+
+  <div style="display: flex; gap: 8px;">
+    <button class="logout-btn" id="refreshBtn" title="Atualizar">
+      ⟳
+    </button>
+
     <button class="logout-btn" id="topbarActionBtn">Sair</button>
   </div>
+</div>
   <iframe
     id="appFrame"
     src="about:blank"
@@ -377,6 +384,16 @@
   const topbarActionBtn = document.getElementById('topbarActionBtn');
   const iframeTitle = document.getElementById('iframeTitle');
   const logoutAdmin = document.getElementById('logoutAdmin');
+
+
+  const refreshBtn = document.getElementById('refreshBtn');
+
+refreshBtn.addEventListener('click', function () {
+  if (appFrame && appFrame.src !== 'about:blank') {
+    appFrame.src = appFrame.src;
+  }
+});
+
 
   let iframeMode = 'user';
 
