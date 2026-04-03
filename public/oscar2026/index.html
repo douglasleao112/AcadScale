@@ -39,7 +39,8 @@
       background: #000;
     }
 
-    .urgencia {
+.urgencia {
+  display: none; /* 🔥 começa escondido */
   margin-top: 10px;
   text-align: center;
   color: #fff;
@@ -47,9 +48,13 @@
   opacity: 0.9;
 }
 
+.urgencia.show {
+  display: block;
+}
+
 .barra-urgencia {
   width: 100%;
-  height: 4px; /* barra fininha */
+  height: 4px;
   background: rgba(255,255,255,0.2);
   border-radius: 3px;
   margin-top: 6px;
@@ -57,9 +62,9 @@
 }
 
 .barra-fill {
-  width: 75%; /* 🔥 aqui controla a porcentagem */
+  width: 75%;
   height: 100%;
-  background: #ff2b2b;
+  background: #ffffff; /* 🔥 branco */
   border-radius: 3px;
 }
 
@@ -146,27 +151,27 @@
       ></div>
     </div>
 
-    <a 
-      id="cta" 
-      class="cta" 
-      href="https://www.sympla.com.br/evento/premio-quality-life-goias/3373392"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Participar do OSCAR das Academias
-    </a>
+   <a 
+  id="cta" 
+  class="cta" 
+  href="https://www.sympla.com.br/evento/premio-quality-life-goias/3373392"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Participar do OSCAR
+</a>
 
-    <div class="urgencia">
-  <span>Últimas vagas</span>
+<div id="urgencia" class="urgencia">
+  <span>Últimas vagas 75%</span>
   <div class="barra-urgencia">
     <div class="barra-fill"></div>
   </div>
 </div>
 
-
   </div>
 
   <script>
+    const urgencia = document.getElementById("urgencia");
   const preview = document.getElementById("previewVideo");
   const main = document.getElementById("mainVideo");
   const overlay = document.getElementById("overlay");
@@ -189,12 +194,13 @@
     });
   }
 // tempo para aparecer a CTA
-  function showCTA() {
-    if (!shown && main.currentTime >= 30) {
-      shown = true;
-      cta.classList.add("show");
-    }
+function showCTA() {
+  if (!shown && main.currentTime >= 30) {
+    shown = true;
+    cta.classList.add("show");
+    urgencia.classList.add("show"); // 🔥 aqui ativa junto
   }
+}
 
   function updateProgressBar() {
     const t = main.currentTime;
