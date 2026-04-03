@@ -39,6 +39,30 @@
       background: #000;
     }
 
+    .urgencia {
+  margin-top: 10px;
+  text-align: center;
+  color: #fff;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.barra-urgencia {
+  width: 100%;
+  height: 4px; /* barra fininha */
+  background: rgba(255,255,255,0.2);
+  border-radius: 3px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+.barra-fill {
+  width: 75%; /* 🔥 aqui controla a porcentagem */
+  height: 100%;
+  background: #ff2b2b;
+  border-radius: 3px;
+}
+
     video {
       width: 100%;
       display: block;
@@ -131,6 +155,15 @@
     >
       Participar do OSCAR das Academias
     </a>
+
+    <div class="urgencia">
+  <span>Últimas vagas</span>
+  <div class="barra-urgencia">
+    <div class="barra-fill"></div>
+  </div>
+</div>
+
+
   </div>
 
   <script>
