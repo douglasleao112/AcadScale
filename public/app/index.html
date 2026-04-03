@@ -239,35 +239,34 @@
       font-size: 14px;
     }
 
-    .actions {
-      display: grid;
-      gap: 12px;
-    }
+   .actions {
+  display: grid;
+  gap: 12px;
+}
 
-    .action-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 54px;
-      padding: 14px 16px;
-      border-radius: 16px;
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 15px;
-      transition: transform 0.12s ease, opacity 0.2s ease;
-    }
+.action-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 15px;
+  transition: transform 0.12s ease, opacity 0.2s ease;
+}
 
-    .action-link:active { transform: scale(0.99); }
-    .action-dark {
-      background: #111827;
-      color: #fff;
-    }
-    .action-light {
-      background: #fff;
-      color: #111827;
-      border: 1px solid var(--border);
-    }
-
+.action-link:active { transform: scale(0.99); }
+.action-dark {
+  background: #111827;
+  color: #fff;
+}
+.action-light {
+  background: #fff;
+  color: #111827;
+  border: 1px solid var(--border);
+}
     @media (max-width: 480px) {
       .card, .admin-card {
         padding: 22px;
@@ -341,16 +340,45 @@
        
 
 <div class="actions">
-  <a class="action-link action-dark" href="#" onclick="openAdminLink('https://typebot-chat-viewer.vexhyt.easypanel.host/split', 'Avaliar Academia', true); return false;">Avaliação</a>
+  <div class="dropdown">
+    <button class="dropdown-toggle" type="button" onclick="toggleDropdown(this)">
+      <span>Quality Life</span>
+      <span>▾</span>
+    </button>
 
-  <a class="action-link action-light" href="#" onclick="openAdminLink('https://typebot-chat-builder.vexhyt.easypanel.host/typebots/cmng0od2n000gn118fl9weh2e/results', 'Resultados QL', false); return false;">Resultados QL</a>
+    <div class="dropdown-menu">
+      <a class="action-link" href="#" onclick="openAdminLink('https://typebot-chat-viewer.vexhyt.easypanel.host/split', 'Avaliar Academia', true); return false;">
+        Avaliação
+      </a>
 
-  <a class="action-link action-light" href="#" onclick="openAdminLink('https://chatgpt.com/g/g-69c58c5919108191869ad8728cfcec6e-qualificacao-quality-life', 'Qualificação QL', false); return false;">Qualificação QL</a>
+      <a class="action-link" href="#" onclick="openAdminLink('https://typebot-chat-builder.vexhyt.easypanel.host/typebots/cmng0od2n000gn118fl9weh2e/results', 'Resultados Quality Life', false); return false;">
+        Resultados
+      </a>
 
-  <a class="action-link action-light" href="#" onclick="openAdminLink('https://typebot-chat-builder.vexhyt.easypanel.host/typebots/dtyqfhvkafxziqtzk1ia0qe7/results', 'Resultados OSCAR', false); return false;">Resultados OSCAR</a>
+      <a class="action-link" href="#" onclick="openAdminLink('https://chatgpt.com/g/g-69c58c5919108191869ad8728cfcec6e-qualificacao-quality-life', 'Qualificação Quality Life', false); return false;">
+        Qualificação
+      </a>
+    </div>
+  </div>
 
-   <a class="action-link action-light" href="#" onclick="openAdminLink('https://chatgpt.com/g/g-69d02ff5aeb481919054624d59790a60-qualificacao-oscar', 'Qualificação OSCAR', false); return false;">Qualificação OSCAR</a>
+  <div class="dropdown">
+    <button class="dropdown-toggle" type="button" onclick="toggleDropdown(this)">
+      <span>Oscar</span>
+      <span>▾</span>
+    </button>
+
+    <div class="dropdown-menu">
+      <a class="action-link" href="#" onclick="openAdminLink('https://typebot-chat-builder.vexhyt.easypanel.host/typebots/dtyqfhvkafxziqtzk1ia0qe7/results', 'Resultados OSCAR', false); return false;">
+        Resultados
+      </a>
+
+      <a class="action-link" href="#" onclick="openAdminLink('https://chatgpt.com/g/g-69d02ff5aeb481919054624d59790a60-qualificacao-oscar', 'Qualificação OSCAR', false); return false;">
+        Qualificação
+      </a>
+    </div>
+  </div>
 </div>
+
       </div>
     </div>
   </section>
@@ -450,6 +478,19 @@ function openAdminLink(url, title = 'Quality Life', useIframe = true) {
     showScreen(iframeScreen);
   } else {
     window.location.href = url;
+  }
+}
+
+function toggleDropdown(button) {
+  const dropdown = button.parentElement;
+  const isOpen = dropdown.classList.contains('open');
+
+  document.querySelectorAll('.dropdown').forEach(item => {
+    item.classList.remove('open');
+  });
+
+  if (!isOpen) {
+    dropdown.classList.add('open');
   }
 }
 
