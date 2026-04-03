@@ -16,6 +16,7 @@
       width: 100%;
       background: #000;
       font-family: Arial, sans-serif;
+      overflow-x: hidden;
     }
 
     body {
@@ -24,11 +25,12 @@
       justify-content: center;
       align-items: flex-start;
       padding: 20px;
+      cursor: pointer;
     }
 
     .wrap {
       width: 100%;
-      max-width: 360px;   /* tamanho do video */
+      max-width: 360px;
     }
 
     .video-box {
@@ -38,40 +40,6 @@
       overflow: hidden;
       background: #000;
     }
-
-.urgencia {
-  display: none;
-  margin-top: 10px;
-  text-align: center;
-  color: #fff;
-  font-size: 13px;
-  opacity: 0.9;
-}
-
-.urgencia.show {
-  display: block;
-}
-
-.barra-urgencia {
-  width: 100%;
-  height: 4px;
-  background: rgba(255,255,255,0.2);
-  border-radius: 3px;
-  margin-top: 6px;
-  overflow: hidden;
-}
-
-.barra-fill {
-  width: 0;
-  height: 100%;
-  background: #ffffff;
-  border-radius: 3px;
-  transition: width 2s ease;
-}
-
-.barra-fill.animate {
-  width: 75%;
-}
 
     video {
       width: 100%;
@@ -97,25 +65,104 @@
       display: block;
     }
 
+    .urgencia {
+      display: none;
+      margin-top: 10px;
+      text-align: center;
+      color: #fff;
+      font-size: 13px;
+      opacity: 0.9;
+    }
+
+    .urgencia.show {
+      display: block;
+    }
+
+    .barra-urgencia {
+      width: 100%;
+      height: 4px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 3px;
+      margin-top: 6px;
+      overflow: hidden;
+    }
+
+    .barra-fill {
+      width: 0;
+      height: 100%;
+      background: #ffffff;
+      border-radius: 3px;
+      transition: width 2s ease;
+    }
+
+    .barra-fill.animate {
+      width: 75%;
+    }
+
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
 
-      #progressBar {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 14px;
-    width: 0%;
-    background: red;
-    z-index: 6;
-    transition: width 0.15s linear;
-  }
+    #progressBar {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 14px;
+      width: 0%;
+      background: red;
+      z-index: 6;
+      transition: width 0.15s linear;
+      pointer-events: none;
+    }
+
+    /* camada clicável na página toda */
+    #pageClickLayer {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    /* imagem em cima do poster */
+    #thumbOverlay {
+      position: absolute;
+      inset: 0;
+      z-index: 8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    #thumbOverlay img {
+      width: 34%;
+      max-width: 120px;
+      min-width: 70px;
+      animation: zoomInOut 1.8s ease-in-out infinite;
+      filter: drop-shadow(0 6px 20px rgba(0,0,0,0.4));
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    @keyframes zoomInOut {
+      0% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.14);
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
   </style>
 </head>
 <body>
+
+  <div id="pageClickLayer"></div>
 
   <div class="wrap">
     <div class="video-box">
@@ -142,107 +189,105 @@
         <source src="https://video.wixstatic.com/video/7f5efc_61d265f796224f709c61e052e9194fd9/720p/mp4/file.mp4" type="video/mp4">
       </video>
 
- <div id="progressBar"></div>
+      <!-- IMAGEM POR CIMA DO POSTER -->
+      <div id="thumbOverlay">
+        <img 
+          src="https://ieac.net.br/wp-content/uploads/2024/01/player-thumb-youtube2.svg" 
+          alt="Play"
+        >
+      </div>
 
-      <!-- CAMADA DE CLIQUE -->
-      <div 
-        id="overlay"
-        style="
-          position:absolute;
-          inset:0;
-          cursor:pointer;
-          z-index:5;
-        "
-      ></div>
+      <div id="progressBar"></div>
     </div>
 
-<div id="urgencia" class="urgencia">
-  <span>VAGAS PREENCHIDAS: 75%</span>
-  <div class="barra-urgencia">
-    <div class="barra-fill"></div>
-  </div>
-</div>
+    <div id="urgencia" class="urgencia">
+      <span>VAGAS PREENCHIDAS: 75%</span>
+      <div class="barra-urgencia">
+        <div class="barra-fill"></div>
+      </div>
+    </div>
 
-   <a 
-  id="cta" 
-  class="cta" 
-  href="https://www.sympla.com.br/evento/premio-quality-life-goias/3373392"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Participar do OSCAR das Academias
-</a>
+    <a 
+      id="cta" 
+      class="cta" 
+      href="https://www.sympla.com.br/evento/premio-quality-life-goias/3373392"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Participar do OSCAR das Academias
+    </a>
   </div>
 
   <script>
     const barraFill = document.querySelector(".barra-fill");
     const urgencia = document.getElementById("urgencia");
-  const preview = document.getElementById("previewVideo");
-  const main = document.getElementById("mainVideo");
-  const overlay = document.getElementById("overlay");
-  const cta = document.getElementById("cta");
-  const progressBar = document.getElementById("progressBar");
+    const preview = document.getElementById("previewVideo");
+    const main = document.getElementById("mainVideo");
+    const cta = document.getElementById("cta");
+    const progressBar = document.getElementById("progressBar");
+    const thumbOverlay = document.getElementById("thumbOverlay");
+    const pageClickLayer = document.getElementById("pageClickLayer");
 
-  let started = false;
-  let shown = false;
+    let started = false;
+    let shown = false;
 
-  function startVideo() {
-    if (started) return;
-    started = true;
+    function startVideo() {
+      if (started) return;
+      started = true;
 
-    preview.style.display = "none";
-    main.style.display = "block";
-    overlay.style.display = "none";
+      preview.style.display = "none";
+      thumbOverlay.style.display = "none";
+      main.style.display = "block";
+      pageClickLayer.style.display = "none";
 
-    main.play().catch((err) => {
-      console.log("Erro ao reproduzir:", err);
-    });
-  }
-// tempo para aparecer a CTA
-function showCTA() {
-  if (!shown && main.currentTime >= 30) {
-    shown = true;
-    cta.classList.add("show");
-    urgencia.classList.add("show");
-
-    setTimeout(() => {
-      barraFill.classList.add("animate");
-    }, 100);
-  }
-}
-
-  function updateProgressBar() {
-    const t = main.currentTime;
-    const d = main.duration;
-
-    if (!d || isNaN(d)) return;
-
-    let percent = 0;
-
-    if (t <= 30) {
-      // 0s a 30s = 0% a 50%
-      percent = (t / 30) * 50;
-    } else if (t <= 90) {
-      // 30s a 90s = 50% a 75%
-      percent = 50 + ((t - 30) / 60) * 25;
-    } else {
-      // 90s até o final = 75% a 100%
-      percent = 75 + ((t - 90) / (d - 90)) * 25;
+      main.play().catch((err) => {
+        console.log("Erro ao reproduzir:", err);
+      });
     }
 
-    if (percent > 100) percent = 100;
-    if (percent < 0) percent = 0;
+    function showCTA() {
+      if (!shown && main.currentTime >= 30) {
+        shown = true;
+        cta.classList.add("show");
+        urgencia.classList.add("show");
 
-    progressBar.style.width = percent + "%";
-  }
+        setTimeout(() => {
+          barraFill.classList.add("animate");
+        }, 100);
+      }
+    }
 
-  overlay.addEventListener("click", startVideo);
-  main.addEventListener("timeupdate", showCTA);
-  main.addEventListener("timeupdate", updateProgressBar);
+    function updateProgressBar() {
+      const t = main.currentTime;
+      const d = main.duration;
 
-  main.addEventListener("ended", () => {
-    progressBar.style.width = "100%";
-  });
-</script>
+      if (!d || isNaN(d)) return;
+
+      let percent = 0;
+
+      if (t <= 30) {
+        percent = (t / 30) * 50;
+      } else if (t <= 90) {
+        percent = 50 + ((t - 30) / 60) * 25;
+      } else {
+        percent = 75 + ((t - 90) / (d - 90)) * 25;
+      }
+
+      if (percent > 100) percent = 100;
+      if (percent < 0) percent = 0;
+
+      progressBar.style.width = percent + "%";
+    }
+
+    pageClickLayer.addEventListener("click", startVideo);
+    document.body.addEventListener("click", startVideo);
+
+    main.addEventListener("timeupdate", showCTA);
+    main.addEventListener("timeupdate", updateProgressBar);
+
+    main.addEventListener("ended", () => {
+      progressBar.style.width = "100%";
+    });
+  </script>
 </body>
 </html>
