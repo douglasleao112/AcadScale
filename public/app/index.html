@@ -334,10 +334,18 @@ html, body {
 }
 
 
-.action-link:hover {
-  background: #111827;
-  color: #fff;
+@media (hover: hover) and (pointer: fine) {
+  .action-link:hover {
+    background: #111827;
+    color: #fff;
+  }
 }
+
+.dropdown-toggle,
+.action-link {
+  -webkit-tap-highlight-color: transparent;
+}
+
 
 .action-link:active {
   transform: scale(0.99);
@@ -585,7 +593,10 @@ function toggleDropdown(button) {
   if (!isOpen) {
     dropdown.classList.add('open');
   }
+
+  button.blur();
 }
+
 
   function openUserIframe() {
     iframeMode = 'user';
