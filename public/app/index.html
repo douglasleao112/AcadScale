@@ -616,6 +616,14 @@ const splashScreen = document.getElementById('splashScreen');
 
   const refreshBtn = document.getElementById('refreshBtn');
 
+
+window.addEventListener('pageshow', function (event) {
+  if (event.persisted) {
+    window.location.reload();
+  }
+});
+
+
 refreshBtn.addEventListener('click', function () {
   if (appFrame && appFrame.src !== 'about:blank') {
     appFrame.src = appFrame.src;
