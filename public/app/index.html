@@ -296,8 +296,10 @@ html, body {
   transition: background 0.2s ease, transform 0.12s ease;
 }
 
-.dropdown-toggle:hover {
-  background: #f9fafb;
+@media (hover: hover) and (pointer: fine) {
+  .dropdown-toggle:hover {
+    background: #f9fafb;
+  }
 }
 
 .dropdown-toggle:active {
@@ -334,6 +336,7 @@ html, body {
 }
 
 
+/* HOVER só no desktop */
 @media (hover: hover) and (pointer: fine) {
   .action-link:hover {
     background: #111827;
@@ -341,8 +344,19 @@ html, body {
   }
 }
 
+/* CLIQUE real (funciona no celular) */
+.action-link:active {
+  background: #111827;
+  color: #fff;
+}
+
 .dropdown-toggle,
 .action-link {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.action-link,
+.dropdown-toggle {
   -webkit-tap-highlight-color: transparent;
 }
 
