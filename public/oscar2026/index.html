@@ -231,19 +231,21 @@
     let started = false;
     let shown = false;
 
-    function startVideo() {
-      if (started) return;
-      started = true;
+function startVideo() {
+  if (started) return;
+  started = true;
 
-      preview.style.display = "none";
-      thumbOverlay.style.display = "none";
-      main.style.display = "block";
-      pageClickLayer.style.display = "none";
+  preview.style.display = "none";
+  thumbOverlay.style.display = "none";
+  main.style.display = "block";
+  pageClickLayer.style.display = "none";
 
-      main.play().catch((err) => {
-        console.log("Erro ao reproduzir:", err);
-      });
-    }
+
+
+  main.play().catch((err) => {
+    console.log("Erro ao reproduzir:", err);
+  });
+}
 
     function showCTA() {
       if (!shown && main.currentTime >= 30) {
@@ -302,6 +304,28 @@ window.addEventListener("load", () => {
     console.log("Autoplay bloqueado");
   });
 });
+
+
+
+// salva o tempo a cada 1s
+setInterval(() => {
+  if (!main.paused && main.currentTime > 0) {
+    localStorage.setItem("videoTime", main.currentTime);
+  }
+}, 1000);
+
+main.addEventListener("loadedmetadata", () => {
+  const savedTime = localStorage.getItem("videoTime");
+
+  if (savedTime) {
+    main.currentTime = parseFloat(savedTime);
+  }
+});
+
+main.addEventListener("ended", () => {
+  localStorage.removeItem("videoTime");
+});
+
 
   </script>
 </body>
