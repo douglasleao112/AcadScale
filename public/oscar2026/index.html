@@ -95,9 +95,9 @@
       transition: width 2s ease;
     }
 
-    .barra-fill.animate {
-      width: 75%;
-    }
+.barra-fill.animate {
+  width: var(--urgency-width, 75%);
+}
 
     @keyframes pulse {
       0% { transform: scale(1); }
@@ -201,7 +201,7 @@
     </div>
 
     <div id="urgencia" class="urgencia">
-      <span>75% DAS VAGAS PREENCHIDAS</span>
+      <span id="urgencyText">75% DAS VAGAS PREENCHIDAS</span>
       <div class="barra-urgencia">
         <div class="barra-fill"></div>
       </div>
@@ -219,6 +219,7 @@
   </div>
 
   <script>
+    const urgencyText = document.getElementById("urgencyText");
     const barraFill = document.querySelector(".barra-fill");
     const urgencia = document.getElementById("urgencia");
     const preview = document.getElementById("previewVideo");
@@ -246,6 +247,34 @@ function startVideo() {
     console.log("Erro ao reproduzir:", err);
   });
 }
+
+
+function getUrgencyPercent() {
+  const now = new Date();
+
+  // data do evento: 09/04/2026
+  const eventDate = new Date(2026, 3, 9); // mês 3 = abril
+
+  // diferença em dias
+  const diffMs = eventDate - now;
+  const diffDays = diffMs / (1000 * 60 * 60 * 24);
+
+  if (diffDays <= 2) {
+    return 95;
+  } else if (diffDays <= 4) {
+    return 90;
+  } else if (diffDays <= 7) {
+    return 85;
+  } else {
+    return 75;
+  }
+}
+
+const urgencyPercent = getUrgencyPercent();
+
+urgencyText.textContent = `${urgencyPercent}% DAS VAGAS PREENCHIDAS`;
+document.documentElement.style.setProperty("--urgency-width", `${urgencyPercent}%`);
+
 
     function showCTA() {
       if (!shown && main.currentTime >= 30) {
