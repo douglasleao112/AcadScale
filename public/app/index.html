@@ -202,9 +202,8 @@ html, body {
 
 .dropdown.open .dropdown-toggle {
   background: #f3f4f6;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: none;
 }
-
     iframe {
       width: 100%;
       height: 100%;
@@ -315,8 +314,12 @@ html, body {
 .dropdown-menu {
   display: none;
   padding: 10px;
-  border-top: 1px solid var(--border);
+  border-top: none;
   background: #f3f4f6;
+}
+
+.dropdown-menu {
+  padding-top: 6px;
 }
 
 .dropdown.open .dropdown-menu {
