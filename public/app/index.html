@@ -344,10 +344,11 @@ html, body {
   }
 }
 
-/* CLIQUE real (funciona no celular) */
-.action-link:active {
-  background: #111827;
-  color: #fff;
+.action-link:active,
+.action-link.is-pressed {
+  background: #111827 !important;
+  color: #fff !important;
+  border-color: #111827 !important;
 }
 
 .dropdown-toggle,
@@ -707,6 +708,21 @@ document.addEventListener('visibilitychange', () => {
       logout();
     }
   }
+});
+
+
+document.querySelectorAll('.action-link').forEach(link => {
+  link.addEventListener('touchstart', () => {
+    link.classList.add('is-pressed');
+  }, { passive: true });
+
+  link.addEventListener('touchend', () => {
+    setTimeout(() => link.classList.remove('is-pressed'), 150);
+  });
+
+  link.addEventListener('touchcancel', () => {
+    link.classList.remove('is-pressed');
+  });
 });
 
 </script>
