@@ -619,7 +619,8 @@ const splashScreen = document.getElementById('splashScreen');
 
 window.addEventListener('pageshow', function (event) {
   if (event.persisted) {
-    window.location.reload();
+    splashScreen?.remove();
+    document.body.classList.remove('loading');
   }
 });
 
@@ -670,6 +671,17 @@ refreshBtn.addEventListener('click', function () {
     return null;
   }
 }
+
+
+function shouldShowSplash() {
+  return !sessionStorage.getItem('qualityLifeSplashShown');
+}
+
+function markSplashAsShown() {
+  sessionStorage.setItem('qualityLifeSplashShown', 'true');
+}
+
+
 
 function openAdminLink(url, title = 'Quality Life', useIframe = true) {
   if (useIframe) {
@@ -769,8 +781,9 @@ topbarActionBtn.addEventListener('click', function () {
 
 window.addEventListener('load', () => {
   const session = validateSavedSession();
+  const showSplash = shouldShowSplash();
 
-  setTimeout(() => {
+  const startApp = () => {
     if (session) {
       if (session.role === 'admin') {
         showScreen(adminScreen);
@@ -782,13 +795,24 @@ window.addEventListener('load', () => {
     }
 
     document.body.classList.remove('loading');
+  };
 
-    splashScreen.classList.add('hide');
+  if (showSplash) {
+    markSplashAsShown();
 
     setTimeout(() => {
-      splashScreen.remove();
-    }, 1000);
-  }, 3000);
+      startApp();
+
+      splashScreen.classList.add('hide');
+
+      setTimeout(() => {
+        splashScreen.remove();
+      }, 1000);
+    }, 3000);
+  } else {
+    splashScreen.remove();
+    startApp();
+  }
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js').catch(error => {
