@@ -288,6 +288,21 @@
     main.addEventListener("ended", () => {
       progressBar.style.width = "100%";
     });
+
+    document.addEventListener("touchstart", () => {
+  preview.play();
+}, { once: true });
+
+
+
+    // força autoplay no mobile
+window.addEventListener("load", () => {
+  preview.muted = true;
+  preview.play().catch(() => {
+    console.log("Autoplay bloqueado");
+  });
+});
+
   </script>
 </body>
 </html>
