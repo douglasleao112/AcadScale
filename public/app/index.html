@@ -736,13 +736,13 @@ localStorage.setItem('qualityLifeSession', JSON.stringify({
     login(username, password);
   });
 
-  topbarActionBtn.addEventListener('click', function () {
-    if (iframeMode === 'admin') {
-      backToAdminMenu();
-} else {
-  showScreen(loginScreen);
-}
-  });
+topbarActionBtn.addEventListener('click', function () {
+  if (iframeMode === 'admin') {
+    backToAdminMenu();
+  } else {
+    logout();
+  }
+});
 
   logoutAdmin.addEventListener('click', logout);
 
@@ -761,12 +761,14 @@ window.addEventListener('load', () => {
       showScreen(loginScreen);
     }
 
+    document.body.classList.remove('loading');
+
     splashScreen.classList.add('hide');
 
     setTimeout(() => {
       splashScreen.remove();
     }, 450);
-  }, 2400);
+  }, 3000);
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js').catch(error => {
