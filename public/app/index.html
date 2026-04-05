@@ -37,6 +37,10 @@ html, body {
   touch-action: manipulation;
 }
 
+body.loading .screen {
+  display: none !important;
+}
+
     body {
       display: flex;
       align-items: center;
@@ -385,7 +389,7 @@ html, body {
   </style>
 </head>
 <body>
-  <section id="loginScreen" class="screen login-screen active">
+  <section id="loginScreen" class="screen login-screen">
     <div class="card">
       <div class="brand">
         <img src="https://i.imgur.com/t4RvSVR.png" alt="Ícone Quality Life" />
@@ -506,6 +510,8 @@ html, body {
 
 
   <script>
+    document.body.classList.add('loading');
+
   const AUTH_VERSION = 'v1.3';
   
   const USERS = {
@@ -681,9 +687,9 @@ localStorage.setItem('qualityLifeSession', JSON.stringify({
   topbarActionBtn.addEventListener('click', function () {
     if (iframeMode === 'admin') {
       backToAdminMenu();
-    } else {
-      logout();
-    }
+} else {
+  showScreen(loginScreen);
+}
   });
 
   logoutAdmin.addEventListener('click', logout);
@@ -699,8 +705,10 @@ window.addEventListener('load', () => {
       openUserIframe();
     }
   } else {
-    logout();
+    showScreen(loginScreen);
   }
+
+  document.body.classList.remove('loading');
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js').catch(error => {
