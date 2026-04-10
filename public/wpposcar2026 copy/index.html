@@ -207,149 +207,18 @@
       </div>
     </div>
 
-
     <a 
-  id="cta" 
-  class="cta" 
-  href="https://www.sympla.com.br/evento/premio-quality-life-goias/3373392"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Participar do OSCAR das Academias
-</a>
-
+      id="cta" 
+      class="cta" 
+      href="https://www.sympla.com.br/evento/premio-quality-life-goias/3373392"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Participar do OSCAR das Academias
+    </a>
   </div>
 
   <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzmJrFyDQuIRuMVbnOxrSF6R0WYXS0g18N9sS6X7gip1Tc54fjuZrSy7EKVR6Pqq9Mz/exec";
-const SHEET_NAME = "PAP";
-const PAGE_NAME = "/oscar2026";
-
-function getBrowserId() {
-  let id = localStorage.getItem("browser_id");
-  if (!id) {
-    id = "br_" + Date.now() + "_" + Math.random().toString(36).slice(2, 10);
-    localStorage.setItem("browser_id", id);
-  }
-  return id;
-}
-
-function getVisitId() {
-  let id = sessionStorage.getItem("visit_id");
-  if (!id) {
-    id = "vs_" + Date.now() + "_" + Math.random().toString(36).slice(2, 10);
-    sessionStorage.setItem("visit_id", id);
-  }
-  return id;
-}
-
-function getDeviceType() {
-  const ua = navigator.userAgent.toLowerCase();
-
-  if (/android/.test(ua)) return "Android";
-  if (/iphone|ipad|ipod/.test(ua)) return "iPhone/iOS";
-  return "PC";
-}
-
-async function getApproxLocation() {
-  try {
-    const res = await fetch("https://ipapi.co/json/");
-    const data = await res.json();
-
-    const city = data.city || "";
-    const region = data.region || "";
-    const country = data.country_name || "";
-
-    return [city, region, country].filter(Boolean).join(" - ");
-  } catch (e) {
-    return "Não identificada";
-  }
-}
-
-async function sendTracking(payload) {
-  try {
-    await fetch(SCRIPT_URL + "?sheet=" + encodeURIComponent(SHEET_NAME), {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(payload),
-      keepalive: true
-    });
-  } catch (err) {
-    console.log("Erro no tracking:", err);
-  }
-}
-
-const browserId = getBrowserId();
-const visitId = getVisitId();
-const accessTime = new Date().toLocaleString("pt-BR");
-const pageStartTime = Date.now();
-
-let locationText = "Carregando...";
-let clickSent = false;
-
-
-
-
-
-
-async function registerAccess() {
-  locationText = await getApproxLocation();
-
-  await sendTracking({
-    visit_id: visitId,
-    browser_id: browserId,
-    access_time: accessTime,
-    stay_time: 0,
-    location: locationText,
-    device: getDeviceType(),
-    click_time: "",
-    page: PAGE_NAME
-  });
-}
-
-function getStaySeconds() {
-  return Math.floor((Date.now() - pageStartTime) / 1000);
-}
-
-function startStayUpdater() {
-  setInterval(() => {
-    sendTracking({
-      visit_id: visitId,
-      browser_id: browserId,
-      access_time: accessTime,
-      stay_time: getStaySeconds(),
-      location: locationText,
-      device: getDeviceType(),
-      click_time: "",
-      page: PAGE_NAME
-    });
-  }, 10000);
-}
-
-function trackButtonClick() {
-  if (clickSent) return;
-  clickSent = true;
-
-  sendTracking({
-    visit_id: visitId,
-    browser_id: browserId,
-    access_time: accessTime,
-    stay_time: getStaySeconds(),
-    location: locationText,
-    device: getDeviceType(),
-    click_time: getStaySeconds(),
-    page: PAGE_NAME
-  });
-}
-
-
-
-
-
-
-
     const urgencyText = document.getElementById("urgencyText");
     const barraFill = document.querySelector(".barra-fill");
     const urgencia = document.getElementById("urgencia");
@@ -487,15 +356,6 @@ main.addEventListener("ended", () => {
 });
 
 
-
-
-
-cta.addEventListener("click", trackButtonClick);
-
-window.addEventListener("load", async () => {
-  await registerAccess();
-  startStayUpdater();
-});
   </script>
 </body>
 </html>
