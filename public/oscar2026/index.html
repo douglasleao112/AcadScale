@@ -268,13 +268,21 @@ async function getApproxLocation() {
 
 async function sendTracking(payload) {
   try {
-    await fetch(SCRIPT_URL + "?sheet=" + encodeURIComponent(SHEET_NAME), {
+    const formData = new FormData();
+    formData.append("sheet", SHEET_NAME);
+    formData.append("visit_id", payload.visit_id || "");
+    formData.append("browser_id", payload.browser_id || "");
+    formData.append("access_time", payload.access_time || "");
+    formData.append("stay_time", payload.stay_time || "");
+    formData.append("location", payload.location || "");
+    formData.append("device", payload.device || "");
+    formData.append("click_time", payload.click_time || "");
+    formData.append("page", payload.page || "");
+
+    await fetch(SCRIPT_URL, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(payload),
-      keepalive: true
+      body: formData,
+      mode: "no-cors"
     });
   } catch (err) {
     console.log("Erro no tracking:", err);
