@@ -222,10 +222,12 @@
   color: #fff;
   font-size: 18px;
   padding: 0 16px;
+  text-align: center; /* Centraliza o texto digitado */
 }
 
 .academy-box input::placeholder {
-  color: #888;
+  color: #cbcbcb;
+  text-align: center; /* Centraliza o placeholder */
 }
 
 .academy-box button {
@@ -367,6 +369,8 @@ const SHEET_NAME = "WhatsApp";
 const PAGE_NAME = "/wpposcar2026";
 
 
+let stayUpdaterStarted = false;
+
 function getSavedAcademyName() {
   return localStorage.getItem("academy_name") || "";
 }
@@ -496,6 +500,9 @@ function getStaySeconds() {
 }
 
 function startStayUpdater() {
+  if (stayUpdaterStarted) return;
+  stayUpdaterStarted = true;
+
   setInterval(() => {
     sendTracking({
       visit_id: visitId,
