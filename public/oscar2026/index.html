@@ -95,6 +95,39 @@
       transition: width 2s ease;
     }
 
+
+
+
+.headline-box {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.headline {
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.subheadline {
+  font-size: 18px;
+  font-weight: 500;
+  color: #f7ad59;
+  height: 24px;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#dynamicText {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+
+
+
 .barra-fill.animate {
   width: var(--urgency-width, 75%);
 }
@@ -159,12 +192,34 @@
       }
     }
   </style>
+
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "tmugztuwhn");
+</script>
+
+
 </head>
 <body>
 
   <div id="pageClickLayer"></div>
 
   <div class="wrap">
+
+        <!-- HEADLINE E SUBHEADLINE -->
+<div class="headline-box">
+  <h1 class="headline">
+   Toda academia terá a chance de estar entre as MELHORES.
+  </h1>
+  <h2 class="subheadline">
+    <span id="dynamicText">Melhor atendimento</span>
+  </h2>
+</div>
+
+
     <div class="video-box">
 
       <!-- POSTER -->
@@ -504,6 +559,32 @@ window.addEventListener("load", async () => {
   await registerAccess();
   startStayUpdater();
 });
+
+
+
+
+// Textos dinâmicos da subheadline
+const textos = [
+  "Melhor atendimento",
+  "Humanização",
+  "Melhor fachada",
+  "Melhor cafézinho"
+];
+
+let index = 0;
+const dynamicText = document.getElementById("dynamicText");
+
+setInterval(() => {
+  dynamicText.style.opacity = 0;
+
+  setTimeout(() => {
+    index = (index + 1) % textos.length;
+    dynamicText.textContent = textos[index];
+    dynamicText.style.opacity = 1;
+  }, 500);
+}, 3000);
+
+
   </script>
 </body>
 </html>
