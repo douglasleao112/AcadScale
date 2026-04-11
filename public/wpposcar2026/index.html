@@ -474,7 +474,8 @@ let academyName = getSavedAcademyName();
 
 
 async function registerInitialAccess() {
-  await sendTracking({
+  // envia imediatamente o que já existe
+  sendTracking({
     visit_id: visitId,
     browser_id: browserId,
     academy_name: academyName || "",
@@ -490,11 +491,33 @@ async function registerInitialAccess() {
     utm_content: utms.utm_content,
     utm_term: utms.utm_term
   });
+
+  // busca a localização e atualiza depois
+  locationText = await getApproxLocation();
+
+  sendTracking({
+    visit_id: visitId,
+    browser_id: browserId,
+    academy_name: academyName || "",
+    access_time: accessTime,
+    stay_time: 0,
+    location: locationText || "",
+    device: getDeviceType(),
+    click_time: "",
+    page: PAGE_NAME,
+    utm_source: utms.utm_source,
+    utm_medium: utms.utm_medium,
+    utm_campaign: utms.utm_campaign,
+    utm_content: utms.utm_content,
+    utm_term: utms.utm_term
+  });
 }
 
 
 async function registerAccess() {
-  locationText = await getApproxLocation();
+  if (!locationText || locationText === "Carregando...") {
+    locationText = await getApproxLocation();
+  }
 
   await sendTracking({
     visit_id: visitId,
@@ -806,7 +829,7 @@ academyOk.addEventListener("click", async () => {
 });
 
 window.addEventListener("load", async () => {
-  await registerInitialAccess();
+  registerInitialAccess();
 
   if (academyName) {
     academyGate.style.display = "none";
