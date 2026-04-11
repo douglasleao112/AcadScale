@@ -303,14 +303,13 @@
     <div class="video-box">
 
       <!-- POSTER -->
-    <video 
+<video 
   id="previewVideo"
-  autoplay
   muted
   loop
   playsinline
-  webkit-playsinline
->
+  webkit-playsinline>
+
         <source src="https://video.wixstatic.com/video/7f5efc_61d265f796224f709c61e052e9194fd9/720p/mp4/file.mp4" type="video/mp4">
       </video>
 
@@ -624,19 +623,7 @@ document.documentElement.style.setProperty("--urgency-width", `${urgencyPercent}
       progressBar.style.width = "100%";
     });
 
-    document.addEventListener("touchstart", () => {
-  preview.play();
-}, { once: true });
 
-
-
-    // força autoplay no mobile
-window.addEventListener("load", () => {
-  preview.muted = true;
-  preview.play().catch(() => {
-    console.log("Autoplay bloqueado");
-  });
-});
 
 
 
@@ -695,6 +682,7 @@ const academyGate = document.getElementById("academyGate");
 const academyInput = document.getElementById("academyInput");
 const academyOk = document.getElementById("academyOk");
 
+// Exibe o botão somente quando houver texto
 academyInput.addEventListener("input", () => {
   if (academyInput.value.trim().length > 0) {
     academyOk.classList.add("show");
@@ -703,29 +691,40 @@ academyInput.addEventListener("input", () => {
   }
 });
 
+// Permite pressionar Enter
 academyInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter" && academyInput.value.trim()) {
+  if (e.key === "Enter" && academyInput.value.trim() !== "") {
     academyOk.click();
   }
 });
 
+// Executa ações ao clicar no OK
 academyOk.addEventListener("click", async () => {
   const value = academyInput.value.trim();
   if (!value) return;
 
+  // Salva o nome da academia
   academyName = value;
 
+  // Registra o acesso com o nome
   await registerAccess();
 
+  // Remove a tela preta
   academyGate.style.display = "none";
 
-  preview.muted = true;
-  preview.play().catch(() => {});
-
+  // Inicia o vídeo
   startVideo();
+
+  // Inicia o rastreamento de permanência
   startStayUpdater();
 });
 
+
+
+window.addEventListener("load", () => {
+  const input = document.getElementById("academyInput");
+  if (input) input.focus();
+});
 
   </script>
 </body>
