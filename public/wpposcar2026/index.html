@@ -95,6 +95,36 @@
       transition: width 2s ease;
     }
 
+
+.headline-box {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.headline {
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.subheadline {
+  font-size: 18px;
+  font-weight: 500;
+  color: #18b84a;
+  height: 24px;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#dynamicText {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+
+
 .barra-fill.animate {
   width: var(--urgency-width, 75%);
 }
@@ -165,6 +195,20 @@
   <div id="pageClickLayer"></div>
 
   <div class="wrap">
+
+
+    <!-- HEADLINE E SUBHEADLINE -->
+<div class="headline-box">
+  <h1 class="headline">
+    Diversas categorias premiadas. Toda academia terá a chance de estar entre as melhores.
+  </h1>
+  <h2 class="subheadline">
+    <span id="dynamicText">Melhor atendimento</span>
+  </h2>
+</div>
+
+
+
     <div class="video-box">
 
       <!-- POSTER -->
@@ -529,6 +573,33 @@ window.addEventListener("load", async () => {
   await registerAccess();
   startStayUpdater();
 });
+
+
+
+
+// Textos dinâmicos da subheadline
+const textos = [
+  "Melhor atendimento",
+  "Humanização",
+  "Melhor fachada",
+  "Melhor cafézinho"
+];
+
+let index = 0;
+const dynamicText = document.getElementById("dynamicText");
+
+setInterval(() => {
+  dynamicText.style.opacity = 0;
+
+  setTimeout(() => {
+    index = (index + 1) % textos.length;
+    dynamicText.textContent = textos[index];
+    dynamicText.style.opacity = 1;
+  }, 500);
+}, 3000);
+
+
+
   </script>
 </body>
 </html>
