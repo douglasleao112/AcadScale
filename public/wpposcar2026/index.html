@@ -251,6 +251,18 @@ function getDeviceType() {
   return "PC";
 }
 
+function getUTMs() {
+  const params = new URLSearchParams(window.location.search);
+
+  return {
+    utm_source: params.get("utm_source") || "",
+    utm_medium: params.get("utm_medium") || "",
+    utm_campaign: params.get("utm_campaign") || "",
+    utm_content: params.get("utm_content") || "",
+    utm_term: params.get("utm_term") || ""
+  };
+}
+
 async function getApproxLocation() {
   try {
     const res = await fetch("https://ipapi.co/json/");
@@ -278,6 +290,11 @@ async function sendTracking(payload) {
     formData.append("device", payload.device || "");
     formData.append("click_time", payload.click_time || "");
     formData.append("page", payload.page || "");
+    formData.append("utm_source", payload.utm_source || "");
+    formData.append("utm_medium", payload.utm_medium || "");
+    formData.append("utm_campaign", payload.utm_campaign || "");
+    formData.append("utm_content", payload.utm_content || "");
+    formData.append("utm_term", payload.utm_term || "");
 
     await fetch(SCRIPT_URL, {
       method: "POST",
@@ -293,12 +310,10 @@ const browserId = getBrowserId();
 const visitId = getVisitId();
 const accessTime = new Date().toLocaleString("pt-BR");
 const pageStartTime = Date.now();
+const utms = getUTMs();
 
 let locationText = "Carregando...";
 let clickSent = false;
-
-
-
 
 
 
@@ -313,7 +328,12 @@ async function registerAccess() {
     location: locationText,
     device: getDeviceType(),
     click_time: "",
-    page: PAGE_NAME
+    page: PAGE_NAME,
+    utm_source: utms.utm_source,
+    utm_medium: utms.utm_medium,
+    utm_campaign: utms.utm_campaign,
+    utm_content: utms.utm_content,
+    utm_term: utms.utm_term
   });
 }
 
@@ -331,7 +351,12 @@ function startStayUpdater() {
       location: locationText,
       device: getDeviceType(),
       click_time: "",
-      page: PAGE_NAME
+      page: PAGE_NAME,
+      utm_source: utms.utm_source,
+      utm_medium: utms.utm_medium,
+      utm_campaign: utms.utm_campaign,
+      utm_content: utms.utm_content,
+      utm_term: utms.utm_term
     });
   }, 10000);
 }
@@ -348,14 +373,14 @@ function trackButtonClick() {
     location: locationText,
     device: getDeviceType(),
     click_time: getStaySeconds(),
-    page: PAGE_NAME
+    page: PAGE_NAME,
+    utm_source: utms.utm_source,
+    utm_medium: utms.utm_medium,
+    utm_campaign: utms.utm_campaign,
+    utm_content: utms.utm_content,
+    utm_term: utms.utm_term
   });
 }
-
-
-
-
-
 
 
     const urgencyText = document.getElementById("urgencyText");
