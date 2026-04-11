@@ -473,6 +473,25 @@ let clickSent = false;
 let academyName = getSavedAcademyName();
 
 
+async function registerInitialAccess() {
+  await sendTracking({
+    visit_id: visitId,
+    browser_id: browserId,
+    academy_name: academyName || "",
+    access_time: accessTime,
+    stay_time: 0,
+    location: "",
+    device: getDeviceType(),
+    click_time: "",
+    page: PAGE_NAME,
+    utm_source: utms.utm_source,
+    utm_medium: utms.utm_medium,
+    utm_campaign: utms.utm_campaign,
+    utm_content: utms.utm_content,
+    utm_term: utms.utm_term
+  });
+}
+
 
 async function registerAccess() {
   locationText = await getApproxLocation();
@@ -480,9 +499,9 @@ async function registerAccess() {
   await sendTracking({
     visit_id: visitId,
     browser_id: browserId,
-    academy_name: academyName,
+    academy_name: academyName || "",
     access_time: accessTime,
-    stay_time: 0,
+    stay_time: getStaySeconds(),
     location: locationText,
     device: getDeviceType(),
     click_time: "",
@@ -769,30 +788,29 @@ academyOk.addEventListener("click", async () => {
   const value = academyInput.value.trim();
   if (!value) return;
 
-  // Evita múltiplos cliques
   academyOk.disabled = true;
   academyOk.textContent = "Carregando...";
   academyOk.style.opacity = "0.7";
   academyOk.style.cursor = "not-allowed";
 
-  // Salva o nome da academia
   academyName = value;
   saveAcademyName(value);
 
-academyGate.style.display = "none";
-pageClickLayer.style.display = "none";
+  academyGate.style.display = "none";
+  pageClickLayer.style.display = "none";
 
-startVideo();
-startStayUpdater();
+  startVideo();
+  startStayUpdater();
 
-  // Envia os dados sem bloquear a interface
   registerAccess();
 });
 
 window.addEventListener("load", async () => {
+  await registerInitialAccess();
+
   if (academyName) {
     academyGate.style.display = "none";
-    await registerAccess();
+    registerAccess();
 
     preview.load();
     showPosterOnly();
