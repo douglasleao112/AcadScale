@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <script>
+  (function () {
+    const savedAcademy = localStorage.getItem("academy_name") || "";
+    if (savedAcademy) {
+      document.documentElement.classList.add("academy-known");
+    }
+  })();
+</script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
   <title>Oscar das Academias 2026</title>
@@ -197,6 +206,10 @@
   align-items: center;
   justify-content: center;
   padding: 20px;
+}
+
+html.academy-known .academy-gate {
+  display: none !important;
 }
 
 .academy-box {
@@ -481,7 +494,7 @@ async function registerInitialAccess() {
     browser_id: browserId,
     academy_name: academyName || "",
     access_time: accessTime,
-    stay_time: 0,
+    stay_time: getSavedVideoTime(),
     location: locationText || "",
     device: getDeviceType(),
     click_time: "",
@@ -517,6 +530,14 @@ async function registerAccess() {
     utm_term: utms.utm_term
   });
 }
+
+
+function getSavedVideoTime() {
+  const saved = localStorage.getItem("videoTime");
+  if (!saved || isNaN(saved)) return "";
+  return Math.floor(parseFloat(saved));
+}
+
 
 function getStaySeconds() {
   if (!main || isNaN(main.currentTime)) return 0;
@@ -813,15 +834,11 @@ window.addEventListener("load", async () => {
   await registerInitialAccess();
 
   if (academyName) {
-    academyGate.style.display = "none";
-    registerAccess();
-
     preview.load();
     showPosterOnly();
     return;
   }
 
-  academyGate.style.display = "flex";
   pageClickLayer.style.display = "none";
   academyInput.focus();
 });
