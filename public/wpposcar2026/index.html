@@ -553,7 +553,8 @@ function trackButtonClick() {
     let shown = false;
 
 
-    function showPosterOnly() {
+function showPosterOnly() {
+  started = false;
   preview.style.display = "block";
   thumbOverlay.style.display = "flex";
   main.style.display = "none";
@@ -570,6 +571,7 @@ function startVideo() {
 
   const savedTime = localStorage.getItem("videoTime");
 
+  preview.pause();
   preview.style.display = "none";
   thumbOverlay.style.display = "none";
   main.style.display = "block";
