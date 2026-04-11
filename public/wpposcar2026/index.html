@@ -496,7 +496,8 @@ async function registerAccess() {
 }
 
 function getStaySeconds() {
-  return Math.floor((Date.now() - pageStartTime) / 1000);
+  if (!main || isNaN(main.currentTime)) return 0;
+  return Math.floor(main.currentTime);
 }
 
 function startStayUpdater() {
