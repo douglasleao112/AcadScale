@@ -126,6 +126,14 @@
 
 
 
+.academy-box button:disabled {
+  background: #0f7a30;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+
+
 
 .barra-fill.animate {
   width: var(--urgency-width, 75%);
@@ -705,15 +713,25 @@ academyOk.addEventListener("click", async () => {
   const value = academyInput.value.trim();
   if (!value) return;
 
+  // Evita múltiplos cliques
+  academyOk.disabled = true;
+  academyOk.textContent = "Carregando...";
+  academyOk.style.opacity = "0.7";
+  academyOk.style.cursor = "not-allowed";
+
+  // Salva o nome da academia
   academyName = value;
   saveAcademyName(value);
 
-  await registerAccess();
-
+  // Fecha imediatamente a tela preta
   academyGate.style.display = "none";
 
+  // Inicia o vídeo
   startVideo();
   startStayUpdater();
+
+  // Envia os dados sem bloquear a interface
+  registerAccess();
 });
 
 window.addEventListener("load", async () => {
