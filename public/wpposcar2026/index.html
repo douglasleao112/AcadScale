@@ -359,6 +359,16 @@
 const SHEET_NAME = "WhatsApp";
 const PAGE_NAME = "/wpposcar2026";
 
+
+function getSavedAcademyName() {
+  return localStorage.getItem("academy_name") || "";
+}
+
+function saveAcademyName(name) {
+  localStorage.setItem("academy_name", name);
+}
+
+
 function getBrowserId() {
   let id = localStorage.getItem("browser_id");
   if (!id) {
@@ -449,7 +459,7 @@ const utms = getUTMs();
 
 let locationText = "Carregando...";
 let clickSent = false;
-let academyName = "";
+let academyName = getSavedAcademyName();
 
 
 
@@ -539,12 +549,16 @@ function startVideo() {
   if (started) return;
   started = true;
 
+  const savedTime = localStorage.getItem("videoTime");
+
   preview.style.display = "none";
   thumbOverlay.style.display = "none";
   main.style.display = "block";
   pageClickLayer.style.display = "none";
 
-
+  if (savedTime) {
+    main.currentTime = parseFloat(savedTime);
+  }
 
   main.play().catch((err) => {
     console.log("Erro ao reproduzir:", err);
@@ -613,8 +627,6 @@ document.documentElement.style.setProperty("--urgency-width", `${urgencyPercent}
       progressBar.style.width = percent + "%";
     }
 
-    pageClickLayer.addEventListener("click", startVideo);
-    document.body.addEventListener("click", startVideo);
 
     main.addEventListener("timeupdate", showCTA);
     main.addEventListener("timeupdate", updateProgressBar);
@@ -633,14 +645,6 @@ setInterval(() => {
     localStorage.setItem("videoTime", main.currentTime);
   }
 }, 1000);
-
-main.addEventListener("loadedmetadata", () => {
-  const savedTime = localStorage.getItem("videoTime");
-
-  if (savedTime) {
-    main.currentTime = parseFloat(savedTime);
-  }
-});
 
 main.addEventListener("ended", () => {
   localStorage.removeItem("videoTime");
@@ -677,7 +681,6 @@ setInterval(() => {
 }, 3000);
 
 
-
 const academyGate = document.getElementById("academyGate");
 const academyInput = document.getElementById("academyInput");
 const academyOk = document.getElementById("academyOk");
@@ -691,40 +694,42 @@ academyInput.addEventListener("input", () => {
   }
 });
 
-// Permite pressionar Enter
+// Permite Enter
 academyInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter" && academyInput.value.trim() !== "") {
     academyOk.click();
   }
 });
 
-// Executa ações ao clicar no OK
 academyOk.addEventListener("click", async () => {
   const value = academyInput.value.trim();
   if (!value) return;
 
-  // Salva o nome da academia
   academyName = value;
+  saveAcademyName(value);
 
-  // Registra o acesso com o nome
   await registerAccess();
 
-  // Remove a tela preta
   academyGate.style.display = "none";
 
-  // Inicia o vídeo
   startVideo();
-
-  // Inicia o rastreamento de permanência
   startStayUpdater();
 });
 
+window.addEventListener("load", async () => {
+  if (academyName) {
+    academyGate.style.display = "none";
+    await registerAccess();
+    startVideo();
+    startStayUpdater();
+    return;
+  }
 
-
-window.addEventListener("load", () => {
-  const input = document.getElementById("academyInput");
-  if (input) input.focus();
+  academyGate.style.display = "flex";
+  academyInput.focus();
 });
+
+
 
   </script>
 </body>
