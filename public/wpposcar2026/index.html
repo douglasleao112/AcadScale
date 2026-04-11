@@ -552,6 +552,18 @@ function trackButtonClick() {
     let started = false;
     let shown = false;
 
+
+    function showPosterOnly() {
+  preview.style.display = "block";
+  thumbOverlay.style.display = "flex";
+  main.style.display = "none";
+  pageClickLayer.style.display = "block";
+
+  preview.currentTime = 0;
+  preview.play().catch(() => {});
+}
+
+
 function startVideo() {
   if (started) return;
   started = true;
@@ -658,7 +670,19 @@ main.addEventListener("ended", () => {
 });
 
 
+pageClickLayer.addEventListener("click", () => {
+  if (!academyName) return;
+  startVideo();
+  startStayUpdater();
+});
 
+document.body.addEventListener("click", (e) => {
+  if (!academyName) return;
+  if (academyGate.style.display !== "none") return;
+  if (started) return;
+  startVideo();
+  startStayUpdater();
+});
 
 
 cta.addEventListener("click", trackButtonClick);
@@ -722,12 +746,11 @@ academyOk.addEventListener("click", async () => {
   academyName = value;
   saveAcademyName(value);
 
-  // Fecha imediatamente a tela preta
-  academyGate.style.display = "none";
+academyGate.style.display = "none";
+pageClickLayer.style.display = "none";
 
-  // Inicia o vídeo
-  startVideo();
-  startStayUpdater();
+startVideo();
+startStayUpdater();
 
   // Envia os dados sem bloquear a interface
   registerAccess();
@@ -737,15 +760,14 @@ window.addEventListener("load", async () => {
   if (academyName) {
     academyGate.style.display = "none";
     await registerAccess();
-    startVideo();
-    startStayUpdater();
+    showPosterOnly();
     return;
   }
 
   academyGate.style.display = "flex";
+  pageClickLayer.style.display = "none";
   academyInput.focus();
 });
-
 
 
   </script>
