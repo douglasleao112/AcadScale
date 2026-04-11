@@ -674,17 +674,12 @@ main.addEventListener("ended", () => {
 
 pageClickLayer.addEventListener("click", () => {
   if (!academyName) return;
-  startVideo();
-  startStayUpdater();
-});
-
-document.body.addEventListener("click", (e) => {
-  if (!academyName) return;
-  if (academyGate.style.display !== "none") return;
   if (started) return;
   startVideo();
   startStayUpdater();
 });
+
+
 
 
 cta.addEventListener("click", trackButtonClick);
