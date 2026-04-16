@@ -1,127 +1,177 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avance+</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avance+</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        body {
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #ffffff;
-            background: radial-gradient(circle at top, #0a1f44, #020617);
-            overflow: hidden;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-        /* Fundo com estrelas */
-        body::before {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
-            opacity: 0.3;
-            z-index: 0;
-        }
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+    background: radial-gradient(circle at top, #071a3a, #020617);
+    overflow: hidden;
+}
 
-        .container {
-            position: relative;
-            z-index: 1;
-            max-width: 400px;
-            width: 90%;
-        }
+/* Fundo com estrelas */
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("https://www.transparenttextures.com/patterns/stardust.png");
+    opacity: 0.25;
+    z-index: 0;
+}
 
-        .logo {
-            width: 120px;
-            margin-bottom: 10px;
-        }
+/* Container principal */
+.container {
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    max-width: 420px;
+    padding: 30px 25px;
+    border-radius: 20px;
+}
 
-        .brand {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 30px;
-            color: #ffffff;
-            letter-spacing: 1px;
-        }
+/* Logo */
+.logo {
+    width: 110px;
+    margin-bottom: 10px;
+}
 
-        .buttons a {
-            display: block;
-            text-decoration: none;
-            color: #ffffff;
-            padding: 15px;
-            margin: 12px 0;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 500;
-            background: linear-gradient(90deg, #0ea5e9, #38bdf8);
-            transition: all 0.3s ease;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
-        }
+/* Nome da marca */
+.brand {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
 
-        .buttons a:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 25px rgba(56, 189, 248, 0.6);
-            background: linear-gradient(90deg, #38bdf8, #0ea5e9);
-        }
+/* Botões */
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
-        .footer {
-            margin-top: 20px;
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.6);
-        }
+/* Estilo Glassmorphism */
+.btn {
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 14px;
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 195, 255, 0.1);
+    transition: all 0.3s ease;
+}
 
-        @media (max-width: 480px) {
-            .logo {
-                width: 100px;
-            }
-        }
-    </style>
+/* Efeito ao passar o mouse */
+.btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 25px rgba(0, 195, 255, 0.3);
+    border: 1px solid rgba(0, 195, 255, 0.6);
+}
+
+/* Animação suave */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px rgba(0, 195, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(0, 195, 255, 0.45);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(0, 195, 255, 0.2);
+    }
+}
+
+.animate {
+    animation: glow 2s ease-in-out;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .logo {
+        width: 95px;
+    }
+
+    .brand {
+        font-size: 20px;
+    }
+
+    .btn {
+        font-size: 15px;
+        padding: 14px;
+    }
+}
+</style>
 </head>
 
 <body>
-    <div class="container">
-        
-        <!-- Logo -->
-        <img src="https://i.imgur.com/dVCUAnp.webp" alt="Avance+" class="logo">
-        
-        <!-- Nome -->
-        <div class="brand">Avance+</div>
+<div class="container">
 
-        <!-- Botões -->
-        <div class="buttons">
-            <a href="https://grupoavancemais.com/wpposcar2026?utm_source=bio" target="_blank">
-                🏆 OSCAR 2026
-            </a>
+    <!-- Logo -->
+    <img src="https://i.imgur.com/dVCUAnp.webp" alt="Avance+" class="logo">
 
-            <a href="https://wa.me/5562984888498?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20Avance%2B" target="_blank">
-                📞 Entre em Contato
-            </a>
+    <!-- Nome -->
+    <div class="brand">Avance+</div>
 
-            <a href="https://www.instagram.com/avancemais.oficial" target="_blank">
-                📷 Instagram
-            </a>
-
-            <a href="https://grupoavancemais.com/" target="_blank">
-                🌐 Quem Somos
-            </a>
-        </div>
-
-        <!-- Rodapé -->
-        <div class="footer">
-            © 2026 Avance+ Consultoria Estratégica
-        </div>
+    <!-- Botões -->
+    <div class="buttons">
+        <a href="https://grupoavancemais.com/wpposcar2026?utm_source=bio" target="_blank" class="btn">OSCAR 2026</a>
+        <a href="https://wa.me/5562984888498?text=Ol%C3%A1%2C%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20a%20Avance%2B" target="_blank" class="btn">Entre em contato</a>
+        <a href="https://www.instagram.com/avancemais.oficial" target="_blank" class="btn">Instagram</a>
+        <a href="https://grupoavancemais.com/" target="_blank" class="btn">Quem somos</a>
     </div>
+
+</div>
+
+<script>
+/* Animação aleatória entre os botões */
+const buttons = document.querySelectorAll('.btn');
+
+function animateRandomButton() {
+    buttons.forEach(btn => btn.classList.remove('animate'));
+    
+    const randomIndex = Math.floor(Math.random() * buttons.length);
+    const randomButton = buttons[randomIndex];
+    
+    randomButton.classList.add('animate');
+
+    setTimeout(() => {
+        randomButton.classList.remove('animate');
+    }, 2000);
+}
+
+// Executa a cada intervalo aleatório
+function startRandomAnimation() {
+    animateRandomButton();
+    const randomTime = Math.floor(Math.random() * 3000) + 2000;
+    setTimeout(startRandomAnimation, randomTime);
+}
+
+// Inicia a animação após carregar a página
+window.onload = startRandomAnimation;
+</script>
+
 </body>
 </html>
