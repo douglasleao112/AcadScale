@@ -695,7 +695,7 @@ document.documentElement.style.setProperty("--urgency-width", `${urgencyPercent}
 
 
     function showCTA() {
-      if (!shown && main.currentTime >= 30) {
+      if (!shown && main.currentTime >= 0) {
         shown = true;
         cta.classList.add("show");
         urgencia.classList.add("show");
