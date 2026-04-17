@@ -641,8 +641,11 @@ function startVideo() {
   }
 
   main.play().then(() => {
+    preview.pause();
     preview.style.display = "none";
     thumbOverlay.style.display = "none";
+    pageClickLayer.style.display = "none";
+    main.style.display = "block";
   }).catch((err) => {
     console.log("Erro ao reproduzir:", err);
     started = false;
@@ -651,12 +654,7 @@ function startVideo() {
 }
 
 
-preview.addEventListener("playing", () => {
-  if (!started) {
-    preview.style.display = "block";
-    thumbOverlay.style.display = "flex";
-  }
-});
+
 
 main.addEventListener("playing", () => {
   preview.pause();
