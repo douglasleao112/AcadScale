@@ -690,9 +690,9 @@ const urgencyPercent = getUrgencyPercent();
 urgencyText.textContent = `${urgencyPercent}% DAS VAGAS PREENCHIDAS`;
 document.documentElement.style.setProperty("--urgency-width", `${urgencyPercent}%`);
 
-
+//CTA do botão VSL
     function showCTA() {
-      if (!shown && main.currentTime >= 0) {
+      if (!shown && main.currentTime >= 180) {
         shown = true;
         cta.classList.add("show");
         urgencia.classList.add("show");
