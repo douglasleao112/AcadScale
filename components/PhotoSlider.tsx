@@ -94,13 +94,13 @@ const PhotoSlider: React.FC = () => {
             viewport={{ once: true }}
             className="flex items-center gap-4"
           >
-            <div className="h-[1px] w-8 md:w-12 bg-blue-500/30" />
+            <div className="h-[1px] w-8 md:w-12 bg-green-300/30" />
 
-            <span className="text-[9px] md:text-xs font-bold tracking-[0.4em] uppercase text-blue-400/60 text-center">
+            <span className="text-[9px] md:text-xs font-bold tracking-[0.4em] uppercase text-green-300/70 text-center">
               Ambiente & Performance
             </span>
 
-            <div className="h-[1px] w-8 md:w-12 bg-blue-500/30" />
+            <div className="h-[1px] w-8 md:w-12 bg-green-300/30" />
           </motion.div>
         </div>
 
@@ -125,7 +125,7 @@ const PhotoSlider: React.FC = () => {
 };
 
 const PhotoItem: React.FC<{ src: string }> = ({ src }) => (
-  <div className="relative flex-shrink-0 w-60 md:w-[450px] aspect-video rounded-lg md:rounded-3xl overflow-hidden group/item border border-white/5 transition-colors duration-500 hover:border-blue-500/40 select-none">
+  <div className="relative flex-shrink-0 w-60 md:w-[450px] aspect-video rounded-lg md:rounded-3xl overflow-hidden group/item border border-white/5 transition-colors duration-500 hover:border-green-300/50 select-none">
     <img
       src={src}
       alt="Gallery"
@@ -138,7 +138,7 @@ const PhotoItem: React.FC<{ src: string }> = ({ src }) => (
 
     <div className="hidden md:block absolute inset-0 opacity-0 group-hover/item:opacity-100 transition-opacity duration-700 pointer-events-none">
       <div className="absolute inset-0 border-2 border-white/10 rounded-3xl" />
-      <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-cyan-500/5" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-green-300/10 via-transparent to-emerald-300/5" />
     </div>
   </div>
 );
