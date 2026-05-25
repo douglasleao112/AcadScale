@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
@@ -74,9 +73,9 @@ const RadarBlip: React.FC<RadarBlipProps> = ({ x, y, sweepAngle, sweepOriginX, s
         top: `${y}%`,
         width: '5px',
         height: '5px',
-        backgroundColor: isLit ? '#00e5ff' : 'transparent',
+        backgroundColor: isLit ? '#7CFF9B' : 'transparent',
         boxShadow: isLit 
-          ? '0 0 15px #00e5ff, 0 0 5px #fff, 0 0 30px rgba(0, 229, 255, 0.5)' 
+          ? '0 0 15px #7CFF9B, 0 0 5px #fff, 0 0 30px rgba(124, 255, 155, 0.5)' 
           : 'none',
         opacity: isLit ? 0.8 : 0,
         transform: 'translate(-50%, -50%)',
@@ -88,23 +87,30 @@ const RadarBlip: React.FC<RadarBlipProps> = ({ x, y, sweepAngle, sweepOriginX, s
 const RadarUI = ({ rotation }: { rotation: number }) => {
   return (
     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[900px] h-[900px] md:w-[1500px] md:h-[1500px] pointer-events-none z-0 opacity-40 translate-y-1/2">
-      <div className="absolute inset-0 border-[1px] border-cyan-500/20 rounded-full overflow-hidden">
+      <div className="absolute inset-0 border-[1px] border-green-300/20 rounded-full overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center">
-            {[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9].map(s => (
-                <div key={s} className="absolute border-[0.5px] border-cyan-500/5 rounded-full" style={{ width: `${s*100}%`, height: `${s*100}%` }} />
-            ))}
-            <div className="absolute w-[1px] h-full bg-cyan-500/5 left-1/2" />
-            <div className="absolute h-[1px] w-full bg-cyan-500/5 top-1/2" />
+          {[0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9].map(s => (
+            <div 
+              key={s} 
+              className="absolute border-[0.5px] border-green-300/5 rounded-full" 
+              style={{ width: `${s * 100}%`, height: `${s * 100}%` }} 
+            />
+          ))}
+
+          <div className="absolute w-[1px] h-full bg-green-300/5 left-1/2" />
+          <div className="absolute h-[1px] w-full bg-green-300/5 top-1/2" />
         </div>
+
         <div 
           className="absolute top-1/2 left-1/2 w-full h-full origin-top-left"
           style={{ 
             transform: `rotate(${rotation}deg)`,
-            background: 'conic-gradient(from 0deg at 0% 0%, rgba(0, 229, 255, 0.3) 0deg, rgba(0, 229, 255, 0.1) 45deg, rgba(0, 229, 255, 0.05) 90deg, transparent 150deg)'
+            background: 'conic-gradient(from 0deg at 0% 0%, rgba(124, 255, 155, 0.3) 0deg, rgba(124, 255, 155, 0.1) 45deg, rgba(124, 255, 155, 0.05) 90deg, transparent 150deg)'
           }}
         />
+
         <div 
-          className="absolute top-1/2 left-1/2 w-full h-[1.5px] bg-cyan-400/80 shadow-[0_0_20px_#00e5ff] origin-top-left"
+          className="absolute top-1/2 left-1/2 w-full h-[1.5px] bg-green-300/80 shadow-[0_0_20px_#7CFF9B] origin-top-left"
           style={{ transform: `rotate(${rotation}deg)` }}
         />
       </div>
@@ -127,6 +133,7 @@ const ValidationSection: React.FC = () => {
 
   useEffect(() => {
     setBlips(Array.from({ length: 4 }).map(generateBlip));
+
     const interval = setInterval(() => {
       setBlips(currentBlips => {
         const randomIndex = Math.floor(Math.random() * currentBlips.length);
@@ -135,16 +142,20 @@ const ValidationSection: React.FC = () => {
         return newBlips;
       });
     }, 1500);
+
     return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
     let frame: number;
+
     const animate = () => {
       setRotation(prev => (prev - 0.7 + 360) % 360);
       frame = requestAnimationFrame(animate);
     };
+
     frame = requestAnimationFrame(animate);
+
     return () => cancelAnimationFrame(frame);
   }, []);
 
@@ -181,7 +192,8 @@ const ValidationSection: React.FC = () => {
             <div key={groupIdx} className="flex items-center">
               {TICKER_ITEMS.map((item, idx) => (
                 <div key={idx} className="flex items-center mx-8 gap-3 group">
-                  <CheckCircle2 className="w-5 h-5 text-blue-500 group-hover:scale-110 transition-transform" />
+                  <CheckCircle2 className="w-5 h-5 text-green-300 group-hover:scale-110 transition-transform" />
+
                   <span className="text-white font-bold text-sm md:text-base uppercase tracking-wider">
                     {item}
                   </span>
@@ -243,6 +255,7 @@ const ValidationSection: React.FC = () => {
             const rotationValue = cardRotations[index % cardRotations.length];
             
             let xOffset = 0;
+
             if (activeUser !== null && !isActive) {
               const isToTheLeft = index < activeIndex;
               xOffset = isToTheLeft ? -60 : 60;
@@ -284,10 +297,11 @@ const ValidationSection: React.FC = () => {
                 <button
                   onClick={() => setActiveUser(isActive ? null : user.id)}
                   className={`group relative w-full h-full rounded-full p-[2px] transition-all duration-500 ${
-                    isActive ? 'ring-2 ring-cyan-400 ring-offset-4 ring-offset-black' : 'hover:scale-105 active:scale-95'
+                    isActive ? 'ring-2 ring-green-300 ring-offset-4 ring-offset-black' : 'hover:scale-105 active:scale-95'
                   }`}
                 >
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-blue-600 to-cyan-400 opacity-40 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-green-400 to-emerald-200 opacity-40 group-hover:opacity-100 transition-opacity" />
+
                   <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-black bg-neutral-900 shadow-xl">
                     <img 
                       src={user.image} 
@@ -308,9 +322,11 @@ const ValidationSection: React.FC = () => {
           0% { transform: translateX(0); }
           100% { transform: translateX(-25%); }
         }
+
         .animate-ticker {
           animation: ticker 8s linear infinite;
         }
+
         .animate-ticker:hover {
           animation-play-state: paused;
         }
