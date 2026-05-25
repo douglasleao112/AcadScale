@@ -165,7 +165,7 @@ const ComparisonSection: React.FC = () => {
               />
 
               <div className="text-center">
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-1">Entrega da AVANCE+</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-1">Entrega da AcadScale</h3>
                 <p className="text-[10px] md:text-xs text-white/40 uppercase tracking-[0.2em] font-bold">Marque o que faz sentido pra você:</p>
               </div>
 
