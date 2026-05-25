@@ -159,8 +159,8 @@ const ComparisonSection: React.FC = () => {
             <div className="relative z-10 flex flex-col items-center space-y-8">
               {/* Logo Oficial no card */}
               <img
-                src="https://i.imgur.com/sP4bt3b.png"
-                alt="Avance+ Logo"
+                src="https://i.imgur.com/zZbmG6d.png"
+                alt=" Logo"
                 className="h-12 md:h-16 w-auto object-contain brightness-125"
               />
 

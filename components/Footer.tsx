@@ -15,7 +15,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           <div className="flex flex-col items-start">
              <img 
                src="https://i.imgur.com/zZbmG6d.png" 
-               alt="Avance+ Logo" 
+               alt="Logo" 
                className="h-10 w-auto brightness-110 opacity-20" 
                loading="lazy"
              />

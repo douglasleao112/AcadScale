@@ -100,7 +100,7 @@ const Hero: React.FC = () => {
         <div className="relative w-full max-w-7xl h-[380px] md:h-[580px]">
           {/* Fix: use fetchPriority (camelCase) instead of fetchpriority */}
           <img 
-            src="https://i.imgur.com/ZZxTq7X.png" 
+            src="https://i.imgur.com/VgmEqG1.png" 
             alt="Performance" 
             className="w-full h-full object-contain object-top relative z-10"
             fetchPriority="high"
