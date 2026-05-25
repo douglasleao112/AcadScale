@@ -11,18 +11,14 @@ const PHOTOS_ROW_1 = [
   "https://i.imgur.com/GUp6aI1.webp",
 ];
 
-
 const PhotoSlider: React.FC = () => {
   const controls1 = useAnimation();
-  const controls2 = useAnimation();
 
   const timeoutRefs = useRef<Record<string, any>>({
     row1: null,
-    row2: null,
   });
 
   const row1 = [...PHOTOS_ROW_1, ...PHOTOS_ROW_1];
- 
 
   const startInfiniteAnimation = (
     controls: any,
@@ -51,28 +47,31 @@ const PhotoSlider: React.FC = () => {
         ease: "linear",
       },
     });
+
     startInfiniteAnimation(controls, direction, duration);
   };
 
   useEffect(() => {
     startInfiniteAnimation(controls1, "left", 40);
-    startInfiniteAnimation(controls2, "right", 45);
 
     return () => {
-      Object.values(timeoutRefs.current).forEach((t) => t && clearTimeout(t as any));
+      Object.values(timeoutRefs.current).forEach((t) => {
+        if (t) clearTimeout(t as any);
+      });
     };
-  }, [controls1, controls2]);
+  }, [controls1]);
 
-  const handleDragStart = (rowId: "row1" | "row2", controls: any) => {
+  const handleDragStart = (rowId: "row1", controls: any) => {
     if (timeoutRefs.current[rowId]) {
       clearTimeout(timeoutRefs.current[rowId] as any);
       timeoutRefs.current[rowId] = null;
     }
+
     controls.stop();
   };
 
   const handleDragEnd = (
-    rowId: "row1" | "row2",
+    rowId: "row1",
     controls: any,
     direction: "left" | "right",
     duration: number
@@ -96,9 +95,11 @@ const PhotoSlider: React.FC = () => {
             className="flex items-center gap-4"
           >
             <div className="h-[1px] w-8 md:w-12 bg-blue-500/30" />
+
             <span className="text-[9px] md:text-xs font-bold tracking-[0.4em] uppercase text-blue-400/60 text-center">
               Ambiente & Performance
             </span>
+
             <div className="h-[1px] w-8 md:w-12 bg-blue-500/30" />
           </motion.div>
         </div>
@@ -118,22 +119,6 @@ const PhotoSlider: React.FC = () => {
             ))}
           </motion.div>
         </div>
-
-        <div className="flex overflow-hidden cursor-grab active:cursor-grabbing">
-          <motion.div
-            className="flex gap-3 md:gap-8 flex-nowrap will-change-transform"
-            style={{ transform: "translateZ(0)" }}
-            animate={controls2}
-            drag="x"
-            dragConstraints={{ left: -2000, right: 2000 }}
-            onDragStart={() => handleDragStart("row2", controls2)}
-            onDragEnd={() => handleDragEnd("row2", controls2, "right", 45)}
-          >
-            {row2.map((src, idx) => (
-              <PhotoItem key={`row2-${idx}`} src={src} />
-            ))}
-          </motion.div>
-        </div>
       </div>
     </section>
   );
@@ -148,6 +133,7 @@ const PhotoItem: React.FC<{ src: string }> = ({ src }) => (
       loading="lazy"
       decoding="async"
     />
+
     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
 
     <div className="hidden md:block absolute inset-0 opacity-0 group-hover/item:opacity-100 transition-opacity duration-700 pointer-events-none">
