@@ -108,7 +108,7 @@ const Hero: React.FC = () => {
         </div>
       </framerMotion.div>
 
-     <div className="max-w-7xl mx-auto space-y-12 md:space-y-16 relative z-30 pt-[430px] md:pt-[560px] lg:pt-[620px]">
+     <div className="max-w-7xl mx-auto space-y-12 md:space-y-16 relative z-30 pt-[360px] md:pt-[480px] lg:pt-[540px]">
         <framerMotion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
