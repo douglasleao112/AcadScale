@@ -95,12 +95,12 @@ const Hero: React.FC = () => {
           scale: { duration: 2.5, ease: "easeOut" },
           filter: { duration: 2 }
         }}
-        className="absolute top-20 md:top-12 inset-x-0 flex justify-center pointer-events-none"
+        className="absolute top-8 md:top-0 inset-x-0 flex justify-center pointer-events-none"
       >
         <div className="relative w-full max-w-7xl h-[380px] md:h-[580px]">
           {/* Fix: use fetchPriority (camelCase) instead of fetchpriority */}
           <img 
-            src="https://i.ibb.co/Y4D6JRqs/topo.png" 
+            src="https://i.ibb.co/B5jCcWpS/topoimg.png" 
             alt="Performance" 
             className="w-full h-full object-contain object-top relative z-10"
             fetchPriority="high"
@@ -108,7 +108,7 @@ const Hero: React.FC = () => {
         </div>
       </framerMotion.div>
 
-      <div className="max-w-7xl mx-auto space-y-12 md:space-y-16 relative z-30 pt-[360px] md:pt-[480px] lg:pt-[540px]">
+     <div className="max-w-7xl mx-auto space-y-12 md:space-y-16 relative z-30 pt-[430px] md:pt-[560px] lg:pt-[620px]">
         <framerMotion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
