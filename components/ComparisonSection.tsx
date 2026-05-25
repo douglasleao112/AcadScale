@@ -221,7 +221,7 @@ const ComparisonSection: React.FC = () => {
 
               <div className="pt-6 border-t border-white/5 w-full text-center">
                 <p className="text-[10px] md:text-xs text-white/40 leading-relaxed italic">
-                  Se pelo menos 3 desses pontos são essenciais <br /> para você, então já entendeu o que a AVANCE+ faz.
+                  Se pelo menos 3 desses pontos são essenciais <br /> para você, então já entendeu o que a AcadScale faz.
                 </p>
               </div>
             </div>
