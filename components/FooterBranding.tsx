@@ -40,7 +40,7 @@ const FooterBranding: React.FC = () => {
         >
           <img 
             src="https://i.imgur.com/dVCUAnp.webp" 
-            alt="Avance+ Icon" 
+            alt="Icon" 
             className="h-28 md:h-44 w-auto object-contain brightness-110 drop-shadow-[0_0_40px_rgba(59,130,246,0.4)] transition-all duration-1000 group-hover:brightness-125"
             loading="lazy"
           />

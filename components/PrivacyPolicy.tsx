@@ -50,7 +50,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onBack }) => {
           <div className="bg-neutral-900/40 border border-white/5 p-8 md:p-12 rounded-[2.5rem] backdrop-blur-sm">
             <h2 className="text-xl md:text-2xl font-bold text-white mb-6">1. Coleta de Informações</h2>
             <p className="mb-4">
-              Ao interagir com o site da Avance+, podemos coletar informações fornecidas voluntariamente por você, como nome e telefone, através de nossos formulários de contato ou links de WhatsApp.
+              Ao interagir com o site da AcadScale, podemos coletar informações fornecidas voluntariamente por você, como nome e telefone, através de nossos formulários de contato ou links de WhatsApp.
             </p>
             <p>
               Também coletamos dados técnicos automaticamente, como endereço IP, tipo de navegador e páginas visitadas, para fins de análise de performance e melhoria da sua experiência.

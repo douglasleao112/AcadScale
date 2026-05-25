@@ -75,7 +75,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   </p>
   <div className="hidden md:block w-1 h-1 bg-white/5 rounded-full" />
   <p className="text-[9px] font-medium text-white/20 tracking-[0.2em]">
-    2025 Avance+ Todos os Direitos Reservados
+    2025 AcadScale Todos os Direitos Reservados
   </p>
 </div>
       </div>

@@ -11,7 +11,7 @@ interface FAQItem {
 const FAQS: FAQItem[] = [
   {
     question: "A Avance é como uma consultoria?",
-    answer: " Não é consultoria tradicional. A AVANCE+ atua como conselho estratégico, entrando no negócio para orientar decisões que aumentam o lucro líquido, não para dar opinião solta ou entregar material genérico."
+    answer: " Não é consultoria tradicional. A AcadScale atua como conselho estratégico, entrando no negócio para orientar decisões que aumentam o lucro líquido, não para dar opinião solta ou entregar material genérico."
   },
   {
     question: "Vocês vão me dizer exatamente o que fazer ou só orientar?",
@@ -39,11 +39,11 @@ const FAQS: FAQItem[] = [
   },
   {
     question: "E se minha academia já estiver dando lucro?",
-    answer: "Ótimo. A pergunta passa a ser: esse lucro é previsível, escalável e protegido, ou depende do seu esforço diário? A AVANCE+ trabalha para transformar lucro instável em lucro estruturado."
+    answer: "Ótimo. A pergunta passa a ser: esse lucro é previsível, escalável e protegido, ou depende do seu esforço diário? A AcadScale trabalha para transformar lucro instável em lucro estruturado."
   },
   {
     question: "E se eu não gostar ou não fizer sentido?",
-    answer: "Você simplesmente não avança. A AVANCE+ não é para todo mundo, e isso é intencional."
+    answer: "Você simplesmente não avança. A AcadScale não é para todo mundo, e isso é intencional."
   }
 ];
 

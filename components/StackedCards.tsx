@@ -200,7 +200,7 @@ const MetricsPieIcon = () => (
 const CARDS_DATA = [
   {
     id: 1,
-    badge: "MÉTODO AVANCE+",
+    badge: "MÉTODO ACADSCALE",
     badgeColor: "emerald",
     title: "Performance e Lucratividade",
     description: "Atuamos diretamente na estrutura do negócio para eliminar desperdícios, corrigir gargalos e transformar faturamento em lucro líquido previsível.",

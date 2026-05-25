@@ -50,14 +50,14 @@ const TermsOfUse: React.FC<TermsOfUseProps> = ({ onBack }) => {
           <div className="bg-neutral-900/40 border border-white/5 p-8 md:p-12 rounded-[2.5rem] backdrop-blur-sm shadow-2xl">
             <h2 className="text-xl md:text-2xl font-bold text-white mb-6">1. Aceitação dos Termos</h2>
             <p>
-              Ao acessar o site da Avance+, você concorda em cumprir estes termos de serviço, todas as leis e regulamentos aplicáveis ​​e concorda que é responsável pelo cumprimento de todas as leis locais aplicáveis. Se você não concordar com algum destes termos, está proibido de usar ou acessar este site.
+              Ao acessar o site da AcadScale, você concorda em cumprir estes termos de serviço, todas as leis e regulamentos aplicáveis ​​e concorda que é responsável pelo cumprimento de todas as leis locais aplicáveis. Se você não concordar com algum destes termos, está proibido de usar ou acessar este site.
             </p>
           </div>
 
           <div className="bg-neutral-900/40 border border-white/5 p-8 md:p-12 rounded-[2.5rem] backdrop-blur-sm shadow-2xl">
             <h2 className="text-xl md:text-2xl font-bold text-white mb-6">2. Uso de Licença</h2>
             <p className="mb-4">
-              É concedida permissão para baixar temporariamente uma cópia dos materiais (informações ou software) no site Avance+, apenas para visualização transitória pessoal e não comercial. Esta é a concessão de uma licença, não uma transferência de título e, sob esta licença, você não pode:
+              É concedida permissão para baixar temporariamente uma cópia dos materiais (informações ou software) no site AcadScale, apenas para visualização transitória pessoal e não comercial. Esta é a concessão de uma licença, não uma transferência de título e, sob esta licença, você não pode:
             </p>
             <ul className="list-disc pl-6 space-y-2">
               <li>Modificar ou copiar os materiais;</li>
@@ -70,21 +70,21 @@ const TermsOfUse: React.FC<TermsOfUseProps> = ({ onBack }) => {
           <div className="bg-neutral-900/40 border border-white/5 p-8 md:p-12 rounded-[2.5rem] backdrop-blur-sm shadow-2xl">
             <h2 className="text-xl md:text-2xl font-bold text-white mb-6">3. Isenção de Responsabilidade</h2>
             <p>
-              Os materiais no site da Avance+ são fornecidos 'como estão'. Avance+ não oferece garantias, expressas ou implícitas, e, por este meio, isenta e nega todas as outras garantias, incluindo, sem limitação, garantias implícitas ou condições de comercialização, adequação a um fim específico ou não violação de propriedade intelectual ou outra violação de direitos.
+              Os materiais no site da AcadScale são fornecidos 'como estão'. AcadScale não oferece garantias, expressas ou implícitas, e, por este meio, isenta e nega todas as outras garantias, incluindo, sem limitação, garantias implícitas ou condições de comercialização, adequação a um fim específico ou não violação de propriedade intelectual ou outra violação de direitos.
             </p>
           </div>
 
           <div className="bg-neutral-900/40 border border-white/5 p-8 md:p-12 rounded-[2.5rem] backdrop-blur-sm shadow-2xl">
             <h2 className="text-xl md:text-2xl font-bold text-white mb-6">4. Limitações</h2>
             <p>
-              Em nenhum caso a Avance+ ou seus fornecedores serão responsáveis ​​por quaisquer danos (incluindo, sem limitação, danos por perda de dados ou lucro ou devido a interrupção dos negócios) decorrentes do uso ou da incapacidade de usar os materiais em Avance+.
+              Em nenhum caso a AcadScale ou seus fornecedores serão responsáveis ​​por quaisquer danos (incluindo, sem limitação, danos por perda de dados ou lucro ou devido a interrupção dos negócios) decorrentes do uso ou da incapacidade de usar os materiais em AcadScale.
             </p>
           </div>
 
           <div className="bg-neutral-900/40 border border-white/5 p-8 md:p-12 rounded-[2.5rem] backdrop-blur-sm shadow-2xl">
             <h2 className="text-xl md:text-2xl font-bold text-white mb-6">5. Precisão dos Materiais</h2>
             <p>
-              Os materiais exibidos no site da Avance+ podem incluir erros técnicos, tipográficos ou fotográficos. Avance+ não garante que qualquer material em seu site seja preciso, completo ou atual. Avance+ pode fazer alterações nos materiais contidos em seu site a qualquer momento, sem aviso prévio.
+              Os materiais exibidos no site da AcadScale podem incluir erros técnicos, tipográficos ou fotográficos. AcadScale não garante que qualquer material em seu site seja preciso, completo ou atual. AcadScale pode fazer alterações nos materiais contidos em seu site a qualquer momento, sem aviso prévio.
             </p>
           </div>
         </motion.div>
