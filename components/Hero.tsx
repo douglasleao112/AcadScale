@@ -95,7 +95,7 @@ const Hero: React.FC = () => {
           scale: { duration: 2.5, ease: "easeOut" },
           filter: { duration: 2 }
         }}
-        className="absolute top-8 md:top-0 inset-x-0 flex justify-center pointer-events-none"
+        className="absolute top-20 md:top-12 inset-x-0 flex justify-center pointer-events-none"
       >
         <div className="relative w-full max-w-7xl h-[380px] md:h-[580px]">
           {/* Fix: use fetchPriority (camelCase) instead of fetchpriority */}
