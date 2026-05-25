@@ -159,7 +159,7 @@ const ProofSection: React.FC = () => {
           </div>
         </motion.div> */}
 
-        {/* BARRA DE MÉTRICAS (IGUAL AO PRINT) */}
+        {/* BARRA DE MÉTRICAS   */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

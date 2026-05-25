@@ -11,14 +11,6 @@ const PHOTOS_ROW_1 = [
   "https://i.imgur.com/GUp6aI1.webp",
 ];
 
-const PHOTOS_ROW_2 = [
-  "https://i.imgur.com/yDSTnwm.webp",
-  "https://i.imgur.com/45aHz6z.webp",
-  "https://i.imgur.com/e5ZYQEO.webp",
-  "https://i.imgur.com/ecKn5ja.webp",
-  "https://i.imgur.com/7qBUAzZ.webp",
-  "https://i.imgur.com/X63EMhe.webp",
-];
 
 const PhotoSlider: React.FC = () => {
   const controls1 = useAnimation();
@@ -30,7 +22,7 @@ const PhotoSlider: React.FC = () => {
   });
 
   const row1 = [...PHOTOS_ROW_1, ...PHOTOS_ROW_1];
-  const row2 = [...PHOTOS_ROW_2, ...PHOTOS_ROW_2];
+ 
 
   const startInfiniteAnimation = (
     controls: any,

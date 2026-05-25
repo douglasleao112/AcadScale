@@ -157,7 +157,7 @@ const ComparisonSection: React.FC = () => {
             <div className="absolute bottom-0 left-0 w-40 h-40 bg-blue-500/10 blur-[100px]" />
 
             <div className="relative z-10 flex flex-col items-center space-y-8">
-              {/* Logo Avance+ Oficial no card */}
+              {/* Logo Oficial no card */}
               <img
                 src="https://i.imgur.com/sP4bt3b.png"
                 alt="Avance+ Logo"
@@ -247,7 +247,7 @@ const ComparisonSection: React.FC = () => {
             className="relative"
           >
             <a
-              href="https://avancemais.netlify.app/form/"
+              href="/form/"
               target="_blank"
               rel="noopener noreferrer"
               className="relative p-[1.5px] rounded-full group scale-105 md:scale-[1.1] transition-transform duration-500 hover:scale-[1.1] md:hover:scale-[1.15] block"
