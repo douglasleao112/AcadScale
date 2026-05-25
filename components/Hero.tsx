@@ -149,7 +149,7 @@ const Hero: React.FC = () => {
           className="pt-4 flex flex-col items-center gap-6 mb-16 md:mb-0"
         >
           <a 
-            href="https://avancemais.netlify.app/form/"
+            href="/form/"
             target="_blank"
             rel="noopener noreferrer"
             className="relative p-[1.5px] rounded-full group scale-105 md:scale-[1.1] transition-transform duration-500 hover:scale-[1.1] md:hover:scale-[1.15] block"

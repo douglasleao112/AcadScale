@@ -162,7 +162,7 @@ const ObjectiveSection: React.FC = () => {
 
               <div className="pt-4 md:pt-8 pb-10 md:pb-0 flex justify-center md:justify-start">
                 <a 
-                  href="https://avancemais.netlify.app/form/"
+                  href="/form/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="relative p-[1.5px] rounded-full group transition-transform duration-500 hover:scale-[1.05] block w-fit"

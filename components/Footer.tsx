@@ -23,7 +23,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
           <div className="flex flex-wrap items-center justify-start gap-8">
             <a 
-              href="https://www.instagram.com/avancemais.oficial/" 
+              href="https://www.instagram.com/acadscale/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="group flex items-center gap-3"

@@ -10,7 +10,7 @@ interface FAQItem {
 
 const FAQS: FAQItem[] = [
   {
-    question: "A Avance é como uma consultoria?",
+    question: "A AcadScale é como uma consultoria?",
     answer: " Não é consultoria tradicional. A AcadScale atua como conselho estratégico, entrando no negócio para orientar decisões que aumentam o lucro líquido, não para dar opinião solta ou entregar material genérico."
   },
   {
