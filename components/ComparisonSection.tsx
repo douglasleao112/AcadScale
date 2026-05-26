@@ -133,17 +133,17 @@ const ComparisonSection: React.FC = () => {
                 Entrega comum <br /> do mercado
               </h3>
 
-              <ul className="space-y-4 w-full">
-                {commonPoints.map((point, i) => (
-                  <li key={i} className="flex items-start gap-3 text-slate-600 text-sm md:text-base leading-snug">
-                    <span className="text-red-500 mt-1 font-bold">✕</span>
-                    <span>
-                      {point.text}
-                      <span className="font-bold text-slate-900">{point.bold}</span>
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              <ul className="space-y-4 w-full text-left">
+  {commonPoints.map((point, i) => (
+    <li key={i} className="flex items-start gap-3 text-slate-600 text-sm md:text-base leading-snug text-left">
+      <span className="text-red-500 mt-1 font-bold flex-shrink-0">✕</span>
+      <span className="block text-left">
+        {point.text}
+        <span className="font-bold text-slate-900">{point.bold}</span>
+      </span>
+    </li>
+  ))}
+</ul>
             </div>
           </motion.div>
 
