@@ -124,9 +124,9 @@ const Hero: React.FC = () => {
               Além de aumentar seu faturamento...
               <br className="md:hidden" />{' '}
               <span className="inline-block whitespace-nowrap relative">
-                <span className="font-serif-italic font-normal italic text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-emerald-200 min-h-[1.1em] inline-block">
-                  {displayText || '\u00A0'}
-                </span>
+                <span className="font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-emerald-200 min-h-[1.1em] inline-block">
+  {displayText || '\u00A0'}
+</span>
 
                 <span className="inline-block w-[3px] md:w-[4px] h-[0.8em] bg-green-300 ml-1 md:ml-2 animate-pulse align-middle shadow-[0_0_15px_rgba(124,255,155,0.8)]" />
               </span>
