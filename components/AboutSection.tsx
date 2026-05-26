@@ -140,7 +140,7 @@ const AboutSection: React.FC = () => {
 
 
          
-              <div className="pt-4 md:pt-8 flex justify-center lg:justify-start">
+             <div className="pt-12 md:pt-20 flex justify-center lg:justify-start">
   <a 
     href="/form/"
     target="_blank"
