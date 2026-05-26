@@ -69,7 +69,7 @@ const ProofSection: React.FC = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-white px-8 py-3 md:px-16 md:py-5 rounded-full shadow-[0_20px_50px_rgba(255,255,255,0.1)]"
+            className="bg-green-300 px-8 py-3 md:px-16 md:py-5 rounded-full shadow-[0_20px_50px_rgba(124,255,155,0.25)]"
           >
             <span className="text-black text-xl md:text-4xl font-bold tracking-tight">
               de quem vive a operação.

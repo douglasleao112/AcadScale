@@ -55,7 +55,7 @@ const StrategySection: React.FC = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 1.4, delay: 0.3 }}
-            className="text-5xl md:text-8xl lg:text-[11rem] font-serif-italic text-white italic leading-none drop-shadow-[0_0_60px_rgba(124,255,155,0.5)]"
+            className="text-5xl md:text-8xl lg:text-[11rem] font-serif-italic text-green-300 italic leading-none drop-shadow-[0_0_60px_rgba(124,255,155,0.5)]"
           >
             E não achismo!
           </motion.p>

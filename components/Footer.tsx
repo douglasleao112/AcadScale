@@ -28,7 +28,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               rel="noopener noreferrer"
               className="group flex items-center gap-3"
             >
-              <div className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center group-hover:border-blue-500/50 transition-all duration-500">
+              <div className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center group-hover:border-green-300/50 transition-all duration-500">
                 <Instagram className="w-5 h-5 text-white/20 group-hover:text-white transition-colors" />
               </div>
               <span className="text-xs font-bold text-white/20 group-hover:text-white transition-colors uppercase tracking-widest hidden md:block">Instagram</span>
@@ -39,7 +39,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               rel="noopener noreferrer"
               className="group flex items-center gap-3"
             >
-              <div className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center group-hover:border-blue-500/50 transition-all duration-500">
+              <div className="w-10 h-10 rounded-full border border-white/5 flex items-center justify-center group-hover:border-green-300/50 transition-all duration-500">
                 <svg 
                   className="w-5 h-5 text-white/20 group-hover:text-white transition-colors fill-current" 
                   viewBox="0 0 24 24" 
