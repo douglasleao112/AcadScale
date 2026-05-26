@@ -50,8 +50,8 @@ const Hero: React.FC = () => {
   const tags = ["Margem", "Lucro", "Escala"];
 
   return (
-    <section 
-  className="relative z-20 flex flex-col items-center justify-start md:justify-end min-h-screen px-4 pb-48 md:pb-64 text-center overflow-hidden bg-[#020617]"
+   <section 
+  className="relative z-20 flex flex-col items-center justify-start md:justify-end min-h-screen px-4 pb-48 md:pb-64 text-center overflow-hidden bg-[#00030A]"
 >
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         <framerMotion.div
