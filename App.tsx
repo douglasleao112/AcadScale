@@ -40,16 +40,16 @@ const App: React.FC = () => {
           </div>
 
           <Hero />
-          <ValidationSection />
-          <PhotoSlider />
-          <StrategySection />
-          {/* <StackedCards /> */}
-          <ComparisonSection />
-          <ProofSection />
-          <ObjectiveSection />
-          <AboutSection />
-          <FAQSection />
-          <Footer onNavigate={navigateTo} />
+<ValidationSection />
+<PhotoSlider />
+<StrategySection />
+{/* <StackedCards /> */}
+<ComparisonSection />
+<ProofSection />
+<AboutSection />
+<ObjectiveSection />
+<FAQSection />
+<Footer onNavigate={navigateTo} />
         </div>
       )}
 
