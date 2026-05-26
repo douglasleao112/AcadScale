@@ -87,7 +87,7 @@ const ProofSection: React.FC = () => {
           </motion.p>
         </div>
 
-       
+        {/* VIDEO DO YOUTUBE PARA PROVA SOCIAL
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -148,7 +148,8 @@ const ProofSection: React.FC = () => {
               <span className="text-white/40 text-[10px] font-mono">1.00</span>
             </div>
           </div>
-        </motion.div> 
+        </motion.div> */}
+
 
         {/* BARRA DE MÉTRICAS */}
         <motion.div 
