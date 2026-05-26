@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, ShieldCheck } from 'lucide-react';
@@ -11,7 +10,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onBack }) => {
   return (
     <section className="min-h-screen pt-32 pb-20 px-6 relative">
       {/* Elementos de Brilho de Fundo */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60vw] h-[60vw] bg-blue-600/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60vw] h-[60vw] bg-green-300/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Header da Página */}
@@ -28,13 +27,14 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onBack }) => {
             Voltar para o início
           </button>
 
-          <div className="w-16 h-16 rounded-2xl bg-blue-600/10 border border-blue-500/20 flex items-center justify-center mb-6">
-            <ShieldCheck className="w-8 h-8 text-blue-400" />
+          <div className="w-16 h-16 rounded-2xl bg-green-300/10 border border-green-300/20 flex items-center justify-center mb-6">
+            <ShieldCheck className="w-8 h-8 text-green-300" />
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight text-center mb-4">
-            Políticas de <span className="font-serif-italic italic font-normal text-blue-400">Privacidade</span>
+            Políticas de <span className="font-serif-italic italic font-normal text-green-300">Privacidade</span>
           </h1>
+
           <p className="text-white/40 text-center text-sm md:text-base max-w-xl font-light">
             Sua privacidade é nossa prioridade. Entenda como tratamos seus dados com transparência e segurança.
           </p>

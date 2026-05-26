@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowLeft, FileText } from 'lucide-react';
@@ -11,7 +10,7 @@ const TermsOfUse: React.FC<TermsOfUseProps> = ({ onBack }) => {
   return (
     <section className="min-h-screen pt-32 pb-20 px-6 relative bg-black">
       {/* Elementos de Brilho de Fundo */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60vw] h-[60vw] bg-blue-600/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60vw] h-[60vw] bg-green-300/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto relative z-10">
         {/* Header da Página */}
@@ -28,13 +27,14 @@ const TermsOfUse: React.FC<TermsOfUseProps> = ({ onBack }) => {
             Voltar para o início
           </button>
 
-          <div className="w-16 h-16 rounded-2xl bg-blue-600/10 border border-blue-500/20 flex items-center justify-center mb-6">
-            <FileText className="w-8 h-8 text-blue-400" />
+          <div className="w-16 h-16 rounded-2xl bg-green-300/10 border border-green-300/20 flex items-center justify-center mb-6">
+            <FileText className="w-8 h-8 text-green-300" />
           </div>
 
           <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight text-center mb-4">
-            Termos de <span className="font-serif-italic italic font-normal text-blue-400">Uso</span>
+            Termos de <span className="font-serif-italic italic font-normal text-green-300">Uso</span>
           </h1>
+
           <p className="text-white/40 text-center text-sm md:text-base max-w-xl font-light">
             Ao utilizar nossa plataforma, você concorda com as diretrizes e condições estabelecidas abaixo.
           </p>
@@ -56,9 +56,11 @@ const TermsOfUse: React.FC<TermsOfUseProps> = ({ onBack }) => {
 
           <div className="bg-neutral-900/40 border border-white/5 p-8 md:p-12 rounded-[2.5rem] backdrop-blur-sm shadow-2xl">
             <h2 className="text-xl md:text-2xl font-bold text-white mb-6">2. Uso de Licença</h2>
+
             <p className="mb-4">
               É concedida permissão para baixar temporariamente uma cópia dos materiais (informações ou software) no site AcadScale, apenas para visualização transitória pessoal e não comercial. Esta é a concessão de uma licença, não uma transferência de título e, sob esta licença, você não pode:
             </p>
+
             <ul className="list-disc pl-6 space-y-2">
               <li>Modificar ou copiar os materiais;</li>
               <li>Usar os materiais para qualquer finalidade comercial ou para exibição pública;</li>
@@ -69,6 +71,7 @@ const TermsOfUse: React.FC<TermsOfUseProps> = ({ onBack }) => {
 
           <div className="bg-neutral-900/40 border border-white/5 p-8 md:p-12 rounded-[2.5rem] backdrop-blur-sm shadow-2xl">
             <h2 className="text-xl md:text-2xl font-bold text-white mb-6">3. Isenção de Responsabilidade</h2>
+
             <p>
               Os materiais no site da AcadScale são fornecidos 'como estão'. AcadScale não oferece garantias, expressas ou implícitas, e, por este meio, isenta e nega todas as outras garantias, incluindo, sem limitação, garantias implícitas ou condições de comercialização, adequação a um fim específico ou não violação de propriedade intelectual ou outra violação de direitos.
             </p>
@@ -76,6 +79,7 @@ const TermsOfUse: React.FC<TermsOfUseProps> = ({ onBack }) => {
 
           <div className="bg-neutral-900/40 border border-white/5 p-8 md:p-12 rounded-[2.5rem] backdrop-blur-sm shadow-2xl">
             <h2 className="text-xl md:text-2xl font-bold text-white mb-6">4. Limitações</h2>
+
             <p>
               Em nenhum caso a AcadScale ou seus fornecedores serão responsáveis ​​por quaisquer danos (incluindo, sem limitação, danos por perda de dados ou lucro ou devido a interrupção dos negócios) decorrentes do uso ou da incapacidade de usar os materiais em AcadScale.
             </p>
@@ -83,6 +87,7 @@ const TermsOfUse: React.FC<TermsOfUseProps> = ({ onBack }) => {
 
           <div className="bg-neutral-900/40 border border-white/5 p-8 md:p-12 rounded-[2.5rem] backdrop-blur-sm shadow-2xl">
             <h2 className="text-xl md:text-2xl font-bold text-white mb-6">5. Precisão dos Materiais</h2>
+
             <p>
               Os materiais exibidos no site da AcadScale podem incluir erros técnicos, tipográficos ou fotográficos. AcadScale não garante que qualquer material em seu site seja preciso, completo ou atual. AcadScale pode fazer alterações nos materiais contidos em seu site a qualquer momento, sem aviso prévio.
             </p>

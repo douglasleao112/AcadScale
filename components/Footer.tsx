@@ -34,7 +34,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <span className="text-xs font-bold text-white/20 group-hover:text-white transition-colors uppercase tracking-widest hidden md:block">Instagram</span>
             </a>
             <a 
-              href="https://chat.whatsapp.com/BWCnxuMkAg975dRRzOJJBg" 
+              href="https://wa.me/5562984888498?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20AcadScale%2C%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es" 
               target="_blank" 
               rel="noopener noreferrer"
               className="group flex items-center gap-3"
