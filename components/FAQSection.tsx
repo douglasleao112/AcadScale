@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
@@ -53,17 +52,18 @@ const FAQSection: React.FC = () => {
   return (
     <section className="relative w-full bg-black py-24 md:py-40 px-4 z-20 overflow-hidden">
       {/* Glow de fundo */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-blue-900/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-[60vw] bg-green-300/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto flex flex-col items-center">
         {/* Badge Pill */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-blue-500/30 bg-blue-500/5 backdrop-blur-md shadow-[0_0_20px_rgba(59,130,246,0.2)] mb-12"
+          className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-green-300/30 bg-green-300/5 backdrop-blur-md shadow-[0_0_20px_rgba(124,255,155,0.2)] mb-12"
         >
-          <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-          <span className="text-[10px] md:text-xs font-bold text-blue-300 uppercase tracking-[0.2em]">
+          <div className="w-1.5 h-1.5 rounded-full bg-green-300 animate-pulse" />
+
+          <span className="text-[10px] md:text-xs font-bold text-green-300 uppercase tracking-[0.2em]">
             Mas, e agora???
           </span>
         </motion.div>
@@ -79,6 +79,7 @@ const FAQSection: React.FC = () => {
         <div className="w-full space-y-4">
           {FAQS.map((faq, index) => {
             const isOpen = openIndex === index;
+
             return (
               <motion.div 
                 key={index}
@@ -91,14 +92,15 @@ const FAQSection: React.FC = () => {
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                   className={`w-full text-left p-6 md:p-8 rounded-2xl border transition-all duration-500 flex items-center justify-between gap-6
                     ${isOpen 
-                      ? 'bg-neutral-900/60 border-white/20 shadow-2xl' 
-                      : 'bg-neutral-900/20 border-white/5 hover:border-white/10'}
+                      ? 'bg-neutral-900/60 border-green-300/20 shadow-2xl' 
+                      : 'bg-neutral-900/20 border-white/5 hover:border-green-300/20'}
                   `}
                 >
                   <span className={`text-base md:text-xl font-bold transition-colors duration-500 ${isOpen ? 'text-white' : 'text-white/80'}`}>
                     {faq.question}
                   </span>
-                  <ChevronDown className={`w-5 h-5 transition-transform duration-500 ${isOpen ? 'rotate-180 text-blue-400' : 'text-white/20'}`} />
+
+                  <ChevronDown className={`w-5 h-5 transition-transform duration-500 ${isOpen ? 'rotate-180 text-green-300' : 'text-white/20'}`} />
                 </button>
                 
                 <AnimatePresence>

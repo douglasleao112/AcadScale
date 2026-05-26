@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -20,11 +19,11 @@ const FooterBranding: React.FC = () => {
             delay: index * 1.25,
             ease: "easeOut"
           }}
-          className="absolute w-[300px] h-[300px] md:w-[500px] md:h-[500px] rounded-full border border-blue-400/40 pointer-events-none"
+          className="absolute w-[300px] h-[300px] md:w-[500px] md:h-[500px] rounded-full border border-green-300/40 pointer-events-none"
         />
       ))}
 
-      <div className="absolute w-[350px] h-[350px] md:w-[700px] md:h-[700px] bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute w-[350px] h-[350px] md:w-[700px] md:h-[700px] bg-green-300/10 rounded-full blur-[100px] pointer-events-none" />
       
       <div className="relative z-10">
         <motion.div
@@ -41,14 +40,14 @@ const FooterBranding: React.FC = () => {
           <img 
             src="https://i.imgur.com/NqtrFrY.png" 
             alt="Icon" 
-            className="h-28 md:h-44 w-auto object-contain brightness-110 drop-shadow-[0_0_40px_rgba(59,130,246,0.4)] transition-all duration-1000 group-hover:brightness-125"
+            className="h-28 md:h-44 w-auto object-contain brightness-110 drop-shadow-[0_0_40px_rgba(124,255,155,0.4)] transition-all duration-1000 group-hover:brightness-125"
             loading="lazy"
           />
           
           <motion.div 
             animate={{ rotate: -360 }}
             transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-            className="absolute inset-[-60px] border border-blue-500/[0.05] rounded-full pointer-events-none hidden md:block"
+            className="absolute inset-[-60px] border border-green-300/[0.08] rounded-full pointer-events-none hidden md:block"
           />
         </motion.div>
       </div>
