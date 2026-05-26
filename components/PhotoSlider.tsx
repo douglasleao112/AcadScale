@@ -11,14 +11,28 @@ const PHOTOS_ROW_1 = [
   "https://i.imgur.com/GUp6aI1.webp",
 ];
 
+
+const PHOTOS_ROW_2 = [
+  "https://i.imgur.com/coMNZ3A.webp",
+  "https://i.imgur.com/U8EoeTZ.webp",
+  "https://i.imgur.com/p6xlxym.webp",
+  "https://i.imgur.com/eGND2p0.webp",
+  "https://i.imgur.com/tXhNYSB.webp",
+  "https://i.imgur.com/1ghjCxE.webp",
+  "https://i.imgur.com/GUp6aI1.webp",
+];
+
 const PhotoSlider: React.FC = () => {
   const controls1 = useAnimation();
+  const controls2 = useAnimation();
 
   const timeoutRefs = useRef<Record<string, any>>({
     row1: null,
+    row2: null,
   });
 
   const row1 = [...PHOTOS_ROW_1, ...PHOTOS_ROW_1];
+  const row2 = [...PHOTOS_ROW_2, ...PHOTOS_ROW_2];
 
   const startInfiniteAnimation = (
     controls: any,
@@ -53,15 +67,19 @@ const PhotoSlider: React.FC = () => {
 
   useEffect(() => {
     startInfiniteAnimation(controls1, "left", 40);
+    startInfiniteAnimation(controls2, "right", 45);
 
     return () => {
       Object.values(timeoutRefs.current).forEach((t) => {
         if (t) clearTimeout(t as any);
       });
     };
-  }, [controls1]);
+  }, [controls1, controls2]);
 
-  const handleDragStart = (rowId: "row1", controls: any) => {
+  const handleDragStart = (
+    rowId: "row1" | "row2",
+    controls: any
+  ) => {
     if (timeoutRefs.current[rowId]) {
       clearTimeout(timeoutRefs.current[rowId] as any);
       timeoutRefs.current[rowId] = null;
@@ -71,7 +89,7 @@ const PhotoSlider: React.FC = () => {
   };
 
   const handleDragEnd = (
-    rowId: "row1",
+    rowId: "row1" | "row2",
     controls: any,
     direction: "left" | "right",
     duration: number
@@ -104,6 +122,7 @@ const PhotoSlider: React.FC = () => {
           </motion.div>
         </div>
 
+        {/* ROW 1 */}
         <div className="flex overflow-hidden cursor-grab active:cursor-grabbing">
           <motion.div
             className="flex gap-3 md:gap-8 flex-nowrap will-change-transform"
@@ -116,6 +135,23 @@ const PhotoSlider: React.FC = () => {
           >
             {row1.map((src, idx) => (
               <PhotoItem key={`row1-${idx}`} src={src} />
+            ))}
+          </motion.div>
+        </div>
+
+        {/* ROW 2 */}
+        <div className="flex overflow-hidden cursor-grab active:cursor-grabbing">
+          <motion.div
+            className="flex gap-3 md:gap-8 flex-nowrap will-change-transform"
+            style={{ transform: "translateZ(0)" }}
+            animate={controls2}
+            drag="x"
+            dragConstraints={{ left: -2000, right: 2000 }}
+            onDragStart={() => handleDragStart("row2", controls2)}
+            onDragEnd={() => handleDragEnd("row2", controls2, "right", 45)}
+          >
+            {row2.map((src, idx) => (
+              <PhotoItem key={`row2-${idx}`} src={src} />
             ))}
           </motion.div>
         </div>
