@@ -1,16 +1,15 @@
+import React, { useState } from 'react';
 
-import React, { useState, useEffect } from 'react';
 import Hero from './components/Hero';
 import ParticleBackground from './components/ParticleBackground';
 import ValidationSection from './components/ValidationSection';
 import PhotoSlider from './components/PhotoSlider';
 import StrategySection from './components/StrategySection';
-
+// import StackedCards from './components/StackedCards';
 import AboutSection from './components/AboutSection';
 import ObjectiveSection from './components/ObjectiveSection';
 import ComparisonSection from './components/ComparisonSection';
 import ProofSection from './components/ProofSection';
-import FooterBranding from './components/FooterBranding';
 import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
@@ -44,11 +43,10 @@ const App: React.FC = () => {
           <ValidationSection />
           <PhotoSlider />
           <StrategySection />
-       
+          {/* <StackedCards /> */}
           <ComparisonSection />
           <ProofSection />
           <ObjectiveSection />
-          <FooterBranding />
           <AboutSection />
           <FAQSection />
           <Footer onNavigate={navigateTo} />
