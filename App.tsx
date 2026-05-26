@@ -49,9 +49,9 @@ const App: React.FC = () => {
 <ComparisonSection />
 <ProofSection />
 <ObjectiveSection />
+<FooterBranding />
 <AboutSection />
 <FAQSection />
-<FooterBranding />
 <Footer onNavigate={navigateTo} />
         </div>
       )}
