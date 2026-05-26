@@ -65,16 +65,16 @@ const ProofSection: React.FC = () => {
             A prova real vem
           </motion.h2>
           
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="bg-green-300 px-8 py-3 md:px-16 md:py-5 rounded-full shadow-[0_20px_50px_rgba(124,255,155,0.25)]"
-          >
-            <span className="text-black text-xl md:text-4xl font-bold tracking-tight">
-              de quem vive a operação.
-            </span>
-          </motion.div>
+      <motion.div 
+  initial={{ opacity: 0, scale: 0.9 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  viewport={{ once: true }}
+  className="bg-black px-8 py-3 md:px-16 md:py-5 rounded-full shadow-[0_20px_50px_rgba(0,0,0,0.55)] border border-white/10"
+>
+  <span className="text-white text-xl md:text-4xl font-bold tracking-tight">
+    de quem vive a operação.
+  </span>
+</motion.div>
 
           <motion.p 
             initial={{ opacity: 0 }}

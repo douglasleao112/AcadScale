@@ -73,10 +73,10 @@ const ObjectiveSection: React.FC = () => {
   return (
     <section className="relative w-full bg-black py-24 md:py-40 overflow-hidden z-20">
       <div className="max-w-7xl mx-auto px-4 text-center mb-12 md:mb-24">
-   <motion.div 
+<motion.div 
   initial={{ opacity: 0, y: 20 }}
   whileInView={{ opacity: 1, y: 0 }}
-  className="bg-[#86EFAC] text-black py-3 md:py-4 px-8 md:px-12 rounded-full mb-3 md:mb-5 shadow-[0_0_35px_rgba(134,239,172,0.25)] inline-block w-fit max-w-full"
+  className="bg-black text-white py-3 md:py-4 px-8 md:px-12 rounded-full mb-3 md:mb-5 shadow-[0_20px_50px_rgba(0,0,0,0.55)] border border-white/10 inline-block w-fit max-w-full"
 >
   <h2 className="text-base md:text-xl font-black tracking-tight">
     OK. Agora é com você...
@@ -177,8 +177,8 @@ const ObjectiveSection: React.FC = () => {
                   <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-40 h-6 bg-green-300/40 blur-2xl opacity-0 animate-[impactBottom_3s_infinite] [animation-delay:1.5s] rounded-[50%] pointer-events-none" />
                   <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-8 h-12 bg-green-300/50 blur-2xl opacity-0 animate-[impactSide_3s_infinite] [animation-delay:2.25s] rounded-full pointer-events-none" />
 
-                  <div className="relative flex items-center gap-5 px-10 md:px-14 py-5 md:py-6 bg-black rounded-full leading-none overflow-hidden z-10">
-                    <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
+                  <div className="relative flex items-center gap-5 px-10 md:px-14 py-5 md:py-6 bg-[#22C55E] rounded-full leading-none overflow-hidden z-10 shadow-[0_0_35px_rgba(34,197,94,0.55)]">
+                      <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
                       <div className="absolute top-0 -left-[100%] w-[60%] h-full bg-gradient-to-r from-transparent via-green-300/20 to-transparent skew-x-[-30deg] animate-[shimmer_3s_infinite]" />
                     </div>
 
