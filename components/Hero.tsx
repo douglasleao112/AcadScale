@@ -164,8 +164,8 @@ const Hero: React.FC = () => {
 
             <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-8 h-12 via-[#8EC138]/20 blur-2xl opacity-0 animate-[impactSide_3s_infinite] [animation-delay:2.25s] rounded-full pointer-events-none" />
 
-            <div className="relative flex items-center gap-5 px-12 md:px-16 py-6 md:py-7 bg-black rounded-full leading-none overflow-hidden z-10">
-              <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
+           <div className="relative flex items-center gap-5 px-12 md:px-16 py-6 md:py-7 bg-[#22C55E] rounded-full leading-none overflow-hidden z-10 shadow-[0_0_35px_rgba(34,197,94,0.55)]">
+               <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
                 <div className="absolute top-0 -left-[100%] w-[60%] h-full bg-gradient-to-r from-transparent via-green-300/20 to-transparent skew-x-[-30deg] animate-[shimmer_3s_infinite]" />
               </div>
 
@@ -210,10 +210,10 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="absolute bottom-16 md:bottom-12 left-1/2 -translate-x-1/2 z-20 pointer-events-none flex items-center justify-center">
-        <div className="absolute w-12 h-12 rounded-full border border-green-300/50 animate-[ping_2s_infinite] opacity-30" />
+       <div className="absolute w-12 h-12 rounded-full border border-white/10 animate-[ping_2s_infinite] opacity-20" />
 
-        <div className="relative w-11 h-11 bg-green-500 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(124,255,155,0.65)] border border-green-300/50">
-          <svg 
+<div className="relative w-11 h-11 bg-[#020617] rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.85)] border border-white/10">
+   <svg 
             viewBox="0 0 24 24" 
             className="w-6 h-6 fill-none stroke-white stroke-[2.5] animate-[indicator-bounce_2s_infinite_ease-in-out]"
             xmlns="http://www.w3.org/2000/svg"
