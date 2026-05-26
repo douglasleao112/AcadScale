@@ -40,7 +40,7 @@ const AboutSection: React.FC = () => {
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(rgba(124, 255, 155, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)`,
             backgroundSize: '40px 40px'
           }}
         />
@@ -55,7 +55,7 @@ const AboutSection: React.FC = () => {
             className="text-4xl md:text-6xl text-white tracking-tight leading-tight"
           >
             <span className="font-bold">Por trás do seu lucro,</span> <br /> 
-            <span className="font-serif-italic italic text-blue-400">existe estratégia</span>
+            <span className="font-serif-italic italic text-green-300">existe estratégia</span>
           </motion.h2>
 
          
@@ -75,10 +75,10 @@ const AboutSection: React.FC = () => {
                 <motion.div 
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 backdrop-blur-sm"
+                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-green-300/30 bg-green-300/10 backdrop-blur-sm"
                 >
-                  <ShieldCheck className="w-4 h-4 text-blue-400" />
-                  <span className="text-[10px] font-bold text-blue-300 uppercase tracking-widest">
+                  <ShieldCheck className="w-4 h-4 text-green-300" />
+                  <span className="text-[10px] font-bold text-green-300 uppercase tracking-widest">
                     Saiba Quem é
                   </span>
                 </motion.div>
@@ -98,12 +98,12 @@ const AboutSection: React.FC = () => {
             </div>
 
             <div className="flex-1 w-full max-w-xl relative group">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-blue-600/15 blur-[120px] rounded-full group-hover:bg-blue-600/20 transition-colors duration-1000" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-green-300/15 blur-[120px] rounded-full group-hover:bg-green-300/20 transition-colors duration-1000" />
               
               <div className="relative bg-[#070707] border border-white/10 rounded-[2.5rem] overflow-hidden shadow-2xl">
                 <div className="aspect-[4/5] relative overflow-hidden bg-[#0a0a0a]">
                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
-                   <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-transparent z-10" />
+                   <div className="absolute inset-0 bg-gradient-to-b from-green-900/10 to-transparent z-10" />
                    <motion.img 
                     initial={{ scale: 1.1 }}
                     animate={{ scale: 1 }}
@@ -129,8 +129,8 @@ const AboutSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 border-b-2 border-r-2 border-blue-500/20 rounded-br-3xl pointer-events-none" />
-              <div className="absolute -top-6 -left-6 w-32 h-32 border-t-2 border-l-2 border-blue-500/20 rounded-tl-3xl pointer-events-none" />
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 border-b-2 border-r-2 border-green-300/20 rounded-br-3xl pointer-events-none" />
+              <div className="absolute -top-6 -left-6 w-32 h-32 border-t-2 border-l-2 border-green-300/20 rounded-tl-3xl pointer-events-none" />
             </div>
           </motion.div>
         </AnimatePresence>
