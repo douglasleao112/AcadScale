@@ -95,6 +95,49 @@ const AboutSection: React.FC = () => {
                   </p>
                 ))}
               </div>
+
+
+
+              <div className="pt-4 md:pt-8 flex justify-center lg:justify-start">
+  <a 
+    href="/form/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="relative p-[1.5px] rounded-full group transition-transform duration-500 hover:scale-[1.05] block w-fit"
+  >
+    <div className="absolute inset-0 overflow-hidden rounded-full">
+      <div className="absolute inset-[-250%] animate-[spin_3.5s_linear_infinite] bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0%,transparent_90%,#7CFF9B_97%,#fff_100%)] opacity-100" />
+    </div>
+
+    <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-8 h-12 bg-green-300/50 blur-2xl opacity-0 animate-[impactSide_3s_infinite] [animation-delay:0.75s] rounded-full pointer-events-none" />
+    <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-40 h-6 bg-green-300/40 blur-2xl opacity-0 animate-[impactBottom_3s_infinite] [animation-delay:1.5s] rounded-[50%] pointer-events-none" />
+    <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-8 h-12 bg-green-300/50 blur-2xl opacity-0 animate-[impactSide_3s_infinite] [animation-delay:2.25s] rounded-full pointer-events-none" />
+
+    <div className="relative flex items-center gap-5 px-10 md:px-14 py-5 md:py-6 bg-[#22C55E] rounded-full leading-none overflow-hidden z-10 shadow-[0_0_35px_rgba(34,197,94,0.55)]">
+      <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
+        <div className="absolute top-0 -left-[100%] w-[60%] h-full bg-gradient-to-r from-transparent via-green-300/20 to-transparent skew-x-[-30deg] animate-[shimmer_3s_infinite]" />
+      </div>
+
+      <span className="text-white font-extrabold tracking-[0.2em] text-sm md:text-base uppercase relative z-20">
+        Faça sua aplicação
+      </span>
+      
+      <svg 
+        viewBox="0 0 24 24" 
+        className="w-5 h-5 md:w-6 md:h-6 stroke-white fill-none stroke-[2.2] relative z-20 transition-transform duration-300 group-hover:translate-x-1.5 group-hover:-translate-y-1.5"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M22 2L11 13" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M22 2L15 22L11 13L2 9L22 2Z" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+      
+      <div className="absolute inset-0 border border-white/10 rounded-full pointer-events-none" />
+    </div>
+  </a>
+</div>
+
+
+
             </div>
 
             <div className="flex-1 w-full max-w-xl relative group">
@@ -135,6 +178,34 @@ const AboutSection: React.FC = () => {
           </motion.div>
         </AnimatePresence>
       </div>
+
+      <style>{`
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes shimmer {
+    0% { left: -150%; }
+    40% { left: 150%; }
+    100% { left: 150%; }
+  }
+
+  @keyframes impactSide {
+    0% { opacity: 0; transform: translateY(-50%) scaleY(0.5); }
+    5% { opacity: 1; transform: translateY(-50%) scaleY(1.4); }
+    15% { opacity: 0; transform: translateY(-50%) scaleY(1); }
+    100% { opacity: 0; }
+  }
+
+  @keyframes impactBottom {
+    0% { opacity: 0; transform: translateX(-50%) scaleX(0.5) scaleY(1); }
+    5% { opacity: 1; transform: translateX(-50%) scaleX(1.6) scaleY(2.5); }
+    15% { opacity: 0; transform: translateX(-50%) scaleX(1) scaleY(1); }
+    100% { opacity: 0; }
+  }
+`}</style>
+
     </section>
   );
 };
