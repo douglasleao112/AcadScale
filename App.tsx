@@ -11,9 +11,11 @@ import ObjectiveSection from './components/ObjectiveSection';
 import ComparisonSection from './components/ComparisonSection';
 import ProofSection from './components/ProofSection';
 import FAQSection from './components/FAQSection';
+import FooterBranding from './components/FooterBranding';
 import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfUse from './components/TermsOfUse';
+
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<'home' | 'privacy' | 'terms'>('home');
@@ -39,16 +41,17 @@ const App: React.FC = () => {
             />
           </div>
 
-          <Hero />
+<Hero />
 <ValidationSection />
 <PhotoSlider />
 <StrategySection />
 {/* <StackedCards /> */}
 <ComparisonSection />
 <ProofSection />
-<AboutSection />
 <ObjectiveSection />
+<AboutSection />
 <FAQSection />
+<FooterBranding />
 <Footer onNavigate={navigateTo} />
         </div>
       )}
