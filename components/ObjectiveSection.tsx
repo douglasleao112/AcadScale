@@ -73,12 +73,12 @@ const ObjectiveSection: React.FC = () => {
   return (
     <section className="relative w-full bg-black py-24 md:py-40 overflow-hidden z-20">
       <div className="max-w-7xl mx-auto px-4 text-center mb-12 md:mb-24">
-        <motion.div 
+   <motion.div 
   initial={{ opacity: 0, y: 20 }}
   whileInView={{ opacity: 1, y: 0 }}
-  className="bg-white text-black py-4 md:py-6 px-6 md:px-10 rounded-[1.5rem] md:rounded-[2rem] mb-5 md:mb-8 shadow-2xl inline-block w-full max-w-3xl"
+  className="bg-[#86EFAC] text-black py-3 md:py-4 px-8 md:px-12 rounded-full mb-3 md:mb-5 shadow-[0_0_35px_rgba(134,239,172,0.25)] inline-block w-fit max-w-full"
 >
-  <h2 className="text-2xl md:text-4xl font-black tracking-tighter">
+  <h2 className="text-base md:text-xl font-black tracking-tight">
     OK. Agora é com você...
   </h2>
 </motion.div>
