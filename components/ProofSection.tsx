@@ -112,7 +112,7 @@ const ProofSection: React.FC = () => {
               </div>
             </div>
 
-            <div className="w-12 h-[1px] bg-white/20 mb-8" />
+           
 
             <div className="space-y-6">
               <p className="text-white/80 text-base md:text-lg leading-relaxed font-light">
