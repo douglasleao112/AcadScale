@@ -97,7 +97,7 @@ const PhotoSlider: React.FC = () => {
   };
 
   return (
-   <section className="relative w-full bg-black pt-28 pb-8 md:pt-44 md:pb-20 overflow-hidden">
+   <section className="relative w-full bg-black pt-32 pb-8 md:pt-52 md:pb-20 overflow-hidden">
       <div className="absolute inset-y-0 left-0 w-16 md:w-64 bg-gradient-to-r from-black via-black/40 to-transparent z-20 pointer-events-none" />
       <div className="absolute inset-y-0 right-0 w-16 md:w-64 bg-gradient-to-l from-black via-black/40 to-transparent z-20 pointer-events-none" />
 
