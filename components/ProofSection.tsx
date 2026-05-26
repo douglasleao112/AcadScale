@@ -83,7 +83,7 @@ const ProofSection: React.FC = () => {
             transition={{ delay: 0.3 }}
             className="mt-10 text-white/60 text-sm md:text-lg max-w-3xl leading-relaxed font-light"
           >
-            Ouça quem vive a operação real e entende o impacto de decisões estratégicas bem feitas.
+           
           </motion.p>
         </div>
 
