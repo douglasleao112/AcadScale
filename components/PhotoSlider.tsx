@@ -6,17 +6,12 @@ const PHOTOS_ROW_1 = [
   "https://i.imgur.com/U8EoeTZ.webp",
   "https://i.imgur.com/p6xlxym.webp",
   "https://i.imgur.com/eGND2p0.webp",
-  "https://i.imgur.com/tXhNYSB.webp",
-  "https://i.imgur.com/1ghjCxE.webp",
-  "https://i.imgur.com/GUp6aI1.webp",
+
 ];
 
 
 const PHOTOS_ROW_2 = [
-  "https://i.imgur.com/coMNZ3A.webp",
-  "https://i.imgur.com/U8EoeTZ.webp",
-  "https://i.imgur.com/p6xlxym.webp",
-  "https://i.imgur.com/eGND2p0.webp",
+
   "https://i.imgur.com/tXhNYSB.webp",
   "https://i.imgur.com/1ghjCxE.webp",
   "https://i.imgur.com/GUp6aI1.webp",
