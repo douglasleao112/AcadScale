@@ -9,12 +9,12 @@ const Hero: React.FC = () => {
   const [isDeleting, setIsDeleting] = useState(false);
 
   const phrases = [
-    "É Lucro! '",
-    "É Escala! '",
-    "É Valor! '",
-    "É Margem! '",
-    "É Equity! '",
-    "É Valuation! '"
+    "É Lucro!",
+    "É Escala!",
+    "É Valor!",
+    "É Margem!",
+    "É Equity!",
+    "É Valuation!"
   ];
 
   useEffect(() => {
@@ -124,11 +124,11 @@ const Hero: React.FC = () => {
               Além de aumentar seu faturamento...
               <br className="md:hidden" />{' '}
               <span className="inline-block whitespace-nowrap relative">
-                <span className="font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-emerald-200 min-h-[1.1em] inline-block">
+              <span className="font-black tracking-tighter text-transparent bg-clip-text bg-[linear-gradient(to_right,#8EC138,#B7E95A)] min-h-[1.1em] inline-block">
   {displayText || '\u00A0'}
 </span>
 
-                <span className="inline-block w-[3px] md:w-[4px] h-[0.8em] bg-green-300 ml-1 md:ml-2 animate-pulse align-middle shadow-[0_0_15px_rgba(124,255,155,0.8)]" />
+                <span className="inline-block w-[3px] md:w-[4px] h-[0.8em] bg-[#8EC138] ml-1 md:ml-2 animate-pulse align-middle shadow-[0_0_15px_rgba(142,193,56,0.8)]" />
               </span>
             </h1>
           </div>
@@ -137,7 +137,7 @@ const Hero: React.FC = () => {
             style={{ textShadow: '0 4px 12px rgba(0,0,0,0.9)' }}
             className="text-lg md:text-2xl text-white/80 font-light max-w-4xl mx-auto leading-relaxed tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] px-4"
           >
-            A maioria luta para encher a academia. <span className="text-white font-medium border-b border-green-300/40">Poucos dominam</span> <br className="hidden md:block" />
+            A maioria luta para encher a academia. <span className="text-white font-medium border-b border-[#8EC138]/40">Poucos dominam</span> <br className="hidden md:block" />
             as estratégias que transformam faturamento em lucro líquido previsível.
           </p>
         </framerMotion.div>
@@ -158,11 +158,11 @@ const Hero: React.FC = () => {
               <div className="absolute inset-[-250%] animate-[spin_3.5s_linear_infinite] bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0%,transparent_90%,#7CFF9B_97%,#ffffff_100%)] opacity-100" />
             </div>
             
-            <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-8 h-12 bg-green-300/50 blur-2xl opacity-0 animate-[impactSide_3s_infinite] [animation-delay:0.75s] rounded-full pointer-events-none" />
+            <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-8 h-12 bg-[#8EC138]/50 blur-2xl opacity-0 animate-[impactSide_3s_infinite] [animation-delay:0.75s] rounded-full pointer-events-none" />
 
-            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-40 h-6 bg-green-300/40 blur-2xl opacity-0 animate-[impactBottom_3s_infinite] [animation-delay:1.5s] rounded-[50%] pointer-events-none" />
+            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-40 h-6 bg-[#8EC138]/40 blur-2xl opacity-0 animate-[impactBottom_3s_infinite] [animation-delay:1.5s] rounded-[50%] pointer-events-none" />
 
-            <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-8 h-12 bg-green-300/50 blur-2xl opacity-0 animate-[impactSide_3s_infinite] [animation-delay:2.25s] rounded-full pointer-events-none" />
+            <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-8 h-12 via-[#8EC138]/20 blur-2xl opacity-0 animate-[impactSide_3s_infinite] [animation-delay:2.25s] rounded-full pointer-events-none" />
 
             <div className="relative flex items-center gap-5 px-12 md:px-16 py-6 md:py-7 bg-black rounded-full leading-none overflow-hidden z-10">
               <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
