@@ -100,7 +100,7 @@ const ProofSection: React.FC = () => {
               <div className="w-16 h-16 rounded-full p-[2px] bg-gradient-to-tr from-green-300 to-emerald-300">
                 <div className="w-full h-full rounded-full overflow-hidden border-2 border-black">
                   <img 
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuP0Pl9JPPZIXz7yneCQj6dwfPhNHY5GQuwg&s" 
+                    src="https://i.imgur.com/weWM7rQ.png" 
                     alt="Douglas Leão" 
                     className="w-full h-full object-cover"
                   />
