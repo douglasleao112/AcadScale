@@ -5,7 +5,7 @@ import ParticleBackground from './components/ParticleBackground';
 import ValidationSection from './components/ValidationSection';
 import PhotoSlider from './components/PhotoSlider';
 import StrategySection from './components/StrategySection';
-{/* import StackedCards from './components/StackedCards';  */}
+// import StackedCards from './components/StackedCards';  
 import AboutSection from './components/AboutSection';
 import ObjectiveSection from './components/ObjectiveSection';
 import ComparisonSection from './components/ComparisonSection';
