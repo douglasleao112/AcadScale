@@ -51,8 +51,8 @@ const Hero: React.FC = () => {
 
   return (
     <section 
-      className="relative z-20 flex flex-col items-center justify-start md:justify-end min-h-screen px-4 pb-48 md:pb-64 text-center overflow-hidden"
-    >
+  className="relative z-20 flex flex-col items-center justify-start md:justify-end min-h-screen px-4 pb-48 md:pb-64 text-center overflow-hidden bg-[#020617]"
+>
       <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         <framerMotion.div
           animate={{
@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute top-[10%] left-[20%] w-[40vw] h-[40vw] bg-green-400/20 rounded-full blur-[120px]"
+         className="absolute top-[10%] left-[20%] w-[45vw] h-[45vw] bg-blue-950/50 rounded-full blur-[130px]"
         />
 
         <framerMotion.div
@@ -79,7 +79,7 @@ const Hero: React.FC = () => {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute top-[20%] right-[15%] w-[35vw] h-[35vw] bg-emerald-300/20 rounded-full blur-[100px]"
+         className="absolute top-[20%] right-[15%] w-[40vw] h-[40vw] bg-slate-900/70 rounded-full blur-[120px]"
         />
       </div>
 
