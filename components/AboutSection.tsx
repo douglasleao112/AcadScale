@@ -135,10 +135,11 @@ const AboutSection: React.FC = () => {
               <div className="absolute -top-6 -left-6 w-32 h-32 border-t-2 border-l-2 border-green-300/20 rounded-tl-3xl pointer-events-none" />
             </div>
           </motion.div>
+        </AnimatePresence>
 
 
 
-          
+         
               <div className="pt-4 md:pt-8 flex justify-center lg:justify-start">
   <a 
     href="/form/"
@@ -178,7 +179,8 @@ const AboutSection: React.FC = () => {
 </div>
 
 
-        </AnimatePresence>
+
+
       </div>
 
       <style>{`
