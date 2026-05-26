@@ -128,8 +128,8 @@ const Hero: React.FC = () => {
   {displayText || '\u00A0'}
 </span>
 
-                <span className="inline-block w-[3px] md:w-[4px] h-[0.8em] bg-[#8EC138] ml-1 md:ml-2 animate-pulse align-middle shadow-[0_0_15px_rgba(142,193,56,0.8)]" />
-              </span>
+                <span className="inline-block w-[3px] md:w-[4px] h-[0.8em] bg-[#366123] ml-1 md:ml-2 animate-pulse align-middle shadow-[0_0_15px_rgba(54,97,35,0.8)]" />
+             </span>
             </h1>
           </div>
           
