@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Play, X } from 'lucide-react';
@@ -8,7 +7,6 @@ const Counter = ({ value, duration = 2 }: { value: string, duration?: number }) 
   const ref = React.useRef(null);
   const isInView = useInView(ref, { once: true });
   
-  // Extrai o número da string (ex: "+93%" -> 93)
   const targetValue = parseInt(value.replace(/[^0-9-]/g, ''));
   const prefix = value.startsWith('+') ? '+' : value.startsWith('-') ? '-' : '';
   const suffix = value.endsWith('%') ? '%' : '';
@@ -51,8 +49,8 @@ const ProofSection: React.FC = () => {
   return (
     <section className="relative w-full bg-black py-24 md:py-32 overflow-hidden">
       {/* Elementos de Brilho de Fundo */}
-      <div className="absolute top-1/4 left-1/4 w-[30vw] h-[30vw] bg-blue-600/10 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[30vw] h-[30vw] bg-cyan-500/10 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-[30vw] h-[30vw] bg-green-300/10 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[30vw] h-[30vw] bg-emerald-300/10 blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4">
         
@@ -99,7 +97,7 @@ const ProofSection: React.FC = () => {
           {/* Lado Esquerdo - Info 
           <div className="flex-1 p-8 md:p-14 flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/5">
             <div className="flex items-center gap-4 mb-8">
-              <div className="w-16 h-16 rounded-full p-[2px] bg-gradient-to-tr from-blue-500 to-cyan-400">
+              <div className="w-16 h-16 rounded-full p-[2px] bg-gradient-to-tr from-green-300 to-emerald-300">
                 <div className="w-full h-full rounded-full overflow-hidden border-2 border-black">
                   <img 
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuP0Pl9JPPZIXz7yneCQj6dwfPhNHY5GQuwg&s" 
@@ -119,9 +117,8 @@ const ProofSection: React.FC = () => {
             <div className="space-y-6">
               <p className="text-white/80 text-base md:text-lg leading-relaxed font-light">
                O Igor já operava em grande escala. Neste depoimento, ele mostra os bastidores 
-               das decisões estratégicas que sustentam uma <span className="text-white font-semibold">operação desse porte</span>  e o impacto 
+               das decisões estratégicas que sustentam uma <span className="text-white font-semibold">operação desse porte</span> e o impacto 
                de estruturar o negócio com método, clareza e direção. 
-          
               </p>
               
               <p className="text-white/40 text-sm md:text-base italic font-serif-italic">
@@ -142,7 +139,7 @@ const ProofSection: React.FC = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
             
             <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
-              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/20 shadow-[0_0_50px_rgba(59,130,246,0.3)]">
+              <div className="w-20 h-20 md:w-24 md:h-24 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/20 shadow-[0_0_50px_rgba(124,255,155,0.3)]">
                 <Play className="w-8 h-8 md:w-10 md:h-10 text-white fill-white ml-1" />
               </div>
               
@@ -159,7 +156,7 @@ const ProofSection: React.FC = () => {
           </div>
         </motion.div> */}
 
-        {/* BARRA DE MÉTRICAS   */}
+        {/* BARRA DE MÉTRICAS */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -167,12 +164,11 @@ const ProofSection: React.FC = () => {
           className="mt-8 bg-neutral-900/40 border border-white/5 rounded-[2rem] p-8 md:p-12 backdrop-blur-sm relative overflow-hidden"
         >
           {/* Glow suave no centro das métricas */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-green-300/5 to-transparent pointer-events-none" />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 relative z-10">
             {stats.map((stat, i) => (
               <div key={i} className="flex flex-col items-center justify-center text-center group relative">
-                {/* Divisor Vertical (apenas desktop) */}
                 {i < stats.length - 1 && (
                   <div className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 w-[1px] h-12 bg-white/10" />
                 )}
@@ -180,6 +176,7 @@ const ProofSection: React.FC = () => {
                 <span className="text-4xl md:text-6xl font-black text-white mb-2 tracking-tighter">
                   <Counter value={stat.value} />
                 </span>
+
                 <span className="text-white/60 text-sm md:text-lg font-serif-italic italic">
                   {stat.label}
                 </span>
@@ -209,7 +206,7 @@ const ProofSection: React.FC = () => {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="w-full max-w-5xl aspect-video rounded-3xl overflow-hidden shadow-[0_0_100px_rgba(59,130,246,0.2)] bg-neutral-900"
+              className="w-full max-w-5xl aspect-video rounded-3xl overflow-hidden shadow-[0_0_100px_rgba(124,255,155,0.2)] bg-neutral-900"
             >
               <iframe 
                 width="100%" 

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2 } from 'lucide-react';
@@ -30,7 +29,7 @@ const TABS: TabContent[] = [
       'Clareza de números e metas',
       'Crescimento com controle'
     ],
-    color: 'rgba(96, 108, 56, 0.7)'
+    color: 'rgba(124, 255, 155, 0.45)'
   },
   {
     id: 'Base',
@@ -47,7 +46,7 @@ const TABS: TabContent[] = [
       'Clareza de proposta e diferenciação',
       'Decisão guiada por estratégia, não estética'
     ],
-    color: 'rgba(198, 134, 66, 0.7)'
+    color: 'rgba(16, 185, 129, 0.45)'
   },
   {
     id: 'Perfil',
@@ -64,7 +63,7 @@ const TABS: TabContent[] = [
       'Direcionamento de próximos passos',
       'Filtro de perfil para crescimento estruturado'
     ],
-    color: 'rgba(180, 185, 195, 0.7)'
+    color: 'rgba(187, 247, 208, 0.35)'
   }
 ];
 
@@ -88,6 +87,7 @@ const ObjectiveSection: React.FC = () => {
           <h3 className="text-4xl md:text-7xl font-bold text-white tracking-tight">
             Qual é o seu objetivo?
           </h3>
+
           <p className="text-white/60 text-sm md:text-xl max-w-3xl mx-auto font-light leading-relaxed">
             Selecione o segmento abaixo para ver os detalhes. Se fizer sentido para sua operação, preencha a aplicação para alinharmos o projeto.
           </p>
@@ -102,7 +102,7 @@ const ObjectiveSection: React.FC = () => {
                 px-8 md:px-12 py-3 md:py-4 rounded-xl md:rounded-2xl font-bold text-sm md:text-base transition-all duration-500 border
                 ${activeTab.id === tab.id 
                   ? 'bg-white text-black border-white shadow-[0_0_30px_rgba(255,255,255,0.2)]' 
-                  : 'bg-black text-white border-white/10 hover:border-white/30'}
+                  : 'bg-black text-white border-white/10 hover:border-green-300/40'}
               `}
             >
               {tab.label}
@@ -126,10 +126,11 @@ const ObjectiveSection: React.FC = () => {
                 <motion.div 
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 backdrop-blur-sm"
+                  className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-green-300/30 bg-green-300/10 backdrop-blur-sm"
                 >
-                  <div className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-                  <span className="text-[10px] md:text-xs font-bold text-blue-300 uppercase tracking-[0.2em]">
+                  <div className="w-1.5 h-1.5 rounded-full bg-green-300 animate-pulse" />
+
+                  <span className="text-[10px] md:text-xs font-bold text-green-300 uppercase tracking-[0.2em]">
                     {activeTab.badge}
                   </span>
                 </motion.div>
@@ -152,7 +153,8 @@ const ObjectiveSection: React.FC = () => {
                     transition={{ delay: i * 0.1 }}
                     className="flex items-start gap-3 group"
                   >
-                    <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-green-300 shrink-0 mt-0.5" />
+
                     <span className="text-white/80 group-hover:text-white transition-colors text-sm md:text-base font-medium">
                       {feature}
                     </span>
@@ -168,16 +170,16 @@ const ObjectiveSection: React.FC = () => {
                   className="relative p-[1.5px] rounded-full group transition-transform duration-500 hover:scale-[1.05] block w-fit"
                 >
                   <div className="absolute inset-0 overflow-hidden rounded-full">
-                    <div className="absolute inset-[-250%] animate-[spin_3.5s_linear_infinite] bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0%,transparent_90%,#00d1ff_97%,#fff_100%)] opacity-100" />
+                    <div className="absolute inset-[-250%] animate-[spin_3.5s_linear_infinite] bg-[conic-gradient(from_0deg_at_50%_50%,transparent_0%,transparent_90%,#7CFF9B_97%,#fff_100%)] opacity-100" />
                   </div>
                   
-                  <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-8 h-12 bg-blue-400/50 blur-2xl opacity-0 animate-[impactSide_3s_infinite] [animation-delay:0.75s] rounded-full pointer-events-none" />
-                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-40 h-6 bg-blue-400/40 blur-2xl opacity-0 animate-[impactBottom_3s_infinite] [animation-delay:1.5s] rounded-[50%] pointer-events-none" />
-                  <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-8 h-12 bg-blue-400/50 blur-2xl opacity-0 animate-[impactSide_3s_infinite] [animation-delay:2.25s] rounded-full pointer-events-none" />
+                  <div className="absolute -right-3 top-1/2 -translate-y-1/2 w-8 h-12 bg-green-300/50 blur-2xl opacity-0 animate-[impactSide_3s_infinite] [animation-delay:0.75s] rounded-full pointer-events-none" />
+                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-40 h-6 bg-green-300/40 blur-2xl opacity-0 animate-[impactBottom_3s_infinite] [animation-delay:1.5s] rounded-[50%] pointer-events-none" />
+                  <div className="absolute -left-3 top-1/2 -translate-y-1/2 w-8 h-12 bg-green-300/50 blur-2xl opacity-0 animate-[impactSide_3s_infinite] [animation-delay:2.25s] rounded-full pointer-events-none" />
 
                   <div className="relative flex items-center gap-5 px-10 md:px-14 py-5 md:py-6 bg-black rounded-full leading-none overflow-hidden z-10">
                     <div className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden">
-                      <div className="absolute top-0 -left-[100%] w-[60%] h-full bg-gradient-to-r from-transparent via-blue-400/15 to-transparent skew-x-[-30deg] animate-[shimmer_3s_infinite]" />
+                      <div className="absolute top-0 -left-[100%] w-[60%] h-full bg-gradient-to-r from-transparent via-green-300/20 to-transparent skew-x-[-30deg] animate-[shimmer_3s_infinite]" />
                     </div>
 
                     <span className="text-white font-extrabold tracking-[0.2em] text-sm md:text-base uppercase relative z-20">
@@ -225,6 +227,33 @@ const ObjectiveSection: React.FC = () => {
           </motion.div>
         </AnimatePresence>
       </div>
+
+      <style>{`
+        @keyframes spin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+        
+        @keyframes shimmer {
+          0% { left: -150%; }
+          40% { left: 150%; }
+          100% { left: 150%; }
+        }
+
+        @keyframes impactSide {
+          0% { opacity: 0; transform: translateY(-50%) scaleY(0.5); }
+          5% { opacity: 1; transform: translateY(-50%) scaleY(1.4); }
+          15% { opacity: 0; transform: translateY(-50%) scaleY(1); }
+          100% { opacity: 0; }
+        }
+
+        @keyframes impactBottom {
+          0% { opacity: 0; transform: translateX(-50%) scaleX(0.5) scaleY(1); }
+          5% { opacity: 1; transform: translateX(-50%) scaleX(1.6) scaleY(2.5); }
+          15% { opacity: 0; transform: translateX(-50%) scaleX(1) scaleY(1); }
+          100% { opacity: 0; }
+        }
+      `}</style>
     </section>
   );
 };
