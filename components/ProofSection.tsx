@@ -87,28 +87,28 @@ const ProofSection: React.FC = () => {
           </motion.p>
         </div>
 
-       Main Card 
+       
         <motion.div 
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="relative bg-neutral-900/50 border border-white/10 rounded-[2.5rem] overflow-hidden backdrop-blur-sm shadow-2xl flex flex-col md:flex-row min-h-[500px]"
         >
-          Lado Esquerdo - Info 
+         
           <div className="flex-1 p-8 md:p-14 flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/5">
             <div className="flex items-center gap-4 mb-8">
               <div className="w-16 h-16 rounded-full p-[2px] bg-gradient-to-tr from-green-300 to-emerald-300">
                 <div className="w-full h-full rounded-full overflow-hidden border-2 border-black">
                   <img 
                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuP0Pl9JPPZIXz7yneCQj6dwfPhNHY5GQuwg&s" 
-                    alt="Igor Reis" 
+                    alt="Douglas Leão" 
                     className="w-full h-full object-cover"
                   />
                 </div>
               </div>
               <div>
-                <h4 className="text-white font-bold text-lg">Igor Reis</h4>
-                <p className="text-white/40 text-xs uppercase tracking-widest">Empreendedor</p>
+                <h4 className="text-white font-bold text-lg">Douglas Leão</h4>
+                <p className="text-white/40 text-xs uppercase tracking-widest">@dr.douglasleao</p>
               </div>
             </div>
 
@@ -121,13 +121,11 @@ const ProofSection: React.FC = () => {
                de estruturar o negócio com método, clareza e direção. 
               </p>
               
-              <p className="text-white/40 text-sm md:text-base italic font-serif-italic">
-                "O que funciona para quem escala, funciona para o seu negócio. O próximo projeto pode ser o seu!"
-              </p>
+              
             </div>
           </div>
 
-          Lado Direito - Vídeo Placeholder
+       
           <div className="flex-[1.2] relative group cursor-pointer overflow-hidden" onClick={() => setIsVideoOpen(true)}>
             <img 
               src="https://i.ytimg.com/vi/VR6tCP8dA70/maxresdefault.jpg" 
@@ -135,7 +133,7 @@ const ProofSection: React.FC = () => {
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-60"
             /> 
             
-            Overlay com Textos e Glow
+            
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
             
             <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
@@ -143,11 +141,7 @@ const ProofSection: React.FC = () => {
                 <Play className="w-8 h-8 md:w-10 md:h-10 text-white fill-white ml-1" />
               </div>
               
-              <div className="mt-8 space-y-2">
-                <p className="text-white text-xl md:text-2xl font-black uppercase tracking-tight leading-tight max-w-xs">
-                  Assista o depoimento de quem já tem mais de 15M investidos em ADS.
-                </p>
-              </div>
+             
             </div>
 
             <div className="absolute top-6 left-6 px-3 py-1 rounded bg-black/40 backdrop-blur-md border border-white/10">
