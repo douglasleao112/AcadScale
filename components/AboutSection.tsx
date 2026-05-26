@@ -97,7 +97,48 @@ const AboutSection: React.FC = () => {
               </div>
 
 
+            </div>
 
+            <div className="flex-1 w-full max-w-xl relative group">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-green-300/15 blur-[120px] rounded-full group-hover:bg-green-300/20 transition-colors duration-1000" />
+              
+              <div className="relative bg-[#070707] border border-white/10 rounded-[2.5rem] overflow-hidden shadow-2xl">
+                <div className="aspect-[4/5] relative overflow-hidden bg-[#0a0a0a]">
+                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
+                   <div className="absolute inset-0 bg-gradient-to-b from-green-900/10 to-transparent z-10" />
+                   <motion.img 
+                    initial={{ scale: 1.1 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 1.5 }}
+                    src={activePartner.image} 
+                    alt={activePartner.name} 
+                    className="w-full h-full object-cover object-center relative z-0"
+                    loading="lazy"
+                   />
+                </div>
+
+                <div className="absolute bottom-0 left-0 w-full grid grid-cols-2 border-t border-white/10 bg-black/80 backdrop-blur-xl z-20">
+                   {activePartner.stats.map((stat, i) => (
+                     <div key={i} className={`p-6 md:p-8 flex flex-col items-center justify-center text-center ${i === 0 ? 'border-r border-white/10' : ''}`}>
+                        <span className="text-2xl md:text-4xl font-black text-white tracking-tighter mb-1">
+                          {stat.value}
+                        </span>
+                        <span className="text-[9px] md:text-[10px] font-serif-italic italic text-white/40 uppercase tracking-widest leading-none">
+                          {stat.label}
+                        </span>
+                     </div>
+                   ))}
+                </div>
+              </div>
+
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 border-b-2 border-r-2 border-green-300/20 rounded-br-3xl pointer-events-none" />
+              <div className="absolute -top-6 -left-6 w-32 h-32 border-t-2 border-l-2 border-green-300/20 rounded-tl-3xl pointer-events-none" />
+            </div>
+          </motion.div>
+
+
+
+          
               <div className="pt-4 md:pt-8 flex justify-center lg:justify-start">
   <a 
     href="/form/"
@@ -137,45 +178,6 @@ const AboutSection: React.FC = () => {
 </div>
 
 
-
-            </div>
-
-            <div className="flex-1 w-full max-w-xl relative group">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-green-300/15 blur-[120px] rounded-full group-hover:bg-green-300/20 transition-colors duration-1000" />
-              
-              <div className="relative bg-[#070707] border border-white/10 rounded-[2.5rem] overflow-hidden shadow-2xl">
-                <div className="aspect-[4/5] relative overflow-hidden bg-[#0a0a0a]">
-                   <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
-                   <div className="absolute inset-0 bg-gradient-to-b from-green-900/10 to-transparent z-10" />
-                   <motion.img 
-                    initial={{ scale: 1.1 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 1.5 }}
-                    src={activePartner.image} 
-                    alt={activePartner.name} 
-                    className="w-full h-full object-cover object-center relative z-0"
-                    loading="lazy"
-                   />
-                </div>
-
-                <div className="absolute bottom-0 left-0 w-full grid grid-cols-2 border-t border-white/10 bg-black/80 backdrop-blur-xl z-20">
-                   {activePartner.stats.map((stat, i) => (
-                     <div key={i} className={`p-6 md:p-8 flex flex-col items-center justify-center text-center ${i === 0 ? 'border-r border-white/10' : ''}`}>
-                        <span className="text-2xl md:text-4xl font-black text-white tracking-tighter mb-1">
-                          {stat.value}
-                        </span>
-                        <span className="text-[9px] md:text-[10px] font-serif-italic italic text-white/40 uppercase tracking-widest leading-none">
-                          {stat.label}
-                        </span>
-                     </div>
-                   ))}
-                </div>
-              </div>
-
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 border-b-2 border-r-2 border-green-300/20 rounded-br-3xl pointer-events-none" />
-              <div className="absolute -top-6 -left-6 w-32 h-32 border-t-2 border-l-2 border-green-300/20 rounded-tl-3xl pointer-events-none" />
-            </div>
-          </motion.div>
         </AnimatePresence>
       </div>
 
