@@ -221,7 +221,7 @@ const ObjectiveSection: React.FC = () => {
                   />
                 </motion.div>
                 
-                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-full h-20 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none" />
+                a<div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-full h-20 bg-gradient-to-t from-black to-transparent z-20 pointer-events-none" />
               </div>
             </div>
           </motion.div>
