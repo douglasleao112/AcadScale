@@ -9,11 +9,11 @@ interface PrivacyPolicyProps {
 const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onBack }) => {
   return (
     <section className="min-h-screen pt-32 pb-20 px-6 relative bg-black overflow-hidden">
-      {/* Elementos de Brilho de Fundo */}
+      {/* Elementos de brilho de fundo */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60vw] h-[60vw] bg-green-300/5 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[40vw] h-[40vw] bg-emerald-300/5 blur-[140px] pointer-events-none" />
 
-      {/* Grid de fundo sem azul */}
+      {/* Grid de fundo no mesmo padrão dos Termos de Uso */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
         <div
           className="absolute inset-0"
@@ -56,7 +56,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onBack }) => {
           </p>
         </motion.div>
 
-        {/* Conteúdo Jurídico Formatado */}
+        {/* Conteúdo Formatado */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
