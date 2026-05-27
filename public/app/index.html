@@ -6,8 +6,8 @@
   <meta name="theme-color" content="#ffffff" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-  <meta name="apple-mobile-web-app-title" content="Quality Life" />
-  <title>Quality Life</title>
+  <meta name="apple-mobile-web-app-title" content="AcadScale" />
+  <title>AcadScale</title>
   <link rel="manifest" href="manifest.json" />
   <link rel="apple-touch-icon" href="https://i.imgur.com/tmMvdjo.png" />
   <style>
@@ -483,7 +483,7 @@ body.loading .screen {
 
 <section id="iframeScreen" class="screen iframe-screen">
 <div class="topbar">
-  <div class="title" id="iframeTitle">Quality Life</div>
+  <div class="title" id="iframeTitle">Sistema de Qualidade</div>
 
   <div style="display: flex; gap: 8px;">
     <button class="logout-btn" id="refreshBtn" title="Atualizar">
@@ -533,11 +533,11 @@ body.loading .screen {
     </button>
 
     <div class="dropdown-menu">
-      <a class="action-link" href="#" onclick="openAdminLink('https://typebot-chat-builder.vexhyt.easypanel.host/typebots/cmng0od2n000gn118fl9weh2e/results', 'Resultados Quality Life', false); return false;">
+      <a class="action-link" href="#" onclick="openAdminLink('https://typebot-chat-builder.vexhyt.easypanel.host/typebots/cmng0od2n000gn118fl9weh2e/results', 'Sistema de Qualidade', false); return false;">
         Resultados
       </a>
 
-      <a class="action-link" href="#" onclick="openAdminLink('https://chatgpt.com/g/g-69c58c5919108191869ad8728cfcec6e-qualificacao-quality-life', 'Qualificação Quality Life', false); return false;">
+      <a class="action-link" href="#" onclick="openAdminLink('https://chatgpt.com/g/g-69c58c5919108191869ad8728cfcec6e-qualificacao-quality-life', 'Sistema de Qualidade', false); return false;">
         Qualificação
       </a>
     </div>
@@ -680,7 +680,7 @@ function markSplashAsShown() {
 
 
 
-function openAdminLink(url, title = 'Quality Life', useIframe = true) {
+function openAdminLink(url, title = 'Sistema de Qualidade', useIframe = true) {
   if (useIframe) {
     iframeMode = 'admin';
     iframeTitle.textContent = title;
@@ -710,7 +710,7 @@ function toggleDropdown(button) {
 
   function openUserIframe() {
     iframeMode = 'user';
-    iframeTitle.textContent = 'Quality Life';
+    iframeTitle.textContent = 'Sistema de Qualidade';
     topbarActionBtn.textContent = 'Sair';
     appFrame.src = USER_URL;
     showScreen(iframeScreen);
@@ -724,7 +724,7 @@ function toggleDropdown(button) {
   function logout() {
     localStorage.removeItem('qualityLifeSession');
     iframeMode = 'user';
-    iframeTitle.textContent = 'Quality Life';
+    iframeTitle.textContent = 'Sistema de Qualidade';
     topbarActionBtn.textContent = 'Sair';
     appFrame.src = 'about:blank';
     loginForm.reset();
