@@ -1,7 +1,7 @@
 {
-  "name": "Quality Life",
-  "short_name": "Quality Life",
-  "description": "App PWA do Quality Life",
+  "name": "AcadScale",
+  "short_name": "AcadScale",
+  "description": "App PWA do AcadScale",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#ffffff",
