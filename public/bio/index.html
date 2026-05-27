@@ -21,18 +21,37 @@ body {
     align-items: center;
     text-align: center;
     color: #ffffff;
-    background: radial-gradient(circle at top, #071a3a, #020617);
+    background:
+        radial-gradient(circle at top, rgba(124,255,155,0.18), transparent 45%),
+        radial-gradient(circle at bottom, rgba(34,197,94,0.12), transparent 45%),
+        #020617;
     overflow: hidden;
 }
 
-/* Fundo com estrelas */
+/* Fundo com textura */
 body::before {
     content: "";
     position: absolute;
     width: 100%;
     height: 100%;
     background: url("https://www.transparenttextures.com/patterns/stardust.png");
-    opacity: 0.25;
+    opacity: 0.18;
+    z-index: 0;
+}
+
+/* Brilho verde de fundo */
+body::after {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: rgba(124,255,155,0.16);
+    filter: blur(110px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
     z-index: 0;
 }
 
@@ -46,11 +65,11 @@ body::before {
     border-radius: 20px;
 }
 
-     .footer {
-            margin-top: 20px;
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.6);
-        }
+.footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}
 
 /* Logo */
 .logo {
@@ -83,30 +102,35 @@ body::before {
     font-weight: 500;
     border-radius: 14px;
     backdrop-filter: blur(12px);
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 15px rgba(0, 195, 255, 0.1);
+    background: rgba(124,255,155,0.08);
+    border: 1px solid rgba(124,255,155,0.25);
+    box-shadow: 0 0 15px rgba(124,255,155,0.10);
     transition: all 0.3s ease;
 }
 
 /* Efeito ao passar o mouse */
 .btn:hover {
     transform: translateY(-3px) scale(1.02);
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 25px rgba(0, 195, 255, 0.3);
-    border: 1px solid rgba(0, 195, 255, 0.6);
+    background: rgba(124,255,155,0.15);
+    box-shadow: 0 0 25px rgba(124,255,155,0.35);
+    border: 1px solid rgba(124,255,155,0.75);
 }
 
 /* Animação suave */
 @keyframes glow {
     0% {
-        box-shadow: 0 0 10px rgba(0, 195, 255, 0.2);
+        box-shadow: 0 0 10px rgba(124,255,155,0.18);
+        border-color: rgba(124,255,155,0.25);
     }
+
     50% {
-        box-shadow: 0 0 25px rgba(0, 195, 255, 0.45);
+        box-shadow: 0 0 28px rgba(124,255,155,0.45);
+        border-color: rgba(124,255,155,0.70);
     }
+
     100% {
-        box-shadow: 0 0 10px rgba(0, 195, 255, 0.2);
+        box-shadow: 0 0 10px rgba(124,255,155,0.18);
+        border-color: rgba(124,255,155,0.25);
     }
 }
 
@@ -136,25 +160,23 @@ body::before {
 <div class="container">
 
     <!-- Logo -->
-    <img src="https://i.imgur.com/NqtrFrY.png"  class="logo">
+    <img src="https://i.imgur.com/NqtrFrY.png" class="logo" alt="AcadScale">
 
     <!-- Nome -->
     <div class="brand">AcadScale</div>
 
     <!-- Botões -->
     <div class="buttons">
-         
         <a href="/form/" target="_blank" class="btn">Entre em contato</a>
         <a href="https://www.instagram.com/acadscale" target="_blank" class="btn">Instagram</a>
         <a href="https://acadscale.com/" target="_blank" class="btn">Quem somos</a>
     </div>
-     <!-- Rodapé -->
-        <div class="footer">
-            © 2026 AcadScale Consultoria Estratégica
-        </div>
+
+    <!-- Rodapé -->
+    <div class="footer">
+        © 2026 AcadScale Consultoria Estratégica
+    </div>
 </div>
-
-
 
 <script>
 /* Animação aleatória entre os botões */
@@ -162,10 +184,10 @@ const buttons = document.querySelectorAll('.btn');
 
 function animateRandomButton() {
     buttons.forEach(btn => btn.classList.remove('animate'));
-    
+
     const randomIndex = Math.floor(Math.random() * buttons.length);
     const randomButton = buttons[randomIndex];
-    
+
     randomButton.classList.add('animate');
 
     setTimeout(() => {
@@ -173,14 +195,12 @@ function animateRandomButton() {
     }, 2000);
 }
 
-// Executa a cada intervalo aleatório
 function startRandomAnimation() {
     animateRandomButton();
     const randomTime = Math.floor(Math.random() * 3000) + 2000;
     setTimeout(startRandomAnimation, randomTime);
 }
 
-// Inicia a animação após carregar a página
 window.onload = startRandomAnimation;
 </script>
 
