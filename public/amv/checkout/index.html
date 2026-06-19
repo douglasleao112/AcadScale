@@ -28,13 +28,13 @@
       text-align: center;
     }
 
-    .card {
-      background: #161616;
-      border: 1px solid #222;
-      border-radius: 18px;
-      padding: 22px;
-      box-shadow: 0 0 30px rgba(0, 255, 80, 0.08);
-    }
+.card {
+  background: #161616;
+  border: 1px solid #222;
+  border-radius: 18px;
+  padding: 22px;
+  box-shadow: none;
+}
 
 h1 {
   font-size: 22px;
@@ -65,18 +65,67 @@ h1 {
       word-break: break-all;
     }
 
-    .btn {
-      width: 100%;
-      border: none;
-      border-radius: 10px;
-      padding: 15px;
-      margin-top: 14px;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      color: #fff;
-      background: #0f7a25;
-    }
+.btn {
+  position: relative;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #fff;
+  background: #0f7a25;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 245deg,
+    rgba(0, 255, 80, 0.15) 275deg,
+    rgba(0, 255, 80, 0.45) 295deg,
+    rgba(255, 255, 255, 0.7) 310deg,
+    rgba(0, 255, 80, 1) 322deg,
+    transparent 340deg
+  );
+  animation: rotateGlow 3s linear infinite;
+  z-index: -2;
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #0f7a25;
+  border-radius: 8px;
+  z-index: -1;
+}
+
+@keyframes rotateGlow {
+  0% {
+    transform: rotate(0deg);
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: rotate(360deg);
+    opacity: 0.9;
+  }
+}
 
     .btn:hover {
       background: #119c2f;
