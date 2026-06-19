@@ -1071,8 +1071,7 @@ locationItems.forEach((item, index) => {
 });
 
 
-
-const aboutSection = document.querySelector('.about-fade');
+const aboutItems = document.querySelectorAll('.about-fade');
 
 const aboutObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
@@ -1085,7 +1084,10 @@ const aboutObserver = new IntersectionObserver((entries) => {
   threshold: 0.2
 });
 
-aboutObserver.observe(aboutSection);
+aboutItems.forEach(item => {
+  aboutObserver.observe(item);
+});
+
 </script>
 
 </body>
