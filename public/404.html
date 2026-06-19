@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Erro 404</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --ink:#2c2c2c;
+      --muted:rgba(0,0,0,.35);
+      --scan:rgba(0,0,0,.06);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--ink);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; /* System (typeface) */
+      display:grid;
+      place-items:center;
+      overflow:hidden;
+    }
+
+    /* scanlines + grain bem leve */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:-40%;
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          transparent 0px,
+          transparent 5px,
+          var(--scan) 6px
+        );
+      opacity:.22;
+      pointer-events:none;
+      animation: scan 2.6s linear infinite;
+      transform: translateY(0);
+    }
+    @keyframes scan{
+      from{ transform: translateY(-1.8%); }
+      to{ transform: translateY(1.8%); }
+    }
+
+    .wrap{
+      width:min(980px, 92vw);
+      text-align:center;
+      padding:28px 14px;
+    }
+
+    .label{
+      letter-spacing:.55em;
+      font-weight:700;
+      font-size: 18px;
+      margin-bottom: 18px;
+      opacity:.9;
+      animation: flicker 3.8s steps(1,end) infinite;
+    }
+    @keyframes flicker{
+      0%, 92%, 100% { opacity: .9; }
+      93% { opacity: .35; }
+      94% { opacity: .9; }
+      95% { opacity: .55; }
+      96% { opacity: .9; }
+    }
+
+    .row{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap: 26px;
+      margin: 4px 0 16px;
+      animation: float 2.8s ease-in-out infinite;
+    }
+    @keyframes float{
+      0%,100%{ transform: translateY(0); }
+      50%{ transform: translateY(-6px); }
+    }
+
+    /* “4” via caractere, estilo pixel */
+ .four.right{
+ font-family: 'Press Start 2P', monospace;
+  margin-left: -25px; /* aproxima do 0 */
+}
+
+.four{
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(180px, 26vw, 320px);
+  line-height: 1;
+  letter-spacing: -0.15em; /* aproxima os pixels */
+  color: var(--ink);
+
+  image-rendering: pixelated;
+  -webkit-font-smoothing: none;
+  font-smooth: never;
+
+  transform: translateY(12px);
+}
+
+    @keyframes fourGlitch{
+      0%, 90%, 100% { transform: translateY(6px) translateX(0); }
+      91% { transform: translateY(6px) translateX(2px); }
+      92% { transform: translateY(6px) translateX(-2px); }
+      93% { transform: translateY(6px) translateX(0); }
+    }
+
+    /* “0” permanece como arte (igual seu estilo anterior) */
+    svg{
+      width: min(220px, 28vw);
+      height: auto;
+      image-rendering: pixelated;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.06));
+    }
+
+    #faceBox{
+      transform-origin: 50% 50%;
+      animation: wobble 2.6s ease-in-out infinite;
+    }
+    @keyframes wobble{
+      0%,100%{ transform: rotate(0deg) translateX(0); }
+      50%{ transform: rotate(-0.35deg) translateX(-2px); }
+    }
+
+    #eyes{
+      transform-origin: 50% 50%;
+      animation: blink 4.2s steps(1,end) infinite;
+    }
+    @keyframes blink{
+      0%, 86%, 100% { transform: scaleY(1); }
+      88% { transform: scaleY(0.12); }
+      90% { transform: scaleY(1); }
+    }
+
+    .sub{
+      margin-top: 12px;
+      letter-spacing:.55em;
+      font-weight:700;
+      font-size: 18px;
+      opacity:.9;
+      animation: subpulse 2.2s ease-in-out infinite;
+    }
+    @keyframes subpulse{
+      0%,100%{ opacity: .9; }
+      50%{ opacity: .6; }
+    }
+
+    .hint{
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing:.08em;
+    }
+    a{
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 2px solid rgba(0,0,0,.12);
+      padding-bottom: 2px;
+    }
+    a:hover{ border-bottom-color: rgba(0,0,0,.28); }
+
+    /* acessibilidade: reduz animações */
+    @media (prefers-reduced-motion: reduce){
+      body::before, .label, .row, .four, #faceBox, #eyes, .sub { animation:none !important; }
+    }
+
+#mouth{
+  transform-origin: center;
+  animation: mouthPulse 6.4s ease-in-out infinite;
+}
+
+@keyframes mouthPulse{
+  0%{
+    transform: scaleY(1);
+  }
+  50%{
+    transform: scaleY(0.65); /* afina */
+  }
+  100%{
+    transform: scaleY(1);
+  }
+}
+/* garante que o 0 não “some” por falta de espaço */
+.row{
+  flex-wrap: nowrap;
+}
+
+/* MOBILE: tudo menor e com mais controle */
+@media (max-width: 480px){
+  .row{
+    gap: 10px;              /* era 26 */
+  }
+
+  .four{
+    font-size: 96px;        /* menor no mobile */
+    letter-spacing: -0.12em;
+    transform: translateY(6px);
+  }
+
+  /* aproxima, mas sem esmagar o 0 */
+  .four.right{
+    margin-left: -10px;     /* era -25 */
+  }
+
+  /* mantém o 0 sempre visível e central */
+  svg{
+    width: 140px;           /* era min(220px, 28vw) */
+    max-width: 42vw;        /* segurança */
+  }
+}
+  </style>
+</head>
+
+<body>
+  <main class="wrap" role="main" aria-label="Erro 404">
+    <div class="label">ERROR</div>
+
+    <div class="row" aria-hidden="true">
+      <div class="four">4</div>
+
+      <!-- zero (mantido como arte) -->
+      <svg viewBox="0 0 180 220">
+        <g id="faceBox">
+          <rect x="0" y="0" width="180" height="220" fill="var(--ink)"/>
+          <rect x="24" y="24" width="132" height="172" fill="var(--bg)"/>
+
+          <!-- bordas internas -->
+          <rect x="24" y="24" width="132" height="22" fill="var(--ink)"/>
+          <rect x="24" y="174" width="132" height="22" fill="var(--ink)"/>
+          <rect x="24" y="24" width="22" height="172" fill="var(--ink)"/>
+          <rect x="134" y="24" width="22" height="172" fill="var(--ink)"/>
+
+          <!-- olhos + boca -->
+          <g id="eyes" fill="var(--ink)">
+            <rect x="66" y="84" width="22" height="22"/>
+            <rect x="92" y="84" width="22" height="22"/>
+          </g>
+          <rect id="mouth" x="66" y="112" width="60" height="18" fill="var(--ink)"/>
+	
+        </g>
+      </svg>
+
+  
+      <div class="four right">4</div>
+    </div>
+
+    <div class="sub">NOT FOUND</div>
+    
+  </main>
+
+  <script>
+    // micro “parallax” opcional (bem sutil)
+    const wrap = document.querySelector('.wrap');
+    let raf = null;
+
+    window.addEventListener('mousemove', (e) => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        const x = (e.clientX / innerWidth - 0.5) * 6;
+        const y = (e.clientY / innerHeight - 0.5) * 6;
+        wrap.style.transform = `translate(${x}px, ${y}px)`;
+        raf = null;
+      });
+    }, { passive: true });
+
+    
+  </script>
+</body>
+</html>
