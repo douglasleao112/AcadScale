@@ -636,7 +636,7 @@
   border-radius: 22px;
   background: #101112;
   padding: 12px;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .location-img {
@@ -699,6 +699,18 @@
   opacity: 1;
   transform: translateX(0);
 }
+
+
+.about-fade {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.about-fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
   </style>
 </head>
 
@@ -757,7 +769,7 @@
     
 <!-- SEÇÃO SLIDES -->
     <section class="resultados">
-       <div class="section-label">Vem aí a 4ª edição</div>  
+       <div class="section-label  about-fade">Vem aí a 4ª edição</div>  
 
   <h2>O sucesso das edições anteriores</h2>
 
@@ -906,7 +918,7 @@
  <div class="divider"></div>
 
     <!-- SOBRE O EVENTO -->
-    <section class="section about">
+    <section class="section about  about-fade">
      
         <small>SOBRE O EVENTO</small>
 
@@ -1056,6 +1068,23 @@ locationItems.forEach((item, index) => {
   item.style.transitionDelay = `${index * 0.2}s`;
   locationObserver.observe(item);
 });
+
+
+
+const aboutSection = document.querySelector('.about-fade');
+
+const aboutObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      aboutObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.2
+});
+
+aboutObserver.observe(aboutSection);
 </script>
 
 </body>
