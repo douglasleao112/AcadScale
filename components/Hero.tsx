@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'transparent-ui';
+import React, { useState, useEffect } from 'react';
 import { motion as framerMotion } from 'framer-motion';
 
 const Hero: React.FC = () => {
