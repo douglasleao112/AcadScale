@@ -2,29 +2,13 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Pagamento AMV</title>
+  <title>Checkout Pagamento - AMS</title>
 
   <style>
     * {
       box-sizing: border-box;
     }
-
-html,
-body {
-  -webkit-user-select: none;
-  user-select: none;
-  -webkit-touch-callout: none;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-}
-
-img {
-  pointer-events: none;
-  -webkit-user-drag: none;
-  user-drag: none;
-}
 
     body {
       margin: 0;
@@ -58,7 +42,8 @@ h1 {
   color: #00ff4c;
 }
 
-  .qr {
+
+.qr {
   width: 100%;
   max-width: 170px;
   border-radius: 14px;
@@ -321,9 +306,21 @@ animation-delay: 2.5s;
   font-size: 8px;
   line-height: 1.2;
 }
+ 
 
+html,
+body {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
 
-
+img {
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
 
 
 
@@ -345,8 +342,6 @@ animation-delay: 2.5s;
   fill: currentColor;
   color: #fff;
 }
-
-
 
   </style>
 </head>
@@ -410,7 +405,7 @@ animation-delay: 2.5s;
 
 <div class="whatsapp-box">
   <a
-    href="https://wa.me/5562984888498?text=Ol%C3%A1%2C%20vim%20pela%20p%C3%A1gina%20de%20pagamento%20do%20AMV"
+    href="https://wa.me/5562984888498?text=Ol%C3%A1%2C%20estou%20enviando%20meu%20comprovante%20de%20pagamento%20para%20o%20evento%20AMV"
     target="_blank"
     class="whatsapp-label"
   >
@@ -418,7 +413,7 @@ animation-delay: 2.5s;
   </a>
 
   <a
-    href="https://wa.me/5562984888498?text=Ol%C3%A1%2C%20vim%20pela%20p%C3%A1gina%20de%20pagamento%20do%20AMV"
+    href="https://wa.me/5562984888498?text=Ol%C3%A1%2C%20estou%20enviando%20meu%20comprovante%20de%20pagamento%20para%20o%20evento%20AMV"
     target="_blank"
     class="whatsapp-float"
   >
@@ -428,68 +423,17 @@ animation-delay: 2.5s;
 
 
 <script>
-/* Bloqueia clique direito */
-document.addEventListener('contextmenu', e => {
-  e.preventDefault();
-});
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('dragstart', e => e.preventDefault());
+document.addEventListener('selectstart', e => e.preventDefault());
 
-/* Bloqueia arrastar imagens */
-document.addEventListener('dragstart', e => {
-  e.preventDefault();
-});
-
-/* Bloqueia seleção de texto */
-document.addEventListener('selectstart', e => {
-  e.preventDefault();
-});
-
-/* Bloqueia atalhos comuns */
-document.addEventListener('keydown', e => {
-
-  // F12
-  if (e.key === 'F12') {
-    e.preventDefault();
-  }
-
-  // Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+Shift+C
-  if (
-    e.ctrlKey &&
-    e.shiftKey &&
-    ['I', 'J', 'C'].includes(e.key.toUpperCase())
-  ) {
-    e.preventDefault();
-  }
-
-  // Ctrl+U
-  if (e.ctrlKey && e.key.toUpperCase() === 'U') {
-    e.preventDefault();
-  }
-
-  // Ctrl+S
-  if (e.ctrlKey && e.key.toUpperCase() === 'S') {
-    e.preventDefault();
-  }
-});
-
-/* Bloqueia zoom por Ctrl + scroll */
-document.addEventListener('wheel', function(e) {
-  if (e.ctrlKey) {
-    e.preventDefault();
-  }
+document.addEventListener('wheel', e => {
+  if (e.ctrlKey) e.preventDefault();
 }, { passive: false });
 
-/* Bloqueia zoom por gesto (mobile) */
-document.addEventListener('gesturestart', e => {
-  e.preventDefault();
-});
-
-document.addEventListener('gesturechange', e => {
-  e.preventDefault();
-});
-
-document.addEventListener('gestureend', e => {
-  e.preventDefault();
-});
+document.addEventListener('gesturestart', e => e.preventDefault());
+document.addEventListener('gesturechange', e => e.preventDefault());
+document.addEventListener('gestureend', e => e.preventDefault());
 </script>
 </body>
 </html>
