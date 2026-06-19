@@ -35,7 +35,7 @@ const App: React.FC = () => {
           {/* Logo Centralizada no Topo */}
           <div className="absolute top-8 left-1/2 -translate-x-1/2 z-[100] transition-opacity duration-500 hover:opacity-100 opacity-60">
             <img 
-              src="https://i.imgur.com/zZbmG6d.png" 
+              src="" //https://i.imgur.com/zZbmG6d.png
               alt="Logo" 
               className="h-8 md:h-12 w-auto object-contain pointer-events-none select-none brightness-110"
             />
