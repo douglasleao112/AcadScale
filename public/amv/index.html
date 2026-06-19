@@ -825,26 +825,7 @@ lessonItems.forEach((item, index) => {
 
 
 
-function getNextMondayWithTime(horaEvento) {
-  const now = new Date();
-  const result = new Date(now);
 
-  const [hora, minuto] = horaEvento.split(":").map(Number);
-
-  // Próxima segunda-feira
-  const daysUntilMonday = (1 - now.getDay() + 7) % 7;
-  result.setDate(now.getDate() + daysUntilMonday);
-
-  // Define horário do evento
-  result.setHours(hora, minuto, 0, 0);
-
-  // Se for hoje (segunda) e já passou da hora → próxima segunda
-  if (daysUntilMonday === 0 && now >= result) {
-    result.setDate(result.getDate() + 7);
-  }
-
-  return result;
-}
 
 
 const speakerCards = document.querySelectorAll('.speaker-fade');
@@ -866,42 +847,8 @@ speakerCards.forEach((card, index) => {
 });
 
 
-function formatDate(date) {
-  const dias = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
-
-  const hoje = new Date();
-
-  const isHoje =
-    date.getDate() === hoje.getDate() &&
-    date.getMonth() === hoje.getMonth() &&
-    date.getFullYear() === hoje.getFullYear();
-
-  const diaSemana = dias[date.getDay()];
-  const dia = String(date.getDate()).padStart(2, '0');
-  const mes = String(date.getMonth() + 1).padStart(2, '0');
-
-  const hora = String(date.getHours()).padStart(2, '0');
-
-  if (isHoje) {
-    return `📅 HOJE às ${hora}h`;
-  }
-// padrão:    return `📅 ${diaSemana} ${dia}/${mes} às ${hora}h`;
-  return `📅 GOIÂNIA • DOMINGO ${dia}/${mes} às ${hora}h`;
-}
-  // 🔥 CONFIGURAÇÃO SIMPLES     padrao toda dataa mesma:   const dataManual = null; 
-  const dataManual = "2026-07-05T08:00:00";
-  const horaEvento = "08:00"; 
-
-  let eventDate;
-
-  if (dataManual) {
-    eventDate = new Date(dataManual);
-  } else {
-   eventDate = getNextMondayWithTime(horaEvento);
-  }
-
-  document.getElementById("eventDate").innerText = formatDate(eventDate);
-
+document.getElementById("eventDate").innerText =
+  "📅 GOIÂNIA • 05/07 às 08h";
 
 
 // link dos botoes
