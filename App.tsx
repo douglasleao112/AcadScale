@@ -45,6 +45,7 @@ const App: React.FC = () => {
 <ValidationSection />
 <PhotoSlider />
 <StrategySection />
+{/* <StackedCards /> */}
 <ComparisonSection />
 <ProofSection />
 <ObjectiveSection />
