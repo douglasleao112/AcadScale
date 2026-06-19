@@ -23,7 +23,7 @@ const PARTNERS: Partner[] = [
       "Mentor de profissionais e academias em processos, atendimento, posicionamento e crescimento estratégico.",
       "Douglas aplica ciência à gestão, unindo conhecimento técnico de alto nível à estratégia comercial para transformar academias em negócios mais lucrativos."
     ],
-    image: 'https://i.imgur.com/47sPVAl.webp',
+    image: 'https://i.ibb.co/fVDn9zg0/d2e71454-68aa-42a4-aca9-2385f410f1db.png',
     stats: [
       { value: '5M+', label: 'VGV 3 anos' },
       { value: 'Growth', label: 'Especialista' }
