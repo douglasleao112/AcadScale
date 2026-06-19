@@ -64,7 +64,7 @@ const Hero: React.FC = () => {
             repeat: Infinity,
             ease: "linear"
           }}
-         className="absolute top-[10%] left-[20%] w-[45vw] h-[45vw] bg-blue-950/50 rounded-full blur-[130px]"
+        className="hidden md:block absolute top-[10%] left-[20%] w-[45vw] h-[45vw] bg-blue-950/50 rounded-full blur-[130px]"
         />
 
         <framerMotion.div
@@ -78,22 +78,45 @@ const Hero: React.FC = () => {
             repeat: Infinity,
             ease: "linear"
           }}
-         className="absolute top-[20%] right-[15%] w-[40vw] h-[40vw] bg-slate-900/70 rounded-full blur-[120px]"
+        className="absolute top-[20%] right-[15%] w-[40vw] h-[40vw] bg-slate-900/70 rounded-full blur-[120px]"
         />
       </div>
 
-      <framerMotion.div 
+
+
+    {/*   <framerMotion.div 
         initial={{ opacity: 0, scale: 1.1, filter: 'blur(10px)' }}
         animate={{ 
           opacity: 0.75, 
           scale: 1, 
           filter: 'blur(0px)'
-        }}
-        transition={{ 
+        }} */}
+
+<framerMotion.div 
+  initial={{ opacity: 0, scale: 1.05 }}
+  animate={{ 
+    opacity: 0.75, 
+    scale: 1
+  }}
+
+
+
+
+  {/*       transition={{ 
           opacity: { duration: 2 },
           scale: { duration: 2.5, ease: "easeOut" },
           filter: { duration: 2 }
-        }}
+        }}*/}
+
+
+transition={{ 
+  opacity: { duration: 1.5 },
+  scale: { duration: 1.8, ease: "easeOut" }
+}}
+
+
+
+
         className="absolute top-10 md:top-6 inset-x-0 flex justify-center pointer-events-none"
       >
         <div className="relative w-full max-w-7xl h-[380px] md:h-[580px]">

@@ -31,7 +31,7 @@ const App: React.FC = () => {
 
   return (
     <main className="relative min-h-screen bg-black overflow-x-hidden">
-      {showParticles && <ParticleBackground />}
+     {/*  {showParticles && <ParticleBackground />}  */}
 
       {currentPage === 'home' && (
         <div className="relative z-10">
