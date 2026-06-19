@@ -615,6 +615,66 @@
   fill: #ffffff;
   flex-shrink: 0;
 }
+
+
+.location {
+  margin-top: 40px;
+}
+
+.location h2 {
+  font-size: 27px;
+  line-height: 1.18;
+  font-weight: 500;
+  margin-bottom: 22px;
+}
+
+.location-card {
+  border: 1px solid #242424;
+  border-radius: 22px;
+  background: #101112;
+  padding: 12px;
+  overflow: hidden;
+}
+
+.location-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.location-info {
+  padding: 0 6px 14px;
+}
+
+.location-info h3 {
+  font-size: 17px;
+  line-height: 1.25;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.location-info p {
+  color: #aaa;
+  font-size: 14px;
+  margin: 0;
+}
+
+.map-wrapper {
+  width: 100%;
+  height: 180px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
   </style>
 </head>
 
@@ -797,6 +857,40 @@
 
     <div class="divider"></div>
 
+
+
+<section class="section location">
+  <div class="section-label">Localização</div>
+
+  <h2>Onde será o evento</h2>
+
+  <div class="location-card">
+    <img 
+      class="location-img"
+      src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAHS-SfJNUCdgsNoKy8wlyd1RxhNrg4HNGgdNi52jXXiUFUGus0MOdberTBSkqAfOQMyTliwK6pPa_tjYTjTryyM0gNufuqjl5pKLQvjnzYvoYDslkwYsnUDK1ZXpzRzxR8zHLY=w408-h305-k-no"
+      alt="Condomínio Inove Intelligent Place"
+    >
+
+    <div class="location-info">
+      <h3>Condomínio Inove Intelligent Place</h3>
+      <p>Goiânia - GO</p>
+    </div>
+
+    <div class="map-wrapper">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7642.778691696817!2d-49.28239920000001!3d-16.707414099999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef132edba9f97%3A0x9111321b7ae50101!2sCondom%C3%ADnio%20Inove%20Intelligent%20Place!5e0!3m2!1spt-BR!2sbr!4v1781885545986!5m2!1spt-BR!2sbr" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+    <div class="divider"></div>
 
     <!-- SOBRE O EVENTO -->
     <section class="section about">
