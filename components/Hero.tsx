@@ -91,29 +91,21 @@ const Hero: React.FC = () => {
     opacity: 0.75, 
     scale: 1
   }}
-
-
-
-
-transition={{ 
-  opacity: { duration: 1.5 },
-  scale: { duration: 1.8, ease: "easeOut" }
-}}
-
-
-
-
-        className="absolute top-10 md:top-6 inset-x-0 flex justify-center pointer-events-none"
-      >
-        <div className="relative w-full max-w-7xl h-[380px] md:h-[580px]">
-          <img 
-            src="https://i.ibb.co/KdXv14Y/logo-branca.png"   
-            alt="banner" 
-            className="w-full h-full object-contain object-top relative z-10"
-            fetchPriority="high"
-          />
-        </div>
-      </framerMotion.div>
+  transition={{ 
+    opacity: { duration: 1.5 },
+    scale: { duration: 1.8, ease: "easeOut" }
+  }}
+  className="absolute top-10 md:top-6 inset-x-0 flex justify-center pointer-events-none"
+>
+  <div className="relative w-full max-w-7xl h-[380px] md:h-[580px]">
+    <img 
+      src="https://i.ibb.co/KdXv14Y/logo-branca.png"   
+      alt="banner" 
+      className="w-full h-full object-contain object-top relative z-10"
+      fetchPriority="high"
+    />
+  </div>
+</framerMotion.div>
 
       <div className="max-w-7xl mx-auto space-y-12 md:space-y-16 relative z-30 pt-[430px] md:pt-[560px] lg:pt-[620px]">
         <framerMotion.div
