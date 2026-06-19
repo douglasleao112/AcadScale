@@ -711,6 +711,53 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+
+.hero-person {
+  opacity: 0;
+  animation: heroZoomFade 1.8s ease forwards;
+}
+
+@keyframes heroZoomFade {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) scale(1.08);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+
+.hero-title-anim {
+  opacity: 0;
+  transform: translateX(-35px);
+  animation: heroTextLeft 1.2s ease forwards;
+  animation-delay: 0.4s;
+}
+
+.hero-subtitle-anim {
+  opacity: 0;
+  transform: translateX(35px);
+  animation: heroTextRight 1.2s ease forwards;
+  animation-delay: 0.7s;
+}
+
+@keyframes heroTextLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroTextRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
   </style>
 </head>
 
@@ -743,11 +790,11 @@
   </div>
 </div>
 
-        <h1>
-          Para donos e gestores de academia que querem <b>vender mais</b>
-        </h1>
+<h1 class="hero-title-anim">
+  Para donos e gestores de academia que querem <b>vender mais</b>
+</h1>
 
-<p class="subheadline">
+<p class="subheadline hero-subtitle-anim">
   Um evento sobre gestão, vendas e escala para academias que querem crescer sem depender de promoção, indicação ou guerra de preço.
 </p>
 
