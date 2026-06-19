@@ -39,7 +39,7 @@ const App: React.FC = () => {
               alt="Logo" 
               className="h-8 md:h-12 w-auto object-contain pointer-events-none select-none brightness-110"
             />
-          </div>*/}
+          </div>  */}
 
 <Hero />
 <ValidationSection />
