@@ -84,13 +84,6 @@ const Hero: React.FC = () => {
 
 
 
-    {/*   <framerMotion.div 
-        initial={{ opacity: 0, scale: 1.1, filter: 'blur(10px)' }}
-        animate={{ 
-          opacity: 0.75, 
-          scale: 1, 
-          filter: 'blur(0px)'
-        }} */}
 
 <framerMotion.div 
   initial={{ opacity: 0, scale: 1.05 }}
@@ -100,13 +93,6 @@ const Hero: React.FC = () => {
   }}
 
 
-
-
-  {/*       transition={{ 
-          opacity: { duration: 2 },
-          scale: { duration: 2.5, ease: "easeOut" },
-          filter: { duration: 2 }
-        }}*/}
 
 
 transition={{ 
