@@ -138,20 +138,89 @@ h1 {
       line-height: 1.4;
     }
 
-    .whatsapp {
-      display: block;
-      margin-top: 18px;
-      text-decoration: none;
-      background: #145c24;
-      color: #fff;
-      padding: 15px;
-      border-radius: 10px;
-      font-weight: bold;
-    }
 
-    .whatsapp:hover {
-      background: #178230;
-    }
+.whatsapp-box {
+  position: fixed;
+  right: 4px;
+  bottom: 20px;
+  width: 230px;
+  height: 48px;
+  z-index: 9999;
+  pointer-events: auto;
+}
+
+.whatsapp-float {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,.35);
+  z-index: 3;
+
+  opacity: 0;
+  animation: fadeWhatsapp 3s ease forwards;
+  animation-delay: 1s;
+
+  pointer-events: auto;
+}
+
+.whatsapp-label {
+  position: absolute;
+  right: 24px;
+  top: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  height: 36px;
+  padding: 0 34px 0 14px;
+
+  display: flex;
+  align-items: center;
+
+  background: #1d6b28;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+
+  border-radius: 999px 0 0 999px;
+
+opacity: 0;
+transform: none;
+animation: fadeWhatsappLabel 2s ease forwards;
+animation-delay: 2.5s;
+
+  z-index: 2;
+}
+
+.whatsapp-float img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@keyframes fadeWhatsapp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeWhatsappLabel {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
 
     .copied {
       margin-top: 10px;
@@ -238,60 +307,9 @@ h1 {
 }
 
 
-.whatsapp-float {
-  position: fixed;
-  right: 10px;
-  bottom: 20px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,.35);
-  z-index: 9999;
-  transition: transform .2s ease;
-}
 
-.whatsapp-float:hover {
-  transform: scale(1.08);
-}
 
-.whatsapp-float img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
 
-@keyframes pulseWhatsapp {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.08); }
-  100% { transform: scale(1); }
-}
-
-.whatsapp-float {
-  position: fixed;
-  right: 4px;
-  bottom: 20px;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,.35);
-  z-index: 9999;
-
-  opacity: 0;
-  animation: fadeWhatsapp 2.5s ease forwards;
-  animation-delay: 4s;
-}
-
-@keyframes fadeWhatsapp {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 
 .btn {
   display: flex;
@@ -372,17 +390,22 @@ h1 {
 </script>
 
 
+<div class="whatsapp-box">
+  <a
+    href="https://wa.me/5562984888498?text=Ol%C3%A1%2C%20vim%20pela%20p%C3%A1gina%20de%20pagamento%20do%20AMV"
+    target="_blank"
+    class="whatsapp-label"
+  >
+    Enviar comprovante
+  </a>
 
-<a
-  href="https://wa.me/5562984888498?text=Ol%C3%A1%2C%20vim%20pela%20p%C3%A1gina%20de%20pagamento%20do%20AMV"
-  target="_blank"
-  class="whatsapp-float"
->
-  <img
-    src="https://img.freepik.com/vetores-premium/whatsapp-logo-iconic-speech-bubble-and-phone-symbol-on-green_678821-509.jpg?semt=ais_hybrid&w=740&q=80"
-    alt="WhatsApp"
-  />
-</a>
-
+  <a
+    href="https://wa.me/5562984888498?text=Ol%C3%A1%2C%20vim%20pela%20p%C3%A1gina%20de%20pagamento%20do%20AMV"
+    target="_blank"
+    class="whatsapp-float"
+  >
+    <img src="https://img.freepik.com/vetores-premium/whatsapp-logo-iconic-speech-bubble-and-phone-symbol-on-green_678821-509.jpg?semt=ais_hybrid&w=740&q=80" alt="WhatsApp" />
+  </a>
+</div>
 </body>
 </html>
