@@ -16,14 +16,13 @@ import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfUse from './components/TermsOfUse';
 
-const [showParticles, setShowParticles] = useState(false);
-
-useEffect(() => {
-  setShowParticles(window.innerWidth >= 768);
-}, []);
-
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<'home' | 'privacy' | 'terms'>('home');
+  const [showParticles, setShowParticles] = useState(false);
+
+  useEffect(() => {
+    setShowParticles(window.innerWidth >= 768);
+  }, []);
 
   const navigateTo = (page: 'home' | 'privacy' | 'terms') => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -32,13 +31,13 @@ const App: React.FC = () => {
 
   return (
     <main className="relative min-h-screen bg-black overflow-x-hidden">
-      {/* Camada de Fundo: Universo e Estrelas */}
-     {showParticles && <ParticleBackground />}
-      
+      {showParticles && <ParticleBackground />}
+
       {currentPage === 'home' && (
         <div className="relative z-10">
-       
-          {/* Logo Centralizada no Topo 
+
+
+               {/* Logo Centralizada no Topo 
           <div className="absolute top-8 left-1/2 -translate-x-1/2 z-[100] transition-opacity duration-500 hover:opacity-100 opacity-60">
             <img 
               src="https://i.imgur.com/zZbmG6d.png" 
@@ -47,18 +46,20 @@ const App: React.FC = () => {
             />
           </div>  */}
 
-<Hero />
-<ValidationSection />
-<PhotoSlider />
-<StrategySection />
-{/* <StackedCards /> */}
-<ComparisonSection />
-<ProofSection />
-<ObjectiveSection />
-<FooterBranding />
-<AboutSection />
-<FAQSection />
-<Footer onNavigate={navigateTo} />
+
+
+          <Hero />
+          <ValidationSection />
+          <PhotoSlider />
+          <StrategySection />
+          {/* <StackedCards /> */}
+          <ComparisonSection />
+          <ProofSection />
+          <ObjectiveSection />
+          <FooterBranding />
+          <AboutSection />
+          <FAQSection />
+          <Footer onNavigate={navigateTo} />
         </div>
       )}
 
