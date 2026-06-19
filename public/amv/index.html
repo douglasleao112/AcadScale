@@ -146,9 +146,10 @@
 
 .btn {
   display: block;
-  overflow: visible;
   position: relative;
+  overflow: hidden;
   z-index: 1;
+
   width: 100%;
   background: #174d1d;
   color: #00ff20;
@@ -161,36 +162,46 @@
   margin: 0 auto;
 }
 
-  /* AURA PULSANTE EXTERNA */
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 245deg,
+    rgba(0, 255, 80, 0.15) 275deg,
+    rgba(0, 255, 80, 0.45) 295deg,
+    rgba(255, 255, 255, 0.7) 310deg,
+    rgba(0, 255, 80, 1) 322deg,
+    transparent 340deg
+  );
+  animation: rotateGlow 3s linear infinite;
+  z-index: -2;
+}
+
 .btn::after {
   content: "";
   position: absolute;
-  top: -6px;
-  left: -6px;
-  right: -6px;
-  bottom: -6px;
+  inset: 2px;
+  background: #174d1d;
   border-radius: 999px;
-  background-color: rgba(34, 197, 94, 0.35);
   z-index: -1;
-  opacity: 0;
-  animation: aura-pulse 1.5s ease-in-out infinite;
-  pointer-events: none;
 }
 
-@keyframes aura-pulse {
+@keyframes rotateGlow {
   0% {
-    transform: scale(0.95);
-    opacity: 0.45;
+    transform: rotate(0deg);
+    opacity: 0.9;
   }
 
   50% {
-    transform: scale(1.2);
-    opacity: 0;
+    opacity: 0.55;
   }
 
   100% {
-    transform: scale(0.95);
-    opacity: 0;
+    transform: rotate(360deg);
+    opacity: 0.9;
   }
 }
 
