@@ -678,6 +678,27 @@
   border: 0;
   display: block;
 }
+
+
+.location-img,
+.map-wrapper {
+  opacity: 0;
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.location-img {
+  transform: translateX(-40px);
+}
+
+.map-wrapper {
+  transform: translateX(40px);
+}
+
+.location-img.show,
+.map-wrapper.show {
+  opacity: 1;
+  transform: translateX(0);
+}
   </style>
 </head>
 
@@ -1015,6 +1036,26 @@ document.querySelectorAll('.btn').forEach(btn => {
   );
 
   observer.observe(mainBtn);
+
+
+
+  const locationItems = document.querySelectorAll('.location-img, .map-wrapper');
+
+const locationObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      locationObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.25
+});
+
+locationItems.forEach((item, index) => {
+  item.style.transitionDelay = `${index * 0.2}s`;
+  locationObserver.observe(item);
+});
 </script>
 
 </body>
