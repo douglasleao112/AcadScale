@@ -28,10 +28,11 @@ const App: React.FC = () => {
   return (
     <main className="relative min-h-screen bg-black overflow-x-hidden">
       {/* Camada de Fundo: Universo e Estrelas */}
-      <ParticleBackground />
+      {/*<ParticleBackground />*/}
       
       {currentPage === 'home' && (
         <div className="relative z-10">
+       
           {/* Logo Centralizada no Topo 
           <div className="absolute top-8 left-1/2 -translate-x-1/2 z-[100] transition-opacity duration-500 hover:opacity-100 opacity-60">
             <img 
