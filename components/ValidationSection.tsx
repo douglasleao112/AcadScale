@@ -14,6 +14,7 @@ const USERS: User[] = [
   { id: 3, handle: '@delasgym', image: 'https://i.imgur.com/SZQThWA.webp' },
   { id: 4, handle: '@academiasouzafitness', image: 'https://i.imgur.com/2IXWKrF.jpeg' },
   { id: 5, handle: '@flexfitnesscenter', image: 'https://i.imgur.com/B6VgBoS.webp' },
+  { id: 6, handle: '@spartacusacademia_', image: 'https://i.ibb.co/HT6Gf43f/8a0a592d-13fa-4b53-b52e-91862bbb9397-1.webp' },
 ];
 
 const TICKER_ITEMS = [
