@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Hero from './components/Hero';
 import ParticleBackground from './components/ParticleBackground';
@@ -16,6 +16,11 @@ import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import TermsOfUse from './components/TermsOfUse';
 
+const [showParticles, setShowParticles] = useState(false);
+
+useEffect(() => {
+  setShowParticles(window.innerWidth >= 768);
+}, []);
 
 const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<'home' | 'privacy' | 'terms'>('home');
@@ -28,7 +33,7 @@ const App: React.FC = () => {
   return (
     <main className="relative min-h-screen bg-black overflow-x-hidden">
       {/* Camada de Fundo: Universo e Estrelas */}
-      {/*<ParticleBackground />*/}
+     {showParticles && <ParticleBackground />}
       
       {currentPage === 'home' && (
         <div className="relative z-10">
