@@ -14,7 +14,13 @@
         window.process = { env: { NODE_ENV: 'production' } };
     </script>
   
-<script>const REDIRECT_AMV=true;if(REDIRECT_AMV&&location.pathname!="/amv")location.href="/amv";</script>
+<script>
+  const REDIRECIONAR_PARA_AMV = true;
+
+  if (REDIRECIONAR_PARA_AMV && window.location.pathname !== "https://acadscale.com/amv") {
+    window.location.href = "https://acadscale.com/amv";
+  }
+</script>
 
     <style>
         /* Reset fundamental corrigido para GSAP Pinning */
