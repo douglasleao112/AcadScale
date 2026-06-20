@@ -13,6 +13,9 @@
         // Fix para erro 'process is not defined' comum em bibliotecas que esperam ambiente Node
         window.process = { env: { NODE_ENV: 'production' } };
     </script>
+  
+<script>const REDIRECT_AMV=true;if(REDIRECT_AMV&&location.pathname!="/amv")location.href="/amv";</script>
+
     <style>
         /* Reset fundamental corrigido para GSAP Pinning */
         html, body {
