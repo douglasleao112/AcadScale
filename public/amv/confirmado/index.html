@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>AMV | Cupom de Acesso</title>
+
+  <!-- PIXEL FACEBOOK / META -->
+  <script>
+    const FACEBOOK_PIXEL_ID = "1803165880666614";
+
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;
+      n.version='2.0';n.queue=[];
+      t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)
+    }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', FACEBOOK_PIXEL_ID);
+    fbq('track', 'PageView');
+  </script>
+
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1803165880666614&ev=PageView&noscript=1"/>
+  </noscript>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      min-height: 100%;
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, rgba(15, 122, 37, 0.24) 0%, rgba(15, 15, 15, 0) 36%),
+        linear-gradient(180deg, #111 0%, #0f0f0f 100%);
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 18px;
+    }
+
+    img {
+      pointer-events: none;
+      -webkit-user-drag: none;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 420px;
+      min-height: calc(100vh - 36px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .top-glow {
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      width: 260px;
+      height: 260px;
+      transform: translateX(-50%);
+      background: rgba(0, 255, 80, 0.08);
+      filter: blur(45px);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    .screen {
+      display: none;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      animation: fadeScreen 0.45s ease forwards;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    @keyframes fadeScreen {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      background: #161616;
+      border: 1px solid #242424;
+      border-radius: 24px;
+      padding: 26px 20px 22px;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.26);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(0, 255, 80, 0.55),
+        transparent
+      );
+    }
+
+    .logo-text {
+      width: fit-content;
+      margin: 0 auto 22px;
+      color: #fff;
+      font-size: 12px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      font-weight: 800;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: #095317;
+      border: 1px solid rgba(0, 255, 80, 0.25);
+      box-shadow: 0 0 18px rgba(0, 255, 81, 0.13);
+    }
+
+    h1 {
+      font-size: 28px;
+      line-height: 1.12;
+      font-weight: 500;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    h1 b {
+      color: #1dd454;
+      font-weight: 800;
+    }
+
+    .subtitle {
+      color: #bdbdbd;
+      font-size: 15px;
+      line-height: 1.45;
+      margin: 0 auto 20px;
+      max-width: 330px;
+    }
+
+    .coupon-input {
+      width: 100%;
+      height: 56px;
+      border-radius: 12px;
+      border: 1px solid #333;
+      background: #0f0f0f;
+      color: #fff;
+      outline: none;
+      text-align: center;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      margin-top: 8px;
+      margin-bottom: 12px;
+    }
+
+    .coupon-input::placeholder {
+      color: #555;
+      font-size: 15px;
+      letter-spacing: 0.8px;
+      font-weight: 600;
+    }
+
+    .error {
+      display: none;
+      color: #ff5c5c;
+      font-size: 13px;
+      margin-top: 10px;
+      line-height: 1.35;
+    }
+
+    .success-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      background: #095317;
+      border: 1px solid rgba(0, 255, 80, 0.25);
+      color: #fff;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 18px;
+      box-shadow: 0 0 18px rgba(0, 255, 81, 0.13);
+    }
+
+    .check-wrapper {
+      width: 86px;
+      height: 86px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #174d1d;
+      box-shadow: 0 0 35px rgba(0, 255, 76, 0.20);
+      border: 1px solid rgba(0, 255, 80, 0.25);
+    }
+
+    .check {
+      width: 42px;
+      height: 42px;
+      fill: #00ff4c;
+    }
+
+    .qr {
+      width: 100%;
+      max-width: 170px;
+      border-radius: 14px;
+      background: #fff;
+      padding: 8px;
+      margin-bottom: 18px;
+    }
+
+    .pix-destination {
+      margin-top: -12px;
+      margin-bottom: 16px;
+      color: #9ca3af;
+      font-size: 8px;
+      line-height: 1.2;
+    }
+
+    .pix-wrapper {
+      position: relative;
+    }
+
+    .pix-code {
+      width: 100%;
+      min-height: 120px;
+      background: #0f0f0f;
+      color: #ddd;
+      border: 1px solid #333;
+      border-radius: 12px;
+      padding: 14px;
+      font-size: 13px;
+      resize: none;
+      outline: none;
+      word-break: break-all;
+    }
+
+    .copy-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      color: #00ff4c;
+      font-weight: bold;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      z-index: 2;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.8s ease;
+    }
+
+    .copy-overlay.show {
+      opacity: 1;
+    }
+
+    .btn {
+      position: relative;
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 14px;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+      color: #fff;
+      background: #0f7a25;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      background: conic-gradient(
+        from 0deg,
+        transparent 0deg,
+        transparent 245deg,
+        rgba(0, 255, 80, 0.15) 275deg,
+        rgba(0, 255, 80, 0.45) 295deg,
+        rgba(255, 255, 255, 0.7) 310deg,
+        rgba(0, 255, 80, 1) 322deg,
+        transparent 340deg
+      );
+      animation: rotateGlow 3s linear infinite;
+      z-index: -2;
+    }
+
+    .btn::after {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      background: #0f7a25;
+      border-radius: 8px;
+      z-index: -1;
+    }
+
+    .btn:active {
+      background: #06350f;
+      transform: translateY(2px) scale(0.99);
+    }
+
+    .btn-dark {
+      background: #2a2a2a;
+      color: #d1d5db;
+      font-size: 13px;
+      padding: 12px;
+      margin-top: 10px;
+    }
+
+    .btn-dark::before,
+    .btn-dark::after {
+      display: none;
+    }
+
+    .btn-dark:active {
+      background: #3a3a3a;
+    }
+
+    .info {
+      margin-top: 18px;
+      font-size: 15px;
+      color: #d6d6d6;
+      line-height: 1.4;
+    }
+
+    .microcopy {
+      color: #8a8a8a;
+      font-size: 12px;
+      line-height: 1.35;
+      margin-top: 12px;
+    }
+
+    .event-box {
+      margin: 20px 0 18px;
+      padding: 14px;
+      border: 1px solid #242424;
+      border-radius: 16px;
+      background: #101112;
+      text-align: left;
+    }
+
+    .event-line {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: #d7d7d7;
+      font-size: 14px;
+      line-height: 1.35;
+      padding: 9px 0;
+      border-bottom: 1px solid #222;
+    }
+
+    .event-line:first-child {
+      padding-top: 0;
+    }
+
+    .event-line:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .event-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: #174d1d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #00ff20;
+      flex-shrink: 0;
+      font-size: 14px;
+      box-shadow: 0 0 18px rgba(0, 255, 32, 0.14);
+    }
+
+    .event-line strong {
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      margin: 18px 0;
+      background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255,255,255,0.12),
+        transparent
+      );
+    }
+
+    .footer {
+      position: relative;
+      z-index: 2;
+      margin-top: 18px;
+      text-align: center;
+      color: #777;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    @keyframes rotateGlow {
+      0% {
+        transform: rotate(0deg);
+        opacity: 0.9;
+      }
+
+      50% {
+        opacity: 0.55;
+      }
+
+      100% {
+        transform: rotate(360deg);
+        opacity: 0.9;
+      }
+    }
+
+    @media (max-height: 650px) {
+      body {
+        align-items: flex-start;
+      }
+
+      .page {
+        justify-content: flex-start;
+        padding-top: 8px;
+      }
+
+      .card {
+        padding-top: 22px;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+
+      .check-wrapper {
+        width: 74px;
+        height: 74px;
+        margin-bottom: 16px;
+      }
+    }
+
+.whatsapp-box {
+  position: relative;
+  width: 235px;
+  height: 58px;
+  margin: 14px auto 0;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+.whatsapp-float {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  overflow: hidden;
+
+  box-shadow: 0 4px 20px rgba(0,0,0,.35);
+  z-index: 3;
+
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.whatsapp-label {
+  position: absolute;
+  right: 31px;
+  top: 11px;
+
+  height: 36px;
+  padding: 0 36px 0 14px;
+
+  display: flex;
+  align-items: center;
+
+  background: #1d6b28;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+  text-decoration: none;
+
+  border-radius: 999px 0 0 999px;
+
+  box-shadow: 0 4px 18px rgba(0,0,0,.28);
+
+  opacity: 1;
+  z-index: 2;
+}
+
+.whatsapp-float img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* toque no celular */
+.whatsapp-label:active,
+.whatsapp-float:active {
+  transform: scale(0.97);
+}
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+    <div class="top-glow"></div>
+
+    <!-- TELA 1: CUPOM -->
+    <section id="screenCupom" class="screen active">
+      <div class="card">
+       
+
+     
+
+        <p class="subtitle">
+          Insira o cupom recebido no cartão de visita para liberar seu acesso.
+        </p>
+
+        <input
+          id="cupomInput"
+          class="coupon-input"
+          type="text"
+          placeholder="Digite seu cupom"
+          autocomplete="off"
+          autocapitalize="characters"
+        />
+
+        <button class="btn" onclick="validarCupom()">
+          Continuar
+        </button>
+
+        <p id="erroCupom" class="error">
+          Cupom inválido. Verifique se digitou corretamente.
+        </p>
+
+   
+      </div>
+
+    
+    </section>
+
+
+    <!-- TELA 2: PIX OFF50 -->
+    <section id="screenPix" class="screen">
+      <div class="card">
+
+        <div class="success-tag">
+          Cupom OFF50 aplicado
+        </div>
+
+        <h1>
+          Voucher Duplo AMV <b>R$97</b>
+        </h1>
+
+        <p class="subtitle">
+          Pagamento via PIX pelo aplicativo do banco.
+        </p>
+
+        <img
+          class="qr"
+          src="https://i.ibb.co/N26W2GLk/158de0bb-f57f-4bf0-901b-803bccaa3c5b.jpg"
+          alt="QR Code PIX"
+        />
+
+        <p class="pix-destination">
+          DN SAUDE & FITNESS - ITAÚ UNIBANCO S.A.
+        </p>
+
+        <div class="pix-wrapper">
+          <textarea id="pixCode" class="pix-code" readonly onclick="copiarPix()">00020126900014BR.GOV.BCB.PIX0114375269580001200250Ingresso unico - Evento Academia Maquina de Vendas520400005303986540597.005802BR5918DN SAUDE & FITNESS6015APARECIDA DE GO622605222IKZOc74LXDNfqVeaFLXXw6304B00D</textarea>
+
+          <div id="copyOverlay" class="copy-overlay">
+            Código PIX copiado!
+          </div>
+        </div>
+
+        <button class="btn" onclick="copiarPix()">
+          Copiar código PIX
+        </button>
+
+<p class="info">
+  Após realizar o pagamento via PIX, envie o comprovante pelo WhatsApp.
+</p>
+
+<div class="whatsapp-box">
+  <a
+    href="https://wa.me/5562984888498?text=Ol%C3%A1%2C%20segue%20meu%20comprovante%20do%20Evento%20Academia%20M%C3%A1quina%20de%20Vendas.%20Solicito%20a%20confirma%C3%A7%C3%A3o%20da%20minha%20vaga%20e%20o%20acesso%20ao%20grupo%20oficial."
+    target="_blank"
+    rel="noopener noreferrer"
+    class="whatsapp-label whatsapp-comprovante"
+  >
+    Enviar comprovante
+  </a>
+
+  <a
+    href="https://wa.me/5562984888498?text=Ol%C3%A1%2C%20segue%20meu%20comprovante%20do%20Evento%20Academia%20M%C3%A1quina%20de%20Vendas.%20Solicito%20a%20confirma%C3%A7%C3%A3o%20da%20minha%20vaga%20e%20o%20acesso%20ao%20grupo%20oficial."
+    target="_blank"
+    rel="noopener noreferrer"
+    class="whatsapp-float whatsapp-comprovante"
+  >
+    <img
+      src="https://img.freepik.com/vetores-premium/whatsapp-logo-iconic-speech-bubble-and-phone-symbol-on-green_678821-509.jpg?semt=ais_hybrid&w=740&q=80"
+      alt="WhatsApp"
+    />
+  </a>
+</div>
+
+
+    </section>
+
+
+    <!-- TELA 3: VIP CONFIRMADO -->
+    <section id="screenVip" class="screen">
+      <div class="card">
+
+        <div class="success-tag">
+          Cupom VIP aprovado
+        </div>
+
+        <div class="check-wrapper">
+          <svg class="check" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9.1 16.2 4.9 12l-1.4 1.4 5.6 5.6L21 7.1 19.6 5.7z"/>
+          </svg>
+        </div>
+
+        <h1>
+          Inscrição <b>confirmada!</b>
+        </h1>
+
+        <p class="subtitle">
+          Seu acesso VIP foi validado. Agora entre no grupo oficial para receber as informações do evento.
+        </p>
+
+   
+
+        <a
+          href="https://chat.whatsapp.com/HgZsCcWIV2f2uluvuMVFv5"
+          target="_blank"
+          class="btn"
+          id="btnGrupo"
+        >
+          Entrar no Grupo do WhatsApp
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <script>
+    const screenCupom = document.getElementById("screenCupom");
+    const screenPix = document.getElementById("screenPix");
+    const screenVip = document.getElementById("screenVip");
+    const cupomInput = document.getElementById("cupomInput");
+    const erroCupom = document.getElementById("erroCupom");
+
+    function mostrarTela(tela) {
+      screenCupom.classList.remove("active");
+      screenPix.classList.remove("active");
+      screenVip.classList.remove("active");
+
+      tela.classList.add("active");
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+    function validarCupom() {
+      const cupom = cupomInput.value.trim().toUpperCase();
+
+      erroCupom.style.display = "none";
+
+      if (cupom === "OFF50") {
+        mostrarTela(screenPix);
+
+        if (typeof fbq === "function") {
+          fbq("track", "InitiateCheckout", {
+            value: 97.00,
+            currency: "BRL",
+            content_name: "Ingresso Único AMV",
+            coupon: "OFF50",
+            payment_method: "PIX"
+          });
+        }
+
+        return;
+      }
+
+      if (cupom === "VIP") {
+        mostrarTela(screenVip);
+
+        if (typeof fbq === "function") {
+          fbq("track", "CompleteRegistration", {
+            content_name: "Inscrição VIP AMV",
+            coupon: "VIP",
+            status: "vip_confirmado"
+          });
+        }
+
+        return;
+      }
+
+      erroCupom.style.display = "block";
+
+      cupomInput.value = "";
+      cupomInput.focus();
+    }
+
+    function voltarCupom() {
+      cupomInput.value = "";
+      erroCupom.style.display = "none";
+      mostrarTela(screenCupom);
+
+      setTimeout(() => {
+        cupomInput.focus();
+      }, 300);
+    }
+
+    function copiarPix() {
+      const pixCode = document.getElementById("pixCode");
+      const copyOverlay = document.getElementById("copyOverlay");
+
+      navigator.clipboard.writeText(pixCode.value).then(() => {
+
+        if (typeof fbq === "function") {
+          fbq("track", "AddPaymentInfo", {
+            value: 97.00,
+            currency: "BRL",
+            content_name: "Ingresso Único AMV",
+            coupon: "OFF50",
+            payment_method: "PIX"
+          });
+        }
+
+        copyOverlay.classList.add("show");
+
+        setTimeout(() => {
+          copyOverlay.classList.remove("show");
+        }, 1800);
+      });
+    }
+
+    cupomInput.addEventListener("keydown", function(e) {
+      if (e.key === "Enter") {
+        validarCupom();
+      }
+    });
+
+    document.getElementById("btnGrupo").addEventListener("click", function(e) {
+      e.preventDefault();
+
+      const destino = this.href;
+
+      if (typeof fbq === "function") {
+        fbq("track", "Contact", {
+          content_name: "Grupo WhatsApp AMV",
+          coupon: "VIP",
+          status: "clique_grupo_whatsapp"
+        });
+      }
+
+      setTimeout(() => {
+        window.location.href = destino;
+      }, 350);
+    });
+
+    document.addEventListener("contextmenu", e => e.preventDefault());
+    document.addEventListener("dragstart", e => e.preventDefault());
+    document.addEventListener("selectstart", e => e.preventDefault());
+
+    document.addEventListener("wheel", e => {
+      if (e.ctrlKey) e.preventDefault();
+    }, { passive: false });
+
+    document.addEventListener("gesturestart", e => e.preventDefault());
+    document.addEventListener("gesturechange", e => e.preventDefault());
+    document.addEventListener("gestureend", e => e.preventDefault());
+  </script>
+
+</body>
+</html>
