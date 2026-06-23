@@ -435,6 +435,17 @@ img {
     const copyOverlay = document.getElementById("copyOverlay");
 
     navigator.clipboard.writeText(pixCode.value).then(() => {
+
+      // Evento: adicionou informação de pagamento
+      if (typeof fbq === 'function') {
+        fbq('track', 'AddPaymentInfo', {
+          value: 97.00,
+          currency: 'BRL',
+          content_name: 'Ingresso Único AMV',
+          payment_method: 'PIX'
+        });
+      }
+
       copyOverlay.classList.add("show");
 
       setTimeout(() => {
