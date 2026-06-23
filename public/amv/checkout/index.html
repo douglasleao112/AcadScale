@@ -23,12 +23,13 @@
   fbq('init', FACEBOOK_PIXEL_ID);
 
   // Evento: Adicionou método de pagamento
-  fbq('track', 'AddPaymentInfo', {
-    value: 97.00,
-    currency: 'BRL',
-    content_name: 'Ingresso Único AMV',
-    payment_method: 'PIX'
-  });
+fbq('track', 'InitiateCheckout', {
+  value: 97.00,
+  currency: 'BRL',
+  content_name: 'Ingresso Único AMV',
+  payment_method: 'PIX'
+});
+
 </script>
 
 <noscript>
