@@ -5,6 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Checkout Pagamento - AMS</title>
 
+  
+<!-- PIXEL FACEBOOK / META -->
+<script>
+  const FACEBOOK_PIXEL_ID = "1803165880666614";
+
+  !function(f,b,e,v,n,t,s){
+    if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;
+    n.version='2.0';n.queue=[];
+    t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)
+  }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', FACEBOOK_PIXEL_ID);
+
+  // Evento: Adicionou método de pagamento
+  fbq('track', 'AddPaymentInfo', {
+    value: 97.00,
+    currency: 'BRL',
+    content_name: 'Ingresso Único AMV',
+    payment_method: 'PIX'
+  });
+</script>
+
+<noscript>
+  <img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1803165880666614&ev=PageView&noscript=1"/>
+</noscript>
+
+
   <style>
     * {
       box-sizing: border-box;
@@ -350,6 +382,9 @@ img {
 }
 
   </style>
+
+
+
 </head>
 
 <body>
@@ -441,5 +476,30 @@ document.addEventListener('gesturestart', e => e.preventDefault());
 document.addEventListener('gesturechange', e => e.preventDefault());
 document.addEventListener('gestureend', e => e.preventDefault());
 </script>
+
+<script>
+  document.querySelectorAll('.whatsapp-label, .whatsapp-float').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      const destinoWhatsapp = this.href;
+
+      if (typeof fbq === 'function') {
+        fbq('track', 'CompleteRegistration', {
+          value: 97.00,
+          currency: 'BRL',
+          content_name: 'Ingresso Único AMV',
+          status: 'comprovante_whatsapp'
+        });
+      }
+
+      setTimeout(() => {
+        window.location.href = destinoWhatsapp;
+      }, 400);
+    });
+  });
+</script>
+
+
 </body>
 </html>
