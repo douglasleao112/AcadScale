@@ -804,15 +804,13 @@
   padding-top: 32px;
 }
 
-
-
 .vagas-alerta {
   position: fixed;
   top: 0;
   left: 0;
-transform: none;
-width: 100vw;
-max-width: none;
+
+  width: 100vw;
+  max-width: none;
 
   background: #9b1111;
   padding: 5px 14px 6px;
@@ -820,6 +818,9 @@ max-width: none;
   border-bottom: 1px solid rgba(255,255,255,0.08);
 
   z-index: 9999;
+
+  transform: translateY(-100%);
+  animation: tarjaDesceTopo 0.8s ease-out forwards;
 }
 
 .vagas-loading {
@@ -838,7 +839,10 @@ max-width: none;
   border-radius: 999px;
 
   transform: translateX(-110%);
+  opacity: 0.4;
+
   animation: vagasEntrando 3.2s ease-out forwards;
+  animation-delay: 0.9s;
 }
 
 .vagas-texto {
@@ -849,6 +853,17 @@ max-width: none;
   opacity: 0.92;
 
   animation: textoPulseVagas 2.8s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+@keyframes tarjaDesceTopo {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
 
 @keyframes vagasEntrando {
@@ -877,6 +892,9 @@ max-width: none;
   }
 }
 
+.page {
+  padding-top: 32px;
+}
 .page {
   padding-top: 32px;
 }
