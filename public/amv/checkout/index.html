@@ -176,13 +176,14 @@ h1 {
 .whatsapp-box {
   position: fixed;
   right: 4px;
-  bottom: 20px;
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
   width: 230px;
   height: 48px;
   z-index: 9999;
   pointer-events: auto;
 }
-
 
 .whatsapp-box::before,
 .whatsapp-box::after {
