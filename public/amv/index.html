@@ -807,25 +807,29 @@
 .vagas-alerta {
   position: fixed;
   top: 0;
-  left: 0;
+  left: 50%;
 
-  width: 100vw;
-  max-width: none;
+  width: 100%;
+  max-width: 420px;
 
   background: #9b1111;
-  padding: 5px 14px 6px;
+  padding: 8px 0 6px;
   text-align: center;
   border-bottom: 1px solid rgba(255,255,255,0.08);
 
   z-index: 9999;
 
-  transform: translateY(-100%);
+  transform: translateX(-50%) translateY(-100%);
   animation: tarjaDesceTopo 0.8s ease-out forwards;
 }
-
+@media (min-width: 768px) {
+  .vagas-alerta {
+    max-width: 430px;
+  }
+}
 .vagas-loading {
-  width: 68%;
-  height: 3px;
+  width: calc(100% - 58px); /* barra branca não encosta nas bordas */
+  height: 6px; /* mais fina */
   background: rgba(255,255,255,0.18);
   border-radius: 999px;
   overflow: hidden;
@@ -844,8 +848,8 @@
   animation: vagasEntrando 3.2s ease-out forwards;
   animation-delay: 0.9s;
 }
-
 .vagas-texto {
+  padding: 0 14px;
   color: #ffffff;
   font-size: 10px;
   font-weight: 500;
@@ -858,11 +862,11 @@
 
 @keyframes tarjaDesceTopo {
   0% {
-    transform: translateY(-100%);
+    transform: translateX(-50%) translateY(-100%);
   }
 
   100% {
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
   }
 }
 
