@@ -80,17 +80,26 @@
   transform: translateX(-50%);
   z-index: 3;
 }
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 180px;
 
-    .hero-visual::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -1px;
-      width: 100%;
-      height: 150px;
-      background: linear-gradient(to bottom, rgba(15,15,15,0), #0f0f0f 85%);
-      z-index: 2;
-    }
+  background: linear-gradient(
+    to top,
+    #0f0f0f 0%,
+    rgba(15, 15, 15, 0.85) 28%,
+    rgba(15, 15, 15, 0.45) 58%,
+    rgba(15, 15, 15, 0) 100%
+  );
+
+  z-index: 4;
+  pointer-events: none;
+}
 
     .logo {
       position: absolute;
