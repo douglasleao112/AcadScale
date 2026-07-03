@@ -62,7 +62,6 @@
       overflow: hidden;
       background: #0f0f0f;
     }
-
 .hero-visual {
   position: relative;
   width: 100%;
@@ -80,26 +79,7 @@
   transform: translateX(-50%);
   z-index: 3;
 }
-.hero::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
 
-  top: 330px;
-  height: 260px;
-
-  background: linear-gradient(
-    to bottom,
-    rgba(15, 15, 15, 0) 0%,
-    rgba(15, 15, 15, 0.45) 40%,
-    rgba(15, 15, 15, 0.85) 70%,
-    #0f0f0f 100%
-  );
-
-  z-index: 4;
-  pointer-events: none;
-}
 
     .logo {
       position: absolute;
@@ -857,6 +837,27 @@
   animation: vagasEntrando 3.2s ease-out forwards;
   animation-delay: 0.9s;
 }
+.hero-image-gradient {
+  position: absolute;
+  left: 0;
+  right: 0;
+
+  bottom: 72px;
+  height: 95px;
+
+  background: linear-gradient(
+    to top,
+    #0f0f0f 0%,
+    #0f0f0f 22%,
+    rgba(15, 15, 15, 0.92) 38%,
+    rgba(15, 15, 15, 0.62) 68%,
+    rgba(15, 15, 15, 0) 100%
+  );
+
+  z-index: 4;
+  pointer-events: none;
+}
+
 .vagas-texto {
   padding: 0 14px;
   color: #ffffff;
@@ -932,9 +933,10 @@
   <section class="hero">
 
           <!-- HERO IMAGEM -->
-      <div class="hero-visual">
-        <img  class="hero-person"   src="https://i.ibb.co/6cCM0ftm/deea8624-784b-4f81-86e6-b07fddf94b8e.png"  >
-      </div>
+<div class="hero-visual">
+  <img class="hero-person" src="https://i.ibb.co/6cCM0ftm/deea8624-784b-4f81-86e6-b07fddf94b8e.png">
+  <div class="hero-image-gradient"></div>
+</div>
 
       <div class="hero-content">
 
