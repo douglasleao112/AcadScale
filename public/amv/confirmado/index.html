@@ -1590,22 +1590,7 @@ aboutItems.forEach(item => {
   aboutObserver.observe(item);
 });
 
-const fixedBtnEvento = document.getElementById('btnFixed');
-
-if (fixedBtnEvento) {
-  fixedBtnEvento.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-
-    setTimeout(() => {
-      cupomInput.focus();
-    }, 500);
-  });
-}
-
-const fixedBtnEvento = document.getElementById('btnFixed');
+ const fixedBtnEvento = document.getElementById('btnFixed');
 const gradientEvento = document.getElementById('ctaGradient');
 
 if (fixedBtnEvento) {
@@ -1627,7 +1612,7 @@ function atualizarCtaFixoEvento() {
   if (!fixedBtnEvento || !gradientEvento) return;
 
   const cupomAtivo = screenCupom.classList.contains("active");
-  const deveMostrar = cupomAtivo && window.scrollY > 520;
+  const deveMostrar = cupomAtivo && window.scrollY > 260;
 
   fixedBtnEvento.classList.toggle('show', deveMostrar);
   gradientEvento.classList.toggle('show', deveMostrar);
@@ -1635,8 +1620,10 @@ function atualizarCtaFixoEvento() {
 
 window.addEventListener('scroll', atualizarCtaFixoEvento, { passive: true });
 window.addEventListener('load', atualizarCtaFixoEvento);
-atualizarCtaFixoEvento();
+window.addEventListener('resize', atualizarCtaFixoEvento);
 
+setTimeout(atualizarCtaFixoEvento, 300);
+atualizarCtaFixoEvento();
   </script>
 
 </body>
