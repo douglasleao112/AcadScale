@@ -670,6 +670,354 @@ margin-bottom: 4px;
 .whatsapp-float:active {
   transform: scale(0.97);
 }
+
+/* ============================================================
+   SEÇÕES DO EVENTO — adicionadas abaixo da página de cupom
+   ============================================================ */
+
+.section {
+  padding: 12px 18px;
+}
+
+.course {
+  margin-top: 10px;
+}
+
+.course h2,
+.about h2,
+.location h2 {
+  font-size: 24px;
+  line-height: 1.18;
+  font-weight: 500;
+  margin-bottom: 22px;
+  text-align: left;
+}
+
+.about {
+  margin-top: 60px;
+}
+
+.course p,
+.about p {
+  color: #aaa;
+  font-size: 15px;
+  line-height: 1.45;
+  margin-bottom: 26px;
+  text-align: left;
+}
+
+.section-label {
+  color: #8e8e8e !important;
+  font-size: 13px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.course .section-label {
+  display: block !important;
+  color: #9a9a9a !important;
+  font-size: 13px !important;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  text-align: left;
+  margin-bottom: 10px;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+.fade-item {
+  opacity: 0;
+  transform: translateX(-28px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-item.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.lesson {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 0;
+  border-bottom: 1px solid #222;
+}
+
+.lesson-number {
+  width: 38px;
+  height: 38px;
+  background: #174d1d;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00ff20;
+  font-weight: 800;
+  flex-shrink: 0;
+  box-shadow: 0 0 18px rgba(0, 255, 32, 0.22);
+}
+
+.lesson-text {
+  font-size: 15px;
+  line-height: 1.3;
+  font-weight: 300;
+  color: #d7d7d7;
+  text-align: left;
+}
+
+.resultados {
+  padding: 30px 0 10px;
+  text-align: left;
+}
+
+.resultados > .section-label,
+.resultados > h2 {
+  padding-left: 18px;
+  padding-right: 18px;
+}
+
+.resultados h2 {
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.slider-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  width: 100%;
+  margin: 0;
+  padding: 0 0 10px 0;
+}
+
+.slider-container::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: scroll-left 35s linear infinite;
+}
+
+.slider-track img {
+  height: 240px;
+  border-radius: 14px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+@keyframes scroll-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 6px));
+  }
+}
+
+.speakers {
+  margin-top: 40px;
+}
+
+.speaker-fade {
+  opacity: 0;
+  transform: translateX(-45px);
+  transition: opacity 1.4s ease, transform 1.4s ease;
+}
+
+.speaker-fade.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.speaker-card {
+  margin-bottom: 14px;
+  border: 1px solid #242424;
+  border-radius: 22px;
+  background: #101112;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  overflow: hidden;
+}
+
+.speaker-img {
+  width: 145px;
+  height: 195px;
+  border-radius: 16px;
+  object-fit: cover;
+  object-position: center;
+  flex-shrink: 0;
+}
+
+.speaker-info {
+  flex: 1;
+  text-align: left;
+}
+
+.speaker-label {
+  color: #8e8e8e;
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.speaker-name {
+  font-size: 22px;
+  line-height: 1.1;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.speaker-desc {
+  font-size: 13px;
+  line-height: 1.35;
+  color: #aaa;
+}
+
+.location {
+  margin-top: 40px;
+}
+
+.location-card {
+  border: 1px solid #242424;
+  border-radius: 22px;
+  background: #101112;
+  padding: 12px;
+  overflow: visible;
+}
+
+.location-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.map-wrapper {
+  width: 100%;
+  height: 180px;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.map-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.location-img,
+.map-wrapper {
+  opacity: 0;
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.location-img {
+  transform: translateX(-40px);
+}
+
+.map-wrapper {
+  transform: translateX(40px);
+}
+
+.location-img.show,
+.map-wrapper.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.about small {
+  color: #888;
+  display: block;
+  margin-bottom: 18px;
+}
+
+.about-img {
+  width: 35%;
+  display: block;
+  margin: 20px auto 90px;
+  opacity: 1;
+}
+
+.about-fade {
+  opacity: 0;
+  transform: translateY(55px);
+  transition: opacity 1.6s ease, transform 1.6s ease;
+  transition-delay: 0.3s;
+}
+
+.about-fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#ctaGradient {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.7) 40%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 998;
+}
+
+#ctaGradient.show {
+  opacity: 1;
+}
+
+.btn-fixed {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  width: calc(100% - 40px);
+  max-width: 380px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 999;
+}
+
+.btn-fixed.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.btn-fixed.hide {
+  opacity: 0;
+  transform: translateX(-50%) translateY(20px);
+}
+
   </style>
 </head>
 
@@ -828,6 +1176,193 @@ margin-bottom: 4px;
       </div>
     </section>
 
+
+    <div class="divider"></div>
+
+<!-- SEÇÃO SLIDES -->
+    <section class="resultados">
+       <div class="section-label  about-fade">Vem aí a 4ª edição</div>  
+
+  <h2 class="about-fade">O sucesso das edições anteriores</h2>
+
+  <div class="slider-container" id="sliderContainer">
+    <div class="slider-track" id="sliderTrack">
+      <img src="https://i.ibb.co/fV1yxDRK/conselho.jpg" />
+      <img src="https://i.imgur.com/D10cTvh.jpeg" />
+      <img src="https://i.imgur.com/TGEKjhp.jpeg" />
+      <img src="https://i.imgur.com/cKR3zBV.jpeg" />
+      <img src="https://i.imgur.com/YH9I348.jpeg" />
+      <img src="https://i.imgur.com/cDdxI5a.jpeg" />
+      
+
+      <!-- repetição para rolagem infinita -->
+       <img src="https://i.ibb.co/fV1yxDRK/conselho.jpg" />
+      <img src="https://i.imgur.com/D10cTvh.jpeg" />
+      <img src="https://i.imgur.com/TGEKjhp.jpeg" />
+      <img src="https://i.imgur.com/cKR3zBV.jpeg" />
+      <img src="https://i.imgur.com/YH9I348.jpeg" />
+      <img src="https://i.imgur.com/cDdxI5a.jpeg" />
+   
+    </div>
+  </div>
+</section>
+
+
+    <div class="divider"></div>
+
+    <!-- DORES E DESEJOS -->
+    <section class="section course">
+  <div class="section-label about-fade">GESTÃO • VENDAS • ESCALA</div>  
+
+  <h2 class="about-fade">O que sua academia precisa</h2>
+
+        <div class="lesson fade-item">
+        <div class="lesson-number">1</div>
+        <div class="lesson-text">Por que vendem pouco mesmo tendo boa estrutura?</div>
+       </div>
+
+      <div class="lesson fade-item">
+        <div class="lesson-number">2</div>
+        <div class="lesson-text">Como organizar um processo para vender mais todos os dias</div>
+       </div>
+
+      <div class="lesson fade-item">
+        <div class="lesson-number">3</div>
+        <div class="lesson-text">Como se posicionar para não virar refém do preço baixo</div>
+        </div>
+    </section>
+
+
+
+    <!-- PALESTRANTES -->
+<section class="section speakers">
+  <div class="section-label about-fade">Presença Confirmada</div>
+
+  <!-- PLAYER 1 -->
+<div class="speaker-card speaker-fade">
+    <img 
+      class="speaker-img" 
+      src="https://i.imgur.com/TY6fr1t.png" 
+      alt="Palestrante AMV"
+    >
+
+    <div class="speaker-info">
+      <div class="speaker-label">Professor</div>
+
+      <div class="speaker-name">
+        Dr. Douglas Leão
+      </div>
+
+      <div class="speaker-desc">
+        Implementando Cultura de Vendas para seus Professores de Sala
+      </div>
+    </div>
+  </div>
+
+ <!-- PLAYER 2 -->
+ <div class="speaker-card speaker-fade">
+    <img 
+      class="speaker-img" 
+      src="https://i.imgur.com/bOt0Dcl.jpeg" 
+      alt="Palestrante AMV"
+    >
+
+    <div class="speaker-info">
+      <div class="speaker-label">Comercial</div>
+
+      <div class="speaker-name">
+        Neveton Gruhn
+      </div>
+
+      <div class="speaker-desc">
+        Estratégias que Geram mais Vendas e Lucro. Gestor Comercial Pacto Soluções
+      </div>
+    </div>
+  </div>
+
+ <!-- PLAYER 3 -->
+<div class="speaker-card speaker-fade">
+    <img 
+      class="speaker-img" 
+      src="https://i.imgur.com/CiddkYS.png" 
+      alt="Palestrante AMV"
+    >
+
+    <div class="speaker-info">
+      <div class="speaker-label">Gestor</div>
+
+      <div class="speaker-name">
+        Hudson Dantas
+      </div>
+
+      <div class="speaker-desc">
+        Como escalar uma academia com Processos e Gestão. Coordenador Geral Flex Fitness
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <div class="divider"></div>
+
+
+    <!-- LOCAL DO evento   -->
+<section class="section location">
+  <div class="section-label about-fade">Local do Evento</div>
+
+  <h2  class="about-fade">Metropolitan Tokyo - Jd. Goiás</h2>
+
+  <div class="location-card">
+    <img 
+      class="location-img"
+      src="https://propriedades.ebm.com.br/wp-content/uploads/2024/11/Capa-empreendimento-EBM-Mall-3.png"
+      alt="Metropolitan Tokyo - Jd. Goiás"
+    >
+    <div class="map-wrapper">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7642.871662194461!2d-49.2409799!3d-16.705091900000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef1abc9965483%3A0x388cdbfcc7234dbb!2sMetropolitan%20Tokyo!5e0!3m2!1spt-BR!2sbr!4v1782169864523!5m2!1spt-BR!2sbr" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>   
+<div class="divider"></div>     
+
+ 
+
+    <!-- SOBRE O EVENTO -->
+    <section class="section about  about-fade">
+     
+        <small>SOBRE O EVENTO</small>
+
+        <h2>Por que participar do <b style="color:#279135;">AMV</b></h2>
+
+<p>
+  <b>A</b>cademia <b>M</b>áquina de <b>V</b>endas foi criada pela <b>AcadScale®</b>, para mostrar como academias independentes podem competir no mercado com mais estratégia.
+</p>
+
+<p>
+  Melhorando gestão, vendas, atendimento e posicionamento para aumentar o faturamento sem entrar em guerra de preço e promoção.
+</p>
+
+        
+ <!-- IMAGEM RODAPÉ    -->
+  <img class="about-img" src="https://i.ibb.co/nMqbfkgD/scale-rodape.png">
+
+</section>
+
+
+<!-- BOTÃO CTA DE ROLAGEM -->
+<div id="ctaGradient"></div>
+<button class="btn btn-fixed" id="btnFixed" type="button">
+Voltar ao topo
+</button>
+
+
+  
+
   </main>
 
 
@@ -861,6 +1396,10 @@ function mostrarTela(tela) {
     top: 0,
     behavior: "smooth"
   });
+
+  if (typeof atualizarCtaFixoEvento === "function") {
+    atualizarCtaFixoEvento();
+  }
 }
 
 
@@ -974,6 +1513,115 @@ function mostrarTela(tela) {
     document.addEventListener("gesturestart", e => e.preventDefault());
     document.addEventListener("gesturechange", e => e.preventDefault());
     document.addEventListener("gestureend", e => e.preventDefault());
+
+/* ============================================================
+   ANIMAÇÕES E CTA DAS SEÇÕES DO EVENTO
+   Obs: uso .event-cta para não interferir nos botões do cupom/PIX/VIP.
+   ============================================================ */
+
+const lessonItems = document.querySelectorAll('.fade-item');
+
+const lessonObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      lessonObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.25
+});
+
+lessonItems.forEach((item, index) => {
+  item.style.transitionDelay = `${index * 0.18}s`;
+  lessonObserver.observe(item);
+});
+
+const speakerCards = document.querySelectorAll('.speaker-fade');
+
+const speakerObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      speakerObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.2
+});
+
+speakerCards.forEach((card, index) => {
+  card.style.transitionDelay = `${index * 0.15}s`;
+  speakerObserver.observe(card);
+});
+
+const locationItems = document.querySelectorAll('.location-img, .map-wrapper');
+
+const locationObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      locationObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.25
+});
+
+locationItems.forEach((item, index) => {
+  item.style.transitionDelay = `${index * 0.2}s`;
+  locationObserver.observe(item);
+});
+
+const aboutItems = document.querySelectorAll('.about-fade');
+
+const aboutObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+      aboutObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.2
+});
+
+aboutItems.forEach(item => {
+  aboutObserver.observe(item);
+});
+
+const fixedBtnEvento = document.getElementById('btnFixed');
+
+if (fixedBtnEvento) {
+  fixedBtnEvento.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
+    setTimeout(() => {
+      cupomInput.focus();
+    }, 500);
+  });
+}
+
+const fixedBtnEvento = document.getElementById('btnFixed');
+const gradientEvento = document.getElementById('ctaGradient');
+
+function atualizarCtaFixoEvento() {
+  if (!fixedBtnEvento || !gradientEvento) return;
+
+  const cupomAtivo = screenCupom.classList.contains("active");
+  const deveMostrar = cupomAtivo && window.scrollY > 520;
+
+  fixedBtnEvento.classList.toggle('show', deveMostrar);
+  gradientEvento.classList.toggle('show', deveMostrar);
+}
+
+window.addEventListener('scroll', atualizarCtaFixoEvento, { passive: true });
+window.addEventListener('load', atualizarCtaFixoEvento);
+atualizarCtaFixoEvento();
+
   </script>
 
 </body>
