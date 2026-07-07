@@ -1608,6 +1608,21 @@ if (fixedBtnEvento) {
 const fixedBtnEvento = document.getElementById('btnFixed');
 const gradientEvento = document.getElementById('ctaGradient');
 
+if (fixedBtnEvento) {
+  fixedBtnEvento.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+
+    setTimeout(() => {
+      if (cupomInput) {
+        cupomInput.focus();
+      }
+    }, 500);
+  });
+}
+
 function atualizarCtaFixoEvento() {
   if (!fixedBtnEvento || !gradientEvento) return;
 
