@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { motion, useAnimation } from "framer-motion";
 
 const PHOTOS_ROW_1 = [
-  "https://i.ibb.co/CKzNhzkf/novo.jpg",
+  "https://iili.io/ChVJRiF.png",
   "https://i.imgur.com/coMNZ3A.webp",
   "https://i.imgur.com/U8EoeTZ.webp",
   "https://i.imgur.com/p6xlxym.webp",
@@ -12,8 +12,8 @@ const PHOTOS_ROW_1 = [
 
 
 const PHOTOS_ROW_2 = [
-"https://i.ibb.co/KxB8Gzph/f567c413-e99d-48ea-8f0a-87a36ed4107c.png",
-"https://i.ibb.co/fV1yxDRK/conselho.jpg",
+"https://iili.io/ChVdT7f.jpg",
+"https://iili.io/ChVdAml.jpg",
   "https://i.imgur.com/tXhNYSB.webp",
   "https://i.imgur.com/1ghjCxE.webp",
   "https://i.imgur.com/GUp6aI1.webp",
