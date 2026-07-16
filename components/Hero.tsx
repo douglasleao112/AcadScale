@@ -99,7 +99,7 @@ const Hero: React.FC = () => {
 >
   <div className="relative w-full max-w-7xl h-[380px] md:h-[580px]">
     <img 
-      src="https://i.imgur.com/koUqO6q.png"   
+      src="https://i.postimg.cc/dVS3HQfw/logo-branca.png"   
       alt="banner" 
       className="w-full h-full object-contain object-top relative z-10"
       fetchPriority="high"
